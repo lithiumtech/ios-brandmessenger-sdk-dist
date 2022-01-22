@@ -1,0 +1,11 @@
+framework module RichMessageKit {
+  umbrella header "RichMessageKit.h"
+
+  export *
+  module * { export * }
+}
+
+module RichMessageKit.Swift {
+    header "RichMessageKit-Swift.h"
+    requires objc
+}

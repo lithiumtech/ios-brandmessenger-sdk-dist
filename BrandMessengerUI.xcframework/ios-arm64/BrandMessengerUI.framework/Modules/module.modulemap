@@ -1,0 +1,11 @@
+framework module BrandMessengerUI {
+  umbrella header "BrandMessengerUI.h"
+
+  export *
+  module * { export * }
+}
+
+module BrandMessengerUI.Swift {
+    header "BrandMessengerUI-Swift.h"
+    requires objc
+}
