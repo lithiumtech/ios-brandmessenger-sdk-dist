@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		JXJlXwOJ95y72yUwnVd8FDTFxz8=
+		2odwkqGCQ5fMCFZs9sshxTJXIb8=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
@@ -230,7 +230,7 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+TCyS9auxRwEcRZKpWTHUpA5BWQ=
+		VURXZdy1sKsbTqrAiRry8KPx6uc=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -242,7 +242,7 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		+TCyS9auxRwEcRZKpWTHUpA5BWQ=
+		VURXZdy1sKsbTqrAiRry8KPx6uc=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -254,7 +254,7 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		B5nzh/8Cp204f4JzPQeeOwFw7IA=
+		6fiXqnFTOOPwxOXdfRhzP0ot9ko=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -266,7 +266,7 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		B5nzh/8Cp204f4JzPQeeOwFw7IA=
+		6fiXqnFTOOPwxOXdfRhzP0ot9ko=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -327,7 +327,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E4x6uaiStygIJ6GXJAVwmcjheRXesS3UrJrQc6c4AqU=
+			khPHZz/4RX8xOsXTaticuxLhlQUGTgvv/sbuDYr7Gug=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
@@ -712,7 +712,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ylARDd4uJPn/CnjkMtwSEiWwN3DHU8+aCNFi1IQkcs0=
+			bRvn7Gju8mvrGHKEY6pm6P16IbYqTDpw1K9cUSZbdlI=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64.swiftdoc</key>
@@ -733,7 +733,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ylARDd4uJPn/CnjkMtwSEiWwN3DHU8+aCNFi1IQkcs0=
+			bRvn7Gju8mvrGHKEY6pm6P16IbYqTDpw1K9cUSZbdlI=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -754,7 +754,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsJdagVo4O4kfaUrIiZzaCkFGASZhvDtaBohcyoxA50=
+			p2fBV/rUxwT1TkWd7XHNLu0AwuTgJ5qZxOKFdjn9SIs=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64.swiftdoc</key>
@@ -775,7 +775,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsJdagVo4O4kfaUrIiZzaCkFGASZhvDtaBohcyoxA50=
+			p2fBV/rUxwT1TkWd7XHNLu0AwuTgJ5qZxOKFdjn9SIs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

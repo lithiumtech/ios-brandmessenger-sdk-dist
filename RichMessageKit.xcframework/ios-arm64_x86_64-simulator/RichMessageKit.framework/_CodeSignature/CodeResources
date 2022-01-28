@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		2xnKYsBACWpzAYuYIwzorgM5xAo=
+		oPMgey+dQEZeI6QoU1j7fN2GZRg=
 		</data>
 		<key>Headers/RichMessageKit-Swift.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9X7sQ8923FvVJLcXfhjzxRWqI94=
+		40EkxwAQR6NhjZuIJitLvoSYdK8=
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		9X7sQ8923FvVJLcXfhjzxRWqI94=
+		40EkxwAQR6NhjZuIJitLvoSYdK8=
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		7xaAOTiL62GJPU1IC7mlD2NUoiw=
+		tf4W86H2qzO429ORiO01nOUYRsU=
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		7xaAOTiL62GJPU1IC7mlD2NUoiw=
+		tf4W86H2qzO429ORiO01nOUYRsU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -79,7 +79,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VsC51PznTw+z6mETdpk5MkwPC/21virRkQIhjSdytoE=
+			qlaPw001Q/G7HWrWbkNdTdmuJozfLLTqZa23ntGV6yc=
 			</data>
 		</dict>
 		<key>Headers/RichMessageKit-Swift.h</key>
@@ -114,7 +114,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PnIB/jiHzpWHyHWrgyESyyr3kAymyxJoOGIT/6J/fZw=
+			O10Ikwu6mY0jCfbrFREgv3FJ5tRh6sTQE05EGTWqv70=
 			</data>
 		</dict>
 		<key>Modules/RichMessageKit.swiftmodule/arm64.swiftdoc</key>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PnIB/jiHzpWHyHWrgyESyyr3kAymyxJoOGIT/6J/fZw=
+			O10Ikwu6mY0jCfbrFREgv3FJ5tRh6sTQE05EGTWqv70=
 			</data>
 		</dict>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -156,7 +156,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0yXq/oD1xt0lI+rxxmKUgiiq7O+ekcK0IvHnE/+1R1g=
+			roFUOzE/3SyHyYJaCZwqjxQViBSX6BppC6DC7Tt89o8=
 			</data>
 		</dict>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64.swiftdoc</key>
@@ -177,7 +177,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0yXq/oD1xt0lI+rxxmKUgiiq7O+ekcK0IvHnE/+1R1g=
+			roFUOzE/3SyHyYJaCZwqjxQViBSX6BppC6DC7Tt89o8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
