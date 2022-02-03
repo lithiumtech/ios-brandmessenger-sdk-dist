@@ -1,11 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SwipeCellKit
 import Foundation
 import Swift
 @_exported import SwipeCellKit
 import UIKit
-import _Concurrency
 public enum SwipeActionStyle : Swift.Int {
   case `default`
   case destructive
@@ -32,6 +31,7 @@ public enum SwipeActionStyle : Swift.Int {
   public var hidesWhenSelected: Swift.Bool
   public init(style: SwipeCellKit.SwipeActionStyle, title: Swift.String?, handler: ((SwipeCellKit.SwipeAction, Foundation.IndexPath) -> Swift.Void)?)
   public func fulfill(with style: SwipeCellKit.ExpansionFulfillmentStyle)
+  @objc override dynamic public init()
   @objc deinit
 }
 public enum ExpansionFulfillmentStyle {
@@ -43,35 +43,35 @@ public enum ExpansionFulfillmentStyle {
     get
   }
 }
-extension SwipeCellKit.SwipeCollectionViewCell {
-  @_Concurrency.MainActor(unsafe) public var swipeOffset: CoreGraphics.CGFloat {
+extension SwipeCollectionViewCell {
+  public var swipeOffset: CoreGraphics.CGFloat {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public func hideSwipe(animated: Swift.Bool, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) public func showSwipe(orientation: SwipeCellKit.SwipeActionsOrientation, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) public func setSwipeOffset(_ offset: CoreGraphics.CGFloat, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func hideSwipe(animated: Swift.Bool, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func showSwipe(orientation: SwipeCellKit.SwipeActionsOrientation, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func setSwipeOffset(_ offset: CoreGraphics.CGFloat, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SwipeTableViewCell : UIKit.UITableViewCell {
-  @_Concurrency.MainActor(unsafe) weak public var delegate: SwipeCellKit.SwipeTableViewCellDelegate?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var frame: CoreGraphics.CGRect {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+@objc @_inheritsConvenienceInitializers open class SwipeTableViewCell : UIKit.UITableViewCell {
+  weak public var delegate: SwipeCellKit.SwipeTableViewCellDelegate?
+  @objc override dynamic open var frame: CoreGraphics.CGRect {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var layoutMargins: UIKit.UIEdgeInsets {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @objc override dynamic open var layoutMargins: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func prepareForReuse()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToSuperview()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func setEditing(_ editing: Swift.Bool, animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func setHighlighted(_ highlighted: Swift.Bool, animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc override dynamic open func prepareForReuse()
+  @objc override dynamic open func didMoveToSuperview()
+  @objc override dynamic open func setEditing(_ editing: Swift.Bool, animated: Swift.Bool)
+  @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc override dynamic open func setHighlighted(_ highlighted: Swift.Bool, animated: Swift.Bool)
+  @objc override dynamic open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
 }
 public protocol SwipeCollectionViewCellDelegate : AnyObject {
   func collectionView(_ collectionView: UIKit.UICollectionView, editActionsForItemAt indexPath: Foundation.IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]?
@@ -80,47 +80,47 @@ public protocol SwipeCollectionViewCellDelegate : AnyObject {
   func collectionView(_ collectionView: UIKit.UICollectionView, didEndEditingItemAt indexPath: Foundation.IndexPath?, for orientation: SwipeCellKit.SwipeActionsOrientation)
   func visibleRect(for collectionView: UIKit.UICollectionView) -> CoreGraphics.CGRect?
 }
-extension SwipeCellKit.SwipeCollectionViewCellDelegate {
+extension SwipeCollectionViewCellDelegate {
   public func collectionView(_ collectionView: UIKit.UICollectionView, editActionsOptionsForItemAt indexPath: Foundation.IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> SwipeCellKit.SwipeOptions
   public func collectionView(_ collectionView: UIKit.UICollectionView, willBeginEditingItemAt indexPath: Foundation.IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation)
   public func collectionView(_ collectionView: UIKit.UICollectionView, didEndEditingItemAt indexPath: Foundation.IndexPath?, for orientation: SwipeCellKit.SwipeActionsOrientation)
   public func visibleRect(for collectionView: UIKit.UICollectionView) -> CoreGraphics.CGRect?
 }
-extension SwipeCellKit.SwipeTableViewCell {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityElementCount() -> Swift.Int
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityElement(at index: Swift.Int) -> Any?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func index(ofAccessibilityElement element: Any) -> Swift.Int
+extension SwipeTableViewCell {
+  @objc override dynamic open func accessibilityElementCount() -> Swift.Int
+  @objc override dynamic open func accessibilityElement(at index: Swift.Int) -> Any?
+  @objc override dynamic open func index(ofAccessibilityElement element: Any) -> Swift.Int
 }
-extension SwipeCellKit.SwipeTableViewCell {
+extension SwipeTableViewCell {
   @objc override dynamic open var accessibilityCustomActions: [UIKit.UIAccessibilityCustomAction]? {
     @objc get
     @objc set
   }
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class SwipeCollectionViewCell : UIKit.UICollectionViewCell {
-  @_Concurrency.MainActor(unsafe) weak public var delegate: SwipeCellKit.SwipeCollectionViewCellDelegate?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var frame: CoreGraphics.CGRect {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+@objc @_inheritsConvenienceInitializers open class SwipeCollectionViewCell : UIKit.UICollectionViewCell {
+  weak public var delegate: SwipeCellKit.SwipeCollectionViewCellDelegate?
+  @objc override dynamic open var frame: CoreGraphics.CGRect {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHighlighted: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @objc override dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var layoutMargins: UIKit.UIEdgeInsets {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @objc override dynamic open var layoutMargins: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func prepareForReuse()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToSuperview()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func willMove(toWindow newWindow: UIKit.UIWindow?)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func hitTest(_ point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> UIKit.UIView?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc override dynamic open func prepareForReuse()
+  @objc override dynamic open func didMoveToSuperview()
+  @objc override dynamic open func willMove(toWindow newWindow: UIKit.UIWindow?)
+  @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc override dynamic open func hitTest(_ point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> UIKit.UIView?
+  @objc override dynamic open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
 }
 public struct SwipeExpansionStyle {
   public static var selection: SwipeCellKit.SwipeExpansionStyle {
@@ -144,7 +144,7 @@ public struct SwipeExpansionStyle {
   public var targetOverscrollElasticity: CoreGraphics.CGFloat
   public init(target: SwipeCellKit.SwipeExpansionStyle.Target, additionalTriggers: [SwipeCellKit.SwipeExpansionStyle.Trigger] = [], elasticOverscroll: Swift.Bool = false, completionAnimation: SwipeCellKit.SwipeExpansionStyle.CompletionAnimation = .bounce)
 }
-extension SwipeCellKit.SwipeExpansionStyle {
+extension SwipeExpansionStyle {
   public enum Target {
     case percentage(CoreGraphics.CGFloat)
     case edgeInset(CoreGraphics.CGFloat)
@@ -173,18 +173,18 @@ extension SwipeCellKit.SwipeExpansionStyle {
     public let timing: SwipeCellKit.SwipeExpansionStyle.FillOptions.HandlerInvocationTiming
   }
 }
-extension SwipeCellKit.SwipeExpansionStyle.Target : Swift.Equatable {
+extension SwipeExpansionStyle.Target : Swift.Equatable {
   public static func == (lhs: SwipeCellKit.SwipeExpansionStyle.Target, rhs: SwipeCellKit.SwipeExpansionStyle.Target) -> Swift.Bool
 }
-extension SwipeCellKit.SwipeExpansionStyle.CompletionAnimation : Swift.Equatable {
+extension SwipeExpansionStyle.CompletionAnimation : Swift.Equatable {
   public static func == (lhs: SwipeCellKit.SwipeExpansionStyle.CompletionAnimation, rhs: SwipeCellKit.SwipeExpansionStyle.CompletionAnimation) -> Swift.Bool
 }
-extension SwipeCellKit.SwipeCollectionViewCell {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityElementCount() -> Swift.Int
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func accessibilityElement(at index: Swift.Int) -> Any?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func index(ofAccessibilityElement element: Any) -> Swift.Int
+extension SwipeCollectionViewCell {
+  @objc override dynamic open func accessibilityElementCount() -> Swift.Int
+  @objc override dynamic open func accessibilityElement(at index: Swift.Int) -> Any?
+  @objc override dynamic open func index(ofAccessibilityElement element: Any) -> Swift.Int
 }
-extension SwipeCellKit.SwipeCollectionViewCell {
+extension SwipeCollectionViewCell {
   @objc override dynamic open var accessibilityCustomActions: [UIKit.UIAccessibilityCustomAction]? {
     @objc get
     @objc set
@@ -197,7 +197,7 @@ public protocol SwipeTableViewCellDelegate : AnyObject {
   func tableView(_ tableView: UIKit.UITableView, didEndEditingRowAt indexPath: Foundation.IndexPath?, for orientation: SwipeCellKit.SwipeActionsOrientation)
   func visibleRect(for tableView: UIKit.UITableView) -> CoreGraphics.CGRect?
 }
-extension SwipeCellKit.SwipeTableViewCellDelegate {
+extension SwipeTableViewCellDelegate {
   public func tableView(_ tableView: UIKit.UITableView, editActionsOptionsForRowAt indexPath: Foundation.IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> SwipeCellKit.SwipeOptions
   public func tableView(_ tableView: UIKit.UITableView, willBeginEditingRowAt indexPath: Foundation.IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation)
   public func tableView(_ tableView: UIKit.UITableView, didEndEditingRowAt indexPath: Foundation.IndexPath?, for orientation: SwipeCellKit.SwipeActionsOrientation)
@@ -287,14 +287,14 @@ public struct ScaleAndAlphaExpansion : SwipeCellKit.SwipeExpanding {
   public func animationTimingParameters(buttons: [UIKit.UIButton], expanding: Swift.Bool) -> SwipeCellKit.SwipeExpansionAnimationTimingParameters
   public func actionButton(_ button: UIKit.UIButton, didChange expanding: Swift.Bool, otherActionButtons: [UIKit.UIButton])
 }
-extension SwipeCellKit.SwipeTableViewCell {
-  @_Concurrency.MainActor(unsafe) public var swipeOffset: CoreGraphics.CGFloat {
+extension SwipeTableViewCell {
+  public var swipeOffset: CoreGraphics.CGFloat {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public func hideSwipe(animated: Swift.Bool, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) public func showSwipe(orientation: SwipeCellKit.SwipeActionsOrientation, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) public func setSwipeOffset(_ offset: CoreGraphics.CGFloat, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func hideSwipe(animated: Swift.Bool, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func showSwipe(orientation: SwipeCellKit.SwipeActionsOrientation, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func setSwipeOffset(_ offset: CoreGraphics.CGFloat, animated: Swift.Bool = true, completion: ((Swift.Bool) -> Swift.Void)? = nil)
 }
 extension SwipeCellKit.SwipeActionStyle : Swift.Equatable {}
 extension SwipeCellKit.SwipeActionStyle : Swift.Hashable {}
