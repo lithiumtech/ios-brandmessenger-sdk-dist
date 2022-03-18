@@ -310,8 +310,6 @@
 + (BOOL)isShareContactOptionHidden;
 + (BOOL)isAttachmentButtonHidden;
 + (BOOL)isDocumentOptionHidden;
-+ (BOOL)isS3StorageServiceEnabled;
-+ (void)enableS3StorageService:(BOOL)flag;
 + (void) setDefaultGroupType:(NSInteger)type;
 + (NSInteger) getDefaultGroupType;
 + (void) enableSaveVideosToGallery:(BOOL)flag;

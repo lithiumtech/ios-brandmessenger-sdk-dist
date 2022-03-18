@@ -12,6 +12,9 @@
 /// Logged in user disable the chat key.
 static NSString *const KBM_DISABLE_USER_CHAT = @"DISABLE_CHAT_WITH_USER";
 
+static NSString *const KBM_REGION_US = @"US";
+static NSString *const KBM_REGION_APAC = @"APAC";
+
 @interface KBMUserDefaultsHandler : NSObject
 
 + (void)setConversationContactImageVisibility:(BOOL)visibility;
@@ -218,4 +221,13 @@ static NSString *const KBM_DISABLE_USER_CHAT = @"DISABLE_CHAT_WITH_USER";
 
 + (void)setVOIPDeviceToken:(NSString *)VOIPDeviceToken;
 + (NSString *)getVOIPDeviceToken;
+
++ (void)setDeviceNotificationMessageType:(short)type;
++ (short)getDeviceNotificationMessageType;
+
++ (void)setRegion:(NSString*) region;
++ (NSString *)getAuthHandlerURL;
+
++ (void)setUseDebugUser:(BOOL) use;
++ (BOOL)getUseDebugUser;
 @end

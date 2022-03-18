@@ -57,10 +57,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param toastMessage Pass the notification title.
 /// @param contactId Pass userId in case of one to one.
 /// @param groupID Pass the groupId in case of group or channel.
+/// @param mqttNotification Flag to identify the notification is from MQTT or APNs.
 /// @param handler Once the completed showing the notification the handler will be called.
 + (void)thirdDisplayNotificationTS:(NSString *)toastMessage
                    andForContactId:(NSString * _Nullable)contactId
                        withGroupId:(NSNumber * _Nullable)groupID
+              fromMqttNotification:(BOOL)mqttNotification
                  completionHandler:(void (^)(BOOL))handler;
 
 

@@ -146,6 +146,9 @@ typedef enum
                          email:(NSString * _Nullable)email
                 andDisplayName:(NSString * _Nullable)displayName;
 
+/// Validates the user data
+-(void)softValidateUser;
+
 /// :nodoc:
 @property (nonatomic) short prefContactAPI DEPRECATED_ATTRIBUTE;
 

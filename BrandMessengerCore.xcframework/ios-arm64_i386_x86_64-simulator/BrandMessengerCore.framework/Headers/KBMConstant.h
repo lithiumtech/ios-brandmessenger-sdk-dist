@@ -115,4 +115,11 @@ typedef enum {
     AV_CALL_MESSAGE = 103
 } CALL_CONTENT_TYPE;
 
+typedef enum {
+    /// Tells that to use default message content text in notification.
+    KBM_DEFAULT_NOTIFICATION = 0,
+    /// Tells that to use generic content text in notification.
+    KBM_GENERIC_NOTIFICATION = 1
+} KBM_DEVICE_NOTIFICATION_MESSAGE_TYPE;
+
 NS_ASSUME_NONNULL_END

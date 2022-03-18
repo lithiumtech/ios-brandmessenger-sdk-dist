@@ -29,6 +29,7 @@
 @property short roleType;
 @property NSString *userEncryptionKey;
 @property NSString *authToken;
+@property short deviceNotificationMessageType;
 
 - (BOOL)isRegisteredSuccessfully;
 

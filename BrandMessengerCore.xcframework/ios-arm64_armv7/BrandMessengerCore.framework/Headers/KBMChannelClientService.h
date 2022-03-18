@@ -32,7 +32,7 @@
           channelType:(short)type
           andMetaData:(NSMutableDictionary *)metaData
             adminUser:(NSString *)adminUserId
-       withCompletion:(void(^)(NSError *error, KBMChannelCreateResponse *response))completion;
+       withCompletion:(void(^)(NSError *error, KBMChannelCreateResponse *response))completion DEPRECATED_MSG_ATTRIBUTE("Use createChannelWithChannelInfo:withCompletion from KBMChannelService instead");
 
 - (void)addMemberToChannel:(NSString *)userId
         orClientChannelKey:(NSString *)clientChannelKey

@@ -1,18 +1,19 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichMessageKit
 import Foundation
 @_exported import RichMessageKit
 import Swift
 import UIKit
-@objc @_inheritsConvenienceInitializers public class KBMTextView : UIKit.UITextView {
-  @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with _: UIKit.UIEvent?) -> Swift.Bool
-  @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
-    @objc get
+import _Concurrency
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class KBMTextView : UIKit.UITextView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with _: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
   @available(iOS 7.0, *)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public struct MessageBubbleStyle {
@@ -33,7 +34,7 @@ public enum MessageTheme {
   public static var receivedMessage: RichMessageKit.MessageStyle
   public static var messageStatus: RichMessageKit.MessageTheme.SentMessageStatus
 }
-extension MessageTheme {
+extension RichMessageKit.MessageTheme {
   public typealias MessageStatusType = RichMessageKit.KBMMessageStatus
   public enum StatusIcon {
     case templateImageWithTint(image: UIKit.UIImage, tintColor: UIKit.UIColor)
@@ -44,7 +45,7 @@ extension MessageTheme {
     public mutating func set(icon: RichMessageKit.MessageTheme.StatusIcon, for type: RichMessageKit.MessageTheme.MessageStatusType)
   }
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ReceivedFAQMessageCell : UIKit.UITableViewCell {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ReceivedFAQMessageCell : UIKit.UITableViewCell {
   public enum Config {
     public static var maxWidth: CoreGraphics.CGFloat
     public enum MessageView {
@@ -76,16 +77,16 @@ extension MessageTheme {
       public static var rightPadding: CoreGraphics.CGFloat
     }
   }
-  public var faqSelected: ((Swift.Int?, Swift.String) -> Swift.Void)? {
+  @_Concurrency.MainActor(unsafe) public var faqSelected: ((_ index: Swift.Int?, _ title: Swift.String) -> Swift.Void)? {
     get
     set
   }
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  public func update(model: RichMessageKit.FAQMessage)
-  public class func rowHeight(model: RichMessageKit.FAQMessage) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage)
+  @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SentFAQMessageCell : UIKit.UITableViewCell {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentFAQMessageCell : UIKit.UITableViewCell {
   public enum Config {
     public static var maxWidth: CoreGraphics.CGFloat
     public enum MessageView {
@@ -109,9 +110,9 @@ extension MessageTheme {
       public static var leftPadding: CoreGraphics.CGFloat
     }
   }
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  public func update(model: RichMessageKit.FAQMessage)
-  public class func rowHeight(model: RichMessageKit.FAQMessage) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage)
+  @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
 public struct FAQMessage {
@@ -122,34 +123,32 @@ public struct FAQMessage {
   public var buttons: [Swift.String]
   public init(message: RichMessageKit.Message, title: Swift.String?, description: Swift.String?, buttonLabel: Swift.String?, buttons: [Swift.String])
 }
-extension UIColor {
+extension UIKit.UIColor {
   convenience public init(red: Swift.Int, green: Swift.Int, blue: Swift.Int)
   convenience public init(netHex: Swift.Int)
 }
-@objc @_hasMissingDesignatedInitializers public class SentMessageView : UIKit.UIView {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentMessageView : UIKit.UIView {
   public enum Config {
     public enum MessageView {
       public static var leftPadding: CoreGraphics.CGFloat
       public static var bottomPadding: CoreGraphics.CGFloat
     }
   }
-  public init(frame: CoreGraphics.CGRect, padding: RichMessageKit.Padding, maxWidth: CoreGraphics.CGFloat)
-  public func update(model: RichMessageKit.Message)
-  public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont(), padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, padding: RichMessageKit.Padding, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.Message)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont(), padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers public class FAQMessageView : UIKit.UIView {
-  public static var verticalSpacing: CoreGraphics.CGFloat
-  public var faqSelected: ((Swift.Int?, Swift.String) -> Swift.Void)?
-  public init(frame: CoreGraphics.CGRect, faqStyle: RichMessageKit.FAQMessageStyle, alignLeft: Swift.Bool)
-  public func update(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat)
-  public class func rowHeight(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, style: RichMessageKit.FAQMessageStyle) -> CoreGraphics.CGFloat
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class FAQMessageView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public static var verticalSpacing: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var faqSelected: ((_ index: Swift.Int?, _ title: Swift.String) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, faqStyle: RichMessageKit.FAQMessageStyle, alignLeft: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, style: RichMessageKit.FAQMessageStyle) -> CoreGraphics.CGFloat
   @objc deinit
 }
-extension FAQMessageView : RichMessageKit.Tappable {
-  public func didTap(index: Swift.Int?, title: Swift.String)
+extension RichMessageKit.FAQMessageView : RichMessageKit.Tappable {
+  @_Concurrency.MainActor(unsafe) public func didTap(index: Swift.Int?, title: Swift.String)
 }
 public enum ChatCellPadding {
   public enum SentMessage {
@@ -190,15 +189,14 @@ public enum ChatCellPadding {
     }
   }
 }
-extension UILabel {
-  public func setStyle(_ style: RichMessageKit.Style)
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public func setStyle(_ style: RichMessageKit.Style)
 }
-@objc @_hasMissingDesignatedInitializers public class ImageContainer : UIKit.UIView {
-  public static var captionTopPadding: CoreGraphics.CGFloat
-  public init(frame: CoreGraphics.CGRect, maxWidth: CoreGraphics.CGFloat, isMyMessage: Swift.Bool)
-  public func update(model: RichMessageKit.ImageMessage)
-  public static func rowHeight(model: RichMessageKit.ImageMessage, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont()) -> CoreGraphics.CGFloat
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ImageContainer : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public static var captionTopPadding: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, maxWidth: CoreGraphics.CGFloat, isMyMessage: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.ImageMessage)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.ImageMessage, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont()) -> CoreGraphics.CGFloat
   @objc deinit
 }
 public protocol Tappable : AnyObject {
@@ -211,24 +209,23 @@ public struct Style {
   public init(font: UIKit.UIFont, text: UIKit.UIColor, background: UIKit.UIColor)
   public init(font: UIKit.UIFont, text: UIKit.UIColor)
 }
-extension UIView {
-  public func addViewsForAutolayout(views: [UIKit.UIView])
-  public func constraint(withIdentifier: Swift.String) -> UIKit.NSLayoutConstraint?
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func addViewsForAutolayout(views: [UIKit.UIView])
+  @_Concurrency.MainActor(unsafe) public func constraint(withIdentifier: Swift.String) -> UIKit.NSLayoutConstraint?
 }
-@objc @_hasMissingDesignatedInitializers public class CurvedImageButton : UIKit.UIView {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class CurvedImageButton : UIKit.UIView {
   public struct Config {
     public var padding: RichMessageKit.Padding
     public var textImageSpace: CoreGraphics.CGFloat
     public var imageSize: CoreGraphics.CGSize
     public init()
   }
-  public var index: Swift.Int?
-  weak public var delegate: RichMessageKit.Tappable?
-  public init(title: Swift.String, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat)
-  public func buttonWidth() -> CoreGraphics.CGFloat
-  public func buttonHeight() -> CoreGraphics.CGFloat
-  public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public var index: Swift.Int?
+  @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
+  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func buttonWidth() -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
   @objc deinit
 }
 public enum KBMMessageStatus : Swift.CaseIterable {
@@ -285,12 +282,11 @@ public enum ImageBubbleTheme {
   public static var sentMessage: RichMessageKit.ImageBubbleStyle
   public static var receivedMessage: RichMessageKit.ImageBubbleStyle
 }
-@objc @_hasMissingDesignatedInitializers public class MessageView : UIKit.UIView {
-  public init(bubbleStyle: RichMessageKit.MessageBubbleStyle, messageStyle: RichMessageKit.Style, maxWidth: CoreGraphics.CGFloat)
-  public func update(model: RichMessageKit.Message)
-  public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font: UIKit.UIFont, padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
-  public func updateHeighOfView(hideView: Swift.Bool, model: RichMessageKit.Message)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class MessageView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public init(bubbleStyle: RichMessageKit.MessageBubbleStyle, messageStyle: RichMessageKit.Style, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.Message)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font: UIKit.UIFont, padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public func updateHeighOfView(hideView: Swift.Bool, model: RichMessageKit.Message)
   @objc deinit
 }
 public struct FAQMessageStyle {
@@ -309,26 +305,26 @@ public struct ImageMessage {
   public var message: RichMessageKit.Message
   public init(caption: Swift.String?, url: Swift.String, message: RichMessageKit.Message)
 }
-extension String {
+extension Swift.String {
   public func rectWithConstrainedWidth(_ width: CoreGraphics.CGFloat, font: UIKit.UIFont) -> CoreGraphics.CGRect
   public func heightWithConstrainedWidth(_ width: CoreGraphics.CGFloat, font: UIKit.UIFont) -> CoreGraphics.CGFloat
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ReceivedButtonsCell : UIKit.UITableViewCell {
-  public var tapped: ((Swift.Int, Swift.String) -> Swift.Void)?
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  public func update(model: RichMessageKit.SuggestedReplyMessage)
-  public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage) -> CoreGraphics.CGFloat
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ReceivedButtonsCell : UIKit.UITableViewCell {
+  @_Concurrency.MainActor(unsafe) public var tapped: ((_ index: Swift.Int, _ name: Swift.String) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
-extension ReceivedButtonsCell : RichMessageKit.Tappable {
-  public func didTap(index: Swift.Int?, title: Swift.String)
+extension RichMessageKit.ReceivedButtonsCell : RichMessageKit.Tappable {
+  @_Concurrency.MainActor(unsafe) public func didTap(index: Swift.Int?, title: Swift.String)
 }
 public class SentMessageViewSizeCalculator {
   public init()
   public func rowHeight(messageModel: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, padding: RichMessageKit.Padding) -> CoreGraphics.CGFloat
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers public class ReceivedMessageView : UIKit.UIView {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ReceivedMessageView : UIKit.UIView {
   public enum Config {
     public enum MessageView {
       public static var leftPadding: CoreGraphics.CGFloat
@@ -336,16 +332,15 @@ public class SentMessageViewSizeCalculator {
       public static var bottomPadding: CoreGraphics.CGFloat
     }
   }
-  public init(frame: CoreGraphics.CGRect, padding: RichMessageKit.Padding, maxWidth: CoreGraphics.CGFloat)
-  public func update(model: RichMessageKit.Message)
-  public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont(), padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, padding: RichMessageKit.Padding, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.Message)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont(), padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
   @objc deinit
 }
 public protocol ColorProtocol {
   static func setPrimaryColor(primaryColor: UIKit.UIColor)
 }
-extension CurvedImageButton {
+extension RichMessageKit.CurvedImageButton {
   public struct QuickReplyButtonStyle : RichMessageKit.ColorProtocol {
     public static func setPrimaryColor(primaryColor: UIKit.UIColor)
     public var font: UIKit.UIFont
@@ -371,13 +366,13 @@ public struct SuggestedReplyMessage {
   public var message: RichMessageKit.Message
   public init(suggestion: [RichMessageKit.SuggestedReplyMessage.Suggestion], message: RichMessageKit.Message)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SentButtonsCell : UIKit.UITableViewCell {
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  public func update(model: RichMessageKit.SuggestedReplyMessage)
-  public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage) -> CoreGraphics.CGFloat
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentButtonsCell : UIKit.UITableViewCell {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SentImageMessageCell : UIKit.UITableViewCell {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentImageMessageCell : UIKit.UITableViewCell {
   public enum Config {
     public static var maxWidth: CoreGraphics.CGFloat
     public enum MessageView {
@@ -401,10 +396,10 @@ public struct SuggestedReplyMessage {
       public static var rightPadding: CoreGraphics.CGFloat
     }
   }
-  public var imageTapped: (() -> Swift.Void)?
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  public func update(model: RichMessageKit.ImageMessage)
-  public static func rowHeight(model: RichMessageKit.ImageMessage) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.ImageMessage)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.ImageMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
 public struct Padding {
@@ -414,26 +409,25 @@ public struct Padding {
   public let bottom: CoreGraphics.CGFloat
   public init(left: CoreGraphics.CGFloat, right: CoreGraphics.CGFloat, top: CoreGraphics.CGFloat, bottom: CoreGraphics.CGFloat)
 }
-extension UIImage {
+extension UIKit.UIImage {
   public func scale(with size: CoreGraphics.CGSize) -> UIKit.UIImage?
 }
-@objc @_hasMissingDesignatedInitializers public class SuggestedReplyView : UIKit.UIView {
-  weak public var delegate: RichMessageKit.Tappable?
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SuggestedReplyView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
   @objc dynamic public init()
-  public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat)
-  public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
-extension SuggestedReplyView : RichMessageKit.Tappable {
-  public func didTap(index: Swift.Int?, title: Swift.String)
+extension RichMessageKit.SuggestedReplyView : RichMessageKit.Tappable {
+  @_Concurrency.MainActor(unsafe) public func didTap(index: Swift.Int?, title: Swift.String)
 }
 public class ReceivedMessageViewSizeCalculator {
   public init()
   public func rowHeight(messageModel: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, padding: RichMessageKit.Padding) -> CoreGraphics.CGFloat
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ReceivedImageMessageCell : UIKit.UITableViewCell {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ReceivedImageMessageCell : UIKit.UITableViewCell {
   public enum Config {
     public static var maxWidth: CoreGraphics.CGFloat
     public enum MessageView {
@@ -465,14 +459,14 @@ public class ReceivedMessageViewSizeCalculator {
       public static var leftPadding: CoreGraphics.CGFloat
     }
   }
-  public var imageTapped: (() -> Swift.Void)?
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  public func update(model: RichMessageKit.ImageMessage)
-  public static func rowHeight(model: RichMessageKit.ImageMessage) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.ImageMessage)
+  @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.ImageMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
-extension NSLayoutDimension {
-  public func constraintEqualToAnchor(constant: CoreGraphics.CGFloat, identifier: Swift.String) -> UIKit.NSLayoutConstraint
+extension UIKit.NSLayoutDimension {
+  @_Concurrency.MainActor(unsafe) public func constraintEqualToAnchor(constant: CoreGraphics.CGFloat, identifier: Swift.String) -> UIKit.NSLayoutConstraint
 }
 extension RichMessageKit.KBMMessageStatus : Swift.Equatable {}
 extension RichMessageKit.KBMMessageStatus : Swift.Hashable {}

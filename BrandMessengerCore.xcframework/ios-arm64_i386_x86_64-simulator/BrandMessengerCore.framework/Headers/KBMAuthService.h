@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param authToken Pass the JWT auth token.
 - (NSError * _Nullable)decodeAndSaveToken:(NSString *)authToken;
 
+/// Check if saved token is still valid
++ (BOOL)isAuthTokenValid;
+
 /// Used for validating a JWT Auth token and refresh the JWT token.
 /// @param completion In case of successful the error will be nil otherwise error will be present if their is any error.
 - (void)validateAuthTokenAndRefreshWithCompletion:(void (^)(NSError * _Nullable error))completion;
