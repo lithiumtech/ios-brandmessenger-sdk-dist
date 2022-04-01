@@ -23,6 +23,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Used when a message needs to be modified just before sending
+@protocol KBMConversationDelegate <NSObject>
+
+/// modifies and returns a message object to be sent
+-(KBMMessage *)modifyMessageBeforeSend: (KBMMessage *) message;
+
+@end
+
 /// Notification name for new message.
 static NSString *const NEW_MESSAGE_NOTIFICATION = @"newMessageNotification";
 /// Notification name for the message metadata update.
@@ -38,6 +46,8 @@ static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNot
 @property (nonatomic, strong) KBMChannelService *channelService;
 
 @property (nonatomic, weak) id<KBMUpdatesDelegate> _Nullable delegate;
+///
+@property (nonatomic, weak) id<KBMConversationDelegate> _Nullable conversationDelegate;
 
 /// Sends text message in one to one or group conversation.
 /// @param message Pass the KBMMessage object for sending a text message.

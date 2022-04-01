@@ -131,6 +131,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param maximum Pass the number where it should end.
 + (NSInteger)randomNumberBetween:(NSInteger)minimum maxNumber:(NSInteger)maximum;
 
++ (KBMMessage *)addDefaultMetadataToMessage:(KBMMessage *) message;
+
 @end
 
 NS_ASSUME_NONNULL_END

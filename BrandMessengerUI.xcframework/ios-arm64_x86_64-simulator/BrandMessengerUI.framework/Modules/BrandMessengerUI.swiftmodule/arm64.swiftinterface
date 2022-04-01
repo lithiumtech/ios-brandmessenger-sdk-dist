@@ -1334,6 +1334,8 @@ public struct KBMGenericCard : Swift.Codable {
   @objc public class func isAuthenticated(completion: @escaping (_ response: Swift.Bool) -> Swift.Void)
   @objc public class func setRegion(_ region: Swift.String)
   @objc public class func useDebugUser(_ use: Swift.Bool)
+  @objc public class func doNotAutosubscribeOnLaunch(_ use: Swift.Bool)
+  @objc public class func setConversationDelegate(_ delegate: BrandMessengerCore.KBMConversationDelegate)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMTemplateMessageCell : UIKit.UICollectionViewCell {

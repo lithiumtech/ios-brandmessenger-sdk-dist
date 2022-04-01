@@ -272,6 +272,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @class NSError;
 @class KBMRegistrationResponse;
 @protocol KBMAuthenticationDelegate;
+@protocol KBMConversationDelegate;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
@@ -394,6 +395,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 + (void)setRegion:(NSString * _Nonnull)region;
 + (void)useDebugUser:(BOOL)use;
+/// Call from appDelegate before calling application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?)
+/// Using will make onAppDidBecomeActive NOT proactivelyConnectMQTT or syncMessages
++ (void)doNotAutosubscribeOnLaunch:(BOOL)use;
+/// Call to set KBMConversationDelegate, which allows adding/overriding metadata onto outgoing messages.
++ (void)setConversationDelegate:(id <KBMConversationDelegate> _Nonnull)delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1262,6 +1268,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @class NSError;
 @class KBMRegistrationResponse;
 @protocol KBMAuthenticationDelegate;
+@protocol KBMConversationDelegate;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
@@ -1384,6 +1391,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 + (void)setRegion:(NSString * _Nonnull)region;
 + (void)useDebugUser:(BOOL)use;
+/// Call from appDelegate before calling application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?)
+/// Using will make onAppDidBecomeActive NOT proactivelyConnectMQTT or syncMessages
++ (void)doNotAutosubscribeOnLaunch:(BOOL)use;
+/// Call to set KBMConversationDelegate, which allows adding/overriding metadata onto outgoing messages.
++ (void)setConversationDelegate:(id <KBMConversationDelegate> _Nonnull)delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

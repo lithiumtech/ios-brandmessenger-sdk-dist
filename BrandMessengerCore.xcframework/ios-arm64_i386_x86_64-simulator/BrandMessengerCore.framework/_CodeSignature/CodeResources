@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/BrandMessengerClient.h</key>
 		<data>
-		sD6s8GjF9M2ZmCxxjVx+j1f9Yz4=
+		+xpWXtAE/BieHP+cV50+M66iy+4=
 		</data>
 		<key>Headers/BrandMessengerCore.h</key>
 		<data>
@@ -302,7 +302,7 @@
 		</data>
 		<key>Headers/KBMMessageService.h</key>
 		<data>
-		XPXF1oJnsf2vj88D+lzvsPvWwdg=
+		ujxcMw4+lLUpn27OWxSvq1cOuDs=
 		</data>
 		<key>Headers/KBMMessageServiceWrapper.h</key>
 		<data>
@@ -406,7 +406,7 @@
 		</data>
 		<key>Headers/KBMUserDefaultsHandler.h</key>
 		<data>
-		cW2oQsMHX0NH8OFZ+uFlObxdWJI=
+		7UG86bOA+KA3BRRN1z13+NcAFEs=
 		</data>
 		<key>Headers/KBMUserDetail.h</key>
 		<data>
@@ -422,7 +422,7 @@
 		</data>
 		<key>Headers/KBMUtilityClass.h</key>
 		<data>
-		/WC+euNVY91uPqAqkbhUuZKBM4s=
+		wVN5K+qbDtm+zXf5E4kPM3jFxC8=
 		</data>
 		<key>Headers/MQTTCFSocketDecoder.h</key>
 		<data>
@@ -530,7 +530,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FBDBSaSRA9CPKwHYbdDdYcAWTJc=
+		cdUHL5oHzS2SrabjpIdwBvh2rTs=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -724,11 +724,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sD6s8GjF9M2ZmCxxjVx+j1f9Yz4=
+			+xpWXtAE/BieHP+cV50+M66iy+4=
 			</data>
 			<key>hash2</key>
 			<data>
-			PY1TSsa0RWYAcl3eTV44zqCWQ657k0mlUA7P15hHOvg=
+			EEbAZ1Ttjig0qX1Tv9fhQ8ZP3FzlD0wd9p4qNuBJ8jY=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerCore.h</key>
@@ -1373,11 +1373,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XPXF1oJnsf2vj88D+lzvsPvWwdg=
+			ujxcMw4+lLUpn27OWxSvq1cOuDs=
 			</data>
 			<key>hash2</key>
 			<data>
-			/e1IOIujvv8Q3VhOnD+DcZS2yh/CpK2iB0c9A+Y9iRg=
+			eOben7NWUE6UmS5f3Utu9J0nYoNZ6PFG4/xgUTWInf8=
 			</data>
 		</dict>
 		<key>Headers/KBMMessageServiceWrapper.h</key>
@@ -1659,11 +1659,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cW2oQsMHX0NH8OFZ+uFlObxdWJI=
+			7UG86bOA+KA3BRRN1z13+NcAFEs=
 			</data>
 			<key>hash2</key>
 			<data>
-			AaBmCJ0oLfx/LbhvMQqDpW8oZPNMjyaQaDujx4DcYT4=
+			Au7MRlzRWFYbYqwyOGQbn9hxpq4ZWwYX3OmOrHjIa0M=
 			</data>
 		</dict>
 		<key>Headers/KBMUserDetail.h</key>
@@ -1703,11 +1703,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/WC+euNVY91uPqAqkbhUuZKBM4s=
+			wVN5K+qbDtm+zXf5E4kPM3jFxC8=
 			</data>
 			<key>hash2</key>
 			<data>
-			LEdY+k66BbwLzjohiNEHwkHBOFvNm6PujfJT4xE7KGE=
+			Od2L+zbwGzSxEo/F7OMpOnTeRS87RDNPaGDq16Fi59I=
 			</data>
 		</dict>
 		<key>Headers/MQTTCFSocketDecoder.h</key>

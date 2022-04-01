@@ -226,8 +226,12 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (short)getDeviceNotificationMessageType;
 
 + (void)setRegion:(NSString*) region;
++ (NSString*)getRegion;
 + (NSString *)getAuthHandlerURL;
 
 + (void)setUseDebugUser:(BOOL) use;
 + (BOOL)getUseDebugUser;
+
++ (void)setDoNotAutosubscribeOnLaunch:(BOOL) subscribe;
++ (BOOL)getDoNotAutosubscribeOnLaunch;
 @end

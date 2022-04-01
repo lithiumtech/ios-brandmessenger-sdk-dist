@@ -243,7 +243,6 @@ typedef NS_ENUM(NSInteger, KBMClientError) {
 /// @import BrandMessengerCore;
 ///
 /// BrandMessengerClient *brandMessengerClient = [[BrandMessengerClient alloc] initWithApplicationKey:@"APP-ID"]; // Pass your APP-ID here.
-///
 /// KBMMessage *message = [KBMMessage build:^(KBMMessageBuilder *messageBuilder) {
 ///     messageBuilder.message = @"Hi How are you?"; // Pass message text here.
 ///
