@@ -67,6 +67,7 @@
 
 /// Adds user details in local database.
 /// @param userDetails Pass array of `KBMUserDetail`.
+- (void)addUserDetails:(NSMutableArray *)userDetails setUnreadCount:(BOOL)setUnreadCount;
 - (void)addUserDetails:(NSMutableArray *)userDetails;
 
 /// Updates `KBMUserDetail` object local database.

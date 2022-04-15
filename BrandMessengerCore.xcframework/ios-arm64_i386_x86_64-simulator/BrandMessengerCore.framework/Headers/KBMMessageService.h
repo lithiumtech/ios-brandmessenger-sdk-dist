@@ -65,6 +65,14 @@ static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNot
 
 /// Gets the messages for the one-to-one or group chat from the server.
 /// @param messageListRequest Pass the MessageListRequest in case of one-to-one pass the userId or channelKey in case of a group.
+/// @param setUnreadCount Pass true to set contact's unreadCount to 0 if server returns 0. Default behavior is, 0 is ignored.
+/// @param completion If messages are fetched successfully, it will have a list of KBMMessage objects; else, it will have NSError in case any error comes.
+- (void)getMessageListForUser:(MessageListRequest *)messageListRequest
+               setUnreadCount:(BOOL)setUnreadCount
+               withCompletion:(void (^)(NSMutableArray *messages, NSError *error, NSMutableArray *userDetailArray))completion;
+
+/// Gets the messages for the one-to-one or group chat from the server.
+/// @param messageListRequest Pass the MessageListRequest in case of one-to-one pass the userId or channelKey in case of a group.
 /// @param completion If messages are fetched successfully, it will have a list of KBMMessage objects; else, it will have NSError in case any error comes.
 - (void)getMessageListForUser:(MessageListRequest *)messageListRequest
                withCompletion:(void(^)(NSMutableArray * _Nullable messages, NSError * _Nullable error, NSMutableArray * _Nullable userDetailArray)) completion;

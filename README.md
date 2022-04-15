@@ -1,7 +1,7 @@
 # [Khoros BrandMessenger](https://www.khoros.com)
 
 
-[![Pod Version](https://img.shields.io/badge/Version-0.3.0-8e8e8e)](https://github.com/lithiumtech/ios-brandmessenger-sdk-dist)
+[![Pod Version](https://img.shields.io/badge/Version-1.0.0-8e8e8e)](https://github.com/lithiumtech/ios-brandmessenger-sdk-dist)
 [![Platform](https://img.shields.io/badge/Platform-iOS-8e8e8e)](https://github.com/lithiumtech/ios-brandmessenger-sdk-dist)
 [![Privacy](https://img.shields.io/badge/Privacy-Website-8e8e8e)](https://www.khoros.com/privacy)
 
@@ -10,7 +10,7 @@ Khoros BrandMessenger iOS SDK
 
 Add BrandMessenger to podfile:
 
-    pod 'BrandMessenger', :git => 'git@github.com:lithiumtech/ios-brandmessenger-sdk-dist.git', :tag => '0.3.0'
+    pod 'BrandMessenger', :git => 'git@github.com:lithiumtech/ios-brandmessenger-sdk-dist.git', :tag => '<version>'
 
 Import BrandMessenger:
 

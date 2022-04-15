@@ -186,7 +186,7 @@
 		</data>
 		<key>Headers/KBMContactDBService.h</key>
 		<data>
-		uKIHgwskK/1kqKqZ+eExk8jiWHo=
+		lYVGym6DcLOMQ6wUsThJHmcLKeE=
 		</data>
 		<key>Headers/KBMContactService.h</key>
 		<data>
@@ -302,7 +302,7 @@
 		</data>
 		<key>Headers/KBMMessageService.h</key>
 		<data>
-		ujxcMw4+lLUpn27OWxSvq1cOuDs=
+		B5QCDbUAI7mCHBPgC54usw9kjQ8=
 		</data>
 		<key>Headers/KBMMessageServiceWrapper.h</key>
 		<data>
@@ -406,7 +406,7 @@
 		</data>
 		<key>Headers/KBMUserDefaultsHandler.h</key>
 		<data>
-		7UG86bOA+KA3BRRN1z13+NcAFEs=
+		vAZMrMYsHGGgpdfjuJ3kWhkM3go=
 		</data>
 		<key>Headers/KBMUserDetail.h</key>
 		<data>
@@ -530,7 +530,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		cdUHL5oHzS2SrabjpIdwBvh2rTs=
+		ryXNRlw4yyuARBrvrSWs36TbCNY=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -1054,11 +1054,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uKIHgwskK/1kqKqZ+eExk8jiWHo=
+			lYVGym6DcLOMQ6wUsThJHmcLKeE=
 			</data>
 			<key>hash2</key>
 			<data>
-			thTKysPrpV86S95eA/FN/tJ8XNVTiCbDSEqexkyVfHo=
+			S4pdHjVOd97N/nGIZWvmgptpI5NAIxacMQWsnjOgfR8=
 			</data>
 		</dict>
 		<key>Headers/KBMContactService.h</key>
@@ -1373,11 +1373,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ujxcMw4+lLUpn27OWxSvq1cOuDs=
+			B5QCDbUAI7mCHBPgC54usw9kjQ8=
 			</data>
 			<key>hash2</key>
 			<data>
-			eOben7NWUE6UmS5f3Utu9J0nYoNZ6PFG4/xgUTWInf8=
+			mDUsm0qOYghdbbk9hPFOpDnEeo8tSC+PzI7IHBu6waI=
 			</data>
 		</dict>
 		<key>Headers/KBMMessageServiceWrapper.h</key>
@@ -1659,11 +1659,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7UG86bOA+KA3BRRN1z13+NcAFEs=
+			vAZMrMYsHGGgpdfjuJ3kWhkM3go=
 			</data>
 			<key>hash2</key>
 			<data>
-			Au7MRlzRWFYbYqwyOGQbn9hxpq4ZWwYX3OmOrHjIa0M=
+			o+Tfkh4hAu/fLFskQVAxJmKY+Lu0I7mSdpNl5jEwBNs=
 			</data>
 		</dict>
 		<key>Headers/KBMUserDetail.h</key>

@@ -199,6 +199,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import QuartzCore;
 @import UIKit;
 @import UserNotifications;
+@import WebKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -379,8 +380,9 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)_ didReceive:(UNNotificationResponse * _Nonnull)response withCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 /// Use this method for register notification.
 + (void)registerForNotification;
-/// Get total unread message count from all conversations.
-+ (void)syncAndGetUnreadMessageCountWithComplete:(void (^ _Nonnull)(NSUInteger, NSError * _Nullable))complete;
+/// Returns latest synced unread count from server
+/// There are other ‘getTotalUnreadCount’ methods, they are NOT the same.
++ (void)getTotalUnreadCountWithComplete:(void (^ _Nonnull)(NSUInteger, NSError * _Nullable))complete;
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
@@ -553,6 +555,14 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 @end
 
 
+SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
+@interface KBMConversationHeaderView : UIView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)sizeToFit;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 @interface KBMConversationListTableViewController : UITableViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
@@ -666,15 +676,15 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 
 
 
+
+
+
 @class CNContactPickerViewController;
 @class CNContact;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CNContactPickerDelegate>
 - (void)contactPicker:(CNContactPickerViewController * _Nonnull)_ didSelectContact:(CNContact * _Nonnull)contact;
 @end
-
-
-
 
 
 
@@ -800,10 +810,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI24KBMNewChatViewController")
 @end
 
 
+
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
 
 
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -873,6 +883,26 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMTemplateMessagesViewModel")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@class WKWebView;
+@class WKNavigation;
+
+SWIFT_CLASS("_TtC16BrandMessengerUI20KBMWebViewController")
+@interface KBMWebViewController : UIViewController <WKNavigationDelegate>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)webView:(WKWebView * _Nonnull)_ didFailNavigation:(WKNavigation * _Null_unspecified)_ withError:(NSError * _Nonnull)_;
+- (void)webView:(WKWebView * _Nonnull)_ didFinishNavigation:(WKNavigation * _Null_unspecified)_;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface KBMWebViewController (SWIFT_EXTENSION(BrandMessengerUI)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
 
 enum KDCircularProgressGlowMode : NSInteger;
 @class UIColor;
@@ -1195,6 +1225,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import QuartzCore;
 @import UIKit;
 @import UserNotifications;
+@import WebKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -1375,8 +1406,9 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)_ didReceive:(UNNotificationResponse * _Nonnull)response withCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 /// Use this method for register notification.
 + (void)registerForNotification;
-/// Get total unread message count from all conversations.
-+ (void)syncAndGetUnreadMessageCountWithComplete:(void (^ _Nonnull)(NSUInteger, NSError * _Nullable))complete;
+/// Returns latest synced unread count from server
+/// There are other ‘getTotalUnreadCount’ methods, they are NOT the same.
++ (void)getTotalUnreadCountWithComplete:(void (^ _Nonnull)(NSUInteger, NSError * _Nullable))complete;
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
@@ -1549,6 +1581,14 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 @end
 
 
+SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
+@interface KBMConversationHeaderView : UIView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)sizeToFit;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 @interface KBMConversationListTableViewController : UITableViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
@@ -1662,15 +1702,15 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 
 
 
+
+
+
 @class CNContactPickerViewController;
 @class CNContact;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CNContactPickerDelegate>
 - (void)contactPicker:(CNContactPickerViewController * _Nonnull)_ didSelectContact:(CNContact * _Nonnull)contact;
 @end
-
-
-
 
 
 
@@ -1796,10 +1836,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI24KBMNewChatViewController")
 @end
 
 
+
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
 
 
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -1869,6 +1909,26 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMTemplateMessagesViewModel")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+@class WKWebView;
+@class WKNavigation;
+
+SWIFT_CLASS("_TtC16BrandMessengerUI20KBMWebViewController")
+@interface KBMWebViewController : UIViewController <WKNavigationDelegate>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)webView:(WKWebView * _Nonnull)_ didFailNavigation:(WKNavigation * _Null_unspecified)_ withError:(NSError * _Nonnull)_;
+- (void)webView:(WKWebView * _Nonnull)_ didFinishNavigation:(WKNavigation * _Null_unspecified)_;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface KBMWebViewController (SWIFT_EXTENSION(BrandMessengerUI)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
 
 enum KDCircularProgressGlowMode : NSInteger;
 @class UIColor;

@@ -228,6 +228,8 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (void)setRegion:(NSString*) region;
 + (NSString*)getRegion;
 + (NSString *)getAuthHandlerURL;
++ (void)setCustomAuthHandlerUrl:(NSString *)baseURL;
++ (NSString*)getCustomAuthHandlerURL;
 
 + (void)setUseDebugUser:(BOOL) use;
 + (BOOL)getUseDebugUser;
