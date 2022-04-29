@@ -9,6 +9,20 @@
 #import "BrandMessengerSettings.h"
 #import <Foundation/Foundation.h>
 
+static NSString* KBM_PASSWORD = @"KBM_PASSWORD";
+static NSString* KBM_USER_AUTH_TOKEN = @"KBM_USER_AUTH_TOKEN";
+/// Delegate protocol for encryption events.
+@protocol KBMEncryptionDelegate <NSObject>
+@required
+-(void)putSecureValueWithKey:(NSString*)key withValue:(NSString*)value;
+@required
+-(NSString*)getSecureValueWithKey:(NSString*)key;
+@required
+-(bool)hasSecureValueWithKey:(NSString*)key;
+@required
+-(void)clearAll;
+@end
+
 /// Logged in user disable the chat key.
 static NSString *const KBM_DISABLE_USER_CHAT = @"DISABLE_CHAT_WITH_USER";
 
@@ -236,4 +250,6 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 
 + (void)setDoNotAutosubscribeOnLaunch:(BOOL) subscribe;
 + (BOOL)getDoNotAutosubscribeOnLaunch;
+
++ (void)setEncryptionDelegate:(id<KBMEncryptionDelegate>)delegate;
 @end

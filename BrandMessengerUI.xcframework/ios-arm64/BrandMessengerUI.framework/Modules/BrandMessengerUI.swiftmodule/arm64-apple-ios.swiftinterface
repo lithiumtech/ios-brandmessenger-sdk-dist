@@ -1401,6 +1401,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func doNotAutosubscribeOnLaunch(_ use: Swift.Bool)
   @objc public class func setConversationDelegate(_ delegate: BrandMessengerCore.KBMConversationDelegate)
   public class func setMessageActionDelegate(_ delegate: BrandMessengerUI.KBMConversationViewControllerDelegate)
+  @objc public class func setEncryptionDelegate(_ delegate: BrandMessengerCore.KBMEncryptionDelegate)
   @objc deinit
 }
 @objc @_Concurrency.MainActor(unsafe) public class ConversationListTableViewDataSource : ObjectiveC.NSObject, UIKit.UITableViewDataSource {
