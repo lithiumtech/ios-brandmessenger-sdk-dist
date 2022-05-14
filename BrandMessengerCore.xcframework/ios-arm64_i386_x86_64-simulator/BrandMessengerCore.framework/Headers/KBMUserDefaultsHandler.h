@@ -14,7 +14,7 @@ static NSString* KBM_USER_AUTH_TOKEN = @"KBM_USER_AUTH_TOKEN";
 /// Delegate protocol for encryption events.
 @protocol KBMEncryptionDelegate <NSObject>
 @required
--(void)putSecureValueWithKey:(NSString*)key withValue:(NSString*)value;
+-(bool)putSecureValueWithKey:(NSString*)key withValue:(NSString*)value;
 @required
 -(NSString*)getSecureValueWithKey:(NSString*)key;
 @required
@@ -119,7 +119,7 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (NSNumber *)getUserBlockLastTimeStamp;
 
 + (NSString *)getPassword;
-+ (void)setPassword:(NSString *)password;
++ (BOOL)setPassword:(NSString *)password;
 
 + (void)setAppModuleName:(NSString *)appModuleName;
 + (NSString *)getAppModuleName;
@@ -216,7 +216,7 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (void)disableChat:(BOOL)disable;
 + (BOOL)isChatDisabled;
 
-+ (void)setAuthToken:(NSString *)authToken;
++ (BOOL)setAuthToken:(NSString *)authToken;
 + (NSString *)getAuthToken;
 
 + (void)setAuthTokenCreatedAtTime:(NSNumber *)createdAtTime;

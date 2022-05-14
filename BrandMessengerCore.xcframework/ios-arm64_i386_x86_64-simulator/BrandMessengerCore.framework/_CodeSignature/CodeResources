@@ -70,7 +70,7 @@
 		</data>
 		<key>Headers/BrandMessengerCore.h</key>
 		<data>
-		EdId1x8LNPYPdYASd3PFRm4ro6w=
+		0zpf8zeW/a19tJokDTbkDRUvAPs=
 		</data>
 		<key>Headers/BrandMessengerSettings.h</key>
 		<data>
@@ -118,11 +118,15 @@
 		</data>
 		<key>Headers/KBMAuthClientService.h</key>
 		<data>
-		IZUfRRmmBbIHYieNjDIFGMEQmII=
+		f/0ecvxbCBTgXfcp/kSyZMzfolI=
 		</data>
 		<key>Headers/KBMAuthService.h</key>
 		<data>
 		jY1ALONunLVCp4hePMHIO+fgPBs=
+		</data>
+		<key>Headers/KBMCertificatePinningHandler.h</key>
+		<data>
+		xbSPEch5Of9QIB74Sh3mOM6vSNU=
 		</data>
 		<key>Headers/KBMChannel.h</key>
 		<data>
@@ -406,7 +410,7 @@
 		</data>
 		<key>Headers/KBMUserDefaultsHandler.h</key>
 		<data>
-		IlU5EV1T+PK4+kZd/IXTB/P/eJY=
+		bW/H9T2sddDzlZasheZ/EWgMNMs=
 		</data>
 		<key>Headers/KBMUserDetail.h</key>
 		<data>
@@ -530,7 +534,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		IRmaTjF/y2KSXYU229PW6x3VYrk=
+		6Nfcw6PCeLIQcBPa/Uc/6Fp6D5U=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -735,11 +739,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EdId1x8LNPYPdYASd3PFRm4ro6w=
+			0zpf8zeW/a19tJokDTbkDRUvAPs=
 			</data>
 			<key>hash2</key>
 			<data>
-			5VA1b/qHwTox/BaHL4dZ/oTCWDG8PRlhZMXO4fzwldM=
+			OG+o7uDTrWAcs0RIOIyxkbcIKuJLTh3D6vGvcu263PI=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerSettings.h</key>
@@ -867,11 +871,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IZUfRRmmBbIHYieNjDIFGMEQmII=
+			f/0ecvxbCBTgXfcp/kSyZMzfolI=
 			</data>
 			<key>hash2</key>
 			<data>
-			i+NjEerc8EGxd4A6ffLPRUptTxpE0wuN2ITeAWcyEAw=
+			8uio7x3zwAIC5fH1sVAGrW4/9hXUcFH9t3OR4XLNxxw=
 			</data>
 		</dict>
 		<key>Headers/KBMAuthService.h</key>
@@ -883,6 +887,17 @@
 			<key>hash2</key>
 			<data>
 			ekzCfFy0WnXUOJoShSTtORgQO0aB5PHlJ75h0L4DFww=
+			</data>
+		</dict>
+		<key>Headers/KBMCertificatePinningHandler.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xbSPEch5Of9QIB74Sh3mOM6vSNU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Hi5m9Rh83FCEOqvfSjZPSfabKfxGjVZ8rsLyB4flEeQ=
 			</data>
 		</dict>
 		<key>Headers/KBMChannel.h</key>
@@ -1659,11 +1674,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IlU5EV1T+PK4+kZd/IXTB/P/eJY=
+			bW/H9T2sddDzlZasheZ/EWgMNMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			AGtFu+XX1WNlsqKuM8Z+ym4oKjRwu/6omHAt6w/7GS4=
+			i2QDCM3wC0hnVitYlyWjUqNRz0f+lwmefjKSTk9WOxY=
 			</data>
 		</dict>
 		<key>Headers/KBMUserDetail.h</key>

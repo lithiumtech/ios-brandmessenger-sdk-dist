@@ -273,6 +273,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @protocol KBMAuthenticationDelegate;
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
+@class NSURL;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
@@ -389,11 +390,18 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
 + (void)show:(UIViewController * _Nullable)viewController;
+/// Start conversationwith default agent and make a welcome-message request API call.
+/// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
+///
++ (void)showWithWelcome:(UIViewController * _Nullable)viewController;
 /// Get default Agent Id
 + (NSString * _Nonnull)getDefaultAgentId SWIFT_WARN_UNUSED_RESULT;
 /// convenience to set authenticationdelegate.
 + (void)setAuthenticationDelegate:(id <KBMAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Call to set region. Determines the domains this app connects to.
+/// \param region US or APAC. Default when not set is APAC.
+///
 + (void)setRegion:(NSString * _Nonnull)region;
 + (void)useDebugUser:(BOOL)use;
 /// Call from appDelegate before calling application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?)
@@ -401,7 +409,17 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)doNotAutosubscribeOnLaunch:(BOOL)use;
 /// Call to set KBMConversationDelegate, which allows adding/overriding metadata onto outgoing messages.
 + (void)setConversationDelegate:(id <KBMConversationDelegate> _Nonnull)delegate;
+/// Call to set KBMEncryiptionDelegate, allowing application to handle encryption and storage of auth-token and password.
 + (void)setEncryptionDelegate:(id <KBMEncryptionDelegate> _Nonnull)delegate;
+/// Make a welcome-message request API call
++ (void)sendWelcomeMessageRequestWithComplete:(void (^ _Nonnull)(NSDictionary * _Nullable, NSError * _Nullable))complete;
+/// Enable certificate pinning with array of public keys.
++ (void)setPinningCertificatePublicKeys:(NSArray<NSString *> * _Nonnull)keys;
+/// Enable certificate pinning with array der certificate URLs.
++ (void)setPinningCertificates:(NSArray<NSURL *> * _Nonnull)certificates;
+/// Enable default certificate pinning on default baseUrl ‘brandmessenger.khoros.com’
+/// TODO: Need to get more backup keys.
++ (void)enableDefaultCertificatePinning;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -662,10 +680,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 @interface KBMConversationViewController : KBMBaseViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)viewDidAppear:(BOOL)_;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
 - (void)pushNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)scrollViewWillBeginDecelerating:(UIScrollView * _Nonnull)_;
 - (void)invalidateTimerAndUpdateHeightConstraint:(NSTimer * _Nullable)_;
@@ -767,7 +786,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMGenericCardCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 SWIFT_CLASS("_TtC16BrandMessengerUI24KBMIndexedCollectionView")

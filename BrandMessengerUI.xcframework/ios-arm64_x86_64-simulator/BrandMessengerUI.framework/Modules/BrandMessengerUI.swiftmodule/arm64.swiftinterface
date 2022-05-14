@@ -998,6 +998,8 @@ public protocol KBMMessageViewModel {
   var metadata: [Swift.String : Any]? { get }
   var source: Swift.Int16 { get }
   var contentType: RichMessageKit.Message.ContentType { get }
+  var authorName: Swift.String? { get }
+  var authorAvatarUrl: Foundation.URL? { get }
 }
 @_hasMissingDesignatedInitializers public class KBMMessageModel : BrandMessengerUI.KBMMessageViewModel {
   public var contentType: RichMessageKit.Message.ContentType
@@ -1030,6 +1032,8 @@ public protocol KBMMessageViewModel {
   public var isReplyMessage: Swift.Bool
   public var metadata: [Swift.String : Any]?
   public var source: Swift.Int16
+  public var authorName: Swift.String?
+  public var authorAvatarUrl: Foundation.URL?
   @objc deinit
 }
 extension BrandMessengerUI.KBMMessageModel : Swift.Equatable {
@@ -1078,10 +1082,13 @@ public struct KBMChatBarConfiguration {
     set
   }
   public var optionsToShow: BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions
-  public enum TextView {
-    public static var placeholder: RichMessageKit.Style
-    public static var text: RichMessageKit.Style
+  public struct KBMMessageInputViewStyle {
+    public var backgroundColor: UIKit.UIColor
+    public var placeholder: RichMessageKit.Style
+    public var textView: RichMessageKit.Style
+    public var sendButton: RichMessageKit.ButtonStyle
   }
+  public var messageInputViewStyle: BrandMessengerUI.KBMChatBarConfiguration.KBMMessageInputViewStyle
   public mutating func set(attachmentIcon icon: UIKit.UIImage?, for type: BrandMessengerUI.AttachmentType)
 }
 extension BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions : Swift.Equatable {
@@ -1207,10 +1214,11 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
   @_Concurrency.MainActor(unsafe) override open func addObserver()
   @_Concurrency.MainActor(unsafe) override open func removeObserver()
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLayoutSubviews()
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) override open func showAccountSuspensionView()
   @_Concurrency.MainActor(unsafe) open func checkUserBlock()
   @_Concurrency.MainActor(unsafe) open func isChannelLeft()
@@ -1286,8 +1294,6 @@ public struct KBMAppSettingsUserDefaults {
   public func setAttachmentIconsTintColor(color: UIKit.UIColor)
   public func setReceivedMessageBackgroundColor(color: UIKit.UIColor)
   public func getReceivedMessageBackgroundColor() -> UIKit.UIColor
-  public func setButtonPrimaryColor(color: UIKit.UIColor)
-  public func getButtonPrimaryColor() -> UIKit.UIColor
   public func setAppSettings(appSettings: BrandMessengerUI.KBMAppSettings)
   public func updateOrSetAppSettings(appSettings: BrandMessengerUI.KBMAppSettings)
   public func getAppSettings() -> BrandMessengerUI.KBMAppSettings?
@@ -1393,6 +1399,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public static func getTotalUnreadCount(complete: @escaping (_ count: Swift.UInt, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func login(_ accessToken: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func show(_ viewController: UIKit.UIViewController? = nil)
+  @objc public class func showWithWelcome(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func getDefaultAgentId() -> Swift.String
   @objc public class func setAuthenticationDelegate(_ del: BrandMessengerCore.KBMAuthenticationDelegate)
   @objc public class func isAuthenticated(completion: @escaping (_ response: Swift.Bool) -> Swift.Void)
@@ -1402,6 +1409,10 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func setConversationDelegate(_ delegate: BrandMessengerCore.KBMConversationDelegate)
   public class func setMessageActionDelegate(_ delegate: BrandMessengerUI.KBMConversationViewControllerDelegate)
   @objc public class func setEncryptionDelegate(_ delegate: BrandMessengerCore.KBMEncryptionDelegate)
+  @objc public class func sendWelcomeMessageRequest(complete: @escaping (_ response: Foundation.NSDictionary?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func setPinningCertificatePublicKeys(_ keys: [Swift.String])
+  @objc public class func setPinningCertificates(_ certificates: [Foundation.URL])
+  @objc public class func enableDefaultCertificatePinning()
   @objc deinit
 }
 @objc @_Concurrency.MainActor(unsafe) public class ConversationListTableViewDataSource : ObjectiveC.NSObject, UIKit.UITableViewDataSource {
@@ -1602,6 +1613,9 @@ public struct KBMConfiguration {
   public var isLinkPreviewDisabled: Swift.Bool
   public var isNewSystemPhotosUIEnabled: Swift.Bool
   public var messageMenuOptions: [BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel>.MenuOption]
+  public var disableAddParticipantButton: Swift.Bool
+  public var channelDetail: BrandMessengerUI.KBMChannelDetailViewConfiguration
+  public var conversationViewControllerBackIcon: UIKit.UIImage?
   @available(*, deprecated, message: "Use .chatBar.optionsToShow instead")
   public var hideContactInChatBar: Swift.Bool {
     get
@@ -1618,8 +1632,6 @@ public struct KBMConfiguration {
   public var handleNavIconClickOnConversationListView: Swift.Bool
   @available(*, deprecated, message: "Use navigationItemsForConversationList instead it has identifier in KBMNavigationItem")
   public var nsNotificationNameForNavIconClick: Swift.String
-  public var disableAddParticipantButton: Swift.Bool
-  public var channelDetail: BrandMessengerUI.KBMChannelDetailViewConfiguration
   @available(*, deprecated, message: "Use KBMMessageStyle for customization.")
   public var conversationViewCustomCellBackgroundColor: UIKit.UIColor {
     get
@@ -1873,21 +1885,55 @@ public enum ActionableMessageType : Swift.String {
     get
   }
 }
-public enum KBMRichMessageStyle {
-  public static var primaryColor: UIKit.UIColor {
-    get
-    set
+extension RichMessageKit.KBMRichMessageStyles {
+  public struct KBMListTemplateStyle {
+    public static var shared: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle
+    public struct KBMListTemplateHeaderText {
+      public var textColor: UIKit.UIColor
+      public var backgroundColor: UIKit.UIColor
+    }
+    public var headerText: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle.KBMListTemplateHeaderText
+    public struct KBMListTemplateActionButton {
+      public var textColor: UIKit.UIColor
+      public var backgroundColor: UIKit.UIColor
+    }
+    public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle.KBMListTemplateActionButton
+    public struct KBMListTemplateElementViewStyle {
+      public var titleTextColor: UIKit.UIColor
+      public var subtitleTextColor: UIKit.UIColor
+      public var backgroundColor: UIKit.UIColor
+    }
+    public var listTemplateElementViewStyle: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle.KBMListTemplateElementViewStyle
   }
-}
-extension BrandMessengerUI.KBMListTemplateCell {
-  public struct ListStyle : RichMessageKit.ColorProtocol {
-    public static func setPrimaryColor(primaryColor: UIKit.UIColor)
-  }
-}
-extension BrandMessengerUI.KBMGenericCardCell {
-  public struct CardStyle : RichMessageKit.ColorProtocol {
-    public static func setPrimaryColor(primaryColor: UIKit.UIColor)
-    public mutating func setColor(primaryColor: UIKit.UIColor)
+  public struct KBMCardStyle {
+    public static var shared: RichMessageKit.KBMRichMessageStyles.KBMCardStyle
+    public struct KBMCardOverlayLabel {
+      public var textColor: UIKit.UIColor
+      public var backgroundColor: UIKit.UIColor
+      public var shadowColor: CoreGraphics.CGColor
+    }
+    public var overlayLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardOverlayLabel
+    public struct KBMCardRatingLabel {
+      public var textColor: UIKit.UIColor
+    }
+    public var ratingLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardRatingLabel
+    public struct KBMCardTitleLabel {
+      public var textColor: UIKit.UIColor
+    }
+    public var titleLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardTitleLabel
+    public struct KBMCardSubtitleLabel {
+      public var textColor: UIKit.UIColor
+    }
+    public var subtitleLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardSubtitleLabel
+    public struct KBMCardDescriptionLabel {
+      public var textColor: UIKit.UIColor
+    }
+    public var descriptionLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardDescriptionLabel
+    public struct KBMCardActionButton {
+      public var textColor: UIKit.UIColor
+      public var backgroundColor: UIKit.UIColor
+    }
+    public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardActionButton
   }
 }
 public class NotificationHelper {

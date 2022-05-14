@@ -337,15 +337,19 @@ public class SentMessageViewSizeCalculator {
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font _: UIKit.UIFont = UIFont(), padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
   @objc deinit
 }
-public protocol ColorProtocol {
-  static func setPrimaryColor(primaryColor: UIKit.UIColor)
-}
-extension RichMessageKit.CurvedImageButton {
-  public struct QuickReplyButtonStyle : RichMessageKit.ColorProtocol {
-    public static func setPrimaryColor(primaryColor: UIKit.UIColor)
+public enum KBMRichMessageStyles {
+  public struct KBMQuickReplyButtonStyle {
+    public static var shared: RichMessageKit.KBMRichMessageStyles.KBMQuickReplyButtonStyle
+    public struct Color {
+      public var text: UIKit.UIColor
+      public var border: CoreGraphics.CGColor
+      public var background: UIKit.UIColor
+      public var tint: UIKit.UIColor
+    }
     public var font: UIKit.UIFont
     public var cornerRadius: CoreGraphics.CGFloat
     public var borderWidth: CoreGraphics.CGFloat
+    public var buttonColor: RichMessageKit.KBMRichMessageStyles.KBMQuickReplyButtonStyle.Color
   }
 }
 public struct SuggestedReplyMessage {
@@ -411,6 +415,16 @@ public struct Padding {
 }
 extension UIKit.UIImage {
   public func scale(with size: CoreGraphics.CGSize) -> UIKit.UIImage?
+}
+public struct ButtonStyle {
+  public let font: UIKit.UIFont
+  public let titleColor: UIKit.UIColor
+  public let titleColorDisabled: UIKit.UIColor
+  public let titleColorHighlighted: UIKit.UIColor
+  public let background: UIKit.UIColor
+  public let title: Swift.String
+  public init(font: UIKit.UIFont, titleColor: UIKit.UIColor, titleColorDisabled: UIKit.UIColor, titleColorHighlighted: UIKit.UIColor, background: UIKit.UIColor, title: Swift.String)
+  public init(font: UIKit.UIFont, title: Swift.String)
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SuggestedReplyView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?

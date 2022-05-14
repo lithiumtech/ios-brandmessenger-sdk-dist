@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// second part of new auth. Calls register(login) to applozic with credentials from preRegistrationAuth.
 + (void)loginFromAuthHandlerResponse:(NSDictionary*)response withCompletion:(void (^)(KBMRegistrationResponse * _Nullable response, NSError * _Nullable error))completion;
 
+/// make welcome-message API Request.
++ (void) sendWelcomeMessageRequestWithCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
 @end
 
 NS_ASSUME_NONNULL_END

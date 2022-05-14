@@ -113,3 +113,4 @@ FOUNDATION_EXPORT const unsigned char BrandMessengerCoreVersionString[];
 #import "TSBlurView.h"
 #import "TSMessage.h"
 #import "TSMessageView.h"
+#import "KBMCertificatePinningHandler.h"

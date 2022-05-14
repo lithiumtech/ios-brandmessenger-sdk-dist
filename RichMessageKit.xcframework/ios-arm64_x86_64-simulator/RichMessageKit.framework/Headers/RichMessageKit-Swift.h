@@ -221,7 +221,6 @@ SWIFT_CLASS("_TtC14RichMessageKit17CurvedImageButton")
 @end
 
 
-
 /// Its a view that displays a title with description on a bubble
 /// alongwith optional buttons at the bottom.
 SWIFT_CLASS("_TtC14RichMessageKit14FAQMessageView")
@@ -587,7 +586,6 @@ SWIFT_CLASS("_TtC14RichMessageKit17CurvedImageButton")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
-
 
 
 /// Its a view that displays a title with description on a bubble
