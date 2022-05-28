@@ -11,6 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Notification title and content strings
+extern NSString *const KBM_GENERIC_NOTIFICATION_CONTENT;
+extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
+
 /// `KBMUtilityClass` has utility methods releated to date, file, notification showing, image compression and other.
 @interface KBMUtilityClass : NSObject
 

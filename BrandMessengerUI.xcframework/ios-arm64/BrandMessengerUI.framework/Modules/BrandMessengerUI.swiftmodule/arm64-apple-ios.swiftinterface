@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BrandMessengerUI
 import AVFoundation
 import AVKit
@@ -317,6 +317,15 @@ extension BrandMessengerUI.KBMNavigationItem {
 }
 extension BrandMessengerUI.KBMTemplateMessageModel {
   convenience public init?(json: [Swift.String : Any])
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMPinnedSystemHeaderView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var pinnedHeaderConfig: BrandMessengerUI.KBMPinnedSystemHeaderConfig {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) required public init(frame: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration, fileName: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func sizeToFit()
+  @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String)
+  @objc deinit
 }
 public protocol KBMWebViewNativeDelegate : AnyObject {
   func webViewNativeEvent(eventName: Swift.String, eventJSONString: Swift.String?, messageKey: Swift.String)
@@ -1186,6 +1195,10 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
     get
     set
   }
+  @_Concurrency.MainActor(unsafe) public var pinnedHeaderLabel: BrandMessengerUI.KBMPinnedSystemHeaderView {
+    get
+    set
+  }
   @_Concurrency.MainActor(unsafe) public var autocompleteManager: BrandMessengerUI.AutoCompleteManager {
     get
     set
@@ -1572,7 +1585,6 @@ public struct KBMConfiguration {
   public var backgroundColor: UIKit.UIColor
   public var hideNavigationBarBottomLine: Swift.Bool
   public var chatBarAttachmentViewBackgroundColor: UIKit.UIColor
-  public var headerTextColor: UIKit.UIColor
   public var hideAudioOptionInChatBar: Swift.Bool
   public var hideStartChatButton: Swift.Bool
   public var localizedStringFileName: Swift.String
@@ -1584,7 +1596,6 @@ public struct KBMConfiguration {
   public var hideRightNavBarButtonForConversationView: Swift.Bool
   public var hideBackButtonInConversationList: Swift.Bool
   public var hideLineImageFromChatBar: Swift.Bool
-  public var showNameWhenUserTypesInGroup: Swift.Bool
   public var hideEmptyStateStartNewButtonInConversationList: Swift.Bool
   public var messageMetadata: [Swift.AnyHashable : Any]?
   public var statusBarStyle: UIKit.UIStatusBarStyle {
@@ -1598,6 +1609,8 @@ public struct KBMConfiguration {
   public var disableSwipeInChatCell: Swift.Bool
   public var chatBar: BrandMessengerUI.KBMChatBarConfiguration
   public var headerViewConfiguration: BrandMessengerUI.KBMHeaderViewConfiguration
+  public var hidePinnedSystemMessageHeader: Swift.Bool
+  public var pinnedHeaderConfig: BrandMessengerUI.KBMPinnedSystemHeaderConfig
   public var navigationItemsForConversationList: [BrandMessengerUI.KBMNavigationItem] {
     get
     set
@@ -1936,6 +1949,21 @@ extension RichMessageKit.KBMRichMessageStyles {
     public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardActionButton
   }
 }
+public struct KBMPinnedSystemHeaderConfig {
+  public var textColor: UIKit.UIColor
+  public var headerBackgroundColor: UIKit.UIColor
+  public var kLabelInsets: UIKit.UIEdgeInsets
+  public var kLabelLineSpacing: Swift.Double
+  public var kLabelParagraphSpacing: Swift.Double
+  public var textStyle: RichMessageKit.Style
+  public var pinnedSystemMessageIcon: UIKit.UIImage?
+  public var kIconWidth: Swift.Double
+  public var kIconHeight: Swift.Double
+  public var linkTextColor: UIKit.UIColor
+  public var linkUnderlineColor: UIKit.UIColor
+  public var pinnedHeaderHeight: Swift.Double
+  public init()
+}
 public class NotificationHelper {
   public struct NotificationData {
     public let userId: Swift.String?
@@ -1962,6 +1990,11 @@ public struct KBMHeaderViewConfiguration {
   public var kLabelLineSpacing: Swift.Double
   public var kLabelParagraphSpacing: Swift.Double
   public var textStyle: RichMessageKit.Style
+  public var headerIcon: UIKit.UIImage?
+  public var kIconWidth: Swift.Double
+  public var kIconHeight: Swift.Double
+  public var linkTextColor: UIKit.UIColor
+  public var linkUnderlineColor: UIKit.UIColor
   public init()
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @IBDesignable @_Concurrency.MainActor(unsafe) open class TranslucentView : UIKit.UIView {
