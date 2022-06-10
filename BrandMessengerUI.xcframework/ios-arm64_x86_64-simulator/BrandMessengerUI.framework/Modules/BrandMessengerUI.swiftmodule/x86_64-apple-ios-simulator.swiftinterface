@@ -206,7 +206,7 @@ extension BrandMessengerUI.KBMMessageCell : UIKit.UITextViewDelegate {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMMyMessageButtonCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
   @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) open class func rowHeigh(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) open class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class KBMNewChatViewController : BrandMessengerUI.KBMBaseViewController {
@@ -323,7 +323,6 @@ extension BrandMessengerUI.KBMTemplateMessageModel {
     get
   }
   @_Concurrency.MainActor(unsafe) required public init(frame: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration, fileName: Swift.String)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func sizeToFit()
   @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String)
   @objc deinit
 }
@@ -553,6 +552,7 @@ public enum Color {
     case redC0
     case grayCC
     case gray9B
+    case gray4D
     case grayC1
     case gray66
     case gray99
@@ -658,7 +658,7 @@ extension UIKit.UIColor {
   @_Concurrency.MainActor(unsafe) final public let textView: BrandMessengerUI.KBMChatBarTextView
   @_Concurrency.MainActor(unsafe) open var frameView: UIKit.UIImageView
   @_Concurrency.MainActor(unsafe) open var grayView: UIKit.UIView
-  @_Concurrency.MainActor(unsafe) open var placeHolder: UIKit.UITextView {
+  @_Concurrency.MainActor(unsafe) open var placeHolder: RichMessageKit.KBMTextView {
     get
     set
   }
@@ -861,16 +861,7 @@ public struct ListTemplate : Swift.Codable {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMGenericCardCell : UIKit.UICollectionViewCell {
-  public enum Font {
-    public static var overlayText: UIKit.UIFont
-    public static var rating: UIKit.UIFont
-    public static var title: UIKit.UIFont
-    public static var subtitle: UIKit.UIFont
-    public static var description: UIKit.UIFont
-    public static var button: UIKit.UIFont
-  }
   public enum Config {
-    public static let buttonHeight: CoreGraphics.CGFloat
     public static let imageHeight: CoreGraphics.CGFloat
     public static let spacing: CoreGraphics.CGFloat
     public static let buttonStackViewSpacing: CoreGraphics.CGFloat
@@ -923,7 +914,7 @@ public protocol KBMConversationViewControllerDelegate {
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) required public init?(coder _: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) override open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) open class func rowHeigh(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) open class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMMyGenericCardMessageCell : BrandMessengerUI.KBMGenericCardBaseCell {
@@ -931,7 +922,7 @@ public protocol KBMConversationViewControllerDelegate {
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) required public init?(coder _: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) override open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) public class func rowHeigh(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMGenericCardBaseCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
@@ -1881,7 +1872,6 @@ public enum KBMMessageStyle {
     get
   }
   @_Concurrency.MainActor(unsafe) required public init(frame: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration, fileName: Swift.String)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func sizeToFit()
   @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String)
   @objc deinit
 }
@@ -1902,18 +1892,18 @@ extension RichMessageKit.KBMRichMessageStyles {
   public struct KBMListTemplateStyle {
     public static var shared: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle
     public struct KBMListTemplateHeaderText {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
     }
     public var headerText: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle.KBMListTemplateHeaderText
     public struct KBMListTemplateActionButton {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
     }
     public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle.KBMListTemplateActionButton
     public struct KBMListTemplateElementViewStyle {
-      public var titleTextColor: UIKit.UIColor
-      public var subtitleTextColor: UIKit.UIColor
+      public var titleTextStyle: RichMessageKit.Style
+      public var subtitleTextStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
     }
     public var listTemplateElementViewStyle: RichMessageKit.KBMRichMessageStyles.KBMListTemplateStyle.KBMListTemplateElementViewStyle
@@ -1921,29 +1911,29 @@ extension RichMessageKit.KBMRichMessageStyles {
   public struct KBMCardStyle {
     public static var shared: RichMessageKit.KBMRichMessageStyles.KBMCardStyle
     public struct KBMCardOverlayLabel {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
       public var shadowColor: CoreGraphics.CGColor
     }
     public var overlayLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardOverlayLabel
     public struct KBMCardRatingLabel {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
     }
     public var ratingLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardRatingLabel
     public struct KBMCardTitleLabel {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
     }
     public var titleLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardTitleLabel
     public struct KBMCardSubtitleLabel {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
     }
     public var subtitleLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardSubtitleLabel
     public struct KBMCardDescriptionLabel {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
     }
     public var descriptionLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardDescriptionLabel
     public struct KBMCardActionButton {
-      public var textColor: UIKit.UIColor
+      public var textStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
     }
     public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardActionButton
@@ -1961,7 +1951,6 @@ public struct KBMPinnedSystemHeaderConfig {
   public var kIconHeight: Swift.Double
   public var linkTextColor: UIKit.UIColor
   public var linkUnderlineColor: UIKit.UIColor
-  public var pinnedHeaderHeight: Swift.Double
   public init()
 }
 public class NotificationHelper {

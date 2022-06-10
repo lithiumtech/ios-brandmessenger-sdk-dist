@@ -584,7 +584,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
 @interface KBMConversationHeaderView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)sizeToFit;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -860,7 +859,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI24KBMNewChatViewController")
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMPinnedSystemHeaderView")
 @interface KBMPinnedSystemHeaderView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)sizeToFit;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -1644,7 +1642,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
 @interface KBMConversationHeaderView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)sizeToFit;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -1920,7 +1917,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI24KBMNewChatViewController")
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMPinnedSystemHeaderView")
 @interface KBMPinnedSystemHeaderView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)sizeToFit;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 

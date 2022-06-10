@@ -66,7 +66,6 @@ extension RichMessageKit.MessageTheme {
       public static var bottomPadding: CoreGraphics.CGFloat
     }
     public enum DisplayName {
-      public static var height: CoreGraphics.CGFloat
       public static var leftPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
@@ -343,12 +342,11 @@ public enum KBMRichMessageStyles {
   public struct KBMQuickReplyButtonStyle {
     public static var shared: RichMessageKit.KBMRichMessageStyles.KBMQuickReplyButtonStyle
     public struct Color {
-      public var text: UIKit.UIColor
       public var border: CoreGraphics.CGColor
       public var background: UIKit.UIColor
       public var tint: UIKit.UIColor
     }
-    public var font: UIKit.UIFont
+    public var curvedButtonTextStyle: RichMessageKit.Style
     public var cornerRadius: CoreGraphics.CGFloat
     public var borderWidth: CoreGraphics.CGFloat
     public var buttonColor: RichMessageKit.KBMRichMessageStyles.KBMQuickReplyButtonStyle.Color
@@ -389,7 +387,7 @@ public struct SuggestedReplyMessage {
     }
     public enum StateView {
       public static var rightPadding: CoreGraphics.CGFloat
-      public static var topPadding: CoreGraphics.CGFloat
+      public static var bottomPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
       public static var leftPadding: CoreGraphics.CGFloat
@@ -465,7 +463,6 @@ public class ReceivedMessageViewSizeCalculator {
       public static var topPadding: CoreGraphics.CGFloat
     }
     public enum DisplayName {
-      public static var height: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
       public static var leftPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat

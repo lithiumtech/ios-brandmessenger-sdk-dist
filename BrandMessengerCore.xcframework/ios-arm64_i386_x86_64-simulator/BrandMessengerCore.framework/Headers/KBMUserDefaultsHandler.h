@@ -11,6 +11,7 @@
 
 static NSString* KBM_PASSWORD = @"KBM_PASSWORD";
 static NSString* KBM_USER_AUTH_TOKEN = @"KBM_USER_AUTH_TOKEN";
+static NSString* KBM_DEVICE_KEY = @"KBM_DEVICE_KEY";
 /// Delegate protocol for encryption events.
 @protocol KBMEncryptionDelegate <NSObject>
 @required
@@ -47,6 +48,8 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (BOOL)isBackButtonHidden;
 
 + (BOOL)isLoggedIn;
+
++ (void)clearKBMKeyDefaults;
 
 + (void)clearAll;
 
