@@ -29,6 +29,7 @@ extension BrandMessengerUI.KBMMessageStyle {
     case none
   }
   public struct SentMessageStatus {
+    public var stateViewSize: CoreGraphics.CGSize
     public mutating func set(icon: BrandMessengerUI.KBMMessageStyle.StatusIcon, for type: BrandMessengerUI.KBMMessageStyle.MessageStatusType)
   }
 }
@@ -555,6 +556,7 @@ public enum Color {
     case gray4D
     case grayC1
     case gray66
+    case gray83
     case gray99
     case blueFF
     case black00
@@ -674,7 +676,10 @@ extension UIKit.UIColor {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var lineView: UIKit.UIView
+  @_Concurrency.MainActor(unsafe) open var lineView: UIKit.UIView {
+    get
+    set
+  }
   @_Concurrency.MainActor(unsafe) open var bottomGrayView: UIKit.UIView
   @_Concurrency.MainActor(unsafe) open var videoButton: UIKit.UIButton
   @_Concurrency.MainActor(unsafe) open var isTextViewFirstResponder: Swift.Bool {
@@ -818,8 +823,8 @@ extension BrandMessengerCore.KBMTopicDetail : BrandMessengerUI.KBMContextTitleDa
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth _: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth _: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
 public struct ListTemplate : Swift.Codable {
@@ -1089,6 +1094,7 @@ public struct KBMChatBarConfiguration {
     public var sendButton: RichMessageKit.ButtonStyle
   }
   public var messageInputViewStyle: BrandMessengerUI.KBMChatBarConfiguration.KBMMessageInputViewStyle
+  public var hideAboveLineView: Swift.Bool
   public mutating func set(attachmentIcon icon: UIKit.UIImage?, for type: BrandMessengerUI.AttachmentType)
 }
 extension BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions : Swift.Equatable {
@@ -1820,6 +1826,7 @@ public enum KBMMessageStyle {
   public static var receivedMention: RichMessageKit.Style
   public static var infoMessage: RichMessageKit.Style
   public static var dateSeparator: RichMessageKit.Style
+  public static var contactView: RichMessageKit.Style
   @available(*, deprecated, message: "Use `receivedMessage` and `sentMessage`")
   public static var message: RichMessageKit.Style {
     get
@@ -1844,7 +1851,11 @@ public enum KBMMessageStyle {
     public var style: BrandMessengerUI.KBMMessageStyle.BubbleStyle
     public var border: BrandMessengerUI.KBMMessageStyle.Bubble.Border
     public let widthPadding: CoreGraphics.CGFloat
+    public var cellMargin: BrandMessengerUI.KBMMessageStyle.KBMMessageCellMargin
     public init(color: UIKit.UIColor, style: BrandMessengerUI.KBMMessageStyle.BubbleStyle)
+  }
+  public struct KBMMessageCellMargin {
+    public init(left: CoreGraphics.CGFloat, right: CoreGraphics.CGFloat)
   }
   public static var sentBubble: BrandMessengerUI.KBMMessageStyle.Bubble {
     get
@@ -1935,6 +1946,7 @@ extension RichMessageKit.KBMRichMessageStyles {
     public struct KBMCardActionButton {
       public var textStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
+      public var verticalPadding: CoreGraphics.CGFloat
     }
     public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardActionButton
   }

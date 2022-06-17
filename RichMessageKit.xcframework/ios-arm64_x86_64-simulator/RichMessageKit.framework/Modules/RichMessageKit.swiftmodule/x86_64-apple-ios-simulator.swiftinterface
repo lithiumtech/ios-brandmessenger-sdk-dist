@@ -27,7 +27,14 @@ public struct MessageStyle {
   public var message: RichMessageKit.Style
   public var time: RichMessageKit.Style
   public var bubble: RichMessageKit.MessageBubbleStyle
+  public var cellMargin: RichMessageKit.MessageCellMargin
   public init()
+}
+public struct MessageCellMargin {
+  public var left: CoreGraphics.CGFloat
+  public var right: CoreGraphics.CGFloat
+  public init()
+  public init(left: CoreGraphics.CGFloat, right: CoreGraphics.CGFloat)
 }
 public enum MessageTheme {
   public static var sentMessage: RichMessageKit.MessageStyle
@@ -42,6 +49,7 @@ extension RichMessageKit.MessageTheme {
     case none
   }
   public struct SentMessageStatus {
+    public var stateViewSize: CoreGraphics.CGSize
     public mutating func set(icon: RichMessageKit.MessageTheme.StatusIcon, for type: RichMessageKit.MessageTheme.MessageStatusType)
   }
 }
@@ -58,7 +66,6 @@ extension RichMessageKit.MessageTheme {
       public static var width: CoreGraphics.CGFloat
       public static var height: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
-      public static var leftPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
       public static var leftPadding: CoreGraphics.CGFloat
@@ -99,7 +106,6 @@ extension RichMessageKit.MessageTheme {
       public static var bottomPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
-      public static var maxWidth: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
       public static var bottomPadding: CoreGraphics.CGFloat
     }
@@ -153,12 +159,10 @@ public enum ChatCellPadding {
   public enum SentMessage {
     public enum Message {
       public static let left: CoreGraphics.CGFloat
-      public static let right: CoreGraphics.CGFloat
     }
     public enum QuickReply {
       public static let left: CoreGraphics.CGFloat
       public static let top: CoreGraphics.CGFloat
-      public static let right: CoreGraphics.CGFloat
       public static let bottom: CoreGraphics.CGFloat
     }
     public enum MessageButton {
@@ -454,11 +458,9 @@ public class ReceivedMessageViewSizeCalculator {
       public static var width: CoreGraphics.CGFloat
       public static var height: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
-      public static var leftPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
       public static var leftPadding: CoreGraphics.CGFloat
-      public static var maxWidth: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
     }
