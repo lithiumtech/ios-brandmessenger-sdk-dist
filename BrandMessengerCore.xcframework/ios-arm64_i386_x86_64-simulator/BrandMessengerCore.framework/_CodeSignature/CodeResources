@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/BrandMessengerSettings.h</key>
 		<data>
-		LfIBmgSxlVRoCkL5BGHtSfCDfMU=
+		tuNTLTaOONO57uP/mXyqKtan66c=
 		</data>
 		<key>Headers/DB_CHANNEL.h</key>
 		<data>
@@ -410,7 +410,7 @@
 		</data>
 		<key>Headers/KBMUserDefaultsHandler.h</key>
 		<data>
-		BEJ6MdioUZAlpiuC3rymdEwiSKg=
+		jZyjBxMaHs67838xebZLC6GWSiI=
 		</data>
 		<key>Headers/KBMUserDetail.h</key>
 		<data>
@@ -426,7 +426,7 @@
 		</data>
 		<key>Headers/KBMUtilityClass.h</key>
 		<data>
-		mqr8EUQZL9dTVgFJgbLd7c3W13g=
+		/oQtmzpsHUxK4eHCY97oDz1ZmsA=
 		</data>
 		<key>Headers/MQTTCFSocketDecoder.h</key>
 		<data>
@@ -534,7 +534,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2zbF9uEymbt9rYLdPc8K9GuO8lo=
+		CL9lkLxTbUH6GnWzPKg5InMaMzE=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -750,11 +750,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LfIBmgSxlVRoCkL5BGHtSfCDfMU=
+			tuNTLTaOONO57uP/mXyqKtan66c=
 			</data>
 			<key>hash2</key>
 			<data>
-			uKWdbKTMHF5aYgjD8GKsYcjvea2q+XnktzuhO99TGQk=
+			DvJNJ0EezrUQQDIk0ztyeahDAo2znBCnFSOdYE/5SHM=
 			</data>
 		</dict>
 		<key>Headers/DB_CHANNEL.h</key>
@@ -1674,11 +1674,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BEJ6MdioUZAlpiuC3rymdEwiSKg=
+			jZyjBxMaHs67838xebZLC6GWSiI=
 			</data>
 			<key>hash2</key>
 			<data>
-			/o/XzOWfgLwMqXeTMkj8A+0NJfojH/mon4u0PPG0448=
+			S9nT8pu6MOXsXrkYouh4TdINzNHyminm197jIlU+Isk=
 			</data>
 		</dict>
 		<key>Headers/KBMUserDetail.h</key>
@@ -1718,11 +1718,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mqr8EUQZL9dTVgFJgbLd7c3W13g=
+			/oQtmzpsHUxK4eHCY97oDz1ZmsA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZneZhoqOuPpmyeNRlBn5KCY/0TnX+kZUhO/I9SrEIDE=
+			udtdDSMj/8yzWayI3kYYmttSEYzTBa3uJldcVenaP7A=
 			</data>
 		</dict>
 		<key>Headers/MQTTCFSocketDecoder.h</key>

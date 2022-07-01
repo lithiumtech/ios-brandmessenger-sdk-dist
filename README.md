@@ -1,7 +1,7 @@
 # [Khoros BrandMessenger](https://www.khoros.com)
 
 
-[![Pod Version](https://img.shields.io/badge/Version-1.6.0-8e8e8e)](https://github.com/lithiumtech/ios-brandmessenger-sdk-dist)
+[![Pod Version](https://img.shields.io/badge/Version-1.7.0-8e8e8e)](https://github.com/lithiumtech/ios-brandmessenger-sdk-dist)
 [![Platform](https://img.shields.io/badge/Platform-iOS-8e8e8e)](https://github.com/lithiumtech/ios-brandmessenger-sdk-dist)
 [![Privacy](https://img.shields.io/badge/Privacy-Website-8e8e8e)](https://www.khoros.com/privacy)
 

@@ -57,9 +57,6 @@
 + (void)setTitleForBackButtonMsgVC:(NSString *)backButtonTitle;
 + (NSString *)getTitleForBackButtonMsgVC;
 
-+ (NSString *)getTitleForBackButtonChatVC;
-+ (void)setTitleForBackButtonChatVC:(NSString *)backButtonTitle;
-
 + (void)setNotificationTitle:(NSString *)notificationTitle;
 
 + (NSString *)getNotificationTitle;
@@ -144,9 +141,6 @@
 + (UIColor *)getTextColorForTypingLabel;
 + (void)setTextColorForTypingLabel:(UIColor *)txtColor;
 
-+ (NSString *)getEmptyConversationText;
-+ (void)setEmptyConversationText:(NSString *)text;
-
 + (BOOL)getVisibilityNoConversationLabelChatVC;
 + (void)setVisibilityNoConversationLabelChatVC:(BOOL)flag;
 
@@ -188,9 +182,6 @@
 
 + (void)setMaxTextViewLines:(int)numberOfLines;
 + (int)getMaxTextViewLines;
-
-+ (void)setAbuseWarningText:(NSString *)warningText;
-+ (NSString *)getAbuseWarningText;
 
 + (BOOL)getMessageAbuseMode;
 + (void)setMessageAbuseMode:(BOOL)flag;
@@ -242,23 +233,12 @@
 
 + (NSString *)getClientStoryBoard;
 + (void)setClientStoryBoard:(NSString *)storyboard;
-+ (NSString *)getGroupDeletedTitle;
-+ (void)setGroupDeletedTitle:(NSString *)title;
-
-+ (NSString *)getUserDeletedText;
-+ (void)setUserDeletedText:(NSString *)text;
 
 + (UIImage *)getChatListTabIcon;
 + (void)setChatListTabIcon:(NSString *)imageName;
 
-+ (NSString *)getChatListTabTitle;
-+ (void)setChatListTabTitle:(NSString *)title;
-
 + (UIImage *)getProfileTabIcon;
 + (void)setProfileTabIcon:(NSString *)imageName;
-
-+ (NSString *)getProfileTabTitle;
-+ (void)setProfileTabTitle:(NSString *)title;
 
 + (BOOL)isChatOnTapUserProfile;
 + (void)openChatOnTapUserProfile:(BOOL)flag;

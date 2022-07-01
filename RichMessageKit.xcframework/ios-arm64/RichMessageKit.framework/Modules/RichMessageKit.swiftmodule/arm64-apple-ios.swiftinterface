@@ -68,8 +68,6 @@ extension RichMessageKit.MessageTheme {
       public static var topPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
-      public static var leftPadding: CoreGraphics.CGFloat
-      public static var maxWidth: CoreGraphics.CGFloat
       public static var bottomPadding: CoreGraphics.CGFloat
     }
     public enum DisplayName {
@@ -81,6 +79,7 @@ extension RichMessageKit.MessageTheme {
       public static var topPadding: CoreGraphics.CGFloat
       public static var leftPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
+      public static var bottomPadding: CoreGraphics.CGFloat
     }
   }
   @_Concurrency.MainActor(unsafe) public var faqSelected: ((_ index: Swift.Int?, _ title: Swift.String) -> Swift.Void)? {
@@ -111,7 +110,6 @@ extension RichMessageKit.MessageTheme {
     }
     public enum FaqView {
       public static var topPadding: CoreGraphics.CGFloat
-      public static var rightPadding: CoreGraphics.CGFloat
       public static var leftPadding: CoreGraphics.CGFloat
     }
   }
@@ -227,7 +225,7 @@ extension UIKit.UIView {
   }
   @_Concurrency.MainActor(unsafe) public var index: Swift.Int?
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
-  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat, deactivate: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public func buttonWidth() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
@@ -349,6 +347,7 @@ public enum KBMRichMessageStyles {
       public var border: CoreGraphics.CGColor
       public var background: UIKit.UIColor
       public var tint: UIKit.UIColor
+      public var deactivatedButtonColor: UIKit.UIColor
     }
     public var curvedButtonTextStyle: RichMessageKit.Style
     public var cornerRadius: CoreGraphics.CGFloat
@@ -395,13 +394,12 @@ public struct SuggestedReplyMessage {
     }
     public enum TimeLabel {
       public static var leftPadding: CoreGraphics.CGFloat
-      public static var maxWidth: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
     }
     public enum ImageBubbleView {
       public static var topPadding: CoreGraphics.CGFloat
-      public static var rightPadding: CoreGraphics.CGFloat
+      public static var leftPadding: CoreGraphics.CGFloat
     }
   }
   @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
@@ -433,7 +431,7 @@ public struct ButtonStyle {
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SuggestedReplyView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
   @objc dynamic public init()
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat, deactivateView: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -460,7 +458,6 @@ public class ReceivedMessageViewSizeCalculator {
       public static var topPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
-      public static var leftPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
     }
@@ -472,6 +469,7 @@ public class ReceivedMessageViewSizeCalculator {
     public enum ImageBubbleView {
       public static var topPadding: CoreGraphics.CGFloat
       public static var leftPadding: CoreGraphics.CGFloat
+      public static var rightPadding: CoreGraphics.CGFloat
     }
   }
   @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?

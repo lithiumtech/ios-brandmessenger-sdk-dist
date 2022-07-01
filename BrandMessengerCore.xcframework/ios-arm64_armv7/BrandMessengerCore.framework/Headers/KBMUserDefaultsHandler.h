@@ -255,4 +255,6 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (BOOL)getDoNotAutosubscribeOnLaunch;
 
 + (void)setEncryptionDelegate:(id<KBMEncryptionDelegate>)delegate;
++ (void)setIdentifierForDeactivateQuickReply:(NSString*) identifier;
++ (NSString*)getIdentifierForDeactivateQuickReply;
 @end

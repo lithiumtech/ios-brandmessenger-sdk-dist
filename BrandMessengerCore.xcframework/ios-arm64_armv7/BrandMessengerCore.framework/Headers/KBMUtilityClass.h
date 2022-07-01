@@ -33,6 +33,10 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 /// @param dictionary Pass the JSON dictionary.
 + (NSString * _Nullable)generateJsonStringFromDictionary:(NSDictionary *)dictionary;
 
+/// This method is used for generating a JSON dictionary from string.
+/// @param jsonString Pass the JSON String.
++ (NSDictionary * _Nullable)generateDictionaryFromJsonString:(NSString *)jsonString;
+
 /// This method used for checking is current data is today or not.
 /// @param todayDate Pass the date.
 + (BOOL)isToday:(NSDate *)todayDate;

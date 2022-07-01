@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
-		NriDjP2uas7uQ/TxOOoVY8MHFfA=
+		YqH8G/A9e+3JzwXoeJNZ85Ndfjw=
 		</data>
 		<key>CreateGroupChat.storyboardc/CaI-s3-0mh-view-GuI-4l-BXU.nib</key>
 		<data>
@@ -162,7 +162,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Fy/rkaMdvq+lAiXOH+XeB0RsY8A=
+		+bM+2IMYFHi0077SHUhnsoYp7hQ=
 		</data>
 		<key>KBMAccountSuspensionView.nib</key>
 		<data>
@@ -222,27 +222,27 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		lPktrcubVx1lKOjc2VWU1r6cknk=
+		3rTZmUjk3yijzox9Eii7jsjykOw=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		MLg8JXS3lhKLWYgKRXrnZ2r7F2E=
+		AoNYrkDqPkShxsZ5fZ6gHrFwWtg=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		q23VPrEuL7kFiekZxpKjs23JKYc=
+		UPMaIyNHKxste4Du43dJOwHZfhs=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		iypaEWdbKaOUrFCwtFsn4hnF9ZM=
+		To3HN+D2z6hhI4tyc7tMM671ccA=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		k1EoUCSlg/7YMKMCpOxm1Jbkfe4=
+		/c/bZ5Ib3oQMXCnE7LxqOmceADk=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		rda+VGqVBrcCPNgDNrn/+DObRSY=
+		LImx9yPTFnpN/AGov2H/7oHxanA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -310,7 +310,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			opDq45YWqu0hJhBkO381mA2P82267kZn0pUnNTU7xXo=
+			mPm2AEXXOEe28YBBNFtw4AvQ90fUmXBBdqRJcMYbDYg=
 			</data>
 		</dict>
 		<key>CreateGroupChat.storyboardc/CaI-s3-0mh-view-GuI-4l-BXU.nib</key>
@@ -674,42 +674,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3MvR4h/0ITgq0J1NbThy9ln30MvKpP6k68J0rtmROZc=
+			af7PHgQdUeW4cd27vbAeUy9zn8fS9x7K2AH8RAKgbBc=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0m8Yofo/cP6IDaNWwYI/WCEfIVz6AViWjuOgZGs5th4=
+			EBFuE2XfKIpWf68XEhA5VCLU1I2VkquK5D7lXRNzRVY=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8eXNVhxE/+JA1KZFpG6qZa20AraROlxn4sJWtjY9PHE=
+			+0gf+v2pKjZyZjlERmxo4I8JqYyUNxCVCFzYwJh1ex0=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O6OEVBrLeXLPmGl8CyrLWHiYHrC5DA0AeyLSXa7aloI=
+			/2IS8fZwmYWKQdvNDMku8qhNpnNmsSeG7OYA3WghaJE=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gioU2VzsPMgHoJ0zmdDyMpFC3dt4FmMpx86O3/NAbM4=
+			A4GC4gkomxm1T1t0I3NYOwBrfr1PKsyq3HBbechrir0=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pjUjGf1F8G5cvAz/wMxyUJaxCTebLJ/l4g3w7ZDk+YM=
+			J9OTyvJvjSnMyIQeYevRTmroxFrgpQPOR43hyftGFAg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
