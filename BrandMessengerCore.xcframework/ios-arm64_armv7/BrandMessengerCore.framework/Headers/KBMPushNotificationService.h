@@ -68,6 +68,7 @@ static NSString *const BRAND_MESSANGER_PREFIX = @"BRANDMESSENGER_";
 + (void)applicationEntersForeground;
 + (void)userSync;
 - (BOOL)checkForLaunchNotification:(NSDictionary *)dictionary;
+- (void)clearDeliveredNotificationsFromNotificationCenter;
 - (NSDictionary * _Nullable)notificationTypes;
 @end
 

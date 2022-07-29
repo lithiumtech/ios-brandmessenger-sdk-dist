@@ -701,16 +701,16 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 
 
 
-
-
-
-
 @class CNContactPickerViewController;
 @class CNContact;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CNContactPickerDelegate>
 - (void)contactPicker:(CNContactPickerViewController * _Nonnull)_ didSelectContact:(CNContact * _Nonnull)contact;
 @end
+
+
+
+
 
 
 
@@ -776,6 +776,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI))
 - (void)loadingStarted;
 - (void)loadingFinishedWithError:(NSError * _Nullable)_;
+- (void)deleteQuickReplyMessageWithIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)newMessagesAdded;
 @end
 
@@ -793,6 +794,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMGenericCardCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 SWIFT_CLASS("_TtC16BrandMessengerUI24KBMIndexedCollectionView")
@@ -1759,16 +1761,16 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 
 
 
-
-
-
-
 @class CNContactPickerViewController;
 @class CNContact;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CNContactPickerDelegate>
 - (void)contactPicker:(CNContactPickerViewController * _Nonnull)_ didSelectContact:(CNContact * _Nonnull)contact;
 @end
+
+
+
+
 
 
 
@@ -1834,6 +1836,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI))
 - (void)loadingStarted;
 - (void)loadingFinishedWithError:(NSError * _Nullable)_;
+- (void)deleteQuickReplyMessageWithIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)newMessagesAdded;
 @end
 
@@ -1851,6 +1854,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMGenericCardCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 SWIFT_CLASS("_TtC16BrandMessengerUI24KBMIndexedCollectionView")

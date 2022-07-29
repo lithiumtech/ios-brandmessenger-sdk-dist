@@ -269,6 +269,7 @@ SWIFT_CLASS("_TtC14RichMessageKit11MessageView")
 @end
 
 
+
 @class NSString;
 
 SWIFT_CLASS("_TtC14RichMessageKit19ReceivedButtonsCell")
@@ -640,6 +641,7 @@ SWIFT_CLASS("_TtC14RichMessageKit11MessageView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
+
 
 
 @class NSString;

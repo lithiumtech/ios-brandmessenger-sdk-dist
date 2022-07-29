@@ -267,6 +267,7 @@ SWIFT_CLASS("_TtC14RichMessageKit11MessageView")
 @end
 
 
+
 @class NSString;
 
 SWIFT_CLASS("_TtC14RichMessageKit19ReceivedButtonsCell")

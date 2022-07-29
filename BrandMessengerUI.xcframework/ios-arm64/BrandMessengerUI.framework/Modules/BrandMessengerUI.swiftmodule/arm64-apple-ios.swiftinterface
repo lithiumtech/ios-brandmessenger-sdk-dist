@@ -206,8 +206,7 @@ extension BrandMessengerUI.KBMMessageCell : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func textView(_: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in _: Foundation.NSRange, interaction _: UIKit.UITextItemInteraction) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMMyMessageButtonCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) open class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class KBMNewChatViewController : BrandMessengerUI.KBMBaseViewController {
@@ -243,7 +242,7 @@ public class UploadTask {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMMyMessageQuickReplyCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -394,6 +393,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   func updateDisplay(contact: BrandMessengerCore.KBMContact?, channel: BrandMessengerCore.KBMChannel?)
   func willSendMessage()
   func updateTyingStatus(status: Swift.Bool, userId: Swift.String)
+  func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
 }
 @objc open class KBMConversationViewModel : ObjectiveC.NSObject {
   open var contactId: Swift.String? {
@@ -423,9 +423,11 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open var isOpenGroup: Swift.Bool {
     get
   }
+  public var messageArray: [BrandMessengerCore.KBMMessage]
   required public init(contactId: Swift.String?, channelKey: Foundation.NSNumber?, conversationProxy: BrandMessengerCore.KBMConversationProxy? = nil, localizedStringFileName: Swift.String!, prefilledMessage: Swift.String? = nil)
   public func prepareController()
   public func addToWrapper(message: BrandMessengerCore.KBMMessage)
+  public func removeFromWrapper(message: BrandMessengerCore.KBMMessage)
   open func groupProfileImgUrl() -> Swift.String
   open func groupName() -> Swift.String
   open func groupKey() -> Foundation.NSNumber?
@@ -441,7 +443,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func getContextTitleData() -> BrandMessengerUI.KBMContextTitleDataType?
   open func getMessageTemplates() -> [BrandMessengerUI.KBMTemplateMessageModel]?
   open func downloadAttachment(message: BrandMessengerUI.KBMMessageViewModel, view: UIKit.UIView)
-  open func addMessagesToList(_ messageList: [Any])
+  open func addMessagesToList(_ messageList: Foundation.NSMutableArray)
   open func markConversationRead()
   open func updateGroup(groupName: Swift.String, groupImage: Swift.String?, friendsAdded: [BrandMessengerUI.KBMFriendViewModel])
   open func updateDeliveryReport(messageKey: Swift.String, status: Swift.Int32)
@@ -805,25 +807,24 @@ extension BrandMessengerCore.KBMTopicDetail : BrandMessengerUI.KBMContextTitleDa
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMMyMessageCell : BrandMessengerUI.KBMMessageCell {
   @_Concurrency.MainActor(unsafe) open func setupStyle()
-  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel)
+  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, samePreviousMessageAuthor samePreviousAuthorMessage: Swift.Bool, sameNextMessageAuthor sameNextAuthorMessage: Swift.Bool)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMMyMessageListTemplateCell : BrandMessengerUI.KBMListTemplateCell {
-  @_Concurrency.MainActor(unsafe) override public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, deactivateQuickReplyView: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) override public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) override public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMFriendMessageListTemplateCell : BrandMessengerUI.KBMListTemplateCell {
-  @_Concurrency.MainActor(unsafe) override public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, deactivateQuickReplyView: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) override public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) override public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMListTemplateCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) public var templateSelected: ((_ text: Swift.String?, _ action: BrandMessengerUI.ListTemplate.Action, _ deactivate: Swift.Bool) -> Swift.Void)? {
+  @_Concurrency.MainActor(unsafe) public var templateSelected: ((_ text: Swift.String?, _ action: BrandMessengerUI.ListTemplate.Action) -> Swift.Void)? {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, deactivateQuickReplyView: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -868,13 +869,10 @@ public struct ListTemplate : Swift.Codable {
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMGenericCardCell : UIKit.UICollectionViewCell {
   public enum Config {
     public static let imageHeight: CoreGraphics.CGFloat
-    public static let spacing: CoreGraphics.CGFloat
-    public static let buttonStackViewSpacing: CoreGraphics.CGFloat
     public enum OverlayText {
       public static let width: CoreGraphics.CGFloat
       public static let height: CoreGraphics.CGFloat
     }
-    public static var descriptionMaxLines: Swift.Int
   }
   @_Concurrency.MainActor(unsafe) open var coverImageView: UIKit.UIImageView
   @_Concurrency.MainActor(unsafe) open var overlayText: UIKit.UILabel
@@ -884,17 +882,18 @@ public struct ListTemplate : Swift.Codable {
   @_Concurrency.MainActor(unsafe) open var descriptionLabel: BrandMessengerUI.VerticalAlignLabel
   @_Concurrency.MainActor(unsafe) open var titleStackView: UIKit.UIStackView
   @_Concurrency.MainActor(unsafe) open var buttonStackView: UIKit.UIStackView
-  @_Concurrency.MainActor(unsafe) open var buttonsBackground: UIKit.UIView
-  @_Concurrency.MainActor(unsafe) open var actionButtons: [UIKit.UIButton]
+  @_Concurrency.MainActor(unsafe) open var actionButtons: [RichMessageKit.CurvedImageButton]
   @_Concurrency.MainActor(unsafe) open var card: BrandMessengerUI.CardTemplate!
-  @_Concurrency.MainActor(unsafe) open var deactivated: Swift.Bool
-  @_Concurrency.MainActor(unsafe) open var buttonSelected: ((_ index: Swift.Int, _ name: Swift.String, _ card: BrandMessengerUI.CardTemplate, _ deactivatedQuickReply: Swift.Bool) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) open var buttonSelected: ((_ index: Swift.Int, _ name: Swift.String, _ card: BrandMessengerUI.CardTemplate) -> Swift.Void)?
   @objc override dynamic open func awakeFromNib()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) open class func rowHeight(card: BrandMessengerUI.CardTemplate, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
-  @_Concurrency.MainActor(unsafe) open func update(card: BrandMessengerUI.CardTemplate, deactivateQuickReply: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) open func update(card: BrandMessengerUI.CardTemplate)
   @objc deinit
+}
+extension BrandMessengerUI.KBMGenericCardCell : RichMessageKit.Tappable {
+  @_Concurrency.MainActor(unsafe) public func didTap(index: Swift.Int?, title: Swift.String)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class VerticalAlignLabel : UIKit.UILabel {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func textRect(forBounds bounds: CoreGraphics.CGRect, limitedToNumberOfLines: Swift.Int) -> CoreGraphics.CGRect
@@ -919,21 +918,19 @@ public protocol KBMConversationViewControllerDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) required public init?(coder _: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) override open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, deactivateQuickReply: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) open class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) override open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMMyGenericCardMessageCell : BrandMessengerUI.KBMGenericCardBaseCell {
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) required public init?(coder _: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) override open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, deactivateQuickReply: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) override open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMGenericCardBaseCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
   @_Concurrency.MainActor(unsafe) open var collectionView: BrandMessengerUI.KBMGenericCardCollectionView!
-  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, deactivateQuickReply: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
   @_Concurrency.MainActor(unsafe) public class func cardHeightFor(message: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) open func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: UIKit.UICollectionViewDataSource & UIKit.UICollectionViewDelegate, index: ObjectiveC.NSInteger)
@@ -1096,7 +1093,16 @@ public struct KBMChatBarConfiguration {
   }
   public var messageInputViewStyle: BrandMessengerUI.KBMChatBarConfiguration.KBMMessageInputViewStyle
   public var hideAboveLineView: Swift.Bool
+  public var typingViewStyle: BrandMessengerUI.KBMTypingViewStyle
   public mutating func set(attachmentIcon icon: UIKit.UIImage?, for type: BrandMessengerUI.AttachmentType)
+}
+public struct KBMTypingViewStyle {
+  public var backgroundColor: UIKit.UIColor
+  public var typingLabel: RichMessageKit.Style
+  public var typingViewMinimumHeight: CoreGraphics.CGFloat
+  public var hideTypingString: Swift.Bool
+  public var animationDuration: Foundation.TimeInterval
+  public var animationImages: [UIKit.UIImage]
 }
 extension BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions : Swift.Equatable {
   public static func == (lhs: BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions, rhs: BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions) -> Swift.Bool
@@ -1121,8 +1127,8 @@ extension BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions : Swift.Equ
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMFriendMessageQuickReplyCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, deactivateQuickReplyView: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool) -> CoreGraphics.CGFloat
   @objc deinit
 }
 extension BrandMessengerUI.KBMFriendMessageQuickReplyCell : RichMessageKit.Tappable {
@@ -1256,6 +1262,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   @_Concurrency.MainActor(unsafe) public func messageUpdated()
   @_Concurrency.MainActor(unsafe) public func updateMessageAt(indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) public func moveTableViewToBottom(indexPath: Foundation.IndexPath)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
   @objc @_Concurrency.MainActor(unsafe) dynamic open func newMessagesAdded()
   @_Concurrency.MainActor(unsafe) public func messageSent(at indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) public func updateDisplay(contact: BrandMessengerCore.KBMContact?, channel: BrandMessengerCore.KBMChannel?)
@@ -1922,6 +1929,10 @@ extension RichMessageKit.KBMRichMessageStyles {
   }
   public struct KBMCardStyle {
     public static var shared: RichMessageKit.KBMRichMessageStyles.KBMCardStyle
+    public var backgroundColor: UIKit.UIColor
+    public var cornerRadius: CoreGraphics.CGFloat
+    public var borderWidth: CoreGraphics.CGFloat
+    public var borderColor: CoreGraphics.CGColor
     public struct KBMCardOverlayLabel {
       public var textStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
@@ -1934,21 +1945,34 @@ extension RichMessageKit.KBMRichMessageStyles {
     public var ratingLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardRatingLabel
     public struct KBMCardTitleLabel {
       public var textStyle: RichMessageKit.Style
+      public var outerPadding: RichMessageKit.Padding
     }
     public var titleLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardTitleLabel
     public struct KBMCardSubtitleLabel {
       public var textStyle: RichMessageKit.Style
+      public var padding: RichMessageKit.Padding
     }
     public var subtitleLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardSubtitleLabel
     public struct KBMCardDescriptionLabel {
       public var textStyle: RichMessageKit.Style
+      public var padding: RichMessageKit.Padding
     }
     public var descriptionLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardDescriptionLabel
     public struct KBMCardActionButton {
       public var textStyle: RichMessageKit.Style
-      public var deactivatedTextStyle: RichMessageKit.Style
       public var backgroundColor: UIKit.UIColor
+      @available(*, deprecated, message: "Use padding instead")
       public var verticalPadding: CoreGraphics.CGFloat
+      public var spacing: CoreGraphics.CGFloat
+      public var cornerRadius: CoreGraphics.CGFloat
+      public var borderWidth: CoreGraphics.CGFloat
+      public var borderColor: CoreGraphics.CGColor
+      public var outerPadding: RichMessageKit.Padding
+      public var padding: RichMessageKit.Padding
+      public var linkIcon: UIKit.UIImage?
+      public var textImageSpace: CoreGraphics.CGFloat
+      public var imageSize: CoreGraphics.CGSize
+      public var disableImageTintColor: Swift.Bool
     }
     public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardActionButton
   }
