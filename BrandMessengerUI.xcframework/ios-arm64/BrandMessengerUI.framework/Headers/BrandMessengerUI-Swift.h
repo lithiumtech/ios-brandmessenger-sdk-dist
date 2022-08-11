@@ -463,7 +463,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI23DefaultAutoCompleteCell")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI10InsetLabel")
 @interface InsetLabel : UILabel
-- (void)drawTextInRect:(CGRect)_;
+- (void)drawTextInRect:(CGRect)rect;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;

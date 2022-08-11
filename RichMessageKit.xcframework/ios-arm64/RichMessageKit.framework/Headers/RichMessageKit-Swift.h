@@ -268,33 +268,6 @@ SWIFT_CLASS("_TtC14RichMessageKit11MessageView")
 
 
 
-@class NSString;
-
-SWIFT_CLASS("_TtC14RichMessageKit19ReceivedButtonsCell")
-@interface ReceivedButtonsCell : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
-@end
-
-
-
-/// FAQMessageCell for receiver side.
-/// It contains <code>FAQMessageView</code> and <code>ReceivedMessageView</code>
-/// It also contains <code>Config</code> which is used to configure views properties. Values can be changed for customizations.
-/// For handling button clicks of FAQMessage, use faqSelected property.
-SWIFT_CLASS("_TtC14RichMessageKit22ReceivedFAQMessageCell")
-@interface ReceivedFAQMessageCell : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC14RichMessageKit24ReceivedImageMessageCell")
-@interface ReceivedImageMessageCell : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
-@end
-
 
 /// Message view for receiver side.
 /// It contains <code>MessageView</code>, time, display name and image of receiver.
@@ -304,30 +277,6 @@ SWIFT_CLASS("_TtC14RichMessageKit19ReceivedMessageView")
 @interface ReceivedMessageView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC14RichMessageKit15SentButtonsCell")
-@interface SentButtonsCell : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
-@end
-
-
-/// FAQMessageCell for sender side.
-/// It contains <code>FAQMessageView</code> and <code>SentMessageView</code>
-/// It also contains <code>Config</code> which is used to configure views properties. Values can be changed for customizations.
-SWIFT_CLASS("_TtC14RichMessageKit18SentFAQMessageCell")
-@interface SentFAQMessageCell : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC14RichMessageKit20SentImageMessageCell")
-@interface SentImageMessageCell : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 @end
 
 

@@ -870,12 +870,11 @@ public struct ListTemplate : Swift.Codable {
   public enum Config {
     public static let imageHeight: CoreGraphics.CGFloat
     public enum OverlayText {
-      public static let width: CoreGraphics.CGFloat
-      public static let height: CoreGraphics.CGFloat
+      public static let zeroHeight: CoreGraphics.CGFloat
     }
   }
   @_Concurrency.MainActor(unsafe) open var coverImageView: UIKit.UIImageView
-  @_Concurrency.MainActor(unsafe) open var overlayText: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) open var overlayText: BrandMessengerUI.InsetLabel
   @_Concurrency.MainActor(unsafe) open var ratingLabel: UIKit.UILabel
   @_Concurrency.MainActor(unsafe) open var titleLabel: UIKit.UILabel
   @_Concurrency.MainActor(unsafe) open var subtitleLabel: UIKit.UILabel
@@ -903,7 +902,7 @@ extension BrandMessengerUI.KBMGenericCardCell : RichMessageKit.Tappable {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class InsetLabel : UIKit.UILabel {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func drawText(in _: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func drawText(in rect: CoreGraphics.CGRect)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
     @_Concurrency.MainActor(unsafe) @objc get
   }
@@ -1294,6 +1293,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KB
       get
     }
   }
+  @_Concurrency.MainActor(unsafe) public var avatarImageView: UIKit.UIImageView
   @_Concurrency.MainActor(unsafe) public func setLocalizedStringFileName(_ localizedStringFileName: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
     @_Concurrency.MainActor(unsafe) @objc get
@@ -1935,8 +1935,10 @@ extension RichMessageKit.KBMRichMessageStyles {
     public var borderColor: CoreGraphics.CGColor
     public struct KBMCardOverlayLabel {
       public var textStyle: RichMessageKit.Style
+      public var textAlignment: UIKit.NSTextAlignment
       public var backgroundColor: UIKit.UIColor
       public var shadowColor: CoreGraphics.CGColor
+      public var padding: RichMessageKit.Padding
     }
     public var overlayLabel: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardOverlayLabel
     public struct KBMCardRatingLabel {
