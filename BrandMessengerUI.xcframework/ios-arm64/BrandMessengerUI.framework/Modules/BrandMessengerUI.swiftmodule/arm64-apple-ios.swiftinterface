@@ -53,6 +53,7 @@ public protocol KBMConversationListDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) override open func showAccountSuspensionView()
 }
 extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerCore.KBMMessagesDelegate {
@@ -439,6 +440,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func getSizeForItemAt(row _: Swift.Int, withData: [Swift.String : Any]) -> CoreGraphics.CGSize
   open func messageForRow(identifier: Swift.String) -> BrandMessengerUI.KBMMessageViewModel?
   open func heightForRow(indexPath: Foundation.IndexPath, cellFrame _: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration) -> CoreGraphics.CGFloat
+  open func resetServerCallFlags()
   open func nextPage()
   open func getContextTitleData() -> BrandMessengerUI.KBMContextTitleDataType?
   open func getMessageTemplates() -> [BrandMessengerUI.KBMTemplateMessageModel]?
@@ -635,7 +637,7 @@ extension UIKit.UIColor {
   public enum ActionType {
     case sendText(UIKit.UIButton, Foundation.NSAttributedString)
     case chatBarTextBeginEdit
-    case chatBarTextChange(UIKit.UIButton)
+    case chatBarTextChange(UIKit.UIButton, Swift.String)
     case sendVoice(Foundation.NSData)
     case startVideoRecord
     case startVoiceRecord
@@ -1416,10 +1418,13 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   public static func setDefaultConfiguration(_ config: BrandMessengerUI.KBMConfiguration)
   @objc public static func getTotalUnreadCount(complete: @escaping (_ count: Swift.UInt, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func login(_ accessToken: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func loginWithJWT(_ jwt: Swift.String, userId: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func show(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func showWithWelcome(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func getDefaultAgentId() -> Swift.String
   @objc public class func setAuthenticationDelegate(_ del: BrandMessengerCore.KBMAuthenticationDelegate)
+  @objc public class func setJWTAuthenticationDelegate(_ del: BrandMessengerCore.KBMJWTAuthenticationDelegate)
+  public class func setRichMessageButtonStyleDelegate(_ delegate: RichMessageKit.KBMRichButtonStyleDelegate)
   @objc public class func isAuthenticated(completion: @escaping (_ response: Swift.Bool) -> Swift.Void)
   @objc public class func setRegion(_ region: Swift.String)
   @objc public class func useDebugUser(_ use: Swift.Bool)
@@ -1789,6 +1794,7 @@ public struct CardTemplate : Swift.Codable {
     public let updateLanguage: Swift.String?
     public let formAction: Swift.String?
     public let requestType: Swift.String?
+    public let postbackMetadata: Swift.String?
     public let formData: BrandMessengerUI.CardTemplate.FormData?
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws

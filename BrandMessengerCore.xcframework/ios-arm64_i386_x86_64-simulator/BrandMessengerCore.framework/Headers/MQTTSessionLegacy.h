@@ -84,7 +84,7 @@
  securityPolicy:securityPolicy
  certificates:certificates];
  
- [session connectToHost:@"example-1234" port:1883 usingSSL:YES];
+ [session connectToHost:@"example-1234" port:8883 usingSSL:YES];
  @endcode
  */
 - (MQTTSession *)initWithClientId:(NSString *)clientId

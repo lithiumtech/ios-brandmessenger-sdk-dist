@@ -145,6 +145,10 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (void)setMQTTPort:(NSString *)portNumber;
 + (NSString *)getMQTTPort;
 
++ (void)setMQTTProtocol:(NSString *)protocol;
++ (NSString *)getMQTTProtocol;
++ (BOOL)isMQTTTLS;
+
 + (void)setUserTypeId:(short)type;
 + (short)getUserTypeId;
 
@@ -257,4 +261,10 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (void)setEncryptionDelegate:(id<KBMEncryptionDelegate>)delegate;
 + (void)setHideQuickReply:(NSString*) identifier;
 + (BOOL)getHideQuickReply:(NSString*) identifier;
+
++ (void)setFetchNewOnChatOpen:(BOOL)enable;
++ (BOOL)getFetchNewOnChatOpen;
+
++ (void)setUsePersistentMessagesStorage:(BOOL)enable;
++ (BOOL)getUsePersistentMessagesStorage;
 @end

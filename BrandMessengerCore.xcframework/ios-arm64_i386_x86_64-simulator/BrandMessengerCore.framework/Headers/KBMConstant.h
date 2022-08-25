@@ -11,6 +11,7 @@
 #define MQTT_URL ([KBMUserDefaultsHandler getMQTTURL])
 #define KBASE_FILE_URL ([KBMUserDefaultsHandler getFILEURL])
 #define MQTT_PORT ([KBMUserDefaultsHandler getMQTTPort])
+#define MQTT_IS_TLS ([KBMUserDefaultsHandler isMQTTTLS])
 
 NS_ASSUME_NONNULL_BEGIN
 
