@@ -279,7 +279,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @class NSError;
 @class KBMRegistrationResponse;
 @protocol KBMAuthenticationDelegate;
-@protocol KBMJWTAuthenticationDelegate;
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
@@ -395,8 +394,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
-/// Login using jwt
-+ (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
 /// Start conversation with default agent
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
@@ -409,8 +406,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (NSString * _Nonnull)getDefaultAgentId SWIFT_WARN_UNUSED_RESULT;
 /// convenience to set authenticationdelegate.
 + (void)setAuthenticationDelegate:(id <KBMAuthenticationDelegate> _Nonnull)del;
-/// convenience to set JWT authenticationdelegate.
-+ (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 /// Call to set region. Determines the domains this app connects to.
 /// \param region US or APAC. Default when not set is APAC.
@@ -1345,7 +1340,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @class NSError;
 @class KBMRegistrationResponse;
 @protocol KBMAuthenticationDelegate;
-@protocol KBMJWTAuthenticationDelegate;
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
@@ -1461,8 +1455,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
-/// Login using jwt
-+ (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
 /// Start conversation with default agent
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
@@ -1475,8 +1467,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (NSString * _Nonnull)getDefaultAgentId SWIFT_WARN_UNUSED_RESULT;
 /// convenience to set authenticationdelegate.
 + (void)setAuthenticationDelegate:(id <KBMAuthenticationDelegate> _Nonnull)del;
-/// convenience to set JWT authenticationdelegate.
-+ (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 /// Call to set region. Determines the domains this app connects to.
 /// \param region US or APAC. Default when not set is APAC.

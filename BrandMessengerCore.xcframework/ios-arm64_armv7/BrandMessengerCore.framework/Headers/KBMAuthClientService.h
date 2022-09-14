@@ -19,13 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)onRefreshFail:(void (^)(NSString* accessToken))completion;
 @end
 
-/// Delegate protocol for JWT authentication events.
-/// refresh/token failure will call onRefreshFail. Calling completion with new accessToken will re-login and process pending action.
-@protocol KBMJWTAuthenticationDelegate <NSObject>
-@required
--(void)onRefreshFailWithJWT:(void (^)(NSString* jwt, NSString* userId))completion;
-@end
-
 /// `KBMAuthClientService` class is has methods for JWT token.
 /// @warning `KBMAuthClientService` class used only for internal purposes.
 @interface KBMAuthClientService : NSObject
@@ -38,23 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Set authenticationDelegate to catch KBMAuthenticationDelegate events
 + (void)setAuthenticationDelegate:(NSObject<KBMAuthenticationDelegate>*) delegate;
 
-/// Set JWT authenticationDelegate to catch KBMJWTAuthenticationDelegate events
-+ (void)setJWTAuthenticationDelegate:(NSObject<KBMJWTAuthenticationDelegate>*) delegate;
-
-/// Auth. Calls authHandler with dictionary. Used by
-/// + (void)preRegistrationAuth:(NSString*)accessToken withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
-/// and
-/// + (void) preRegistrationAuthWithJwt:(NSString*)jwt userId:(NSString*)userId withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion
-/// @note responseDictionary expects at least 'id' and 'token', to use as username and password in subsequent login call.
-+ (void) preRegistrationAuthWithAuthDictionary:(NSDictionary*)authDictionary withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
-
-/// Auth. Calls authHandler with accessToken.
+/// first part of new auth. Calls authHandler with accessToken.
 /// @note responseDictionary expects at least 'id' and 'token', to use as username and password in subsequent login call.
 + (void)preRegistrationAuth:(NSString*)accessToken withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
-
-/// Auth. Calls authHandler with jwt and userId
-/// @note responseDictionary expects at least 'id' and 'token', to use as username and password in subsequent login call.
-+ (void) preRegistrationAuthWithJwt:(NSString*)jwt userId:(NSString*)userId withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
 
 /// second part of new auth. Calls register(login) to applozic with credentials from preRegistrationAuth.
 + (void)loginFromAuthHandlerResponse:(NSDictionary*)response withCompletion:(void (^)(KBMRegistrationResponse * _Nullable response, NSError * _Nullable error))completion;

@@ -6,19 +6,19 @@
 	<dict>
 		<key>BrandMessengerCore.momd/AppLozic 10.mom</key>
 		<data>
-		e5cSftgol3AQ1pbJ2TWGgZP0Ivs=
+		soOr1+9+w45JGnbnfOr7qYTjhcA=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 11.mom</key>
 		<data>
-		O3FkpWM0iKGvrTDTVyl6f1HykX4=
+		deLuLN/K+oWHmo1LZRIykaxzcrc=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 12.mom</key>
 		<data>
-		oEVN+ARwgH0AdyQhHTWhQQtoupY=
+		YD3Fl62AfIe/VVi9fAu+KZqacEE=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 13.mom</key>
 		<data>
-		SonpkYLGaC1GuihcVm+YOvZ4Nc4=
+		rjUBkZmMc78NJ+K67Y9JiuUS98s=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 13.omo</key>
 		<data>
@@ -26,43 +26,43 @@
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 2.mom</key>
 		<data>
-		bSLQn+ygYgPw0uK+Re7gkH/JzaQ=
+		nGDMWBnNTH/4XIfjIlPwBwvf0HM=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 3.mom</key>
 		<data>
-		JPmtZ9p8h3Vh1etlzpVLrCJn/fI=
+		odLe68V476c8qStkJG18BKPFUe0=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 4.mom</key>
 		<data>
-		BHJjYC1z4PQvCIP4TyhUldddE4k=
+		rJR6km14k/K7r1cklqIwOzLiT9w=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 5.mom</key>
 		<data>
-		8yShJezUkmVxiOTYsBZtSIxWFMI=
+		wCJ3nYRpaH2WQ6BIrbxERNlFNc4=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 6.mom</key>
 		<data>
-		ije1VNoEsmkP/xtWOpbWQkFw7Gw=
+		Gnodbk0Nh/zpj7IXqqKFPRhHSCU=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 7.mom</key>
 		<data>
-		G4SW0m2CTxP2CReJiVDAAkV8oS0=
+		kFANw1jeUOSLA9h0ncRfaGM2L3E=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 8.mom</key>
 		<data>
-		T2NxtneGjNYUoKm/OhET5idrb9s=
+		q4zwyY7l5+J0GlUfYCSLklGDhGw=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 9.mom</key>
 		<data>
-		JHfB20wsly5hYCdVuqSRNTuaKvg=
+		NvBdcQVeL4YWBl2NOeF/7bDwidE=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic.mom</key>
 		<data>
-		qryUaA9P9OTzbxByL0RzH7JQ1Zs=
+		jjyHNiVCVcn7jrZVVEA7AUu9WYM=
 		</data>
 		<key>BrandMessengerCore.momd/VersionInfo.plist</key>
 		<data>
-		hVQ+inix5uYce3GuV81bvLgZgrs=
+		qBQNNGqcJ3ocTlwnHoPVoJZ8pt8=
 		</data>
 		<key>Headers/BrandMessengerClient.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/BrandMessengerSettings.h</key>
 		<data>
-		tuNTLTaOONO57uP/mXyqKtan66c=
+		Hihaiq0xM1XWoze24l++ZktksJ4=
 		</data>
 		<key>Headers/DB_CHANNEL.h</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Headers/KBMAuthClientService.h</key>
 		<data>
-		lq8rVuM/ClNB8s9D7zwhuwqtLJg=
+		f/0ecvxbCBTgXfcp/kSyZMzfolI=
 		</data>
 		<key>Headers/KBMAuthService.h</key>
 		<data>
@@ -410,7 +410,7 @@
 		</data>
 		<key>Headers/KBMUserDefaultsHandler.h</key>
 		<data>
-		u61GcD6fLeOeGHWOtpSWQ/MmdN0=
+		c8pPhpNBb7wh//Afju63e/xu32s=
 		</data>
 		<key>Headers/KBMUserDetail.h</key>
 		<data>
@@ -534,11 +534,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		O6EKd4Fgzuy1UfKRc3nyGsmsnsA=
+		mlsG47V2f/DtEYFIdeBeuM0YUXE=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
-		K78/ivJtcuaHnspQmmbviz3gejM=
+		GebCyMPgwgNkn1++NwdRCxnMG+I=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.omo</key>
 		<data>
@@ -563,44 +563,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e5cSftgol3AQ1pbJ2TWGgZP0Ivs=
+			soOr1+9+w45JGnbnfOr7qYTjhcA=
 			</data>
 			<key>hash2</key>
 			<data>
-			kpCM7HwUTiwYly7VXuyOW1Wv5T1lSviGmKQ70arGxEw=
+			TRz8myegCXj2lndo1q2QLkn8JUoHUz6RiDtfXJZl+Zs=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 11.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O3FkpWM0iKGvrTDTVyl6f1HykX4=
+			deLuLN/K+oWHmo1LZRIykaxzcrc=
 			</data>
 			<key>hash2</key>
 			<data>
-			eNb/WLu98qklODZZAA9Ibn53rhjUXRKnBRqOSiuHPUY=
+			yAbxMOQPLaNDiSVsTkdpt6CujSRZSzCCaleFnhMm58c=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 12.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oEVN+ARwgH0AdyQhHTWhQQtoupY=
+			YD3Fl62AfIe/VVi9fAu+KZqacEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			bjlqBh2q9XHt467geTzx6XD6Rx2vC7fftVKFFNu+Rt0=
+			uSCATmL9jYOqodjyH6Tuphk/vjY+v9fdCwl6iyHeOxQ=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 13.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SonpkYLGaC1GuihcVm+YOvZ4Nc4=
+			rjUBkZmMc78NJ+K67Y9JiuUS98s=
 			</data>
 			<key>hash2</key>
 			<data>
-			yYbKTQgNMr8ZSdhIGbwvVC7/yJdKGBruab8QGao1+qg=
+			Zd04Dm3g3xf2D82pAkzW7BZCVda8lEk2aDeodr61Ix4=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 13.omo</key>
@@ -618,110 +618,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bSLQn+ygYgPw0uK+Re7gkH/JzaQ=
+			nGDMWBnNTH/4XIfjIlPwBwvf0HM=
 			</data>
 			<key>hash2</key>
 			<data>
-			yhazJF8F5lNpdWOWpnm5TAQUGilR0guhneEmDMA9GyU=
+			c7wBpzz8zDitWmqoOUjeKfnoIoXjD8EYzeC2mEAH6D4=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 3.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JPmtZ9p8h3Vh1etlzpVLrCJn/fI=
+			odLe68V476c8qStkJG18BKPFUe0=
 			</data>
 			<key>hash2</key>
 			<data>
-			MLInA1dvQM78zuo/bNVteCULx/0OG9kj8axSutUMJ0w=
+			M1jxFpfkgUzYIxLq1cctzUkrEHygfpv3hRGMG+mLP6Q=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 4.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BHJjYC1z4PQvCIP4TyhUldddE4k=
+			rJR6km14k/K7r1cklqIwOzLiT9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			xwd91Z0CP4JlsRoxbR3rLO0HoaUFKlTQS4BJzD+tGIg=
+			mdUu3ZuU9GA6b5NEUuCR1Lz8v+MjQyZtSuU691HRA0U=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 5.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8yShJezUkmVxiOTYsBZtSIxWFMI=
+			wCJ3nYRpaH2WQ6BIrbxERNlFNc4=
 			</data>
 			<key>hash2</key>
 			<data>
-			+oqZera+djpSPOvMaQ6bXjqZo9s9fuO9SkKjg60l0N0=
+			oH76dc4KEGfEBvrzS6x3yEDbwOJ6S9HZfUNY2Ezqd9M=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 6.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ije1VNoEsmkP/xtWOpbWQkFw7Gw=
+			Gnodbk0Nh/zpj7IXqqKFPRhHSCU=
 			</data>
 			<key>hash2</key>
 			<data>
-			GNlsV7tNU9xJJgYNgekEmtkV9996ijw5q6obqWxGthc=
+			MozsLEHB2/5ZdalJDZZ3grzVa66f1M6r+WMUaOX0Dg0=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 7.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			G4SW0m2CTxP2CReJiVDAAkV8oS0=
+			kFANw1jeUOSLA9h0ncRfaGM2L3E=
 			</data>
 			<key>hash2</key>
 			<data>
-			4fjQVv2gW3HOh6YpkC0gp7Vf249cIHFSME1LLsGtuBs=
+			GGub++WyiT1dmjhIcOzca+TdieKSDp0P32pFXPOkRkE=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 8.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T2NxtneGjNYUoKm/OhET5idrb9s=
+			q4zwyY7l5+J0GlUfYCSLklGDhGw=
 			</data>
 			<key>hash2</key>
 			<data>
-			PGbHq5Ef5oItftezrUS+xC2fytQHkNTccHJFIqCp7hw=
+			LkkwkebF6I5reIZSFarlLop+kCG5OOC/F4pcjq7R+Ak=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 9.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JHfB20wsly5hYCdVuqSRNTuaKvg=
+			NvBdcQVeL4YWBl2NOeF/7bDwidE=
 			</data>
 			<key>hash2</key>
 			<data>
-			ArEBUyGlBkMsVbtSg3RdagsDZJWwXGDsnxTWaEuYMp0=
+			yXMC/LYuMxMLoM0P8cvWLlXw8a3gru0x5/rLF3IKJpU=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qryUaA9P9OTzbxByL0RzH7JQ1Zs=
+			jjyHNiVCVcn7jrZVVEA7AUu9WYM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zq821Mynr4Rr8N2XF7F1x34PsFrMQOzAAo7KUB0tS4E=
+			BQkFWvhpFETJw28fs8U6gr/ZfFUkDin3dsLDyuTSkR4=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/VersionInfo.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hVQ+inix5uYce3GuV81bvLgZgrs=
+			qBQNNGqcJ3ocTlwnHoPVoJZ8pt8=
 			</data>
 			<key>hash2</key>
 			<data>
-			kkq3p9J86AK/srO99Z8HRmkLYhGV7m9G9WPT7B2Z0HM=
+			dAYqb0gJrDxKzoV+HUUxMF/Tvx8gDsXK5h1OavaSE8c=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerClient.h</key>
@@ -750,11 +750,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tuNTLTaOONO57uP/mXyqKtan66c=
+			Hihaiq0xM1XWoze24l++ZktksJ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			DvJNJ0EezrUQQDIk0ztyeahDAo2znBCnFSOdYE/5SHM=
+			0gsAbCivMUHZdPEKyJCQp2FpwcQqfUbYlJtFxeXCn3Q=
 			</data>
 		</dict>
 		<key>Headers/DB_CHANNEL.h</key>
@@ -871,11 +871,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lq8rVuM/ClNB8s9D7zwhuwqtLJg=
+			f/0ecvxbCBTgXfcp/kSyZMzfolI=
 			</data>
 			<key>hash2</key>
 			<data>
-			IelUHIP/91ia9upBtVt1csxmXfQcQs/3fODWwyaqG4A=
+			8uio7x3zwAIC5fH1sVAGrW4/9hXUcFH9t3OR4XLNxxw=
 			</data>
 		</dict>
 		<key>Headers/KBMAuthService.h</key>
@@ -1674,11 +1674,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			u61GcD6fLeOeGHWOtpSWQ/MmdN0=
+			c8pPhpNBb7wh//Afju63e/xu32s=
 			</data>
 			<key>hash2</key>
 			<data>
-			3gQK+m20nPoDb40sPmUay+yEJhveJqQvvhT+yAxsrqg=
+			FjEgXgEwnP9HNTXIFgyv6jh0dG+TE8UNgaYxpctMpT4=
 			</data>
 		</dict>
 		<key>Headers/KBMUserDetail.h</key>
@@ -2015,11 +2015,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			K78/ivJtcuaHnspQmmbviz3gejM=
+			GebCyMPgwgNkn1++NwdRCxnMG+I=
 			</data>
 			<key>hash2</key>
 			<data>
-			E+XfgKfB2LhVqXwJ2R2B07uPQkJuxUQRJCH6yl7QN7o=
+			e/LNxckeAwt26NYxb4Z62glp3N6bQpkKdxtMV3NsSk4=
 			</data>
 		</dict>
 		<key>MQTTClient.momd/MQTTClient.omo</key>

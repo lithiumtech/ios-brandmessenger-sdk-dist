@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+static NSString *const KBM_MESSAGE_META_DATA_KEY = @"com.brandmessenger.KBM_MESSAGE_META_DATA_KEY";
+
 /// `BrandMessengerSettings` is settings class for BrandMessengerUI Pre-build UI
 @interface BrandMessengerSettings : NSObject
 
