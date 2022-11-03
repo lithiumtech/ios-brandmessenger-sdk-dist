@@ -66,7 +66,6 @@ FOUNDATION_EXPORT const unsigned char BrandMessengerCoreVersionString[];
 #import "KBMMessageInfoResponse.h"
 #import "KBMMessageList.h"
 #import "KBMMessageService.h"
-#import "KBMMessageServiceWrapper.h"
 #import "KBMMQTTConversationService.h"
 #import "KBMMuteRequest.h"
 #import "KBMNotificationView.h"

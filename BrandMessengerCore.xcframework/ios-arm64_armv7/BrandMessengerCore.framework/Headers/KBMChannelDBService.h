@@ -112,8 +112,4 @@
 
 - (NSError *)deleteMembers:(NSNumber *)key;
 
-- (DB_CHANNEL_USER_X *)getChannelUserX:(NSNumber *)channelKey DEPRECATED_ATTRIBUTE;
-
-- (KBMChannelUserX *)loadChannelUserX:(NSNumber *)channelKey DEPRECATED_ATTRIBUTE;
-
 @end

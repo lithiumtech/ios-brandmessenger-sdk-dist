@@ -45,14 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param message An message text to show in notification.
 + (void)showNotification:(NSString *)message;
 
-/// Shows promotional notification.
-/// @param text An text to show in local notification.
-+ (void)showPromotionalNotifications:(NSString *)text;
-
-/// Showing information notification.
-/// @param text An message text to show in notification.
-+ (void)showLocalNotification:(NSString *)text DEPRECATED_MSG_ATTRIBUTE("Use showNotification: instead");
-
 @end
 
 NS_ASSUME_NONNULL_END

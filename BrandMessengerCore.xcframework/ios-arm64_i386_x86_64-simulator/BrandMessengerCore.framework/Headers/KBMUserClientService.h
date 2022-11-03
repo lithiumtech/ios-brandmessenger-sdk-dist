@@ -75,6 +75,4 @@
 
 - (void)reportUserWithMessageKey:(NSString *)messageKey withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
 
-- (void)readCallResettingUnreadCountWithCompletion:(void (^)(NSString *jsonResponse, NSError *error))completion DEPRECATED_ATTRIBUTE;
-
 @end

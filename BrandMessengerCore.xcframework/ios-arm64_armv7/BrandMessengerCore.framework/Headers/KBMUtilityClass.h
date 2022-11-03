@@ -45,13 +45,6 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 /// @param filePath Pass the name of file.
 + (NSString * _Nullable)fileMIMEType:(NSString *)filePath;
 
-/// This method used for size of text given the max width, font name and font size.
-/// @param text Pass the message tex.
-/// @param width Pass the max width.
-/// @param fontName Pass the font name.
-/// @param fontSize Pass the size of font.
-+ (CGSize)getSizeForText:(NSString *)text maxWidth:(CGFloat)width font:(NSString *)fontName fontSize:(float)fontSize;
-
 /// This method used for geeting location URL.
 /// @param message Pass the `KBMMessage` object.
 + (NSString *)getLocationURL:(KBMMessage *)message;

@@ -173,12 +173,6 @@ typedef enum {
 /// For internal use only.
 + (CONVERSATION_CATEGORY)getConversationCategory:(NSDictionary *)metadata;
 
-/// :nodoc:
-@property (nonatomic, copy) NSManagedObjectID *channelDBObjectId DEPRECATED_ATTRIBUTE;
-
-/// :nodoc:
-@property (nonatomic, strong) KBMConversationProxy *conversationProxy DEPRECATED_ATTRIBUTE;
-
 @end
 
 NS_ASSUME_NONNULL_END

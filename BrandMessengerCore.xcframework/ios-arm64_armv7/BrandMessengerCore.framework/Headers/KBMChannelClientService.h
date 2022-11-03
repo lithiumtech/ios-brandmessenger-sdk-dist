@@ -24,16 +24,6 @@
 
 @property (nonatomic, strong) KBMResponseHandler *responseHandler;
 
-- (void)createChannel:(NSString *)channelName
-  andParentChannelKey:(NSNumber *)parentChannelKey
-   orClientChannelKey:(NSString *)clientChannelKey
-       andMembersList:(NSMutableArray *)memberArray
-         andImageLink:(NSString *)imageLink
-          channelType:(short)type
-          andMetaData:(NSMutableDictionary *)metaData
-            adminUser:(NSString *)adminUserId
-       withCompletion:(void(^)(NSError *error, KBMChannelCreateResponse *response))completion DEPRECATED_MSG_ATTRIBUTE("Use createChannelWithChannelInfo:withCompletion from KBMChannelService instead");
-
 - (void)addMemberToChannel:(NSString *)userId
         orClientChannelKey:(NSString *)clientChannelKey
              andChannelKey:(NSNumber *)channelKey
@@ -146,9 +136,5 @@
            adminUser :(NSString *)adminUserId
       withGroupUsers :(NSMutableArray *)groupRoleUsers
        withCompletion:(void(^)(NSError *error, KBMChannelCreateResponse *response))completion;
-
-- (void)getChannelInfo:(NSNumber *)channelKey
-    orClientChannelKey:(NSString *)clientChannelKey
-        withCompletion:(void(^)(NSError *error, KBMChannel *channel)) completion DEPRECATED_MSG_ATTRIBUTE("Use getChannelInformationByResponse:orClientChannelKey:withCompletion from KBMChannelService instead");
 
 @end

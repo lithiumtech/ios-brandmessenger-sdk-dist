@@ -17,7 +17,6 @@ import PhotosUI
 import RichMessageKit
 import SafariServices
 import Swift
-import SwipeCellKit
 import UIKit
 import WebKit
 import _Concurrency
@@ -330,12 +329,14 @@ extension BrandMessengerUI.KBMTemplateMessageModel {
 public protocol KBMWebViewNativeDelegate : AnyObject {
   func webViewNativeEvent(eventName: Swift.String, eventJSONString: Swift.String?, messageKey: Swift.String)
 }
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMWebViewController : UIKit.UIViewController, WebKit.WKNavigationDelegate {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMWebViewController : BrandMessengerUI.KBMBaseViewController, WebKit.WKNavigationDelegate {
   @_Concurrency.MainActor(unsafe) weak public static var delegate: BrandMessengerUI.KBMWebViewNativeDelegate?
+  @_Concurrency.MainActor(unsafe) required public init(configuration: BrandMessengerUI.KBMConfiguration)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc public func webView(_: WebKit.WKWebView, didFail _: WebKit.WKNavigation!, withError _: Swift.Error)
-  @_Concurrency.MainActor(unsafe) @objc public func webView(_: WebKit.WKWebView, didFinish _: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webview: WebKit.WKWebView, didFail _: WebKit.WKNavigation!, withError _: Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webview: WebKit.WKWebView, didFinish _: WebKit.WKNavigation!)
+  @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
   @objc deinit
 }
 extension BrandMessengerUI.KBMWebViewController : WebKit.WKScriptMessageHandler {
@@ -440,6 +441,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func getSizeForItemAt(row _: Swift.Int, withData: [Swift.String : Any]) -> CoreGraphics.CGSize
   open func messageForRow(identifier: Swift.String) -> BrandMessengerUI.KBMMessageViewModel?
   open func heightForRow(indexPath: Foundation.IndexPath, cellFrame _: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration) -> CoreGraphics.CGFloat
+  open func resetServerCallFlags()
   open func nextPage()
   open func getContextTitleData() -> BrandMessengerUI.KBMContextTitleDataType?
   open func getMessageTemplates() -> [BrandMessengerUI.KBMTemplateMessageModel]?
@@ -1283,6 +1285,10 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KB
   @_Concurrency.MainActor(unsafe) @objc dynamic public func reloadData(forUserBlockNotification _: Swift.String, andBlockFlag _: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func updateUserDetail(_ userId: Swift.String)
 }
+extension BrandMessengerUI.KBMConversationViewController : CoreLocation.CLLocationManagerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: Swift.Error)
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMChatBaseCell<T> : BrandMessengerUI.KBMBaseCell<T> {
   public enum MenuOption {
     case copy
@@ -1417,10 +1423,13 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   public static func setDefaultConfiguration(_ config: BrandMessengerUI.KBMConfiguration)
   @objc public static func getTotalUnreadCount(complete: @escaping (_ count: Swift.UInt, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func login(_ accessToken: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func loginWithJWT(_ jwt: Swift.String, userId: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func show(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func showWithWelcome(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func getDefaultAgentId() -> Swift.String
   @objc public class func setAuthenticationDelegate(_ del: BrandMessengerCore.KBMAuthenticationDelegate)
+  @objc public class func setJWTAuthenticationDelegate(_ del: BrandMessengerCore.KBMJWTAuthenticationDelegate)
+  public class func setRichMessageButtonStyleDelegate(_ delegate: RichMessageKit.KBMRichButtonStyleDelegate)
   @objc public class func isAuthenticated(completion: @escaping (_ response: Swift.Bool) -> Swift.Void)
   @objc public class func setRegion(_ region: Swift.String)
   @objc public class func useDebugUser(_ use: Swift.Bool)
@@ -1488,8 +1497,10 @@ extension BrandMessengerUI.KBMConversationListTableViewController {
 extension BrandMessengerUI.KBMConversationListTableViewController {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
 }
-extension BrandMessengerUI.KBMConversationListTableViewController : SwipeCellKit.SwipeTableViewCellDelegate {
-  @_Concurrency.MainActor(unsafe) public func tableView(_: UIKit.UITableView, editActionsForRowAt indexPath: Foundation.IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]?
+extension BrandMessengerUI.KBMConversationListTableViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, editingStyleForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell.EditingStyle
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: Foundation.IndexPath) -> UIKit.UISwipeActionsConfiguration?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: Foundation.IndexPath) -> UIKit.UISwipeActionsConfiguration?
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMIndexedCollectionView : UIKit.UICollectionView {
   @_Concurrency.MainActor(unsafe) open var indexPath: Foundation.IndexPath!
@@ -1596,8 +1607,6 @@ public struct KBMConfiguration {
   public var localizedStringFileName: Swift.String
   public var sendMessageIcon: UIKit.UIImage?
   public var defaultAvatar: UIKit.UIImage?
-  @available(*, deprecated, message: "Use navigationItemsForConversationView instead")
-  public var rightNavBarImageForConversationView: UIKit.UIImage?
   public var rightNavBarSystemIconForConversationView: UIKit.UIBarButtonItem.SystemItem
   public var hideRightNavBarButtonForConversationView: Swift.Bool
   public var hideBackButtonInConversationList: Swift.Bool
@@ -1635,37 +1644,7 @@ public struct KBMConfiguration {
   public var disableAddParticipantButton: Swift.Bool
   public var channelDetail: BrandMessengerUI.KBMChannelDetailViewConfiguration
   public var conversationViewControllerBackIcon: UIKit.UIImage?
-  @available(*, deprecated, message: "Use .chatBar.optionsToShow instead")
-  public var hideContactInChatBar: Swift.Bool {
-    get
-    set
-  }
-  @available(*, deprecated, message: "Use .chatBar.optionsToShow instead")
-  public var hideAllOptionsInChatBar: Swift.Bool {
-    get
-    set
-  }
-  @available(*, deprecated, message: "Use navigationItemsForConversationList instead")
-  public var rightNavBarImageForConversationListView: UIKit.UIImage?
-  @available(*, deprecated, message: "Use navigationItemsForConversationList instead")
-  public var handleNavIconClickOnConversationListView: Swift.Bool
-  @available(*, deprecated, message: "Use navigationItemsForConversationList instead it has identifier in KBMNavigationItem")
-  public var nsNotificationNameForNavIconClick: Swift.String
-  @available(*, deprecated, message: "Use KBMMessageStyle for customization.")
-  public var conversationViewCustomCellBackgroundColor: UIKit.UIColor {
-    get
-    set
-  }
-  @available(*, deprecated, message: "Use KBMMessageStyle for customization.")
-  public var conversationViewCustomCellTextColor: UIKit.UIColor {
-    get
-    set
-  }
-  @available(*, deprecated, message: "Use messageMenuOptions to show/hide different menu options.")
-  public var isReportMessageEnabled: Swift.Bool {
-    get
-    set
-  }
+  public var locationShareViaMap: Swift.Bool
   public init()
 }
 @objc public protocol NavigationBarCallbacks {
@@ -1836,11 +1815,6 @@ public enum KBMMessageStyle {
   public static var infoMessage: RichMessageKit.Style
   public static var dateSeparator: RichMessageKit.Style
   public static var contactView: RichMessageKit.Style
-  @available(*, deprecated, message: "Use `receivedMessage` and `sentMessage`")
-  public static var message: RichMessageKit.Style {
-    get
-    set
-  }
   public enum BubbleStyle {
     case edge
     case round
@@ -2111,7 +2085,7 @@ public enum KBMChatCellAction {
     get
   }
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class KBMChatCell : SwipeCellKit.SwipeTableViewCell {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class KBMChatCell : UIKit.UITableViewCell {
   public enum Config {
     public static var iconMuted: UIKit.UIImage?
   }

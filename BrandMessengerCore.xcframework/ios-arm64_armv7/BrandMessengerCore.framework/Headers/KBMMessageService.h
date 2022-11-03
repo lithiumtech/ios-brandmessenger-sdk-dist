@@ -198,9 +198,6 @@ static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNot
 
 + (KBMMessage * _Nullable)processFileUploadSucess:(KBMMessage *)message;
 
-/// Returns `KBMMessage` object for given message key.
-- (KBMMessage * _Nullable)getKBMMessageByKey:(NSString *)messageReplyId DEPRECATED_MSG_ATTRIBUTE("Use getMessageByKey: instead");
-
 @end
 
 NS_ASSUME_NONNULL_END

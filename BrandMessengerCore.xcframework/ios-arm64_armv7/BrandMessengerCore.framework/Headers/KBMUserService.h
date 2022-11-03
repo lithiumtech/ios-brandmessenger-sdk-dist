@@ -218,24 +218,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param message Pass the `KBMMessage` object.
 - (void)markConversationReadInDataBaseWithMessage:(KBMMessage *)message;
 
-/// Fetching the user detail from server.
-/// @param userId Pass the userId for fetching.
-/// @param completionMark Will have `KBMUserDetail` in case of successfull fetch otherwise nil.
-- (void)userDetailServerCall:(NSString *)userId withCompletion:(void(^)(KBMUserDetail * _Nullable userDetail))completionMark DEPRECATED_MSG_ATTRIBUTE("Use getUserDetailFromServer:withCompletion instead");
-
-/// Updates dispaly name of the user who is not registered.
-/// @param contact Pass the `KBMContact` object.
-- (void)updateUserDisplayName:(KBMContact *)contact DEPRECATED_ATTRIBUTE;
-
-/// This method is used for resetting the unread count.
-/// @warning This method will be removed in future updates.
-- (void)processResettingUnreadCount DEPRECATED_ATTRIBUTE;
-
-/// Used for reseting the unread count.
-/// @param completion Response JSON and Error in case of any error during reset.
-/// @warning Will be removed in future updates.
-- (void)resettingUnreadCountWithCompletion:(void (^)(NSString * _Nullable jsonResponse, NSError * _Nullable error))completion DEPRECATED_ATTRIBUTE;
-
 @end
 
 NS_ASSUME_NONNULL_END

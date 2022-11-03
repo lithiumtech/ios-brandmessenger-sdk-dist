@@ -65,7 +65,7 @@ extension RichMessageKit.MessageTheme {
     public enum ProfileImage {
       public static var width: CoreGraphics.CGFloat
       public static var height: CoreGraphics.CGFloat
-      public static var topPadding: CoreGraphics.CGFloat
+      public static var bottomPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
       public static var bottomPadding: CoreGraphics.CGFloat
@@ -124,7 +124,8 @@ public struct FAQMessage {
   public var description: Swift.String?
   public var buttonLabel: Swift.String?
   public var buttons: [Swift.String]
-  public init(message: RichMessageKit.Message, title: Swift.String?, description: Swift.String?, buttonLabel: Swift.String?, buttons: [Swift.String])
+  public var templateId: Swift.String
+  public init(message: RichMessageKit.Message, title: Swift.String?, description: Swift.String?, buttonLabel: Swift.String?, buttons: [Swift.String], templateId: Swift.String)
 }
 extension UIKit.UIColor {
   convenience public init(red: Swift.Int, green: Swift.Int, blue: Swift.Int)
@@ -222,10 +223,13 @@ extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func addViewsForAutolayout(views: [UIKit.UIView])
   @_Concurrency.MainActor(unsafe) public func constraint(withIdentifier: Swift.String) -> UIKit.NSLayoutConstraint?
 }
+public protocol KBMRichButtonStyleDelegate : AnyObject {
+  func getButtonStyle(buttonModel: RichMessageKit.KBMButtonModel) -> RichMessageKit.KBMRichMessageButtonStyle
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class CurvedImageButton : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak public static var richMessageButtonStyleDelegate: RichMessageKit.KBMRichButtonStyleDelegate?
   public struct Config {
-    public var padding: RichMessageKit.Padding
-    public var style: RichMessageKit.KBMCurvedImageButtonStyle
+    public var style: RichMessageKit.KBMRichMessageButtonStyle
     public init()
   }
   @_Concurrency.MainActor(unsafe) public var index: Swift.Int?
@@ -235,10 +239,10 @@ extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
   @_Concurrency.MainActor(unsafe) public class func buttonSize(attributedText: Foundation.NSMutableAttributedString, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
-  @_Concurrency.MainActor(unsafe) public func updateView(text: Swift.String?, attributedText: Foundation.NSMutableAttributedString?)
+  @_Concurrency.MainActor(unsafe) public func updateView(text: Swift.String?, attributedText: Foundation.NSMutableAttributedString?, config: RichMessageKit.CurvedImageButton.Config)
   @objc deinit
 }
-public struct KBMCurvedImageButtonStyle {
+public struct KBMRichMessageButtonStyle {
   public init()
   public var borderColor: CoreGraphics.CGColor
   public var backgroundColor: UIKit.UIColor
@@ -251,6 +255,23 @@ public struct KBMCurvedImageButtonStyle {
   public var textImageSpace: CoreGraphics.CGFloat
   public var imageSize: CoreGraphics.CGSize
   public var disableImageTintColor: Swift.Bool
+  public var padding: RichMessageKit.Padding
+}
+public struct KBMButtonModel {
+  public init(templateId: Swift.String, name: Swift.String?, url: Swift.String?, type: RichMessageKit.KBMButtonModel.KBMButtonType)
+  public enum KBMButtonType {
+    case link
+    case normal
+    public static func == (a: RichMessageKit.KBMButtonModel.KBMButtonType, b: RichMessageKit.KBMButtonModel.KBMButtonType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let templateId: Swift.String
+  public let name: Swift.String?
+  public let url: Swift.String?
+  public let type: RichMessageKit.KBMButtonModel.KBMButtonType
 }
 public enum KBMMessageStatus : Swift.CaseIterable {
   case pending
@@ -399,7 +420,7 @@ public struct SuggestedReplyMessage {
   }
   public struct Suggestion {
     public var reply: Swift.String?
-    public init(title: Swift.String, reply: Swift.String? = nil, type: RichMessageKit.SuggestedReplyMessage.SuggestionType = .normal)
+    public init(templateId: Swift.String, title: Swift.String, reply: Swift.String? = nil, type: RichMessageKit.SuggestedReplyMessage.SuggestionType = .normal, url: Swift.String?)
   }
   public var suggestion: [RichMessageKit.SuggestedReplyMessage.Suggestion]
   public var message: RichMessageKit.Message
@@ -492,7 +513,7 @@ public class ReceivedMessageViewSizeCalculator {
     public enum ProfileImage {
       public static var width: CoreGraphics.CGFloat
       public static var height: CoreGraphics.CGFloat
-      public static var topPadding: CoreGraphics.CGFloat
+      public static var bottomPadding: CoreGraphics.CGFloat
     }
     public enum TimeLabel {
       public static var rightPadding: CoreGraphics.CGFloat
@@ -518,6 +539,8 @@ public class ReceivedMessageViewSizeCalculator {
 extension UIKit.NSLayoutDimension {
   @_Concurrency.MainActor(unsafe) public func constraintEqualToAnchor(constant: CoreGraphics.CGFloat, identifier: Swift.String) -> UIKit.NSLayoutConstraint
 }
+extension RichMessageKit.KBMButtonModel.KBMButtonType : Swift.Equatable {}
+extension RichMessageKit.KBMButtonModel.KBMButtonType : Swift.Hashable {}
 extension RichMessageKit.KBMMessageStatus : Swift.Equatable {}
 extension RichMessageKit.KBMMessageStatus : Swift.Hashable {}
 extension RichMessageKit.Message.ContentType : Swift.Equatable {}

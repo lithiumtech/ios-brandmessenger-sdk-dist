@@ -130,7 +130,6 @@ typedef NS_ENUM(NSInteger, KBMClientError) {
 ///
 /// KBMUser *user = [[KBMUser alloc] init];
 /// user.userId = @"58935395796"; // User-id is the primary identification for a user and is unique and NOTE : +,*,? are not allowed chars in userId.
-/// user.password = @"cat345"; // User password.
 /// user.displayName = @"Sunil"; // User's Display Name.
 /// user.imageLink = @"http://mywebsite.com/user_profile_picture.jpg"; // Pass Profile image URL link.
 /// user.authenticationTypeId = BRAND_MESSENGER; // Set Authentication type as BRAND_MESSENGER by default.

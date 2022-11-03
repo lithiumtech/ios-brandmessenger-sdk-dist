@@ -148,17 +148,6 @@ typedef enum
 
 /// Validates the user data
 -(void)softValidateUser;
-
-/// :nodoc:
-@property (nonatomic) short prefContactAPI DEPRECATED_ATTRIBUTE;
-
-/// :nodoc:
-@property (nonatomic, strong) NSNumber *contactType DEPRECATED_ATTRIBUTE;
-
-/// To identify the user type.
-/// @note This is not used currently will be removed in future.
-@property (nonatomic) short userTypeId DEPRECATED_ATTRIBUTE;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -86,17 +86,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Accessing currently stored (APN's) or (VOIP) device token.
 - (NSString *)getRegistrationId;
-
-/// :nodoc:
-- (void)connect DEPRECATED_ATTRIBUTE;
-
-/// :nodoc:
-- (void)disconnect DEPRECATED_ATTRIBUTE;
-
-/// Syncs the account status an internal method.
-/// @deprecated Method wil be removed in future.
-- (void)syncAccountStatus DEPRECATED_ATTRIBUTE;
-
 @end
 
 NS_ASSUME_NONNULL_END

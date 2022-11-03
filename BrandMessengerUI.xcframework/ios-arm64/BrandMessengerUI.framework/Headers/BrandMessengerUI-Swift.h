@@ -199,6 +199,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import BrandMessengerCore;
 @import ContactsUI;
 @import CoreGraphics;
+@import CoreLocation;
 @import Foundation;
 @import ObjectiveC;
 @import QuartzCore;
@@ -277,6 +278,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @class NSError;
 @class KBMRegistrationResponse;
 @protocol KBMAuthenticationDelegate;
+@protocol KBMJWTAuthenticationDelegate;
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
@@ -392,6 +394,8 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login using jwt
++ (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
 /// Start conversation with default agent
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
@@ -404,6 +408,8 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (NSString * _Nonnull)getDefaultAgentId SWIFT_WARN_UNUSED_RESULT;
 /// convenience to set authenticationdelegate.
 + (void)setAuthenticationDelegate:(id <KBMAuthenticationDelegate> _Nonnull)del;
+/// convenience to set JWT authenticationdelegate.
++ (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 /// Call to set region. Determines the domains this app connects to.
 /// \param region US or APAC. Default when not set is APAC.
@@ -571,6 +577,16 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMChatBarTextView")
 @end
 
 
+SWIFT_CLASS("_TtC16BrandMessengerUI11KBMChatCell")
+@interface KBMChatCell : UITableViewCell
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+@end
+
+
 
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 @interface KBMContextTitleView : UIView
@@ -611,6 +627,13 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 @end
 
 
+@class UISwipeActionsConfiguration;
+
+@interface KBMConversationListTableViewController (SWIFT_EXTENSION(BrandMessengerUI))
+- (UITableViewCellEditingStyle)tableView:(UITableView * _Nonnull)tableView editingStyleForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
 
 @class UISearchController;
 @class UISearchBar;
@@ -696,16 +719,16 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 - (void)invalidateTimerAndUpdateHeightConstraint:(NSTimer * _Nullable)_;
 @end
 
-
-
-
-
 @class CNContactPickerViewController;
 @class CNContact;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CNContactPickerDelegate>
 - (void)contactPicker:(CNContactPickerViewController * _Nonnull)_ didSelectContact:(CNContact * _Nonnull)contact;
 @end
+
+
+
+
 
 
 
@@ -721,6 +744,14 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <NavigationBarCallbacks>
 - (void)titleTapped;
+@end
+
+@class CLLocationManager;
+@class CLLocation;
+
+@interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
 @end
 
 @class UIImagePickerController;
@@ -921,13 +952,13 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMTemplateMessagesViewModel")
 @class WKNavigation;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI20KBMWebViewController")
-@interface KBMWebViewController : UIViewController <WKNavigationDelegate>
+@interface KBMWebViewController : KBMBaseViewController <WKNavigationDelegate>
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)webView:(WKWebView * _Nonnull)_ didFailNavigation:(WKNavigation * _Null_unspecified)_ withError:(NSError * _Nonnull)_;
-- (void)webView:(WKWebView * _Nonnull)_ didFinishNavigation:(WKNavigation * _Null_unspecified)_;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+- (void)webView:(WKWebView * _Nonnull)webview didFailNavigation:(WKNavigation * _Null_unspecified)_ withError:(NSError * _Nonnull)_;
+- (void)webView:(WKWebView * _Nonnull)webview didFinishNavigation:(WKNavigation * _Null_unspecified)_;
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 @end
 
 @class WKUserContentController;

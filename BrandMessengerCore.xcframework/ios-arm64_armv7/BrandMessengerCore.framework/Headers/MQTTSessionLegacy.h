@@ -71,7 +71,6 @@
  MQTTSession *session = [[MQTTSession alloc]
  initWithClientId:@"example-1234"
  userName:@"user"
- password:@"secret"
  keepAlive:60
  cleanSession:YES
  will:YES
