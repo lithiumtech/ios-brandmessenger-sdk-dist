@@ -396,8 +396,45 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
-/// Login using jwt
+/// Login using access-token.
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     accessToken: Pass your user accessToken to log in.
+///   </li>
+///   <li>
+///     mergeConversations: Pass <code>true</code> to merge conversation from anonymous user to the authenticated user otherwise, <code>false</code> to ignore mergeing conversations and will do login to chat.
+///   </li>
+///   <li>
+///     completion: Completion handler will have KBMRegistrationResponse in case of successful login otherwise it will have Error info from pre-auth or log-in.
+///   </li>
+/// </ul>
++ (void)login:(NSString * _Nonnull)accessToken mergeConversations:(BOOL)mergeConversations completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login using JWT.
 + (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login using JWT.
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     jwt: Client/Server generated JWT.
+///   </li>
+///   <li>
+///     userId: User id for which jwt was generated.
+///   </li>
+///   <li>
+///     mergeConversations: Pass <code>true</code> to merge conversation from the anonymous user to the authenticated user otherwise, <code>false</code> to ignore merging conversations and will do login to chat.
+///   </li>
+///   <li>
+///     completion: Completion handler will have KBMRegistrationResponse in case of successful login otherwise it will have Error info from pre-auth or log-in.
+///   </li>
+/// </ul>
++ (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId mergeConversations:(BOOL)mergeConversations completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login anonymous user.
++ (void)loginAnonymousUserWithCompletion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
 /// Start conversation with default agent
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
@@ -413,6 +450,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// convenience to set JWT authenticationdelegate.
 + (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Call to check Anonymous User has expired or not.
+///
+/// returns:
+/// Returns <code>true</code> if Anonymous user expired otherwise, false.
++ (BOOL)isAnonymousUserExpired SWIFT_WARN_UNUSED_RESULT;
 /// Call to set region. Determines the domains this app connects to.
 /// \param region US or APAC. Default when not set is APAC.
 ///
@@ -1488,8 +1530,45 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Login using access-token.
 /// PRE-NEW-AUTH BACKEND IMPLEMENTATION: Currently using debug tokens.
 + (void)login:(NSString * _Nonnull)accessToken completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
-/// Login using jwt
+/// Login using access-token.
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     accessToken: Pass your user accessToken to log in.
+///   </li>
+///   <li>
+///     mergeConversations: Pass <code>true</code> to merge conversation from anonymous user to the authenticated user otherwise, <code>false</code> to ignore mergeing conversations and will do login to chat.
+///   </li>
+///   <li>
+///     completion: Completion handler will have KBMRegistrationResponse in case of successful login otherwise it will have Error info from pre-auth or log-in.
+///   </li>
+/// </ul>
++ (void)login:(NSString * _Nonnull)accessToken mergeConversations:(BOOL)mergeConversations completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login using JWT.
 + (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login using JWT.
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     jwt: Client/Server generated JWT.
+///   </li>
+///   <li>
+///     userId: User id for which jwt was generated.
+///   </li>
+///   <li>
+///     mergeConversations: Pass <code>true</code> to merge conversation from the anonymous user to the authenticated user otherwise, <code>false</code> to ignore merging conversations and will do login to chat.
+///   </li>
+///   <li>
+///     completion: Completion handler will have KBMRegistrationResponse in case of successful login otherwise it will have Error info from pre-auth or log-in.
+///   </li>
+/// </ul>
++ (void)loginWithJWT:(NSString * _Nonnull)jwt userId:(NSString * _Nonnull)userId mergeConversations:(BOOL)mergeConversations completion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
+/// Login anonymous user.
++ (void)loginAnonymousUserWithCompletion:(void (^ _Nonnull)(KBMRegistrationResponse * _Nullable, NSError * _Nullable))completion;
 /// Start conversation with default agent
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
@@ -1505,6 +1584,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// convenience to set JWT authenticationdelegate.
 + (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Call to check Anonymous User has expired or not.
+///
+/// returns:
+/// Returns <code>true</code> if Anonymous user expired otherwise, false.
++ (BOOL)isAnonymousUserExpired SWIFT_WARN_UNUSED_RESULT;
 /// Call to set region. Determines the domains this app connects to.
 /// \param region US or APAC. Default when not set is APAC.
 ///

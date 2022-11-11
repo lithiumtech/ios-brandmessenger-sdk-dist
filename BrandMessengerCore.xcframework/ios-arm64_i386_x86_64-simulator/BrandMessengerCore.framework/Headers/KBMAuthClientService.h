@@ -46,21 +46,35 @@ NS_ASSUME_NONNULL_BEGIN
 /// and
 /// + (void) preRegistrationAuthWithJwt:(NSString*)jwt userId:(NSString*)userId withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion
 /// @note responseDictionary expects at least 'id' and 'token', to use as username and password in subsequent login call.
-+ (void) preRegistrationAuthWithAuthDictionary:(NSDictionary*)authDictionary withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
-
++ (void) preRegistrationAuthWithAuthDictionary:(NSDictionary *)authDictionary
+                          withAuthenticateMode:(BOOL)hasAuthenticatedMode
+                                withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
 /// Auth. Calls authHandler with accessToken.
 /// @note responseDictionary expects at least 'id' and 'token', to use as username and password in subsequent login call.
-+ (void)preRegistrationAuth:(NSString*)accessToken withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
++ (void)preRegistrationAuth:(NSString *)accessToken
+           withUnauthUserId:(NSString * _Nullable)unauthUserId
+            withUnauthToken:(NSString * _Nullable)unauthToken
+             withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
 
 /// Auth. Calls authHandler with jwt and userId
 /// @note responseDictionary expects at least 'id' and 'token', to use as username and password in subsequent login call.
-+ (void) preRegistrationAuthWithJwt:(NSString*)jwt userId:(NSString*)userId withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
++ (void)preRegistrationAuthWithJwt:(NSString*)jwt
+                             userId:(NSString*)userId
+                   withUnauthUserId:(NSString * _Nullable)unauthUserId
+                    withUnauthToken:(NSString * _Nullable)unauthToken
+                     withCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
 
-/// second part of new auth. Calls register(login) to applozic with credentials from preRegistrationAuth.
-+ (void)loginFromAuthHandlerResponse:(NSDictionary*)response withCompletion:(void (^)(KBMRegistrationResponse * _Nullable response, NSError * _Nullable error))completion;
+/// second part of new auth. Calls register(login) to applozic with credentials from preRegistrationAuth or for unauth login.
++ (void)loginFromAuthHandlerResponse:(NSDictionary *_Nullable)response
+                       withCompletion:(void (^)(KBMRegistrationResponse * _Nullable response, NSError * _Nullable error))completion;
 
 /// make welcome-message API Request.
 + (void) sendWelcomeMessageRequestWithCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
+
+/// Preregistration for unauth in the request body only metadata data goes.
+/// @note responseDictionary expects at least 'id' and 'token', to login.
++ (void)preRegistrationUnauthWithCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

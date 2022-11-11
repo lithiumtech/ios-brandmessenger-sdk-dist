@@ -1423,7 +1423,10 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   public static func setDefaultConfiguration(_ config: BrandMessengerUI.KBMConfiguration)
   @objc public static func getTotalUnreadCount(complete: @escaping (_ count: Swift.UInt, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func login(_ accessToken: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func login(_ accessToken: Swift.String, mergeConversations: Swift.Bool, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func loginWithJWT(_ jwt: Swift.String, userId: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func loginWithJWT(_ jwt: Swift.String, userId: Swift.String, mergeConversations: Swift.Bool, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func loginAnonymousUser(completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func show(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func showWithWelcome(_ viewController: UIKit.UIViewController? = nil)
   @objc public class func getDefaultAgentId() -> Swift.String
@@ -1431,6 +1434,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func setJWTAuthenticationDelegate(_ del: BrandMessengerCore.KBMJWTAuthenticationDelegate)
   public class func setRichMessageButtonStyleDelegate(_ delegate: RichMessageKit.KBMRichButtonStyleDelegate)
   @objc public class func isAuthenticated(completion: @escaping (_ response: Swift.Bool) -> Swift.Void)
+  @objc public class func isAnonymousUserExpired() -> Swift.Bool
   @objc public class func setRegion(_ region: Swift.String)
   @objc public class func useDebugUser(_ use: Swift.Bool)
   @objc public class func doNotAutosubscribeOnLaunch(_ use: Swift.Bool)

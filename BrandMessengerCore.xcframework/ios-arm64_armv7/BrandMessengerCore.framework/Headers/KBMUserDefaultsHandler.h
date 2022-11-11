@@ -267,4 +267,13 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 
 + (void)setUsePersistentMessagesStorage:(BOOL)enable;
 + (BOOL)getUsePersistentMessagesStorage;
+
++ (void)setAnonymousUserLoggedIn:(BOOL)loggedIn;
++ (BOOL)isAnonymousUserLoggedIn;
+
++ (void)setUserExpirationTSSeconds:(NSNumber *)expirationTSSeconds;
++ (NSNumber *)getUserExpirationTSSeconds;
+
++(BOOL)isAnonymousUserExpired;
+
 @end

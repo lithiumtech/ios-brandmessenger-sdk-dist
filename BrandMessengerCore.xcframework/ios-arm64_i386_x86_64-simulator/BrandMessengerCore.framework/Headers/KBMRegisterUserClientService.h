@@ -30,8 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Use this method to log in or register your `KBMUser`. This must be done before any other method of the SDK is used.
 ///
 /// @param user An `KBMUser` object details for identifying the user on the server.
+/// @param expirationTSSeconds User expiration time stamp seconds this will come from message-auth-handler.
 /// @param completion An KBMAPIResponse will have status `KBM_RESPONSE_SUCCESS` for successful otherwise an error describing the login failure
-- (void)initWithCompletion:(KBMUser *)user withCompletion:(void(^)(KBMRegistrationResponse * _Nullable message, NSError * _Nullable error)) completion;
+- (void)initWithCompletion:(KBMUser *)user withUserExpirationTSSeconds:(NSNumber * _Nullable)expirationTSSeconds withCompletion:(void(^)(KBMRegistrationResponse * _Nullable message, NSError * _Nullable error)) completion;
 
 /// Updates an APNs device token to Messenger server for real-time updates on messages and other events to the device.
 ///
