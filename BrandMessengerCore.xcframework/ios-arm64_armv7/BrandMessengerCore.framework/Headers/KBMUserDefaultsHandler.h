@@ -8,6 +8,8 @@
 
 #import "BrandMessengerSettings.h"
 #import <Foundation/Foundation.h>
+#import "KBMUserOpenConversationResponse.h"
+#import "KBMWidgetConfigurationResponse.h"
 
 static NSString* KBM_PASSWORD = @"KBM_PASSWORD";
 static NSString* KBM_USER_AUTH_TOKEN = @"KBM_USER_AUTH_TOKEN";
@@ -275,5 +277,20 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 + (NSNumber *)getUserExpirationTSSeconds;
 
 +(BOOL)isAnonymousUserExpired;
+
++(void)setUserOpenConversationResponse:(KBMUserOpenConversationResponse *)response;
++(KBMUserOpenConversationResponse *)getUserOpenConversationResponse;
+
++ (void)setWidgetId:(NSString *)widgetId;
++ (NSString *)getWidgetId;
+
++ (void)setConfigurationURL:(NSString *)configurationURL;
++ (NSString *)getConfigurationURL;
+
++ (void)setWidgetHash:(NSString *)widgetHash;
++ (NSString *)getWidgetHash;
+
++(void)setWidgetConfigurationResponse:(KBMWidgetConfigurationResponse *)response;
++(KBMWidgetConfigurationResponse *)getWidgetConfigurationResponse;
 
 @end

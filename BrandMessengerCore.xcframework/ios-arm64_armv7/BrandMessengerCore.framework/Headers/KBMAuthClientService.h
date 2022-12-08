@@ -75,6 +75,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @note responseDictionary expects at least 'id' and 'token', to login.
 + (void)preRegistrationUnauthWithCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
 
+/// Makes an API call to check for user has open conversations.
+/// @note Check for error is nil and then use the `hasOpenConversation` flag to identify the user has open conversations.
++(void)userHasOpenConversationWithCompletion:(void (^)(BOOL hasOpenConversation, NSError * _Nullable error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

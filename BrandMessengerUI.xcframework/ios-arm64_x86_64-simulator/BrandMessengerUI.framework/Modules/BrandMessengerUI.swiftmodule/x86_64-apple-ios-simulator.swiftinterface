@@ -1434,6 +1434,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func setJWTAuthenticationDelegate(_ del: BrandMessengerCore.KBMJWTAuthenticationDelegate)
   public class func setRichMessageButtonStyleDelegate(_ delegate: RichMessageKit.KBMRichButtonStyleDelegate)
   @objc public class func isAuthenticated(completion: @escaping (_ response: Swift.Bool) -> Swift.Void)
+  @objc public class func hasOpenConversation(completion: @escaping (_ hasOpenConversation: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func isAnonymousUserExpired() -> Swift.Bool
   @objc public class func setRegion(_ region: Swift.String)
   @objc public class func useDebugUser(_ use: Swift.Bool)
@@ -1445,6 +1446,10 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func setPinningCertificatePublicKeys(_ keys: [Swift.String])
   @objc public class func setPinningCertificates(_ certificates: [Foundation.URL])
   @objc public class func enableDefaultCertificatePinning()
+  @objc public class func setWidgetId(_ widgetId: Swift.String)
+  @objc public class func isAllDisplayConditionsMet(completion: @escaping (_ hasAllDisplayConditionsMet: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func getAllDisplayConditions(completion: @escaping (_ displayConditions: Foundation.NSMutableArray?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func isWidgetHashEnabled(completion: @escaping (_ isWidgetHashEnabled: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
   @objc deinit
 }
 @objc @_Concurrency.MainActor(unsafe) public class ConversationListTableViewDataSource : ObjectiveC.NSObject, UIKit.UITableViewDataSource {

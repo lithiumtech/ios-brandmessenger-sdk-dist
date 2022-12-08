@@ -284,6 +284,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
+@class NSMutableArray;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
@@ -450,6 +451,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// convenience to set JWT authenticationdelegate.
 + (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Call to check if logged-in user has any open conversation.
+/// \param completion Check for error is nil and then use the <code>hasOpenConversation</code> flag to identify the user has open conversations.
+///
++ (void)hasOpenConversationWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 /// Call to check Anonymous User has expired or not.
 ///
 /// returns:
@@ -476,6 +481,23 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Enable default certificate pinning on default baseUrl ‘brandmessenger.khoros.com’
 /// TODO: Need to get more backup keys.
 + (void)enableDefaultCertificatePinning;
+/// Call to set the Widget Id
+/// \param widgetId To get the WidgetId, you can create a new Widget configuration or select existing Widget in Settings –> Admin  –> Brand Messenger –> Modern Chat
+/// Click on the “</> Script” button, and you will get the script which is used for the Web.  You can find the widgetId in that script
+///
++ (void)setWidgetId:(NSString * _Nonnull)widgetId;
+/// Call to  know all Display Conditions from Chat Widget configuration are met.
+/// \param completion Check for error is nil and then use the <code>hasAllDisplayConditionsMet</code> flag to check all the Widget display conditions are met.
+///
++ (void)isAllDisplayConditionsMetWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+/// Call to get all Display Conditions from Chat Widget configuration.
+/// \param completion Will have Array of <code>KBMDisplayCondition</code> object or error in case of any error during API call.
+///
++ (void)getAllDisplayConditionsWithCompletion:(void (^ _Nonnull)(NSMutableArray * _Nullable, NSError * _Nullable))completion;
+/// Call to know the chat Widget hash is enabled or not in Agent care console.
+/// \param completion Check for error is nil and then use the <code>isWidgetHashEnabled</code> flag to check Widget hash enabled or not.
+///
++ (void)isWidgetHashEnabledWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -702,7 +724,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)viewWillDisappear:(BOOL)animated;
 @end
 
-@class NSMutableArray;
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMMessagesDelegate>
 - (void)getMessagesArray:(NSMutableArray * _Null_unspecified)messagesArray;
@@ -1418,6 +1439,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
+@class NSMutableArray;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
@@ -1584,6 +1606,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// convenience to set JWT authenticationdelegate.
 + (void)setJWTAuthenticationDelegate:(id <KBMJWTAuthenticationDelegate> _Nonnull)del;
 + (void)isAuthenticatedWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Call to check if logged-in user has any open conversation.
+/// \param completion Check for error is nil and then use the <code>hasOpenConversation</code> flag to identify the user has open conversations.
+///
++ (void)hasOpenConversationWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 /// Call to check Anonymous User has expired or not.
 ///
 /// returns:
@@ -1610,6 +1636,23 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Enable default certificate pinning on default baseUrl ‘brandmessenger.khoros.com’
 /// TODO: Need to get more backup keys.
 + (void)enableDefaultCertificatePinning;
+/// Call to set the Widget Id
+/// \param widgetId To get the WidgetId, you can create a new Widget configuration or select existing Widget in Settings –> Admin  –> Brand Messenger –> Modern Chat
+/// Click on the “</> Script” button, and you will get the script which is used for the Web.  You can find the widgetId in that script
+///
++ (void)setWidgetId:(NSString * _Nonnull)widgetId;
+/// Call to  know all Display Conditions from Chat Widget configuration are met.
+/// \param completion Check for error is nil and then use the <code>hasAllDisplayConditionsMet</code> flag to check all the Widget display conditions are met.
+///
++ (void)isAllDisplayConditionsMetWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+/// Call to get all Display Conditions from Chat Widget configuration.
+/// \param completion Will have Array of <code>KBMDisplayCondition</code> object or error in case of any error during API call.
+///
++ (void)getAllDisplayConditionsWithCompletion:(void (^ _Nonnull)(NSMutableArray * _Nullable, NSError * _Nullable))completion;
+/// Call to know the chat Widget hash is enabled or not in Agent care console.
+/// \param completion Check for error is nil and then use the <code>isWidgetHashEnabled</code> flag to check Widget hash enabled or not.
+///
++ (void)isWidgetHashEnabledWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1836,7 +1879,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)viewWillDisappear:(BOOL)animated;
 @end
 
-@class NSMutableArray;
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMMessagesDelegate>
 - (void)getMessagesArray:(NSMutableArray * _Null_unspecified)messagesArray;

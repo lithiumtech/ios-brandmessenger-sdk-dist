@@ -134,6 +134,9 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 
 + (NSMutableDictionary *)getDefaultMetadata:(NSMutableDictionary *) message;
 
++ (BOOL)getBoolFromJsonValue:(id _Nullable)jsonValue;
+
++ (NSString * _Nullable)getStringFromJsonValue:(id _Nullable)jsonValue;
 @end
 
 NS_ASSUME_NONNULL_END

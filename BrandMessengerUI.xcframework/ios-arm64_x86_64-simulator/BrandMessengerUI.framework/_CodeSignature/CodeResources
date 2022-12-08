@@ -154,7 +154,7 @@
 		</data>
 		<key>Headers/BrandMessengerUI-Swift.h</key>
 		<data>
-		zTzyCfs066aCSSoDvZJGNmihgzw=
+		ZQNpHbCq2FUYCvpDc+mNY37/P+g=
 		</data>
 		<key>Headers/BrandMessengerUI.h</key>
 		<data>
@@ -162,7 +162,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uVITms+uSeWcN2itsJma7shHxJ8=
+		YxwrSIauZnGVnN2rKKh7sTvjPwY=
 		</data>
 		<key>KBMAccountSuspensionView.nib</key>
 		<data>
@@ -214,35 +214,35 @@
 		</data>
 		<key>MediaViewer.storyboardc/KBMMediaViewerViewController.nib</key>
 		<data>
-		Dow13ebSF4AWtmtMlSXB0BJeZCg=
+		NoxuD04ozWuf2V/RI+2HABiDPyQ=
 		</data>
 		<key>MediaViewer.storyboardc/MediaViewerNavigationViewController.nib</key>
 		<data>
-		3hhrt+30aSYOr19N73NvJRov0lk=
+		/9phVFu/Lhnk53olFYx1z/4/J4g=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1WfEiqhZdkvCg36i6l5J7q7tp6A=
+		95p2ZXlc+5uWXWWS13VDXH+9Z1I=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		poTbst5FAWpUB317a6twPClptPA=
+		54B4Bhx3gDn/+7aDy6tixEc+Muo=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		F0N9OW8VD5nfzDaTMNvMlTQjN7c=
+		UDJRwC+RqM0O3g115W7hBcLQ3cY=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Q6fKEHq0aIMX10i5vETdp7oRkWI=
+		2cFA4cNEzUHodOJdUXBTicOlJkQ=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		xB+rmyo5Ju7imwykN6/0FaA8Lug=
+		1yU8RgcAJuB3S7W3xyE2YjV6q44=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		J/odqbEoF3lXATDvfW4mAs85ghU=
+		v74mk4iXj7ch+KYkUQlNDysHJf4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -562,7 +562,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gLa/KWJvsmHjiBGUEShpv01/KpqEPz83hMU5udjp61U=
+			qefgH76ZoRYohWzfXRuvs7V+tm/A6pvZ8lrgDDQy4Qc=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerUI.h</key>
@@ -660,56 +660,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AhTe4Yh6JLoVzLnCxuqtyVr9qrQX/urhZcEoVbEHKo0=
+			rt6h2s1MebMhIyCu59bkz03QGy6KwRvx/JKJ05CgMow=
 			</data>
 		</dict>
 		<key>MediaViewer.storyboardc/MediaViewerNavigationViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9YdMPGK8WHaxLVsapA8If7wtJH3wkcAxP+4NcJUv1h0=
+			eEyaPD/ZrNO9/00r419uEN+wOs472+zs12kFCpMcWzg=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/huuPvD829ZpQbUXegx/L3GztMU/+fLIpKFYVQbhZfE=
+			h4MHAaxxrY+diHwYtQWN/8wMe34APQISkvtWUp17u/A=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yMEus/f77hWl2J6nleSZHRUhEmDfSR/ZNtnHPG+A+yI=
+			zUt3GLlg6FKJeAepYM9PLXiNZZoeMbzbWL08O6X8M7k=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uX77ZT82bg92TXT/5qNPswmFcX+FvcLGcb2TO1WwaJ0=
+			je4ptjqkYzeC/ZVYhwQcFxsd0Uzvlpe8+dfVMhi0+Y0=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Simjx1n6cDHCcYQSz1TfATh267rr+YVvHofZuE6OADw=
+			45jbCCseKBRrhuunlC5pbTI6Ke57RtXGAZjteK3iPKo=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kVtdl43FpqTkxXkgJemiOcPlX+uZhGqu/zNPZOiC6JI=
+			/QITT7egpASPUyN3nnlu7c4Z4R/wpbc3Ap5vUJccu4s=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eAZNhxSQs7SkNV1LginCk/FcbtV/7fBabnV6Nlk3QEU=
+			jTMhOyuYD/zGySi2UWhDnPEr4yLnxSelnGGDs0bfMyw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
