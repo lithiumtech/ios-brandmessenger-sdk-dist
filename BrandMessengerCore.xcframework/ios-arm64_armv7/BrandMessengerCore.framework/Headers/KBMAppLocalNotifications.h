@@ -12,6 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString *const KBMConversationLoadDidFinishNotification;
+
 @interface KBMAppLocalNotifications : NSObject
 
 @property(strong) KBMReachability * _Nullable googleReach;

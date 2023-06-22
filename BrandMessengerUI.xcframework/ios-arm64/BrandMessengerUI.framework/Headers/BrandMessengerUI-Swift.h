@@ -227,9 +227,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC16BrandMessengerUI17AudioRecordButton")
 @interface AudioRecordButton : UIButton
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 @class AVAudioRecorder;
@@ -346,7 +346,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 /// \param deviceToken Pass the device token data.
 ///
-+ (void)application:(UIApplication * _Nonnull)_ didRegisterForRemoteNotificationsWithDeviceToken:(NSData * _Nonnull)deviceToken;
++ (void)application:(UIApplication * _Nonnull)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData * _Nonnull)deviceToken;
 /// Use this method in AppDelegate didFinishLaunchingWithOptions for register totification and data connection handlers.
 /// \param application Pass UIApplication object.
 ///
@@ -355,11 +355,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 /// returns:
 /// True for the didFinishLaunchingWithOptions setup.
-+ (void)application:(UIApplication * _Nonnull)_ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)_;
++ (void)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)_;
 /// Use this method in AppDelegate applicationWillEnterForeground to reset the unread badge count in App.
 /// \param application Pass the UIApplication object.
 ///
-+ (void)applicationWillEnterForeground:(UIApplication * _Nonnull)_;
++ (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
 /// Use this method in AppDelegate applicationWillTerminate to save the context of the database.
 /// \param application Pass the UIApplication object.
 ///
@@ -379,7 +379,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 /// \param completionHandler Completion Handler call back will have UNNotificationPresentationOptions if notification is proccessed it will be empty else it will have other options.
 ///
-+ (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)_ willPresent:(UNNotification * _Nonnull)notification withCompletionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
++ (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresent:(UNNotification * _Nonnull)notification withCompletionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
 /// Use this method for proccessing User Notification Center response in didReceive method of UNUserNotificationCenter.
 /// \param center Pass UNUserNotificationCenter object.
 ///
@@ -387,7 +387,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 /// \param completionHandler Completion Handler call back will be called after proccessing notification.
 ///
-+ (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)_ didReceive:(UNNotificationResponse * _Nonnull)response withCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
++ (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center didReceive:(UNNotificationResponse * _Nonnull)response withCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 /// Use this method for register notification.
 + (void)registerForNotification;
 /// Returns latest synced unread count from server
@@ -439,10 +439,28 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
 + (void)show:(UIViewController * _Nullable)viewController;
-/// Start conversationwith default agent and make a welcome-message request API call.
+/// Start conversation with default agent
+/// <ul>
+///   <li>
+///     completion: If an error is a nil the chat successfully launched, otherwise an error describing the details
+///   </li>
+/// </ul>
+/// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
+///
++ (void)show:(UIViewController * _Nullable)viewController completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+/// Start conversation with default agent and make a welcome-message request API call.
 /// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
 ///
 + (void)showWithWelcome:(UIViewController * _Nullable)viewController;
+/// Start conversation with default agent and make a welcome-message request API call.
+/// <ul>
+///   <li>
+///     completion: If an error is a nil the chat successfully launched, otherwise an error describing the details
+///   </li>
+/// </ul>
+/// \param viewController Provide a viewcontroller to present conversation from. If not provided, the sdk will try to find the top viewcontroller of UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
+///
++ (void)showWithWelcome:(UIViewController * _Nullable)viewController completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 /// Get default Agent Id
 + (NSString * _Nonnull)getDefaultAgentId SWIFT_WARN_UNUSED_RESULT;
 /// convenience to set authenticationdelegate.
@@ -497,6 +515,17 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param completion Check for error is nil and then use the <code>isWidgetHashEnabled</code> flag to check Widget hash enabled or not.
 ///
 + (void)isWidgetHashEnabledWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+/// Dismiss the conversation view controller
+/// Recursively dismiss the view controllers which are on top of <code>KBMConversationViewController</code>, if presenting ViewController is <code>KBMBaseNavigationViewController</code>.
++ (void)dismiss;
+/// Call to know if the device IP address or country code is white-listed or black-listed in the care agent console.
+/// \param completion Check for error is nil and then use the <code>isDeviceGeoIPAllowed</code> flag to check IP address or country code is white-listed or black-listed.
+///
++ (void)isDeviceGeoIPAllowedWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+/// Call to know if should chat needs to be throttled.
+/// \param completion Check for the error is nil and then use the <code>shouldThrottle</code> flag to check if Throttling is applied.
+///
++ (void)shouldThrottleWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -562,10 +591,9 @@ SWIFT_CLASS("_TtC16BrandMessengerUI20KBMActivityIndicator")
 /// <code>KBMAppSettings</code>class is used for creating a app settings details
 SWIFT_CLASS("_TtC16BrandMessengerUI14KBMAppSettings")
 @interface KBMAppSettings : NSObject <NSCoding>
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -667,11 +695,13 @@ SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
 @end
 
 
+/// The <code>ConversationListTableViewController</code> manages rendering of chat cells using the viewModel supplied to it. It also contains delegate to send callbacks when a cell is tapped.
+/// It uses KBMChatCell and EmptyChatCell as tableview cell and handles the swipe interaction of user with the chat cell.
 SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 @interface KBMConversationListTableViewController : UITableViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
-- (void)viewWillDisappear:(BOOL)_;
+- (void)viewWillDisappear:(BOOL)animated;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -719,7 +749,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidLoad;
-- (void)viewDidAppear:(BOOL)_;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 @end
 
@@ -745,6 +775,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)mqttDidConnected;
 - (void)updateUserDetail:(NSString * _Nonnull)userId;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
+- (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
 - (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status;
 - (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status;
 - (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
@@ -783,6 +814,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 - (void)invalidateTimerAndUpdateHeightConstraint:(NSTimer * _Nullable)_;
 @end
 
+
 @class CNContactPickerViewController;
 @class CNContact;
 
@@ -798,6 +830,13 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 
 
 
+@class CLLocationManager;
+@class CLLocation;
+
+@interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+@end
 
 
 SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
@@ -808,14 +847,6 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <NavigationBarCallbacks>
 - (void)titleTapped;
-@end
-
-@class CLLocationManager;
-@class CLLocation;
-
-@interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CLLocationManagerDelegate>
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
 @end
 
 @class UIImagePickerController;
@@ -834,6 +865,16 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)_ sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMAttachmentDelegate>
+- (void)onUpdateBytesUploaded:(int64_t)bytesSent withTotalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend withMessage:(KBMMessage * _Nonnull)message;
+- (void)onUpdateBytesDownloaded:(int64_t)bytesReceived withMessage:(KBMMessage * _Nonnull)message;
+- (void)onUploadFailed:(KBMMessage * _Nonnull)message;
+- (void)onDownloadFailed:(KBMMessage * _Nonnull)message;
+- (void)onUploadCompleted:(KBMMessage * _Nonnull)updatedMessage withOldMessageKey:(NSString * _Nonnull)oldMessageKey;
+- (void)onDownloadCompleted:(KBMMessage * _Nonnull)updatedMessage;
 @end
 
 
@@ -1105,6 +1146,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI15TranslucentView")
 - (void)insertSubview:(UIView * _Nonnull)view atIndex:(NSInteger)index;
 - (void)exchangeSubviewAtIndex:(NSInteger)index1 withSubviewAtIndex:(NSInteger)index2;
 @end
+
 
 
 

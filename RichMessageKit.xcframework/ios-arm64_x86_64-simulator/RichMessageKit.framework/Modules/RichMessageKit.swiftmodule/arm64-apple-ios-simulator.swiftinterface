@@ -87,7 +87,7 @@ extension RichMessageKit.MessageTheme {
     set
   }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool? = false, sameNextMessageAuthor: Swift.Bool? = false) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -114,7 +114,7 @@ extension RichMessageKit.MessageTheme {
     }
   }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -129,7 +129,9 @@ public struct FAQMessage {
 }
 extension UIKit.UIColor {
   convenience public init(red: Swift.Int, green: Swift.Int, blue: Swift.Int)
+  convenience public init(hexString: Swift.String, alpha: CoreGraphics.CGFloat = 1.0)
   convenience public init(netHex: Swift.Int)
+  public func isColorLight() -> Swift.Bool
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentMessageView : UIKit.UIView {
   public enum Config {
@@ -147,7 +149,7 @@ extension UIKit.UIColor {
   @_Concurrency.MainActor(unsafe) public static var verticalSpacing: CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public var faqSelected: ((_ index: Swift.Int?, _ title: Swift.String) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, faqStyle: RichMessageKit.FAQMessageStyle, alignLeft: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, style: RichMessageKit.FAQMessageStyle) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -234,11 +236,11 @@ public protocol KBMRichButtonStyleDelegate : AnyObject {
   }
   @_Concurrency.MainActor(unsafe) public var index: Swift.Int?
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
-  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, attributedText: Foundation.NSMutableAttributedString?, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, attributedText: Foundation.NSMutableAttributedString?, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat, isCardButton: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public func buttonWidth() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
-  @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
-  @_Concurrency.MainActor(unsafe) public class func buttonSize(attributedText: Foundation.NSMutableAttributedString, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config()) -> CoreGraphics.CGSize
+  @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool) -> CoreGraphics.CGSize
+  @_Concurrency.MainActor(unsafe) public class func buttonSize(attributedText: Foundation.NSMutableAttributedString, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool) -> CoreGraphics.CGSize
   @_Concurrency.MainActor(unsafe) public func updateView(text: Swift.String?, attributedText: Foundation.NSMutableAttributedString?, config: RichMessageKit.CurvedImageButton.Config, isSelectedButton: Swift.Bool, isNaturalStateButton: Swift.Bool)
   @objc deinit
 }
@@ -258,6 +260,7 @@ public struct KBMRichMessageButtonStyle {
   public var imageSize: CoreGraphics.CGSize
   public var disableImageTintColor: Swift.Bool
   public var padding: RichMessageKit.Padding
+  public var selectedButtonIcon: UIKit.UIImage?
 }
 public struct KBMButtonModel {
   public init(templateId: Swift.String, name: Swift.String?, url: Swift.String?, type: RichMessageKit.KBMButtonModel.KBMButtonType)
@@ -363,7 +366,7 @@ extension Foundation.NSMutableAttributedString {
 @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ReceivedButtonsCell : RichMessageKit.KBMRichMessageChatBaseCell<RichMessageKit.SuggestedReplyMessage> {
   @_Concurrency.MainActor(unsafe) public var tapped: ((_ index: Swift.Int, _ name: Swift.String) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool = false, sameNextMessageAuthor: Swift.Bool = false) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -430,7 +433,7 @@ public struct SuggestedReplyMessage {
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class SentButtonsCell : RichMessageKit.KBMRichMessageChatBaseCell<RichMessageKit.SuggestedReplyMessage> {
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -491,7 +494,7 @@ extension Foundation.Bundle {
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SuggestedReplyView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
   @objc dynamic public init()
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }

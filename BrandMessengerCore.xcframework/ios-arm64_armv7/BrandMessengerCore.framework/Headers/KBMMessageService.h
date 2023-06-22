@@ -20,8 +20,11 @@
 #import "DB_FileMetaInfo.h"
 #import <Foundation/Foundation.h>
 #import "MessageListRequest.h"
+#import "BrandMessengerClient.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol KBMAttachmentDelegate;
 
 /// Used when a message needs to be modified just before sending
 @protocol KBMConversationDelegate <NSObject>
@@ -45,9 +48,13 @@ static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNot
 @property (nonatomic, strong) KBMUserService *userService;
 @property (nonatomic, strong) KBMChannelService *channelService;
 
+@property (nonatomic, weak) id<KBMAttachmentDelegate> _Nullable attachmentProgressDelegate;
+
 @property (nonatomic, weak) id<KBMUpdatesDelegate> _Nullable delegate;
 ///
 @property (nonatomic, weak) id<KBMConversationDelegate> _Nullable conversationDelegate;
+
++ (BOOL)getCurrentlySendingPendingMessagesFlag;
 
 /// Sends text message in one to one or group conversation.
 /// @param message Pass the KBMMessage object for sending a text message.

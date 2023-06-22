@@ -103,6 +103,8 @@
 
 - (KBMMessage *)handleMessageFailedStatus:(KBMMessage *)message;
 
+- (NSError *)updateAttachmentUploadFailedStatus:(NSString *)key;
+
 - (DB_Message *)addAttachmentMessage:(KBMMessage *)message;
 
 - (NSError *)updateMessageMetadataOfKey:(NSString *)messageKey withMetadata:(NSMutableDictionary *)metadata;

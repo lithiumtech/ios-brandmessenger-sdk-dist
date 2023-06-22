@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BrandMessenger"
-  s.version      = "1.13.1"
+  s.version      = "1.14.0"
   s.summary      = "BrandMessenger"
   s.description  = "Messaging and Chat API for Mobile Apps and Websites"
   s.homepage     = "https://khoros.com"
@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/lithiumtech/android-brandmessenger-sdk-dist", :tag => "v#{s.version}" }
   s.requires_arc = true
   s.platform = :ios, "12.0"
-  s.ios.vendored_frameworks = 'BrandMessengerUI.xcframework', 'BrandMessengerCore.xcframework','RichMessageKit.xcframework', 'Kingfisher.xcframework'
+  s.ios.vendored_frameworks = 'BrandMessengerUI.xcframework', 'BrandMessengerCore.xcframework','RichMessageKit.xcframework', 'Kingfisher.xcframework', 'ISEmojiView.xcframework'
   s.ios.frameworks = ["UIKit", "Security", "Foundation", "Network", "MobileCoreServices", "SystemConfiguration", "CoreFoundation"]
 end

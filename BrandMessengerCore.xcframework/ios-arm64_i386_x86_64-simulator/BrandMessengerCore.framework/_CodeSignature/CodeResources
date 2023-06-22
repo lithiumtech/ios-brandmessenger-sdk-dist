@@ -66,11 +66,11 @@
 		</data>
 		<key>Headers/BrandMessengerClient.h</key>
 		<data>
-		uE9Gpidwo/qz+R90Xp/dY/XuJRI=
+		Jk5vgc4ny5NVd9zZDSzseB0aXgk=
 		</data>
 		<key>Headers/BrandMessengerCore.h</key>
 		<data>
-		U9EatnDoWBSGwuvQl9REHLkSL44=
+		5fVJs/Zf/e3GLC12vblFOa+QVeE=
 		</data>
 		<key>Headers/BrandMessengerSettings.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Headers/KBMAppLocalNotifications.h</key>
 		<data>
-		cg7QMg9SOplHNxXs3J3dqOJ1LN0=
+		xBtTTaPfb1ywCWJmKz7x5IXKCcM=
 		</data>
 		<key>Headers/KBMApplicationInfo.h</key>
 		<data>
@@ -236,6 +236,10 @@
 		<data>
 		POGx49IZBU8eZySnFfHoocQEvGo=
 		</data>
+		<key>Headers/KBMDisplayConditionsResponse.h</key>
+		<data>
+		QXcMkUlXtwi+EO1pV2k/8cCLurk=
+		</data>
 		<key>Headers/KBMDownloadTask.h</key>
 		<data>
 		A8sTh07erBwbAqu+kof5/TzY770=
@@ -256,6 +260,10 @@
 		<data>
 		i8RYFeBgwSG6K22b6Wz74d8AkvU=
 		</data>
+		<key>Headers/KBMIPList.h</key>
+		<data>
+		3+u0vt9g4UI+aAAscbQ1th77FsM=
+		</data>
 		<key>Headers/KBMJWT.h</key>
 		<data>
 		qzFdxEL5cdeHm6+/pVTe5Nvfed8=
@@ -263,6 +271,10 @@
 		<key>Headers/KBMJson.h</key>
 		<data>
 		TjSUl2ICIPAcW8MHlTjhUMKfz+E=
+		</data>
+		<key>Headers/KBMLanguageVariantModel.h</key>
+		<data>
+		fydyAcwO4gThxDh5V3hz4boGnq4=
 		</data>
 		<key>Headers/KBMLastSeenSyncFeed.h</key>
 		<data>
@@ -290,11 +302,11 @@
 		</data>
 		<key>Headers/KBMMessageClientService.h</key>
 		<data>
-		yc5vE7aUyzBbw7Qu44g+2Vclj5w=
+		0uWIGNsPEOda68yIsxhYF9jGRRs=
 		</data>
 		<key>Headers/KBMMessageDBService.h</key>
 		<data>
-		DHRSWgQdGt67Ncsdsa5Y5ukqcAw=
+		wwyszQ3LtPuI369Yl1KR1mvmBx8=
 		</data>
 		<key>Headers/KBMMessageInfo.h</key>
 		<data>
@@ -310,7 +322,7 @@
 		</data>
 		<key>Headers/KBMMessageService.h</key>
 		<data>
-		/6SchqDWeejEFGL4XKOR9GNchmY=
+		eu8MT3hid7i0b3C46ayURX8MzGE=
 		</data>
 		<key>Headers/KBMMuteRequest.h</key>
 		<data>
@@ -340,6 +352,14 @@
 		<data>
 		zhIPitpqs84or6EK4q1ihrWvtHk=
 		</data>
+		<key>Headers/KBMRedactionConfiguration.h</key>
+		<data>
+		sZnEkNMi5Rm53p7wr0r7uTTDyls=
+		</data>
+		<key>Headers/KBMRedactionGroup.h</key>
+		<data>
+		lEVYupHMIZuNYqG2qoJYjczJdrU=
+		</data>
 		<key>Headers/KBMRegisterUserClientService.h</key>
 		<data>
 		a23o/8wtW1ATpTPT1eZFa8emZps=
@@ -355,6 +375,10 @@
 		<key>Headers/KBMResponseHandler.h</key>
 		<data>
 		S6uKcX5wAFaCxpiiqjskvze5NIY=
+		</data>
+		<key>Headers/KBMScrubMethod.h</key>
+		<data>
+		sIqoCAiEptvv3VGgMqg70EFR02M=
 		</data>
 		<key>Headers/KBMSearchRequest.h</key>
 		<data>
@@ -410,7 +434,7 @@
 		</data>
 		<key>Headers/KBMUserDefaultsHandler.h</key>
 		<data>
-		2z4FeJaoHjVSmY2ELGIZKGvjtCc=
+		CGemcbkWMNHxH223bDLovglgTP4=
 		</data>
 		<key>Headers/KBMUserDetail.h</key>
 		<data>
@@ -430,19 +454,27 @@
 		</data>
 		<key>Headers/KBMUtilityClass.h</key>
 		<data>
-		QEU9ZMWnSUjzvFCp9nDXsoserWU=
+		/nBgnexQ5+CaZBQTZhCK7+Qju/s=
 		</data>
 		<key>Headers/KBMWidget.h</key>
 		<data>
 		+UEsLWN2mYQi9qqL7GQl7Jw1U+0=
 		</data>
+		<key>Headers/KBMWidgetBrandStyleResponse.h</key>
+		<data>
+		3ilj9wBHZ2EuhHdTYeC5gk2VemA=
+		</data>
 		<key>Headers/KBMWidgetClient.h</key>
 		<data>
-		w8+KcdfXyT7xAxhAMh9O1DcUTqw=
+		e2d2HQ7L8+3eWl/WSszfgjt2rc0=
 		</data>
 		<key>Headers/KBMWidgetConfigurationResponse.h</key>
 		<data>
-		IEI4BtlqbfYS6zcxpes8xBc8k1M=
+		MVG8guCXW8w9OwWFYCzQPxA/2qg=
+		</data>
+		<key>Headers/KBMatchPattern.h</key>
+		<data>
+		zjq8UqKDh4mDckK12FLuX8a2s2w=
 		</data>
 		<key>Headers/MQTTCFSocketDecoder.h</key>
 		<data>
@@ -550,7 +582,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vgreWx0EiBnA23GFPQySXrJBs+w=
+		3c8VUMFHgFXPUNIVDTm5Mhtgh6A=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -744,22 +776,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uE9Gpidwo/qz+R90Xp/dY/XuJRI=
+			Jk5vgc4ny5NVd9zZDSzseB0aXgk=
 			</data>
 			<key>hash2</key>
 			<data>
-			DkbwX70/2ZLKdSLXWZmrotKp9mmoQUWvUMFOfqsl9hE=
+			YcSiTAylgjtlkhSRivwz8xDujHDU+iJFh6K5VhDQYAA=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerCore.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			U9EatnDoWBSGwuvQl9REHLkSL44=
+			5fVJs/Zf/e3GLC12vblFOa+QVeE=
 			</data>
 			<key>hash2</key>
 			<data>
-			4je1zGKj9CjZlzc0ZfXGWg/BDpS5oObhG3fBuNAxPOc=
+			wJ6s0PeIs6AqMQfTSgnDSYQQwfQa3CjH0OWgzCCI0RE=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerSettings.h</key>
@@ -854,11 +886,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cg7QMg9SOplHNxXs3J3dqOJ1LN0=
+			xBtTTaPfb1ywCWJmKz7x5IXKCcM=
 			</data>
 			<key>hash2</key>
 			<data>
-			R3pPgrjm9XFbN0Of0DMlcg34DAmWLH21lTZvu6Sy9CE=
+			9sLRFJNlUMkYfgj4B5FVRIeTR1djDA3qAfGIiITF/C8=
 			</data>
 		</dict>
 		<key>Headers/KBMApplicationInfo.h</key>
@@ -1213,6 +1245,17 @@
 			zRMbs0rgm+2LN38h95n1Nl2C5fiD6NFpaAnJt3BA6NM=
 			</data>
 		</dict>
+		<key>Headers/KBMDisplayConditionsResponse.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QXcMkUlXtwi+EO1pV2k/8cCLurk=
+			</data>
+			<key>hash2</key>
+			<data>
+			Pq5qS4oG6+mvojd3OOtA0ovMwc/kDrSaTOQqY04IFn8=
+			</data>
+		</dict>
 		<key>Headers/KBMDownloadTask.h</key>
 		<dict>
 			<key>hash</key>
@@ -1268,6 +1311,17 @@
 			8Sycex+FLcuBY1MHuuUsvq9+fKpOLYc684E6X9d8FU4=
 			</data>
 		</dict>
+		<key>Headers/KBMIPList.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3+u0vt9g4UI+aAAscbQ1th77FsM=
+			</data>
+			<key>hash2</key>
+			<data>
+			qXJadmoDbvqGP/uBzExFaoMippfJxfQUDdw6EPeL4S4=
+			</data>
+		</dict>
 		<key>Headers/KBMJWT.h</key>
 		<dict>
 			<key>hash</key>
@@ -1288,6 +1342,17 @@
 			<key>hash2</key>
 			<data>
 			uvR512LU/Mk9H1psC+UFB9b/2eIoDRoFQYkQOtI8sT0=
+			</data>
+		</dict>
+		<key>Headers/KBMLanguageVariantModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fydyAcwO4gThxDh5V3hz4boGnq4=
+			</data>
+			<key>hash2</key>
+			<data>
+			S8+hNMzWXp1fH5cx7n08elo+m1W2eXIWox+zE1pkhXM=
 			</data>
 		</dict>
 		<key>Headers/KBMLastSeenSyncFeed.h</key>
@@ -1360,22 +1425,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yc5vE7aUyzBbw7Qu44g+2Vclj5w=
+			0uWIGNsPEOda68yIsxhYF9jGRRs=
 			</data>
 			<key>hash2</key>
 			<data>
-			x9GGoBiAVfbjRU0uNAM/FWqqdIzvx68qGHDl8NH8UhY=
+			o5uaRk/5z35AfdIoK1mz+QBF7ZAPace/CWDKI9imOpU=
 			</data>
 		</dict>
 		<key>Headers/KBMMessageDBService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DHRSWgQdGt67Ncsdsa5Y5ukqcAw=
+			wwyszQ3LtPuI369Yl1KR1mvmBx8=
 			</data>
 			<key>hash2</key>
 			<data>
-			2E+RmNMGkFKwOVFaE5Jvuvzheez5L4GIkNcQpXV+RzI=
+			+xyjE8ZBTUC/mlW/U7UVU5w+yWAGlkKbqqG7x/EHGqQ=
 			</data>
 		</dict>
 		<key>Headers/KBMMessageInfo.h</key>
@@ -1415,11 +1480,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/6SchqDWeejEFGL4XKOR9GNchmY=
+			eu8MT3hid7i0b3C46ayURX8MzGE=
 			</data>
 			<key>hash2</key>
 			<data>
-			rcxZHxsja/tDz4iOMYSomhAKSFZphZYmcRUW7xB6qdw=
+			iCH8Bro41pbjdjcbMQx80gPOO/hdzKT2pgXdQgDejbg=
 			</data>
 		</dict>
 		<key>Headers/KBMMuteRequest.h</key>
@@ -1499,6 +1564,28 @@
 			n5WPOEPZn6Sm78vMJ+P2PA156hsCilNZ1SEyGeEoFZY=
 			</data>
 		</dict>
+		<key>Headers/KBMRedactionConfiguration.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sZnEkNMi5Rm53p7wr0r7uTTDyls=
+			</data>
+			<key>hash2</key>
+			<data>
+			S9oBl4t3WuHmzExHiYiFYuw4jx/tYO82eeOUwdQsxX4=
+			</data>
+		</dict>
+		<key>Headers/KBMRedactionGroup.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lEVYupHMIZuNYqG2qoJYjczJdrU=
+			</data>
+			<key>hash2</key>
+			<data>
+			1RY0LqIoDvB2k8+EHXklNAi9IpTH7Iv4fYZ3esEmIso=
+			</data>
+		</dict>
 		<key>Headers/KBMRegisterUserClientService.h</key>
 		<dict>
 			<key>hash</key>
@@ -1541,6 +1628,17 @@
 			<key>hash2</key>
 			<data>
 			ke7PBZicmGbKq4hq2Bi5JX2BB8vBN3h3nJpYap6H5Ns=
+			</data>
+		</dict>
+		<key>Headers/KBMScrubMethod.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sIqoCAiEptvv3VGgMqg70EFR02M=
+			</data>
+			<key>hash2</key>
+			<data>
+			z3e/oZomdEpph/+4Z10Y+m07RHZ8MWa3M++VZmtaCQk=
 			</data>
 		</dict>
 		<key>Headers/KBMSearchRequest.h</key>
@@ -1690,11 +1788,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2z4FeJaoHjVSmY2ELGIZKGvjtCc=
+			CGemcbkWMNHxH223bDLovglgTP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			hyus4zdm027p8EnxIGyAC7h6Csj/Wq7IPS2Q3c8J+Ns=
+			4v+gtU8MTP/o/VdzZkc6vdDmuzfwt73hHwh6XCphwJk=
 			</data>
 		</dict>
 		<key>Headers/KBMUserDetail.h</key>
@@ -1745,11 +1843,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QEU9ZMWnSUjzvFCp9nDXsoserWU=
+			/nBgnexQ5+CaZBQTZhCK7+Qju/s=
 			</data>
 			<key>hash2</key>
 			<data>
-			tdk1cVcqHugifDL8xgUFRQqC7jt9fzBJhYACFpOQeKE=
+			kv1DSOvhoayrwMjRzD8sggKFbOK7Zl9xXlzGfd62K60=
 			</data>
 		</dict>
 		<key>Headers/KBMWidget.h</key>
@@ -1763,26 +1861,48 @@
 			tF2ZHN0W3b3owZOqv48O0tbOJrjKwmWddXzkp4sT5cQ=
 			</data>
 		</dict>
+		<key>Headers/KBMWidgetBrandStyleResponse.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3ilj9wBHZ2EuhHdTYeC5gk2VemA=
+			</data>
+			<key>hash2</key>
+			<data>
+			EcUwiL4T9y28GOcaoQT3xchv2cRCNU9FGTkIXtrMW0E=
+			</data>
+		</dict>
 		<key>Headers/KBMWidgetClient.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			w8+KcdfXyT7xAxhAMh9O1DcUTqw=
+			e2d2HQ7L8+3eWl/WSszfgjt2rc0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dq31XKwJOIPGAtY6G8hHiZbjjtF8tps/AXvEac7fmVk=
+			DmFb4I4P6e3VZgeqn+WVjv0IHWi+S19/Nxhkm96ZKaw=
 			</data>
 		</dict>
 		<key>Headers/KBMWidgetConfigurationResponse.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IEI4BtlqbfYS6zcxpes8xBc8k1M=
+			MVG8guCXW8w9OwWFYCzQPxA/2qg=
 			</data>
 			<key>hash2</key>
 			<data>
-			2+Ye9wTznY3JbZ9wH5gTjM7d+9Zw7AObahg/dBY233M=
+			Cu/oBbH5zK2cJjoAd1QAmTj7EZDygVkj0huJTXEZ7eM=
+			</data>
+		</dict>
+		<key>Headers/KBMatchPattern.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zjq8UqKDh4mDckK12FLuX8a2s2w=
+			</data>
+			<key>hash2</key>
+			<data>
+			2AG7quMsXairXjylPcVtoEWVZhgPt9VhjJsKUw3fJK0=
 			</data>
 		</dict>
 		<key>Headers/MQTTCFSocketDecoder.h</key>

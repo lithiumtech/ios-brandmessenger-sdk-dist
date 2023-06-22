@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "KBMUserOpenConversationResponse.h"
 #import "KBMWidgetConfigurationResponse.h"
+#import "KBMWidgetBrandStyleResponse.h"
 
 static NSString* KBM_PASSWORD = @"KBM_PASSWORD";
 static NSString* KBM_USER_AUTH_TOKEN = @"KBM_USER_AUTH_TOKEN";
@@ -298,4 +299,14 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 
 + (void)setRichMessageSelectedButtonIndex:(NSString *)identifier withIndex:(NSNumber *)index;
 + (NSNumber *)getRichMessageSelectedButtonIndex:(NSString *)identifier;
+
++ (void)setProactiveChatServerBaseURL:(NSString *)proactiveChatServerBaseURL;
++ (NSString *)getProactiveChatServerBaseURL;
+
++ (void)setBrandStyleHash:(NSString *)brandStyleHash;
++ (NSString *)getBrandStyleHash;
+
++ (void)setWidgetBrandStyleResponse:(KBMWidgetBrandStyleResponse *)response;
++ (KBMWidgetBrandStyleResponse *)getWidgetBrandStyleResponse;
+
 @end

@@ -16,11 +16,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// error types
-typedef NS_ENUM(NSInteger, KBMClientError) {
-    MessageNotPresent = 1
-};
-
 /// Listens to attachment upload and download events.
 @protocol KBMAttachmentDelegate <NSObject>
 
@@ -34,7 +29,7 @@ typedef NS_ENUM(NSInteger, KBMClientError) {
 ///
 /// To calculate the bytes remaining find the size of the file in the application directory with the name `message.imageFilePath` and subtract the `bytesSent` from it.
 /// @param message for which the attachment is currently uploading.
-- (void)onUpdateBytesUploaded:(int64_t)bytesSent withMessage:(KBMMessage *)message;
+- (void)onUpdateBytesUploaded:(int64_t)bytesSent withTotalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend withMessage:(KBMMessage *)message;
 
 /// Called when attachment upload fails. `message.fileMeta` will be nil.
 /// @param message for which the attachment upload failed.
@@ -54,6 +49,11 @@ typedef NS_ENUM(NSInteger, KBMClientError) {
 - (void)onDownloadCompleted:(KBMMessage *)updatedMessage;
 
 @end
+
+/// error types
+typedef NS_ENUM(NSInteger, KBMClientError) {
+    MessageNotPresent = 1
+};
 
 /// Provides public methods for:
 ///

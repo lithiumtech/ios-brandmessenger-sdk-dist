@@ -5,6 +5,7 @@
 //  Copyright (c) 2015 Khoros, LLC. All rights reserved.
 //
 
+#import "KBMLanguageVariantModel.h"
 #import "KBMMessage.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -137,6 +138,12 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 + (BOOL)getBoolFromJsonValue:(id _Nullable)jsonValue;
 
 + (NSString * _Nullable)getStringFromJsonValue:(id _Nullable)jsonValue;
+
++ (NSNumber *)getNSNumberFromJsonValue:(id)jsonValue;
+
++ (BOOL)validateJsonClass:(NSDictionary *)jsonClass;
+
++ (BOOL)validateJsonArrayClass:(NSArray *)jsonClass;
 @end
 
 NS_ASSUME_NONNULL_END

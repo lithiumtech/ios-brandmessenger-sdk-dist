@@ -80,4 +80,8 @@
 - (void)deleteMessageForAllWithKey:(NSString *)keyString
                     withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
 
+-(void)mailTranscriptWithEmail:(NSString *)email
+                 withBrandName:(NSString *)brandName
+                withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
+
 @end
