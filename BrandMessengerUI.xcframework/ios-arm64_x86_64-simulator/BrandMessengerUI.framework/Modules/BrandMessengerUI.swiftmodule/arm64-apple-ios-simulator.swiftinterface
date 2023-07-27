@@ -1330,6 +1330,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KB
 public struct KBMAppSettingsUserDefaults {
   public init()
   public func getAppPrimaryColor() -> UIKit.UIColor
+  public func setAppPrimaryColorColor(color: UIKit.UIColor)
   public func getAppBarTintColor() -> UIKit.UIColor
   public func setReceivedMessageBackgroundColor(color: UIKit.UIColor)
   public func getReceivedMessageBackgroundColor() -> UIKit.UIColor
@@ -1338,8 +1339,9 @@ public struct KBMAppSettingsUserDefaults {
   public func getAppSettings() -> BrandMessengerUI.KBMAppSettings?
   public func clear()
 }
-@objc @_inheritsConvenienceInitializers public class KBMAppSettings : ObjectiveC.NSObject, Foundation.NSCoding {
-  @objc override dynamic public init()
+@objc public class KBMAppSettings : ObjectiveC.NSObject, Foundation.NSCoding {
+  public init(primaryColor: Swift.String)
+  public var primaryColor: Swift.String
   public var showPoweredBy: Swift.Bool
   public var secondaryColor: Swift.String?
   public var receivedMessageBackgroundColor: Swift.String?

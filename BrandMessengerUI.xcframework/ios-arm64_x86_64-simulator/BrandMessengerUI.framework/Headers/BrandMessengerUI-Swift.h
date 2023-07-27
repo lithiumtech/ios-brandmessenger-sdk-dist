@@ -593,9 +593,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI20KBMActivityIndicator")
 /// <code>KBMAppSettings</code>class is used for creating a app settings details
 SWIFT_CLASS("_TtC16BrandMessengerUI14KBMAppSettings")
 @interface KBMAppSettings : NSObject <NSCoding>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1793,9 +1794,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI20KBMActivityIndicator")
 /// <code>KBMAppSettings</code>class is used for creating a app settings details
 SWIFT_CLASS("_TtC16BrandMessengerUI14KBMAppSettings")
 @interface KBMAppSettings : NSObject <NSCoding>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
