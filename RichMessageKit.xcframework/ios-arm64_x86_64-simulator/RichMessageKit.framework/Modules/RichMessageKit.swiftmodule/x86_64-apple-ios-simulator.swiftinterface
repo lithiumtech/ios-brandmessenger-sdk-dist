@@ -217,9 +217,11 @@ public struct Style {
   public let text: UIKit.UIColor
   public let background: UIKit.UIColor
   public let linkTextColor: UIKit.UIColor
-  public init(font: UIKit.UIFont, text: UIKit.UIColor, background: UIKit.UIColor)
-  public init(font: UIKit.UIFont, text: UIKit.UIColor)
-  public init(font: UIKit.UIFont, text: UIKit.UIColor, linkTextColor: UIKit.UIColor)
+  public let defaultFontSize: CoreGraphics.CGFloat
+  public let fontTextStyle: UIKit.UIFont.TextStyle
+  public init(font: UIKit.UIFont, text: UIKit.UIColor, background: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
+  public init(font: UIKit.UIFont, text: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
+  public init(font: UIKit.UIFont, text: UIKit.UIColor, linkTextColor: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
 }
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func addViewsForAutolayout(views: [UIKit.UIView])
@@ -241,7 +243,7 @@ public protocol KBMRichButtonStyleDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool) -> CoreGraphics.CGSize
   @_Concurrency.MainActor(unsafe) public class func buttonSize(attributedText: Foundation.NSMutableAttributedString, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool) -> CoreGraphics.CGSize
-  @_Concurrency.MainActor(unsafe) public func updateView(text: Swift.String?, attributedText: Foundation.NSMutableAttributedString?, config: RichMessageKit.CurvedImageButton.Config, isSelectedButton: Swift.Bool, isNaturalStateButton: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func updateView(text: Swift.String?, attributedText: Foundation.NSMutableAttributedString?, config: RichMessageKit.CurvedImageButton.Config, isSelectedButton: Swift.Bool, isNaturalStateButton: Swift.Bool, selectedButtonAccessibilityText: Swift.String, unselectedButtonAccessibilityText: Swift.String)
   @objc deinit
 }
 public struct KBMRichMessageButtonStyle {
@@ -334,7 +336,7 @@ public enum ImageBubbleTheme {
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class MessageView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public init(bubbleStyle: RichMessageKit.MessageBubbleStyle, messageStyle: RichMessageKit.Style, maxWidth: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.Message)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.Message, messageStyle: RichMessageKit.Style, bubbleStyle: RichMessageKit.MessageBubbleStyle)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.Message, maxWidth: CoreGraphics.CGFloat, font: UIKit.UIFont, padding: RichMessageKit.Padding?) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public func updateHeighOfView(hideView: Swift.Bool, model: RichMessageKit.Message)
   @objc deinit
@@ -483,8 +485,10 @@ public struct ButtonStyle {
   public let titleColorHighlighted: UIKit.UIColor
   public let background: UIKit.UIColor
   public let title: Swift.String
-  public init(font: UIKit.UIFont, titleColor: UIKit.UIColor, titleColorDisabled: UIKit.UIColor, titleColorHighlighted: UIKit.UIColor, background: UIKit.UIColor, title: Swift.String)
-  public init(font: UIKit.UIFont, title: Swift.String)
+  public let defaultFontSize: CoreGraphics.CGFloat
+  public let fontTextStyle: UIKit.UIFont.TextStyle
+  public init(font: UIKit.UIFont, titleColor: UIKit.UIColor, titleColorDisabled: UIKit.UIColor, titleColorHighlighted: UIKit.UIColor, background: UIKit.UIColor, title: Swift.String, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
+  public init(font: UIKit.UIFont, title: Swift.String, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
 }
 extension Foundation.Bundle {
   public static var richMessageKit: Foundation.Bundle {
@@ -493,6 +497,7 @@ extension Foundation.Bundle {
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SuggestedReplyView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
+  @_Concurrency.MainActor(unsafe) public var buttons: [RichMessageKit.CurvedImageButton]?
   @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat

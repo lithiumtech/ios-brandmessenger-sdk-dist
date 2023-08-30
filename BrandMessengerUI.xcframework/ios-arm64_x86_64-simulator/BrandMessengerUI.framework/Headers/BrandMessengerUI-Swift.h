@@ -939,6 +939,8 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMGenericCardCell")
 SWIFT_CLASS("_TtC16BrandMessengerUI24KBMIndexedCollectionView")
 @interface KBMIndexedCollectionView : UICollectionView
 - (nonnull instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout * _Nonnull)layout OBJC_DESIGNATED_INITIALIZER;
+/// For scrolling left/right when accessibility enabled.
+- (NSInteger)accessibilityElementCount SWIFT_WARN_UNUSED_RESULT;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1149,7 +1151,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI15TranslucentView")
 - (void)insertSubview:(UIView * _Nonnull)view atIndex:(NSInteger)index;
 - (void)exchangeSubviewAtIndex:(NSInteger)index1 withSubviewAtIndex:(NSInteger)index2;
 @end
-
 
 
 
@@ -2140,6 +2141,8 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMGenericCardCell")
 SWIFT_CLASS("_TtC16BrandMessengerUI24KBMIndexedCollectionView")
 @interface KBMIndexedCollectionView : UICollectionView
 - (nonnull instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout * _Nonnull)layout OBJC_DESIGNATED_INITIALIZER;
+/// For scrolling left/right when accessibility enabled.
+- (NSInteger)accessibilityElementCount SWIFT_WARN_UNUSED_RESULT;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2350,7 +2353,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI15TranslucentView")
 - (void)insertSubview:(UIView * _Nonnull)view atIndex:(NSInteger)index;
 - (void)exchangeSubviewAtIndex:(NSInteger)index1 withSubviewAtIndex:(NSInteger)index2;
 @end
-
 
 
 
