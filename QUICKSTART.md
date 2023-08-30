@@ -3,9 +3,9 @@ In the BrandMessengerUI framework, there is a BrandMessengerManager class that e
 
 ## Basics
 ### Initialization
-Initialize BrandMessengerManager class providing the companyKey and applicationKey, preferably somewhere in application:didFinishLaunchingWithOptions
+Initialize BrandMessengerManager class providing the companyKey, applicationKey and widgetId, preferably somewhere in application:didFinishLaunchingWithOptions
 
-    BrandMessengerManager(companyKey: "company key", applicationKey: "application id")
+    BrandMessengerManager(companyKey: "company key", applicationKey: "application id", widgetId: "widget id") { response, error in }
 
 ### Authentication (Incomplete feature)
 Login by providing the bearerToken.

@@ -9,7 +9,7 @@ Khoros BrandMessenger iOS SDK
 
 Add BrandMessenger to podfile:
 
-    pod 'BrandMessenger', :git => 'git@github.com:lithiumtech/ios-brandmessenger-sdk-dist.git', :tag => '<version>'
+    pod 'BrandMessenger', '<version>'
 
 Import BrandMessenger:
 
@@ -21,7 +21,7 @@ Import BrandMessenger:
 Use:
 
 ```Swift
-BrandMessengerManager(companyKey: "YOUR_COMPANY_KEY", applicationKey: "YOUR_APPLICATION_ID")
+BrandMessengerManager(companyKey: "YOUR_COMPANY_KEY", applicationKey: "YOUR_APPLICATION_ID", widgetId: "YOUR_WIDGET_ID") { response, error in }
 BrandMessengerManager.login("YOUR_ACCESS_TOKEN") { response, error in }
 BrandMessengerManager.show()
 ```
