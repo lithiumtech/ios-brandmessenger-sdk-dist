@@ -906,7 +906,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)_ willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)_ willDecelerate:(BOOL)decelerate;
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)_;
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidScrollToTop:(UIScrollView * _Nonnull)_;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
@@ -2108,7 +2108,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)_ willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)_ willDecelerate:(BOOL)decelerate;
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)_;
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidScrollToTop:(UIScrollView * _Nonnull)_;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end

@@ -795,7 +795,7 @@ extension BrandMessengerUI.KBMConversationViewController : UIKit.UITableViewDele
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidEndDragging(_: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidEndDecelerating(_: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidScrollToTop(_: UIKit.UIScrollView)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
 }
@@ -884,7 +884,7 @@ public struct ListTemplate : Swift.Codable {
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class KBMGenericCardCell : UIKit.UICollectionViewCell {
   public enum Config {
-    public static let imageHeight: CoreGraphics.CGFloat
+    public static var imageHeight: CoreGraphics.CGFloat
     public enum OverlayText {
       public static let zeroHeight: CoreGraphics.CGFloat
     }
@@ -903,7 +903,7 @@ public struct ListTemplate : Swift.Codable {
   @objc override dynamic open func awakeFromNib()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) open class func rowHeight(card: BrandMessengerUI.CardTemplate, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) open class func rowHeight(card: BrandMessengerUI.CardTemplate, maxWidth: CoreGraphics.CGFloat, identifier: Swift.String?) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) open func update(card: BrandMessengerUI.CardTemplate, selectedButtonIndex: Swift.Int?, isButtonSelectedInCard: Swift.Bool = false)
   @objc deinit
 }
