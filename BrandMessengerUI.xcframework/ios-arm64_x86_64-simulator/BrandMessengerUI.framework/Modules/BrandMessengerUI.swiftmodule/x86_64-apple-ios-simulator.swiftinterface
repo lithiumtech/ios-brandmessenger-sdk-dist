@@ -400,6 +400,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   func willSendMessage()
   func updateTyingStatus(status: Swift.Bool, userId: Swift.String)
   func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
+  func reloadTableView()
 }
 @objc open class KBMConversationViewModel : ObjectiveC.NSObject {
   open var contactId: Swift.String? {
@@ -1013,7 +1014,7 @@ public protocol KBMMessageViewModel {
   var fileMetaInfo: BrandMessengerCore.KBMFileMetaInfo? { get }
   var receiverId: Swift.String? { get }
   var isReplyMessage: Swift.Bool { get }
-  var metadata: [Swift.String : Any]? { get }
+  var metadata: [Swift.String : Any]? { get set }
   var source: Swift.Int16 { get }
   var contentType: RichMessageKit.Message.ContentType { get }
   var authorName: Swift.String? { get }
@@ -1272,6 +1273,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   @objc @_Concurrency.MainActor(unsafe) dynamic open func loadingStarted()
   @objc @_Concurrency.MainActor(unsafe) dynamic open func loadingFinished(error _: Swift.Error?)
   @_Concurrency.MainActor(unsafe) public func messageUpdated()
+  @_Concurrency.MainActor(unsafe) public func reloadTableView()
   @_Concurrency.MainActor(unsafe) public func updateMessageAt(indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) public func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
   @_Concurrency.MainActor(unsafe) public func moveTableViewToBottom(indexPath: Foundation.IndexPath)

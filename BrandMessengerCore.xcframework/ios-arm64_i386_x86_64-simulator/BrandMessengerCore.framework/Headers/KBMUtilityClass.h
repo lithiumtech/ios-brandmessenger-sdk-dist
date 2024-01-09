@@ -144,6 +144,8 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 + (BOOL)validateJsonClass:(NSDictionary *)jsonClass;
 
 + (BOOL)validateJsonArrayClass:(NSArray *)jsonClass;
+
++ (BOOL)validateJsonMutableArrayClass:(NSMutableArray *)mutableArrayClass;
 @end
 
 NS_ASSUME_NONNULL_END
