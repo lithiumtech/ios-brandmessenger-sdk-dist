@@ -162,7 +162,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		h/LiOjP1nmKtsuM7OZkqWHks7Ic=
+		EAcsQi8WZfNy9yyHx1Ywi5pPnCQ=
 		</data>
 		<key>KBMAccountSuspensionView.nib</key>
 		<data>
@@ -230,7 +230,7 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		iiI4+TMDgvR9r6nTOboFRbZA7wo=
+		UroWv3kkPGEmhP7MFVWkiqPGtxk=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -242,7 +242,7 @@
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ezOUH4QTk8WPMSqx/TYCO6lYya4=
+		NwqmcyQNjRAoZHazkRKNNNHSN3I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -279,6 +279,10 @@
 		<key>PreviewLocation.storyboardc/l16-FW-5Jn-view-efs-qd-iIY.nib</key>
 		<data>
 		1Im9We+S8b8QmF6jBrENaHc88tE=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		usehsCUKA1oYOx7MJpb8aXGIxzA=
 		</data>
 		<key>ShareLocation.storyboardc/Info.plist</key>
 		<data>
@@ -688,7 +692,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OBAAlLGUVEVOCFW4x827cvS5wo0iJrEX8vpE2P/otF8=
+			lfPJwJyAe1GW8WpZNzVMiGWnFHGPZVFQRumUsfp5vow=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -709,7 +713,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OA5MlgAIOWOAPYnKweCgc/Y67k2fxpYceaeC1iGeSq8=
+			LJvKALytwDRmom3fI8on4xNUOGaP2mjdttDbRA/XGgo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -773,6 +777,13 @@
 			<key>hash2</key>
 			<data>
 			BSyLO79gDiH9Sm+zV+0uvNXP1/N06g3ZHv+gtGBbZ/4=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			A3l/R/l9SgF8ilUEkuwRI7MURW9afyaDpFzXEb57vNw=
 			</data>
 		</dict>
 		<key>ShareLocation.storyboardc/Info.plist</key>

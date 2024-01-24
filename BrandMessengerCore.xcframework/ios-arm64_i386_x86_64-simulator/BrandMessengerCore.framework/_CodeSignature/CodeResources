@@ -582,7 +582,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		mlbaDhoNpy3gLGXm+m70t0oJon8=
+		YEuYnd84+L11PQlt50CeJglPu30=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -599,6 +599,10 @@
 		<key>Modules/module.modulemap</key>
 		<data>
 		DNPOpdWbBI++IhjmxZaqfixfPB8=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		PYF23K9Bs1krNr8+2QSIWaLXbjw=
 		</data>
 		<key>TSMessagesDefaultDesign.json</key>
 		<data>
@@ -2233,6 +2237,17 @@
 			<key>hash2</key>
 			<data>
 			N9PHaPc+VkGRD8tLxW2ApYjx891ceBauGQ1Bcxl9Po8=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PYF23K9Bs1krNr8+2QSIWaLXbjw=
+			</data>
+			<key>hash2</key>
+			<data>
+			n7XLmYdSPpqyvrM1DU7u5lQwPPprgBfxIbW6X+O55Ow=
 			</data>
 		</dict>
 		<key>TSMessagesDefaultDesign.json</key>

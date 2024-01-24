@@ -25,7 +25,7 @@ final public class KeyboardSettings {
 }
 @_hasMissingDesignatedInitializers final public class RecentEmojisManager {
   public static let sharedInstance: ISEmojiView.RecentEmojisManager
-  final public func add(emoji: ISEmojiView.Emoji, selectedEmoji: Swift.String) -> Swift.Bool
+  final public func add(emoji: ISEmojiView.Emoji, selectedEmoji: Swift.String, maxCount: Swift.Int) -> Swift.Bool
   final public func recentEmojis() -> [ISEmojiView.Emoji]
   @objc deinit
 }

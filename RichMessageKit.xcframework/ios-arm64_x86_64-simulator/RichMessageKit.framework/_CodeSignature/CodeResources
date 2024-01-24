@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		sIe2AY4LsvUzBjEMVQYCfwt6LkM=
+		7GVQSQVH/245D8xNhppkFw9vN3g=
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wp1YOuzgvFVdlxEAvy3SOoElty8=
+		0+wZnCLbE3SG8otg/Oo3JmUgNxo=
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -42,11 +42,15 @@
 		</data>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		QTkXM/5xBVV210pVGVb9UN+fpyU=
+		Krfv+J2Nmb89YNrRTRAKsjaCMBM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		eDFcuTeaM+fUupJd0at4M1em0oI=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		rgSfpIDTxBHBATdPZ37PqHUIGFY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -90,7 +94,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			U8REE5ktd9+odtl3T1c5MMM1pNMhN1fo20PKvWmdnQ8=
+			QX/edD1sf7zbf4JTmblECs0Z/3y0r2lkabLG/OtJKFA=
 			</data>
 		</dict>
 		<key>Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -111,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yRIrodKNYL2U7sMD2IN7R/kOd6qY6TCG/zbIkhJszdE=
+			VoaAX66V0Nqov9wRlB2a4UGK0S72zUwOjnVC5Xs/kGE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -119,6 +123,13 @@
 			<key>hash2</key>
 			<data>
 			KgDFoKaT6B5WYIU7WRXzb4/NfXlT2vex3YpZ8HAZZg4=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IaVwNPUaMjTrOoXm1koR/ebZK4SGi+dFX8lKhPaer5g=
 			</data>
 		</dict>
 	</dict>

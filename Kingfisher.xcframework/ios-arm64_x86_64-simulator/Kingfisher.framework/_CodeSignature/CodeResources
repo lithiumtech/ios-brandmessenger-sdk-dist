@@ -6,7 +6,7 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		g5vSjLCSjPEYObVZPPdohTOpILU=
+		9Yy9U+kUsx4aoB53zd+Bc33Gmz8=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		O/i7LaCbxWeBsB/Bt+bvSPCnEb4=
+		kq6WvE/SvoeXPpLVmt/Ur/e1Kus=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +30,11 @@
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		bpDuzIrqkPp+o+lK5S4P3bGVsE4=
+		nYBCxUCowFY1qVbMxpRWwNVLHuM=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		hGVuuzmjt5sKGjVNh+ZspIKBF7c=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -53,7 +57,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ahmWioA9PGGPgWBjxzyRraF1FKTMhk6SUnAInTwjJu4=
+			Ol+CkHQyZ6P5aqk6sclv6NJVLy/Cmynn0Z9RcfBnLAI=
 			</data>
 		</dict>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -74,7 +78,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AmUwW4DMcFM+TN991FYiZlU4/Z3+Wqi5aUIidRef2oU=
+			7GQlN/LjpLoRRx5SRwHcU7UVjNO41TiGGxzmWt94jdc=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yFi3Q8Y5579kQ1TeQdEowO5K8T00j1zU5gSSpLKH2/k=
 			</data>
 		</dict>
 	</dict>

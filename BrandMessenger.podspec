@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BrandMessenger"
-  s.version      = "1.14.4"
+  s.version      = "1.14.5"
   s.summary      = "BrandMessenger"
   s.description  = "Messaging and Chat API for Mobile Apps and Websites"
   s.homepage     = "https://khoros.com"
