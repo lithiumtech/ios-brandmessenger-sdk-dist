@@ -123,6 +123,14 @@ typedef enum {
 /// This will be useful for showing the time of the message sent or received in chat and also to load the older message based on the created time.
 @property (nonatomic, copy) NSNumber *createdAtTime;
 
+/// delivered at the time which is in milliseconds.
+/// This will be useful for showing the time of the message sent in chat.
+@property (nonatomic, copy) NSNumber  * _Nullable deliveredAtTime;
+
+/// read at the time which is in milliseconds.
+/// This will be useful for showing the time of the message was read in chat.
+@property (nonatomic, copy) NSNumber  * _Nullable readAtTime;
+
 /// Type to identify the message is sent by logged-in user or message is received.
 ///
 /// Message type are:
@@ -319,9 +327,6 @@ typedef enum {
 /// Used for identifying the message notification is disabled or enabled.
 /// @return Returns YES in case of message notification has been disabled otherwise, NO message notifications are enabled.
 - (BOOL)isNotificationDisabled;
-
-/// :nodoc:
-- (BOOL)isLinkMessage;
 
 /// Returns YES if the message is to reset the unread count of conversation otherwise NO.
 - (BOOL)isResetUnreadCountMessage;

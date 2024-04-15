@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 static NSString *const NEW_MESSAGE_NOTIFICATION = @"newMessageNotification";
 /// Notification name for the message metadata update.
 static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNotification";
+/// Notification name for the single message deleted.
+static NSString *const KBM_MESSAGE_DELETE_NOTIFICATION_KEY = @"kbmMessageDeletedNotification";
 
 /// `KBMMessageService` class has major methods for message API's
 @interface KBMMessageService : NSObject

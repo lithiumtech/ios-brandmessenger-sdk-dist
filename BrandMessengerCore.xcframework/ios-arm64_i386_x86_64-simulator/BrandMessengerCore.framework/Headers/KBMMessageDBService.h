@@ -61,8 +61,8 @@
     messageTypeOnlyReceived:(BOOL)received;
 
 //update Message APIS
-- (void)updateMessageDeliveryReport:(NSString *)messageKeyString withStatus:(int)status;
-- (void)updateDeliveryReportForContact:(NSString *)contactId withStatus:(int)status;
+- (void)updateMessageDeliveryReport:(NSString *)messageKeyString withStatus:(int)status withTimestamp:(NSNumber*)timestamp;
+- (void)updateDeliveryReportForContact:(NSString *)contactId withStatus:(int)status withTimestamp:(NSNumber*)timestamp;
 - (void)updateMessageSyncStatus:(NSString *)keyString;
 - (void)updateFileMetaInfo:(KBMMessage *)message;
 
@@ -91,7 +91,7 @@
 
 - (void)updateMessageReplyType:(NSString *)messageKeyString replyType:(NSNumber *)type hideFlag:(BOOL)flag;
 
-- (void)updateMessageSentDetails:(NSString *)messageKeyString
+- (DB_Message *)updateMessageSentDetails:(NSString *)messageKeyString
                withCreatedAtTime:(NSNumber *)createdAtTime
                    withDbMessage:(DB_Message *)dbMessage;
 

@@ -125,3 +125,4 @@ FOUNDATION_EXPORT const unsigned char BrandMessengerCoreVersionString[];
 #import "KBMWidgetConfigurationResponse.h"
 #import "KBMWidgetBrandStyleResponse.h"
 #import "KBMLanguageVariantModel.h"
+#import "KBMAppStateUtility.h"

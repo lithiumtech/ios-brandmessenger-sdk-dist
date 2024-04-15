@@ -32,6 +32,7 @@ static NSString *const KBM_DISABLE_USER_CHAT = @"DISABLE_CHAT_WITH_USER";
 
 static NSString *const KBM_REGION_US = @"US";
 static NSString *const KBM_REGION_APAC = @"APAC";
+static NSString *const KBM_REGION_EU = @"EU";
 
 @interface KBMUserDefaultsHandler : NSObject
 
@@ -281,6 +282,9 @@ static NSString *const KBM_REGION_APAC = @"APAC";
 
 +(void)setUserOpenConversationResponse:(KBMUserOpenConversationResponse *)response;
 +(KBMUserOpenConversationResponse *)getUserOpenConversationResponse;
+
++(void)setSendWelcomeMessageRequestAfterTimestamp:(NSNumber *)timestamp;
++(NSNumber *)getSendWelcomeMessageRequestAfterTimestamp;
 
 + (void)setWidgetId:(NSString *)widgetId;
 + (NSString *)getWidgetId;

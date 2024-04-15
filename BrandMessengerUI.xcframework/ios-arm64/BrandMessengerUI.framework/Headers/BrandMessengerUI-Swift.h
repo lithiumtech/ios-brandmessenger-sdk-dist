@@ -197,7 +197,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import AVFAudio;
 @import BrandMessengerCore;
-@import ContactsUI;
 @import CoreGraphics;
 @import CoreLocation;
 @import Foundation;
@@ -490,13 +489,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// Call to set KBMEncryiptionDelegate, allowing application to handle encryption and storage of auth-token and password.
 + (void)setEncryptionDelegate:(id <KBMEncryptionDelegate> _Nonnull)delegate;
 /// Make a welcome-message request API call
-+ (void)sendWelcomeMessageRequestWithComplete:(void (^ _Nonnull)(NSDictionary * _Nullable, NSError * _Nullable))complete;
++ (void)sendWelcomeMessageRequestWithComplete:(void (^ _Nonnull)(NSError * _Nullable))complete;
 /// Enable certificate pinning with array of public keys.
 + (void)setPinningCertificatePublicKeys:(NSArray<NSString *> * _Nonnull)keys;
 /// Enable certificate pinning with array der certificate URLs.
 + (void)setPinningCertificates:(NSArray<NSURL *> * _Nonnull)certificates;
-/// Enable default certificate pinning on default baseUrl ‘brandmessenger.khoros.com’
-/// TODO: Need to get more backup keys.
 + (void)enableDefaultCertificatePinning;
 /// Call to set the Widget Id
 /// \param widgetId To get the WidgetId, you can create a new Widget configuration or select existing Widget in Settings –> Admin  –> Brand Messenger –> Modern Chat
@@ -529,7 +526,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 
@@ -769,16 +765,17 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 @end
 
 
+@class NSNumber;
 @class KBMMessage;
 @class KBMUserDetail;
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMMQTTConversationDelegate>
+- (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
+- (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)mqttDidConnected;
 - (void)updateUserDetail:(NSString * _Nonnull)userId;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
-- (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status;
-- (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status;
 - (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)userId andBlockFlag:(BOOL)_;
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
@@ -813,14 +810,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI29KBMConversationViewController")
 - (void)pushNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)scrollViewWillBeginDecelerating:(UIScrollView * _Nonnull)_;
 - (void)invalidateTimerAndUpdateHeightConstraint:(NSTimer * _Nullable)_;
-@end
-
-
-@class CNContactPickerViewController;
-@class CNContact;
-
-@interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <CNContactPickerDelegate>
-- (void)contactPicker:(CNContactPickerViewController * _Nonnull)_ didSelectContact:(CNContact * _Nonnull)contact;
 @end
 
 
@@ -881,11 +870,11 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMMQTTConversationDelegate>
+- (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
+- (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
 - (void)mqttDidConnected;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
-- (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status;
-- (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status;
 - (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
@@ -914,7 +903,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)loadingStarted;
 - (void)loadingFinishedWithError:(NSError * _Nullable)_;
 - (void)deleteQuickReplyMessageWithIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (void)newMessagesAdded;
+- (void)newMessagesAddedWithMessages:(NSArray<KBMMessage *> * _Nullable)messages;
 @end
 
 

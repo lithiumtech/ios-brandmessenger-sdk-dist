@@ -132,6 +132,8 @@ extension UIKit.UIColor {
   convenience public init(hexString: Swift.String, alpha: CoreGraphics.CGFloat = 1.0)
   convenience public init(netHex: Swift.Int)
   public func isColorLight() -> Swift.Bool
+  public class func darkTextColor() -> UIKit.UIColor
+  public func toHexString() -> Swift.String
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentMessageView : UIKit.UIView {
   public enum Config {
@@ -158,9 +160,11 @@ extension RichMessageKit.FAQMessageView : RichMessageKit.Tappable {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMRichMessageChatBaseCell<T> : UIKit.UITableViewCell {
   @_Concurrency.MainActor(unsafe) public var defaultAvatar: UIKit.UIImage?
+  @_Concurrency.MainActor(unsafe) public var isOutboundReadReceiptsEnabled: Swift.Bool
   @_Concurrency.MainActor(unsafe) public var model: RichMessageKit.ImageMessage?
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder _: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public class func timeLabelBottomPadding() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.ImageMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @objc deinit
 }
@@ -186,20 +190,32 @@ public enum ChatCellPadding {
       public static let left: CoreGraphics.CGFloat
       public static let right: CoreGraphics.CGFloat
       public static let top: CoreGraphics.CGFloat
+      public static let firstMessageTop: CoreGraphics.CGFloat
     }
     public enum QuickReply {
       public static let left: CoreGraphics.CGFloat
       public static let top: CoreGraphics.CGFloat
+      public static let firstMessageTop: CoreGraphics.CGFloat
       public static let right: CoreGraphics.CGFloat
       public static let bottom: CoreGraphics.CGFloat
+      public static let lastMessageBottom: CoreGraphics.CGFloat
     }
     public enum MessageButton {
       public static let left: CoreGraphics.CGFloat
       public static let right: CoreGraphics.CGFloat
       public static let top: CoreGraphics.CGFloat
+      public static let firstMessageTop: CoreGraphics.CGFloat
       public static let bottom: CoreGraphics.CGFloat
+      public static let lastMessageBottom: CoreGraphics.CGFloat
     }
   }
+}
+extension UIKit.UIFont {
+  public func withTraits(traits: UIKit.UIFontDescriptor.SymbolicTraits) -> UIKit.UIFont
+  public func bold() -> UIKit.UIFont
+  public func italic() -> UIKit.UIFont
+  public func font() -> UIKit.UIFont
+  public static func getFontName(font: UIKit.UIFont) -> Swift.String
 }
 extension UIKit.UILabel {
   @_Concurrency.MainActor(unsafe) public func setStyle(_ style: RichMessageKit.Style)
@@ -221,9 +237,10 @@ public struct Style {
   public let linkTextColor: UIKit.UIColor
   public let defaultFontSize: CoreGraphics.CGFloat
   public let fontTextStyle: UIKit.UIFont.TextStyle
-  public init(font: UIKit.UIFont, text: UIKit.UIColor, background: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
-  public init(font: UIKit.UIFont, text: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
-  public init(font: UIKit.UIFont, text: UIKit.UIColor, linkTextColor: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
+  public var fontName: Swift.String
+  public init(font: UIKit.UIFont, text: UIKit.UIColor, background: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle, fontName: Swift.String)
+  public init(font: UIKit.UIFont, text: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle, fontName: Swift.String)
+  public init(font: UIKit.UIFont, text: UIKit.UIColor, linkTextColor: UIKit.UIColor, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle, fontName: Swift.String)
 }
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func addViewsForAutolayout(views: [UIKit.UIView])
@@ -245,7 +262,7 @@ public protocol KBMRichButtonStyleDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool, isNaturalStateButton: Swift.Bool) -> CoreGraphics.CGSize
   @_Concurrency.MainActor(unsafe) public class func buttonSize(attributedText: Foundation.NSMutableAttributedString, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool, isNaturalStateButton: Swift.Bool) -> CoreGraphics.CGSize
-  @_Concurrency.MainActor(unsafe) public func updateView(text: Swift.String?, attributedText: Foundation.NSMutableAttributedString?, config: RichMessageKit.CurvedImageButton.Config, isSelectedButton: Swift.Bool, isNaturalStateButton: Swift.Bool, selectedButtonAccessibilityText: Swift.String, unselectedButtonAccessibilityText: Swift.String, image: UIKit.UIImage?, isLinkButton: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func updateView(curvedImageButtonModel: RichMessageKit.KBMCurvedImageButtonModel)
   @objc deinit
 }
 public struct KBMRichMessageButtonStyle {
@@ -281,6 +298,18 @@ public struct KBMButtonModel {
   public let name: Swift.String?
   public let url: Swift.String?
   public let type: RichMessageKit.KBMButtonModel.KBMButtonType
+}
+public struct KBMCurvedImageButtonModel {
+  public var text: Swift.String?
+  public var attributedText: Foundation.NSMutableAttributedString?
+  public var config: RichMessageKit.CurvedImageButton.Config
+  public var isSelectedButton: Swift.Bool
+  public var isNaturalStateButton: Swift.Bool
+  public var selectedButtonAccessibilityText: Swift.String
+  public var unselectedButtonAccessibilityText: Swift.String
+  public var image: UIKit.UIImage?
+  public var isLinkButton: Swift.Bool
+  public init(config: RichMessageKit.CurvedImageButton.Config, isSelectedButton: Swift.Bool, isNaturalStateButton: Swift.Bool, selectedButtonAccessibilityText: Swift.String, unselectedButtonAccessibilityText: Swift.String, isLinkButton: Swift.Bool)
 }
 public enum KBMMessageStatus : Swift.CaseIterable {
   case pending
@@ -428,7 +457,11 @@ public struct SuggestedReplyMessage {
     }
   }
   public struct Suggestion {
+    public var templateId: Swift.String
+    public var title: Swift.String
+    public var type: RichMessageKit.SuggestedReplyMessage.SuggestionType
     public var reply: Swift.String?
+    public var url: Swift.String?
     public init(templateId: Swift.String, title: Swift.String, reply: Swift.String? = nil, type: RichMessageKit.SuggestedReplyMessage.SuggestionType = .normal, url: Swift.String?)
   }
   public var suggestion: [RichMessageKit.SuggestedReplyMessage.Suggestion]
@@ -489,8 +522,9 @@ public struct ButtonStyle {
   public let title: Swift.String
   public let defaultFontSize: CoreGraphics.CGFloat
   public let fontTextStyle: UIKit.UIFont.TextStyle
-  public init(font: UIKit.UIFont, titleColor: UIKit.UIColor, titleColorDisabled: UIKit.UIColor, titleColorHighlighted: UIKit.UIColor, background: UIKit.UIColor, title: Swift.String, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
-  public init(font: UIKit.UIFont, title: Swift.String, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle)
+  public var fontName: Swift.String
+  public init(font: UIKit.UIFont, titleColor: UIKit.UIColor, titleColorDisabled: UIKit.UIColor, titleColorHighlighted: UIKit.UIColor, background: UIKit.UIColor, title: Swift.String, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle, fontName: Swift.String)
+  public init(font: UIKit.UIFont, title: Swift.String, defaultFontSize: CoreGraphics.CGFloat, fontTextStyle: UIKit.UIFont.TextStyle, fontName: Swift.String)
 }
 extension Foundation.Bundle {
   public static var richMessageKit: Foundation.Bundle {
@@ -521,6 +555,7 @@ public class ReceivedMessageViewSizeCalculator {
       public static var topPadding: CoreGraphics.CGFloat
       public static var bottomPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
+      public static var firstMessageTopPadding: CoreGraphics.CGFloat
     }
     public enum ProfileImage {
       public static var width: CoreGraphics.CGFloat
@@ -529,7 +564,6 @@ public class ReceivedMessageViewSizeCalculator {
     }
     public enum TimeLabel {
       public static var rightPadding: CoreGraphics.CGFloat
-      public static var topPadding: CoreGraphics.CGFloat
     }
     public enum DisplayName {
       public static var topPadding: CoreGraphics.CGFloat
@@ -538,9 +572,14 @@ public class ReceivedMessageViewSizeCalculator {
     }
     public enum ImageBubbleView {
       public static var topPadding: CoreGraphics.CGFloat
+      public static var firstMessageTopPadding: CoreGraphics.CGFloat
       public static var leftPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
+      public static var bottomPadding: CoreGraphics.CGFloat
+      public static var lastMessageTopPadding: CoreGraphics.CGFloat
     }
+    public static let messageViewPadding: RichMessageKit.Padding
+    public static let firstMessageMessageViewPadding: RichMessageKit.Padding
   }
   @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)

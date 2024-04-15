@@ -146,6 +146,13 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 + (BOOL)validateJsonArrayClass:(NSArray *)jsonClass;
 
 + (BOOL)validateJsonMutableArrayClass:(NSMutableArray *)mutableArrayClass;
+
++ (NSString *)getAttachmentFileName:(NSString * _Nullable)filePath fileMeta:(KBMFileMetaInfo * _Nullable)fileMeta createdAtTime:(double)createdAtTime;
+
++ (void)renameFileWithName:(NSString *)fileName toNewName:(NSString *)newName error:(NSError **)error;
+
++ (NSString *)formattedDateWithFormat:(NSString *)formatString timeInMilliseconds:(int64_t)timeInMilliSecs;
+
 @end
 
 NS_ASSUME_NONNULL_END

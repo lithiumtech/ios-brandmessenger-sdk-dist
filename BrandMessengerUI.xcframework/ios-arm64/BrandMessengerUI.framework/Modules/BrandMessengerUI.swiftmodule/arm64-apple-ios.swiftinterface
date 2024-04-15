@@ -5,8 +5,6 @@ import AVFoundation
 import AVKit
 import BrandMessengerCore
 @_exported import BrandMessengerUI
-import Contacts
-import ContactsUI
 import CoreLocation
 import Foundation
 import ISEmojiView
@@ -66,12 +64,12 @@ extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerUI.
   @_Concurrency.MainActor(unsafe) public func rowUpdatedAt(position: Swift.Int)
 }
 extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerCore.KBMMQTTConversationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func delivered(_ messageKey: Swift.String, contactId: Swift.String?, withStatus status: Swift.Int32, withTimestamp timestamp: Foundation.NSNumber?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func updateStatus(forContact contactId: Swift.String, withStatus status: Swift.Int32, withTimestamp timestamp: Foundation.NSNumber?)
   @_Concurrency.MainActor(unsafe) @objc dynamic open func mqttDidConnected()
   @_Concurrency.MainActor(unsafe) @objc dynamic open func updateUserDetail(_ userId: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc dynamic open func syncCall(_ message: BrandMessengerCore.KBMMessage, andMessageList _: Foundation.NSMutableArray?)
   @_Concurrency.MainActor(unsafe) @objc dynamic open func updateMessageText(_ text: Swift.String, withMessageKey messageKey: Swift.String)
-  @_Concurrency.MainActor(unsafe) @objc dynamic open func delivered(_ messageKey: Swift.String, contactId: Swift.String?, withStatus status: Swift.Int32)
-  @_Concurrency.MainActor(unsafe) @objc dynamic open func updateStatus(forContact contactId: Swift.String, withStatus status: Swift.Int32)
   @_Concurrency.MainActor(unsafe) @objc dynamic open func updateTypingStatus(_: Swift.String, userId: Swift.String, status: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc dynamic open func reloadData(forUserBlockNotification userId: Swift.String, andBlockFlag _: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc dynamic open func updateLastSeen(atStatus userDetail: BrandMessengerCore.KBMUserDetail)
@@ -126,6 +124,12 @@ extension BrandMessengerCore.KBMMessage : BrandMessengerUI.KBMChatViewModelProto
   public var createdAt: Swift.String? {
     get
   }
+  public var deliveredAtTimeStamp: Foundation.NSNumber? {
+    get
+  }
+  public var readAtTimeStamp: Foundation.NSNumber? {
+    get
+  }
   public var channelType: Swift.Int16 {
     get
   }
@@ -140,6 +144,7 @@ extension BrandMessengerCore.KBMMessage {
   public var messageType: BrandMessengerUI.KBMMessageType {
     get
   }
+  public func payloadFromMetadata() -> [[Swift.String : Any]]?
 }
 extension BrandMessengerCore.KBMMessage {
   public var messageModel: BrandMessengerUI.KBMMessageModel {
@@ -394,7 +399,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   func messageUpdated()
   func updateMessageAt(indexPath: Foundation.IndexPath)
   func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
-  func newMessagesAdded()
+  func newMessagesAdded(messages: [BrandMessengerCore.KBMMessage]?)
   func messageSent(at: Foundation.IndexPath)
   func updateDisplay(contact: BrandMessengerCore.KBMContact?, channel: BrandMessengerCore.KBMChannel?)
   func willSendMessage()
@@ -455,13 +460,12 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func addMessagesToList(_ messageList: Foundation.NSMutableArray)
   open func markConversationRead()
   open func updateGroup(groupName: Swift.String, groupImage: Swift.String?, friendsAdded: [BrandMessengerUI.KBMFriendViewModel])
-  open func updateDeliveryReport(messageKey: Swift.String, status: Swift.Int32)
-  open func updateStatusReportForConversation(contactId: Swift.String, status: Swift.Int32)
+  open func updateDeliveryReport(messageKey: Swift.String, status: Swift.Int32, timestamp: Foundation.NSNumber?)
+  open func updateStatusReportForConversation(contactId: Swift.String, status: Swift.Int32, timestamp: Foundation.NSNumber?)
   open func updateSendStatus(message: BrandMessengerCore.KBMMessage, oldMessageKey: Swift.String)
   open func updateMessageText(_ messageText: Swift.String?, _ identifier: Swift.String)
   open func send(messageText: Swift.String, isOpenGroup: Swift.Bool = false, metadata: [Swift.AnyHashable : Any]?, quickReplyIdentifier: Swift.String? = nil, suggestedReplyToButtonIndex: Swift.Int? = nil, suggestedReplyToCardIndex: Swift.Int? = nil, allowScrubbingMessage: Swift.Bool = true)
   open func send(photo: UIKit.UIImage, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
-  open func send(contact: Contacts.CNContact, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
   open func send(voiceMessage: Foundation.Data, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
   open func add(geocode: BrandMessengerUI.Geocode, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
   open func sendGeocode(message: BrandMessengerCore.KBMMessage, indexPath: Foundation.IndexPath)
@@ -480,7 +484,6 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func getSelectedMessageToReply() -> BrandMessengerUI.KBMMessageViewModel?
   open func clearSelectedMessageToReply()
   open func getIndexpathFor(message: BrandMessengerUI.KBMMessageModel) -> Foundation.IndexPath?
-  open func showPoweredByMessage() -> Swift.Bool
   open func loadOpenGroupMessages()
   @objc deinit
 }
@@ -633,7 +636,7 @@ extension UIKit.UIColor {
     get
   }
   @_Concurrency.MainActor(unsafe) public var isMicButtonHidden: Swift.Bool!
-  @_Concurrency.MainActor(unsafe) public var isPrintTranscriptOptionDisabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var isAttachmentMenuOptionButtonDisabled: Swift.Bool
   public enum ButtonMode {
     case send
     case media
@@ -646,17 +649,12 @@ extension UIKit.UIColor {
   public enum ActionType {
     case sendText(UIKit.UIButton, Foundation.NSAttributedString)
     case chatBarTextBeginEdit
-    case chatBarTextChange(UIKit.UIButton, Swift.String)
+    case chatBarTextChange(Swift.String)
     case sendVoice(Foundation.NSData)
     case startVideoRecord
     case startVoiceRecord
-    case showImagePicker
-    case showLocation
     case noVoiceRecordPermission
     case mic(UIKit.UIButton)
-    case cameraButtonClicked(UIKit.UIButton)
-    case shareContact
-    case showDocumentPicker
     case menuOption
   }
   @_Concurrency.MainActor(unsafe) public var action: ((BrandMessengerUI.KBMChatBar.ActionType) -> Swift.Void)?
@@ -681,12 +679,7 @@ extension UIKit.UIColor {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var photoButton: UIKit.UIButton
-  @_Concurrency.MainActor(unsafe) open var galleryButton: UIKit.UIButton
   @_Concurrency.MainActor(unsafe) open var dotsButton: UIKit.UIButton
-  @_Concurrency.MainActor(unsafe) open var locationButton: UIKit.UIButton
-  @_Concurrency.MainActor(unsafe) open var contactButton: UIKit.UIButton
-  @_Concurrency.MainActor(unsafe) open var documentButton: UIKit.UIButton
   @_Concurrency.MainActor(unsafe) open var sendButton: UIKit.UIButton {
     get
     set
@@ -695,8 +688,6 @@ extension UIKit.UIColor {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var bottomGrayView: UIKit.UIView
-  @_Concurrency.MainActor(unsafe) open var videoButton: UIKit.UIButton
   @_Concurrency.MainActor(unsafe) open var isTextViewFirstResponder: Swift.Bool {
     get
   }
@@ -710,10 +701,8 @@ extension UIKit.UIColor {
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder _: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) public func updateMediaViewVisibility(hide: Swift.Bool = false)
   @_Concurrency.MainActor(unsafe) public func disableSendButton(isSendButtonDisabled: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public func addTextView(delegate: UIKit.UITextViewDelegate)
-  @_Concurrency.MainActor(unsafe) public func updateChatBarAttachmentOptionView(attachmentOptions: BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions)
 }
 extension BrandMessengerUI.KBMChatBar : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func textViewDidChange(_ textView: UIKit.UITextView)
@@ -948,7 +937,7 @@ public protocol KBMConversationViewControllerDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) open var collectionView: BrandMessengerUI.KBMGenericCardCollectionView!
   @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
-  @_Concurrency.MainActor(unsafe) public class func cardHeightFor(message: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public class func cardHeightFor(message: BrandMessengerUI.KBMMessageViewModel, width: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) open func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: UIKit.UICollectionViewDataSource & UIKit.UICollectionViewDelegate, index: ObjectiveC.NSInteger)
   @_Concurrency.MainActor(unsafe) open func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: UIKit.UICollectionViewDataSource & UIKit.UICollectionViewDelegate, indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) open func register(cell: UIKit.UICollectionViewCell.Type)
@@ -980,6 +969,7 @@ public enum KBMMessageType : Swift.String {
   case imageMessage
   case allButtons
   case form
+  case inlineForm
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -993,6 +983,10 @@ public protocol KBMMessageViewModel {
   var identifier: Swift.String { get }
   var date: Foundation.Date { get }
   var time: Swift.String? { get }
+  var deliveredAtTime: Foundation.NSNumber? { get set }
+  var readAtTime: Foundation.NSNumber? { get set }
+  var deliveredAtTimeString: Swift.String? { get }
+  var readAtTimeString: Swift.String? { get }
   var avatarURL: Foundation.URL? { get }
   var displayName: Swift.String? { get }
   var contactId: Swift.String? { get }
@@ -1022,6 +1016,10 @@ public protocol KBMMessageViewModel {
   var isUploadFailed: Swift.Bool { get set }
 }
 @_hasMissingDesignatedInitializers public class KBMMessageModel : BrandMessengerUI.KBMMessageViewModel {
+  public var deliveredAtTime: Foundation.NSNumber?
+  public var readAtTime: Foundation.NSNumber?
+  public var deliveredAtTimeString: Swift.String?
+  public var readAtTimeString: Swift.String?
   public var contentType: RichMessageKit.Message.ContentType
   public var message: Swift.String?
   public var isMyMessage: Swift.Bool
@@ -1081,6 +1079,7 @@ public enum AttachmentType : Swift.CaseIterable, Swift.Equatable {
   case video
   case location
   case document
+  case emailTranscript
   public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: BrandMessengerUI.AttachmentType, b: BrandMessengerUI.AttachmentType) -> Swift.Bool
   public typealias AllCases = [BrandMessengerUI.AttachmentType]
@@ -1116,15 +1115,14 @@ public struct KBMChatBarConfiguration {
   public var typingViewStyle: BrandMessengerUI.KBMTypingViewStyle
   public var attachmentIconsTintColor: UIKit.UIColor
   public var recordButtonIcon: UIKit.UIImage?
+  @available(*, deprecated, message: "Setting icons is no longer needed and will be removed in future updates.")
   public mutating func set(attachmentIcon icon: UIKit.UIImage?, for type: BrandMessengerUI.AttachmentType)
 }
 public struct KBMTypingViewStyle {
-  public var backgroundColor: UIKit.UIColor
-  public var typingLabel: RichMessageKit.Style
-  public var typingViewMinimumHeight: CoreGraphics.CGFloat
-  public var hideTypingString: Swift.Bool
   public var animationDuration: Foundation.TimeInterval
-  public var animationImages: [UIKit.UIImage]
+  public var backgroundColor: UIKit.UIColor
+  public var opacityFromValue: Swift.Double
+  public var opacityToValue: Swift.Double
 }
 extension BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions : Swift.Equatable {
   public static func == (lhs: BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions, rhs: BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions) -> Swift.Bool
@@ -1183,8 +1181,8 @@ public protocol KBMConversationListViewModelProtocol : AnyObject {
   final public func remove(message: BrandMessengerCore.KBMMessage)
   final public func updateTypingStatus(in viewController: BrandMessengerUI.KBMConversationViewController, userId: Swift.String, status: Swift.Bool)
   final public func updateMessageList(messages: [Any])
-  final public func updateDeliveryReport(convVC: BrandMessengerUI.KBMConversationViewController?, messageKey: Swift.String?, contactId: Swift.String?, status: Swift.Int32?)
-  final public func updateStatusReport(convVC: BrandMessengerUI.KBMConversationViewController?, forContact contact: Swift.String?, status: Swift.Int32?)
+  final public func updateDeliveryReport(convVC: BrandMessengerUI.KBMConversationViewController?, messageKey: Swift.String?, contactId: Swift.String?, status: Swift.Int32?, timestamp: Foundation.NSNumber?)
+  final public func updateStatusReport(convVC: BrandMessengerUI.KBMConversationViewController?, forContact contact: Swift.String?, status: Swift.Int32?, timestamp: Foundation.NSNumber?)
   final public func updateMessageText(convVC: BrandMessengerUI.KBMConversationViewController?, _ text: Swift.String, withMessageKey messageKey: Swift.String)
   final public func addMessages(messages: Any)
   final public func updateStatusFor(userDetail: BrandMessengerCore.KBMUserDetail)
@@ -1260,14 +1258,11 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
   @_Concurrency.MainActor(unsafe) public func showTypingLabel(status: Swift.Bool, userId: Swift.String)
   @objc @_Concurrency.MainActor(unsafe) public func invalidateTimerAndUpdateHeightConstraint(_: Foundation.Timer?)
   @_Concurrency.MainActor(unsafe) public func sync(message: BrandMessengerCore.KBMMessage)
-  @_Concurrency.MainActor(unsafe) public func updateDeliveryReport(messageKey: Swift.String?, contactId _: Swift.String?, status: Swift.Int32?)
-  @_Concurrency.MainActor(unsafe) public func updateStatusReport(contactId: Swift.String?, status: Swift.Int32?)
+  @_Concurrency.MainActor(unsafe) public func updateDeliveryReport(messageKey: Swift.String?, contactId _: Swift.String?, status: Swift.Int32?, timestamp: Foundation.NSNumber?)
+  @_Concurrency.MainActor(unsafe) public func updateStatusReport(contactId: Swift.String?, status: Swift.Int32?, timestamp: Foundation.NSNumber?)
   @_Concurrency.MainActor(unsafe) public func subscribeChannelToMqtt()
   @_Concurrency.MainActor(unsafe) open func sendQuickReply(_ text: Swift.String, metadata: [Swift.String : Any]?, languageCode _: Swift.String?, quickReplyIdentifier: Swift.String? = nil, suggestedReplyToButtonIndex: Swift.Int? = nil, suggestedReplyToCardIndex: Swift.Int? = nil)
   @objc deinit
-}
-extension BrandMessengerUI.KBMConversationViewController : ContactsUI.CNContactPickerDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func contactPicker(_: ContactsUI.CNContactPickerViewController, didSelect contact: Contacts.CNContact)
 }
 extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMConversationViewModelDelegate {
   @objc @_Concurrency.MainActor(unsafe) dynamic open func loadingStarted()
@@ -1278,7 +1273,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   @_Concurrency.MainActor(unsafe) public func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
   @_Concurrency.MainActor(unsafe) public func moveTableViewToBottom(indexPath: Foundation.IndexPath)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
-  @objc @_Concurrency.MainActor(unsafe) dynamic open func newMessagesAdded()
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func newMessagesAdded(messages: [BrandMessengerCore.KBMMessage]?)
   @_Concurrency.MainActor(unsafe) public func messageSent(at indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) public func updateDisplay(contact: BrandMessengerCore.KBMContact?, channel: BrandMessengerCore.KBMChannel?)
   @_Concurrency.MainActor(unsafe) public func showLastMessage()
@@ -1288,11 +1283,11 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   @_Concurrency.MainActor(unsafe) public func updateConversationProfile()
 }
 extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KBMMQTTConversationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func updateStatus(forContact contactId: Swift.String, withStatus status: Swift.Int32, withTimestamp timestamp: Foundation.NSNumber?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func delivered(_ messageKey: Swift.String, contactId: Swift.String?, withStatus status: Swift.Int32, withTimestamp timestamp: Foundation.NSNumber?)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func updateMessageText(_ text: Swift.String, withMessageKey messageKey: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func mqttDidConnected()
   @_Concurrency.MainActor(unsafe) @objc dynamic public func syncCall(_ message: BrandMessengerCore.KBMMessage, andMessageList _: Foundation.NSMutableArray?)
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func delivered(_ messageKey: Swift.String, contactId: Swift.String?, withStatus status: Swift.Int32)
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func updateStatus(forContact contactId: Swift.String, withStatus status: Swift.Int32)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func updateTypingStatus(_: Swift.String, userId: Swift.String, status: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func updateLastSeen(atStatus userDetail: BrandMessengerCore.KBMUserDetail)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func mqttConnectionClosed()
@@ -1324,6 +1319,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KB
   }
   @_Concurrency.MainActor(unsafe) public var avatarImageView: UIKit.UIImageView
   @_Concurrency.MainActor(unsafe) public func setLocalizedStringFileName(_ localizedStringFileName: Swift.String)
+  @_Concurrency.MainActor(unsafe) public class func timeLabelBottomPadding() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
     @_Concurrency.MainActor(unsafe) @objc get
   }
@@ -1402,7 +1398,6 @@ extension UIKit.UIColor {
   public static func navigationOceanBlue() -> UIKit.UIColor
   public static func navigationTextOceanBlue() -> UIKit.UIColor
   public static func actionButtonColor() -> UIKit.UIColor
-  public func toHexString() -> Swift.String
 }
 extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in _: UIKit.UITableView) -> Swift.Int
@@ -1461,7 +1456,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func setConversationDelegate(_ delegate: BrandMessengerCore.KBMConversationDelegate)
   public class func setMessageActionDelegate(_ delegate: BrandMessengerUI.KBMConversationViewControllerDelegate)
   @objc public class func setEncryptionDelegate(_ delegate: BrandMessengerCore.KBMEncryptionDelegate)
-  @objc public class func sendWelcomeMessageRequest(complete: @escaping (_ response: Foundation.NSDictionary?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func sendWelcomeMessageRequest(complete: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func setPinningCertificatePublicKeys(_ keys: [Swift.String])
   @objc public class func setPinningCertificates(_ certificates: [Foundation.URL])
   @objc public class func enableDefaultCertificatePinning()
@@ -1633,9 +1628,7 @@ public struct KBMConfiguration {
   public var isProfileTapActionEnabled: Swift.Bool
   public var backgroundColor: UIKit.UIColor
   public var hideNavigationBarBottomLine: Swift.Bool
-  public var chatBarAttachmentViewBackgroundColor: UIKit.UIColor
   public var hideAudioOptionInChatBar: Swift.Bool
-  public var hideEmailTranscript: Swift.Bool
   public var hideStartChatButton: Swift.Bool
   public var localizedStringFileName: Swift.String
   public var sendMessageIcon: UIKit.UIImage?
@@ -1677,6 +1670,10 @@ public struct KBMConfiguration {
   public var hideLineImageFromChatBar: Swift.Bool
   @available(*, deprecated, message: "The statusBarStyle is set based on navigation bar dark or light color. No longer used will be removed in future.")
   public var statusBarStyle: UIKit.UIStatusBarStyle
+  @available(*, deprecated, message: "The chat bar attachment view background color config is no longer needed as attachment options are now moved to the three dots menu and will be removed in future updates.")
+  public var chatBarAttachmentViewBackgroundColor: UIKit.UIColor
+  @available(*, deprecated, message: "The show/hide email transcript functionality has been moved to the chat bar menu options. To control it, modify the 'config.chatBar.optionsToShow' setting by adding or removing the '.emailTranscript' option.")
+  public var hideEmailTranscript: Swift.Bool
   public init()
 }
 @objc public protocol NavigationBarCallbacks {
@@ -1851,6 +1848,7 @@ public enum KBMMessageStyle {
   public static var receivedMention: RichMessageKit.Style
   public static var infoMessage: RichMessageKit.Style
   public static var dateSeparator: RichMessageKit.Style
+  public static var unreadMesssageCountSeparator: RichMessageKit.Style
   public static var contactView: RichMessageKit.Style
   public enum BubbleStyle {
     case edge
@@ -2018,6 +2016,7 @@ public struct KBMHeaderViewConfiguration {
   public var paragraphSpacing: Swift.Double
   public var textStyle: RichMessageKit.Style
   public var headerIcon: UIKit.UIImage?
+  @available(*, deprecated, message: "This is no longer used as the business profile image is moved to Naviagtion bar. Will be removed in future.")
   public var businessProfileImage: UIKit.UIImage?
   public var iconWidth: Swift.Double
   public var iconHeight: Swift.Double
@@ -2073,6 +2072,7 @@ public struct KBMPinnedSystemHeaderConfiguration {
   public var paragraphSpacing: Swift.Double
   public var textStyle: RichMessageKit.Style
   public var pinnedSystemMessageIcon: UIKit.UIImage?
+  @available(*, deprecated, message: "This is no longer used as the business profile image is moved to Naviagtion bar. Will be removed in future.")
   public var businessProfileImage: UIKit.UIImage?
   public var iconWidth: Swift.Double
   public var iconHeight: Swift.Double
@@ -2087,6 +2087,7 @@ public class DownloadTask {
   public var downloadError: Swift.Error?
   public var identifier: Swift.String?
   public var filePath: Swift.String?
+  public var isThumbnail: Swift.Bool
   public init(downloadUrl url: Swift.String, fileName: Swift.String?)
   @objc deinit
 }

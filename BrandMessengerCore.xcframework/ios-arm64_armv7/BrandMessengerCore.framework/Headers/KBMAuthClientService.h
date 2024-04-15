@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
                        withCompletion:(void (^)(KBMRegistrationResponse * _Nullable response, NSError * _Nullable error))completion;
 
 /// make welcome-message API Request.
-+ (void) sendWelcomeMessageRequestWithCompletion:(void (^)(NSDictionary * _Nullable responseDictionary, NSError * _Nullable error))completion;
++ (void) sendWelcomeMessageRequestWithCompletion:(void (^)(NSError * _Nullable error))completion;
 
 /// Preregistration for unauth in the request body only metadata data goes.
 /// @note responseDictionary expects at least 'id' and 'token', to login.

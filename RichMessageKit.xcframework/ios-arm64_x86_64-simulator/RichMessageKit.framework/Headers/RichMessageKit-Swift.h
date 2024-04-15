@@ -316,6 +316,7 @@ SWIFT_CLASS("_TtC14RichMessageKit18SuggestedReplyView")
 
 
 
+
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif
@@ -633,6 +634,7 @@ SWIFT_CLASS("_TtC14RichMessageKit18SuggestedReplyView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
+
 
 
 

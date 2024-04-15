@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSError * _Nullable)decodeAndSaveToken:(NSString *)authToken;
 
 /// Check if saved token is still valid
+/// @warning Do not call on main UI thread
 + (BOOL)isAuthTokenValid;
 
 /// Used for validating a JWT Auth token and refresh the JWT token.

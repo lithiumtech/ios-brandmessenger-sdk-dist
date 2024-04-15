@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+static int const KBM_DEFAULT_MESSAGE_LIST_PAGE_SIZE = 50;
+
 @interface MessageListRequest : NSObject
 
 @property(nonatomic,retain) NSNumber * _Nullable channelKey;

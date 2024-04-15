@@ -16,6 +16,8 @@
 @property (nonatomic) short contentType;
 @property (nonatomic, retain) NSString *contactId;
 @property (nonatomic, retain) NSNumber *createdAt;
+@property (nonatomic, retain) NSNumber *deliveredAtTime;
+@property (nonatomic, retain) NSNumber *readAtTime;
 @property (nonatomic, retain) NSString *deviceKey;
 @property (nonatomic, retain) NSString *filePath;
 @property (nonatomic, retain) NSNumber *deletedFlag;

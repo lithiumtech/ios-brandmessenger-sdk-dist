@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KBMSyncCallService : NSObject
 
-- (void)updateMessageDeliveryReport:(NSString *)messageKey withStatus:(int)status;
+- (void)updateMessageDeliveryReport:(NSString *)messageKey withStatus:(int)status withTimestamp:(NSNumber* _Nullable )timestamp;
 
-- (void)updateDeliveryStatusForContact:(NSString *)contactId withStatus:(int)status;
+- (void)updateDeliveryStatusForContact:(NSString *)contactId withStatus:(int)status withTimestamp:(NSNumber* _Nullable )timestamp;
 
 - (void)updateConnectedStatus:(KBMUserDetail *)userDetail;
 

@@ -19,4 +19,8 @@
 
 - (BOOL) isPinningEnabled;
 
+- (BOOL) shouldPinHost:(NSString*)host;
+
+- (void) enableCertificatePinning;
+
 @end

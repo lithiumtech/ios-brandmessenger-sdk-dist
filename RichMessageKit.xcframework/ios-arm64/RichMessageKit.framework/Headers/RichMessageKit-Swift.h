@@ -314,6 +314,7 @@ SWIFT_CLASS("_TtC14RichMessageKit18SuggestedReplyView")
 
 
 
+
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif

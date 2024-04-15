@@ -31,11 +31,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)isShareLocationEnabled;
 
+- (BOOL)isTypingIndicatorEnabled;
+
+/// For Read and Delivered
+- (BOOL)isOutboundReadReceiptsEnabled;
+
 + (BOOL)isAllFileFormatSupported;
 
 - (BOOL)isConfigurationResponseExist;
 
 - (BOOL)isPrintTranscriptEnabled;
+
+- (BOOL)isEmojiPickerEnabled;
 
 /// Array of supported file format.
 - (NSArray * _Nullable)getSupportedFileExtensions;
@@ -43,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Use this to get the array of `KBMRedactionConfiguration`.
 -(NSMutableArray<KBMRedactionConfiguration *> * _Nullable)getRedactionConfigurations;
 
-- (KBMDisplayConditionsResponse *)getDisplayConditionsResponse;
+- (KBMDisplayConditionsResponse * _Nullable)getDisplayConditionsResponse;
 
 - (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;
 

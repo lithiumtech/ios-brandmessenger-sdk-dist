@@ -37,13 +37,15 @@ extern NSString *const KBMLoggedInUserDidChangeDeactivateNotification;
 /// @param messageKey Will have messageKey for delivered status
 /// @param contactId UserId of the user message delivered to.
 /// @param status Status are `DELIVERED` or `DELIVERED_AND_READ`.
-- (void)delivered:(NSString *)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int)status;
+/// @param timestamp read/delivered timestamp of each message
+- (void)delivered:(NSString *)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int)status withTimestamp:(NSNumber* _Nullable )timestamp;
 
 /// The callback will be called on the receiver to read the all messages in the conversation.
 ///
 /// @param contactId Will have receiver userId who has read the conversation.
 /// @param status Read sttaus of message.
-- (void)updateStatusForContact:(NSString *)contactId withStatus:(int)status;
+/// @param timestamp timestamp at which the conversation was read
+- (void)updateStatusForContact:(NSString *)contactId withStatus:(int)status withTimestamp:(NSNumber* _Nullable )timestamp;
 
 /// The callback will be called on for typing events.
 ///
@@ -99,22 +101,22 @@ extern NSString *const KBMLoggedInUserDidChangeDeactivateNotification;
 @property (nonatomic, readwrite) MQTTSession *session;
 
 /// Used for subscribing to real-time events for conversation.
-- (void)subscribeToConversation;
+- (void)subscribeToConversationWithCompletion:(void (^)(BOOL subscribed, NSError *error))completion;
 
 /// Used for subscribing to real-time events for conversation with topic name.
 /// @param topic Pass the name of the topic to subscribe.
-- (void)subscribeToConversationWithTopic:(NSString *)topic;
+- (void)subscribeToConversationWithTopic:(NSString *)topic completion:(void (^)(BOOL subscribed, NSError *error))completion;
 
 /// Used for unsubscribing to real-time events for conversation.
-- (void)unsubscribeToConversation;
+- (void)unsubscribeToConversationWithCompletion:(void (^)(BOOL isUnsubscribed))completion;
 
 /// Used for unsubscribing to real-time events for conversation with topic name.
 /// @param topic Pass the name of the topic to unsubscribe.
-- (void)unsubscribeToConversationWithTopic:(NSString *)topic;
+- (void)unsubscribeToConversationWithTopic:(NSString *)topic completion:(void (^)(BOOL isUnsubscribed))completion;
 
 /// Unsubscribe for all real-time update events for conversations.
 /// @param userKey Pass the `[KBMUserDefaultsHandler getUserKeyString];` key.
-- (BOOL)unsubscribeToConversation:(NSString *)userKey;
+- (void)unsubscribeToConversationForUser:(NSString *)userKey WithTopic:(NSString *)topic completion:(void (^)(BOOL isUnsubscribed))completion;
 
 /// Used for sending a typing status in one-to-one or channel conversation.
 /// @param applicationKey App-Id or application key of Brand Messenger.
