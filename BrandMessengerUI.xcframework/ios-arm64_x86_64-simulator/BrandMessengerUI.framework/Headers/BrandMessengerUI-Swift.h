@@ -225,11 +225,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 @class NSCoder;
+@class UIPress;
+@class UIPressesEvent;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI17AudioRecordButton")
 @interface AudioRecordButton : UIButton
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
+- (void)pressesBegan:(NSSet<UIPress *> * _Nonnull)presses withEvent:(UIPressesEvent * _Nullable)event;
+- (void)pressesEnded:(NSSet<UIPress *> * _Nonnull)presses withEvent:(UIPressesEvent * _Nullable)event;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -561,6 +565,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI23DefaultAutoCompleteCell")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI10InsetLabel")
 @interface InsetLabel : UILabel
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (void)drawTextInRect:(CGRect)rect;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -689,8 +694,14 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
 @interface KBMConversationHeaderView : UIView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+@interface KBMConversationHeaderView (SWIFT_EXTENSION(BrandMessengerUI)) <UITextViewDelegate>
+- (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -793,6 +804,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMConversationListViewModel")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21KBMConversationNavBar")
 @interface KBMConversationNavBar : UIView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
@@ -857,6 +869,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)_ sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView canFocusItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -893,6 +906,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (CGFloat)tableView:(UITableView * _Nonnull)_ estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)_ heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)tableView:(UITableView * _Nonnull)tableView canFocusRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)_ willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)_ willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
@@ -900,11 +914,13 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
+@protocol UIFocusEnvironment;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI))
 - (void)loadingStarted;
 - (void)loadingFinishedWithError:(NSError * _Nullable)_;
 - (void)deleteQuickReplyMessageWithIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@property (nonatomic, readonly, copy) NSArray<id <UIFocusEnvironment>> * _Nonnull preferredFocusEnvironments;
 - (void)newMessagesAddedWithMessages:(NSArray<KBMMessage *> * _Nullable)messages;
 @end
 
@@ -942,6 +958,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMGenericCardCollectionView")
 
 
 
+
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMLoadingIndicator")
 @interface KBMLoadingIndicator : UIStackView
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
@@ -967,10 +984,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI24KBMNewChatViewController")
 @end
 
 
-
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
 
 
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -992,6 +1009,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI25KBMPinnedSystemHeaderView")
 @interface KBMPinnedSystemHeaderView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+@interface KBMPinnedSystemHeaderView (SWIFT_EXTENSION(BrandMessengerUI)) <UITextViewDelegate>
+- (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1416,11 +1438,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 @class NSCoder;
+@class UIPress;
+@class UIPressesEvent;
 
 SWIFT_CLASS("_TtC16BrandMessengerUI17AudioRecordButton")
 @interface AudioRecordButton : UIButton
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
+- (void)pressesBegan:(NSSet<UIPress *> * _Nonnull)presses withEvent:(UIPressesEvent * _Nullable)event;
+- (void)pressesEnded:(NSSet<UIPress *> * _Nonnull)presses withEvent:(UIPressesEvent * _Nullable)event;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -1752,6 +1778,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI23DefaultAutoCompleteCell")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI10InsetLabel")
 @interface InsetLabel : UILabel
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (void)drawTextInRect:(CGRect)rect;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -1880,8 +1907,14 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
 @interface KBMConversationHeaderView : UIView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+@interface KBMConversationHeaderView (SWIFT_EXTENSION(BrandMessengerUI)) <UITextViewDelegate>
+- (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1984,6 +2017,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMConversationListViewModel")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI21KBMConversationNavBar")
 @interface KBMConversationNavBar : UIView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
@@ -2048,6 +2082,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)_ sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView canFocusItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2084,6 +2119,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (CGFloat)tableView:(UITableView * _Nonnull)_ estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)_ heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)tableView:(UITableView * _Nonnull)tableView canFocusRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)_ willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)_ willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
@@ -2091,11 +2127,13 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
+@protocol UIFocusEnvironment;
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI))
 - (void)loadingStarted;
 - (void)loadingFinishedWithError:(NSError * _Nullable)_;
 - (void)deleteQuickReplyMessageWithIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@property (nonatomic, readonly, copy) NSArray<id <UIFocusEnvironment>> * _Nonnull preferredFocusEnvironments;
 - (void)newMessagesAddedWithMessages:(NSArray<KBMMessage *> * _Nullable)messages;
 @end
 
@@ -2133,6 +2171,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI28KBMGenericCardCollectionView")
 
 
 
+
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMLoadingIndicator")
 @interface KBMLoadingIndicator : UIStackView
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
@@ -2158,10 +2197,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI24KBMNewChatViewController")
 @end
 
 
-
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
 
 
 @interface KBMNewChatViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -2183,6 +2222,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI25KBMPinnedSystemHeaderView")
 @interface KBMPinnedSystemHeaderView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+@interface KBMPinnedSystemHeaderView (SWIFT_EXTENSION(BrandMessengerUI)) <UITextViewDelegate>
+- (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

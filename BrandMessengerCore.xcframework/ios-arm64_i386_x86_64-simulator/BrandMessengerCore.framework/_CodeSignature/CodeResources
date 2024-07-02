@@ -24,9 +24,13 @@
 		<data>
 		YD+sVDHs0mfhueP6j5agtGtCYeI=
 		</data>
-		<key>BrandMessengerCore.momd/AppLozic 14.omo</key>
+		<key>BrandMessengerCore.momd/AppLozic 15.mom</key>
 		<data>
-		Q4yxZBTOKueyzCrcxYw8DX2SSw4=
+		NySvVssarMUFtM7AFVgh9K3sf7Y=
+		</data>
+		<key>BrandMessengerCore.momd/AppLozic 15.omo</key>
+		<data>
+		3QDsHKLSqu5TFDqnpHncrb8vxCk=
 		</data>
 		<key>BrandMessengerCore.momd/AppLozic 2.mom</key>
 		<data>
@@ -66,7 +70,7 @@
 		</data>
 		<key>BrandMessengerCore.momd/VersionInfo.plist</key>
 		<data>
-		zhhz3cvqPf+exCHcGxG6lAi4UlM=
+		S4BbeXQK888TJaMKSde5sXO4noo=
 		</data>
 		<key>Headers/BrandMessengerClient.h</key>
 		<data>
@@ -74,7 +78,7 @@
 		</data>
 		<key>Headers/BrandMessengerCore.h</key>
 		<data>
-		KfwH+SwHx2MOS5sjN/vSHhoPsn8=
+		sxZgfahPBHJu1xJ1ojoYuxD6xb8=
 		</data>
 		<key>Headers/BrandMessengerSettings.h</key>
 		<data>
@@ -384,6 +388,10 @@
 		<data>
 		S6uKcX5wAFaCxpiiqjskvze5NIY=
 		</data>
+		<key>Headers/KBMRuleDisplayCondition.h</key>
+		<data>
+		jJ7i8ntG0u8FODHspQ5S8KRx7+8=
+		</data>
 		<key>Headers/KBMScrubMethod.h</key>
 		<data>
 		sIqoCAiEptvv3VGgMqg70EFR02M=
@@ -466,7 +474,7 @@
 		</data>
 		<key>Headers/KBMWidget.h</key>
 		<data>
-		+UEsLWN2mYQi9qqL7GQl7Jw1U+0=
+		bp7xCccMcZg9+PafqeJlfqeEm0g=
 		</data>
 		<key>Headers/KBMWidgetBrandStyleResponse.h</key>
 		<data>
@@ -590,7 +598,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		09dx+N1BKOd1OFT1PMFk3ex5a1o=
+		4FtevluuaaX7Whkmek1lt8GrNVE=
 		</data>
 		<key>MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -674,15 +682,26 @@
 			8k8IbsUpNuraizvtPY+a1KhT8C9eH8ZKpaS268rBrXE=
 			</data>
 		</dict>
-		<key>BrandMessengerCore.momd/AppLozic 14.omo</key>
+		<key>BrandMessengerCore.momd/AppLozic 15.mom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Q4yxZBTOKueyzCrcxYw8DX2SSw4=
+			NySvVssarMUFtM7AFVgh9K3sf7Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			dVrq8456FExwAXKcBqj7qyyfsVnHKFa0fo6rlBLuPr8=
+			EC0TTXHS11DhtXltmozjKU8Pmzx/C1fOdhe6b0g7ZEs=
+			</data>
+		</dict>
+		<key>BrandMessengerCore.momd/AppLozic 15.omo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3QDsHKLSqu5TFDqnpHncrb8vxCk=
+			</data>
+			<key>hash2</key>
+			<data>
+			oR9vcazPQTj6t+ilU4V6yTqtBWTmKB6lxp9lrbUQNoM=
 			</data>
 		</dict>
 		<key>BrandMessengerCore.momd/AppLozic 2.mom</key>
@@ -788,11 +807,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zhhz3cvqPf+exCHcGxG6lAi4UlM=
+			S4BbeXQK888TJaMKSde5sXO4noo=
 			</data>
 			<key>hash2</key>
 			<data>
-			F4KSAIGL3RUvZYrMzLZKPyJNDHTAQb7G8AaH8qeTw2Q=
+			9+hbCN1yKx1b4OUxOhxNmSMIkXncjsbjQBq5AS0u2m8=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerClient.h</key>
@@ -810,11 +829,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KfwH+SwHx2MOS5sjN/vSHhoPsn8=
+			sxZgfahPBHJu1xJ1ojoYuxD6xb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			seXpsBCQy+9LGGKmHIYXQcfjLGBa2MR6CqYP633x1UM=
+			a/aICEZhW6xkVQZaqpoFvjPy/W8jIrtpr+o64nA0bkU=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerSettings.h</key>
@@ -1664,6 +1683,17 @@
 			ke7PBZicmGbKq4hq2Bi5JX2BB8vBN3h3nJpYap6H5Ns=
 			</data>
 		</dict>
+		<key>Headers/KBMRuleDisplayCondition.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jJ7i8ntG0u8FODHspQ5S8KRx7+8=
+			</data>
+			<key>hash2</key>
+			<data>
+			dAeazSmY+L9yPPhFe4csZrAl0N1CmQZletUOHeTtmus=
+			</data>
+		</dict>
 		<key>Headers/KBMScrubMethod.h</key>
 		<dict>
 			<key>hash</key>
@@ -1888,11 +1918,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+UEsLWN2mYQi9qqL7GQl7Jw1U+0=
+			bp7xCccMcZg9+PafqeJlfqeEm0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			tF2ZHN0W3b3owZOqv48O0tbOJrjKwmWddXzkp4sT5cQ=
+			f2mxR+4beL+jHOSUoBMD4GXCOOFDB94jLpCgLfr6ib0=
 			</data>
 		</dict>
 		<key>Headers/KBMWidgetBrandStyleResponse.h</key>

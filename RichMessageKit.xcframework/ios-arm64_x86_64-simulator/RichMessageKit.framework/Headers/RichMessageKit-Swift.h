@@ -224,6 +224,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC14RichMessageKit17CurvedImageButton")
 @interface CurvedImageButton : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -247,6 +248,28 @@ SWIFT_CLASS("_TtC14RichMessageKit14ImageContainer")
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
+@class UIImage;
+
+SWIFT_CLASS("_TtC14RichMessageKit12KBMImageView")
+@interface KBMImageView : UIImageView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit15KBMTappableView")
+@interface KBMTappableView : UIView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (void)accessibilityElementDidBecomeFocused;
+- (void)accessibilityElementDidLoseFocus;
+@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIEvent;
 @class NSTextContainer;
 
@@ -257,6 +280,30 @@ SWIFT_CLASS("_TtC14RichMessageKit11KBMTextView")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)_ SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit11KBMUIButton")
+@interface KBMUIButton : UIButton
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit10KBMUILabel")
+@interface KBMUILabel : UILabel
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit11KBMUISlider")
+@interface KBMUISlider : UISlider
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -548,6 +595,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC14RichMessageKit17CurvedImageButton")
 @interface CurvedImageButton : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+@property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
@@ -571,6 +619,28 @@ SWIFT_CLASS("_TtC14RichMessageKit14ImageContainer")
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
+@class UIImage;
+
+SWIFT_CLASS("_TtC14RichMessageKit12KBMImageView")
+@interface KBMImageView : UIImageView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit15KBMTappableView")
+@interface KBMTappableView : UIView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (void)accessibilityElementDidBecomeFocused;
+- (void)accessibilityElementDidLoseFocus;
+@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIEvent;
 @class NSTextContainer;
 
@@ -581,6 +651,30 @@ SWIFT_CLASS("_TtC14RichMessageKit11KBMTextView")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)_ SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit11KBMUIButton")
+@interface KBMUIButton : UIButton
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit10KBMUILabel")
+@interface KBMUILabel : UILabel
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14RichMessageKit11KBMUISlider")
+@interface KBMUISlider : UISlider
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 

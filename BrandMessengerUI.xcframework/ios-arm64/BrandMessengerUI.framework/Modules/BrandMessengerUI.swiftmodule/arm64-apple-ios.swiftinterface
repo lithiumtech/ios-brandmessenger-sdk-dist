@@ -213,7 +213,7 @@ extension BrandMessengerUI.KBMMessageCell : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func textView(_: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in _: Foundation.NSRange, interaction _: UIKit.UITextItemInteraction) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class KBMMyMessageButtonCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) open func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class KBMNewChatViewController : BrandMessengerUI.KBMBaseViewController {
@@ -249,7 +249,7 @@ public class UploadTask {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMMyMessageQuickReplyCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -330,8 +330,11 @@ extension BrandMessengerUI.KBMTemplateMessageModel {
     get
   }
   @_Concurrency.MainActor(unsafe) required public init(frame: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration, fileName: Swift.String)
-  @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String)
+  @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String) -> Foundation.NSMutableAttributedString
   @objc deinit
+}
+extension BrandMessengerUI.KBMPinnedSystemHeaderView : UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }
 public protocol KBMWebViewNativeDelegate : AnyObject {
   func webViewNativeEvent(eventName: Swift.String, eventJSONString: Swift.String?, messageKey: Swift.String)
@@ -405,7 +408,9 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   func willSendMessage()
   func updateTyingStatus(status: Swift.Bool, userId: Swift.String)
   func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
+  func quickReplySelectedMoveFocusToSentMessage(indexPath: Foundation.IndexPath)
   func reloadTableView()
+  func markUnreadMessagesAsRead()
 }
 @objc open class KBMConversationViewModel : ObjectiveC.NSObject {
   open var contactId: Swift.String? {
@@ -417,6 +422,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
     set
   }
   open var isSearch: Swift.Bool
+  open var isLoadingEalierMessages: Swift.Bool
   open var conversationProxy: BrandMessengerCore.KBMConversationProxy? {
     get
     set
@@ -470,14 +476,14 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func add(geocode: BrandMessengerUI.Geocode, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
   open func sendGeocode(message: BrandMessengerCore.KBMMessage, indexPath: Foundation.IndexPath)
   open func sendVideo(atPath path: Swift.String, sourceType: UIKit.UIImagePickerController.SourceType, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
-  open func uploadVideo(view: UIKit.UIView, indexPath: Foundation.IndexPath)
+  open func uploadVideo(view: UIKit.UIView, indexPath: Foundation.IndexPath, completion: (() -> Swift.Void)?)
   open func uploadAttachmentCompleted(responseDict: Any?, indexPath: Foundation.IndexPath)
   open func updateMessageModelAt(indexPath: Foundation.IndexPath, data: Foundation.Data)
   open func sendKeyboardBeginTyping()
   open func sendKeyboardDoneTyping()
   open func refresh()
   open func uploadAudioOrContact(view: UIKit.UIView, message: BrandMessengerCore.KBMMessage, indexPath: Foundation.IndexPath)
-  open func uploadImage(view: UIKit.UIView, indexPath: Foundation.IndexPath)
+  open func uploadImage(view: UIKit.UIView, indexPath: Foundation.IndexPath, completion: (() -> Swift.Void)?)
   open func encodeVideo(videoURL: Foundation.URL, completion: @escaping (_ path: Swift.String?) -> Swift.Void)
   open func selected(template: BrandMessengerUI.KBMTemplateMessageModel, metadata: [Swift.AnyHashable : Any]?)
   open func setSelectedMessageToReply(_ message: BrandMessengerUI.KBMMessageViewModel)
@@ -514,6 +520,8 @@ public protocol KBMAudioRecorderProtocol : AnyObject {
   @_Concurrency.MainActor(unsafe) @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
     @_Concurrency.MainActor(unsafe) @objc get
   }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func pressesBegan(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func pressesEnded(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
   @objc deinit
 }
 extension BrandMessengerUI.AudioRecordButton : AVFAudio.AVAudioRecorderDelegate {
@@ -783,6 +791,7 @@ extension BrandMessengerUI.KBMConversationViewController : UIKit.UITableViewDele
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_: UIKit.UITableView, estimatedHeightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, canFocusRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidEndDragging(_: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
@@ -793,6 +802,7 @@ extension BrandMessengerUI.KBMConversationViewController : UIKit.UICollectionVie
   @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection _: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
   @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout _: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, canFocusItemAt indexPath: Foundation.IndexPath) -> Swift.Bool
 }
 extension BrandMessengerCore.KBMTopicDetail : BrandMessengerUI.KBMContextTitleDataType {
   public var titleText: Swift.String {
@@ -879,12 +889,13 @@ public struct ListTemplate : Swift.Codable {
       public static let zeroHeight: CoreGraphics.CGFloat
     }
   }
-  @_Concurrency.MainActor(unsafe) open var coverImageView: UIKit.UIImageView
+  @_Concurrency.MainActor(unsafe) open var frontView: RichMessageKit.KBMTappableView
+  @_Concurrency.MainActor(unsafe) open var coverImageView: RichMessageKit.KBMImageView
   @_Concurrency.MainActor(unsafe) open var overlayText: BrandMessengerUI.InsetLabel
-  @_Concurrency.MainActor(unsafe) open var ratingLabel: UIKit.UILabel
-  @_Concurrency.MainActor(unsafe) open var titleLabel: UIKit.UILabel
-  @_Concurrency.MainActor(unsafe) open var subtitleLabel: UIKit.UILabel
-  @_Concurrency.MainActor(unsafe) open var descriptionLabel: UIKit.UILabel
+  @_Concurrency.MainActor(unsafe) open var ratingLabel: RichMessageKit.KBMUILabel
+  @_Concurrency.MainActor(unsafe) open var titleLabel: RichMessageKit.KBMUILabel
+  @_Concurrency.MainActor(unsafe) open var subtitleLabel: RichMessageKit.KBMUILabel
+  @_Concurrency.MainActor(unsafe) open var descriptionLabel: RichMessageKit.KBMUILabel
   @_Concurrency.MainActor(unsafe) open var titleStackView: UIKit.UIStackView
   @_Concurrency.MainActor(unsafe) open var buttonStackView: UIKit.UIStackView
   @_Concurrency.MainActor(unsafe) open var actionButtons: [RichMessageKit.CurvedImageButton]
@@ -908,6 +919,9 @@ extension BrandMessengerUI.KBMGenericCardCell : RichMessageKit.Tappable {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class InsetLabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func drawText(in rect: CoreGraphics.CGRect)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
     @_Concurrency.MainActor(unsafe) @objc get
@@ -1147,7 +1161,7 @@ extension BrandMessengerUI.KBMChatBarConfiguration.AttachmentOptions : Swift.Equ
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class KBMFriendMessageQuickReplyCell : BrandMessengerUI.KBMChatBaseCell<BrandMessengerUI.KBMMessageViewModel> {
-  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(viewModel: BrandMessengerUI.KBMMessageViewModel, maxWidth: CoreGraphics.CGFloat, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -1251,6 +1265,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
   @_Concurrency.MainActor(unsafe) open func checkUserBlock()
   @_Concurrency.MainActor(unsafe) open func isChannelLeft()
   @_Concurrency.MainActor(unsafe) public func configureChatBar()
+  @_Concurrency.MainActor(unsafe) public func moveFocusToInputView()
   @_Concurrency.MainActor(unsafe) open func refreshViewController()
   @objc @_Concurrency.MainActor(unsafe) open func pushNotification(notification: Foundation.NSNotification)
   @_Concurrency.MainActor(unsafe) public func unsubscribingChannel()
@@ -1273,6 +1288,11 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   @_Concurrency.MainActor(unsafe) public func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
   @_Concurrency.MainActor(unsafe) public func moveTableViewToBottom(indexPath: Foundation.IndexPath)
   @objc @_Concurrency.MainActor(unsafe) dynamic public func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) public func quickReplySelectedMoveFocusToSentMessage(indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) public func markUnreadMessagesAsRead()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var preferredFocusEnvironments: [UIKit.UIFocusEnvironment] {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
   @objc @_Concurrency.MainActor(unsafe) dynamic open func newMessagesAdded(messages: [BrandMessengerCore.KBMMessage]?)
   @_Concurrency.MainActor(unsafe) public func messageSent(at indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) public func updateDisplay(contact: BrandMessengerCore.KBMContact?, channel: BrandMessengerCore.KBMChannel?)
@@ -1681,6 +1701,9 @@ public struct KBMConfiguration {
 }
 @objc @_Concurrency.MainActor(unsafe) open class KBMConversationNavBar : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) open var disableTitleAction: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
   @_Concurrency.MainActor(unsafe) required public init(configuration: BrandMessengerUI.KBMConfiguration, delegate: BrandMessengerUI.NavigationBarCallbacks)
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder _: Foundation.NSCoder)
@@ -1898,8 +1921,14 @@ public enum KBMMessageStyle {
     get
   }
   @_Concurrency.MainActor(unsafe) required public init(frame: CoreGraphics.CGRect, configuration: BrandMessengerUI.KBMConfiguration, fileName: Swift.String)
-  @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public func configureHyperLink(link: Swift.String, full string: Foundation.NSMutableAttributedString, key: Swift.String) -> Foundation.NSMutableAttributedString
   @objc deinit
+}
+extension BrandMessengerUI.KBMConversationHeaderView : UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }
 public enum ActionableMessageType : Swift.String {
   case quickReply
@@ -2005,6 +2034,7 @@ public class NotificationHelper {
   public func getConversationVCToLaunch(notification: BrandMessengerUI.NotificationHelper.NotificationData, configuration: BrandMessengerUI.KBMConfiguration) -> BrandMessengerUI.KBMConversationListViewController
   public func refreshConversation(_ viewController: BrandMessengerUI.KBMConversationViewController, with notification: BrandMessengerUI.NotificationHelper.NotificationData)
   public func isBrandMessengerVCAtTop() -> Swift.Bool
+  public func isConversationListVCAtTop() -> Swift.Bool
   public func handleNotificationTap(_ notification: BrandMessengerUI.NotificationHelper.NotificationData)
   @objc deinit
 }

@@ -7,6 +7,7 @@
 
 #import "KBMDisplayCondition.h"
 #import <Foundation/Foundation.h>
+#import "KBMRuleDisplayCondition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSString * _Nullable widgetHash;
 
 @property(nonatomic, strong) NSMutableArray <KBMDisplayCondition *> * _Nullable displayConditions;
+
+@property(nonatomic, strong) NSMutableArray <KBMRuleDisplayCondition *> * _Nullable ruleDisplayConditions;
 
 - (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;
 @end

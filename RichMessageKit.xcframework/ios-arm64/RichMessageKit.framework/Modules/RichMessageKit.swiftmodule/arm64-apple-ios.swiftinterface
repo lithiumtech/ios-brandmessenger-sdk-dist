@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RichMessageKit
 import Foundation
+import Kingfisher
 @_exported import RichMessageKit
 import Swift
 import UIKit
@@ -87,7 +88,7 @@ extension RichMessageKit.MessageTheme {
     set
   }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool? = false, sameNextMessageAuthor: Swift.Bool? = false) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -114,7 +115,7 @@ extension RichMessageKit.MessageTheme {
     }
   }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -151,7 +152,7 @@ extension UIKit.UIColor {
   @_Concurrency.MainActor(unsafe) public static var verticalSpacing: CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public var faqSelected: ((_ index: Swift.Int?, _ title: Swift.String) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, faqStyle: RichMessageKit.FAQMessageStyle, alignLeft: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public class func rowHeight(model: RichMessageKit.FAQMessage, maxWidth: CoreGraphics.CGFloat, style: RichMessageKit.FAQMessageStyle) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -257,8 +258,11 @@ public protocol KBMRichButtonStyleDelegate : AnyObject {
   }
   @_Concurrency.MainActor(unsafe) public var index: Swift.Int?
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
-  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, attributedText: Foundation.NSMutableAttributedString?, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat, isCardButton: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, attributedText: Foundation.NSMutableAttributedString?, image: UIKit.UIImage? = nil, config: RichMessageKit.CurvedImageButton.Config = Config(), maxWidth: CoreGraphics.CGFloat, isCardButton: Swift.Bool, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public func buttonWidth() -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
   @_Concurrency.MainActor(unsafe) public func buttonHeight() -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public class func buttonSize(text: Swift.String, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool, isNaturalStateButton: Swift.Bool) -> CoreGraphics.CGSize
   @_Concurrency.MainActor(unsafe) public class func buttonSize(attributedText: Foundation.NSMutableAttributedString, image: UIKit.UIImage? = nil, maxWidth: CoreGraphics.CGFloat, config: RichMessageKit.CurvedImageButton.Config = Config(), isCardButton: Swift.Bool, isNaturalStateButton: Swift.Bool) -> CoreGraphics.CGSize
@@ -309,6 +313,7 @@ public struct KBMCurvedImageButtonModel {
   public var unselectedButtonAccessibilityText: Swift.String
   public var image: UIKit.UIImage?
   public var isLinkButton: Swift.Bool
+  public var linkButtonAccessibilityOpensString: Swift.String?
   public init(config: RichMessageKit.CurvedImageButton.Config, isSelectedButton: Swift.Bool, isNaturalStateButton: Swift.Bool, selectedButtonAccessibilityText: Swift.String, unselectedButtonAccessibilityText: Swift.String, isLinkButton: Swift.Bool)
 }
 public enum KBMMessageStatus : Swift.CaseIterable {
@@ -372,6 +377,55 @@ public enum ImageBubbleTheme {
   @_Concurrency.MainActor(unsafe) public func updateHeighOfView(hideView: Swift.Bool, model: RichMessageKit.Message)
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class KBMTappableView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @objc override dynamic public func accessibilityElementDidBecomeFocused()
+  @objc override dynamic public func accessibilityElementDidLoseFocus()
+  @_Concurrency.MainActor(unsafe) public func isViewFocusedCurrently() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class KBMImageView : UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?)
+  @available(iOS 3.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class KBMUILabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class KBMUIButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class KBMUISlider : UIKit.UISlider {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFocused: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
 public struct FAQMessageStyle {
   public var title: RichMessageKit.Style
   public var description: RichMessageKit.Style
@@ -399,7 +453,7 @@ extension Foundation.NSMutableAttributedString {
 @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ReceivedButtonsCell : RichMessageKit.KBMRichMessageChatBaseCell<RichMessageKit.SuggestedReplyMessage> {
   @_Concurrency.MainActor(unsafe) public var tapped: ((_ index: Swift.Int, _ name: Swift.String) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool = false, sameNextMessageAuthor: Swift.Bool = false) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -470,7 +524,7 @@ public struct SuggestedReplyMessage {
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class SentButtonsCell : RichMessageKit.KBMRichMessageChatBaseCell<RichMessageKit.SuggestedReplyMessage> {
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -498,6 +552,8 @@ public struct SuggestedReplyMessage {
     }
   }
   @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public var accessibilityLabelText: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var photoViewOpenAccessibilityLabelText: Swift.String?
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @_Concurrency.MainActor(unsafe) override public func update(model: RichMessageKit.ImageMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.ImageMessage) -> CoreGraphics.CGFloat
@@ -535,7 +591,7 @@ extension Foundation.Bundle {
   @_Concurrency.MainActor(unsafe) weak public var delegate: RichMessageKit.Tappable?
   @_Concurrency.MainActor(unsafe) public var buttons: [RichMessageKit.CurvedImageButton]?
   @objc dynamic public init()
-  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat, actionButtonColorString: Swift.String?, linkButtonAccessibilityOpensString: Swift.String)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.SuggestedReplyMessage, maxWidth: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
   @objc deinit
 }
@@ -581,7 +637,10 @@ public class ReceivedMessageViewSizeCalculator {
     public static let messageViewPadding: RichMessageKit.Padding
     public static let firstMessageMessageViewPadding: RichMessageKit.Padding
   }
+  @_Concurrency.MainActor(unsafe) final public let frontView: RichMessageKit.KBMTappableView
   @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public var accessibilityLabelText: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var photoViewOpenAccessibilityLabelText: Swift.String?
   @_Concurrency.MainActor(unsafe) @objc dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @_Concurrency.MainActor(unsafe) override public func update(model: RichMessageKit.ImageMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @_Concurrency.MainActor(unsafe) public static func rowHeight(model: RichMessageKit.ImageMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool) -> CoreGraphics.CGFloat
