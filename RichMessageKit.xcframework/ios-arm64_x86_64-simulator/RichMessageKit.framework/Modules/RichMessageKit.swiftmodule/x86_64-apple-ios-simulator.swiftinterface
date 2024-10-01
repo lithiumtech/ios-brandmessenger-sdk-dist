@@ -101,10 +101,6 @@ extension RichMessageKit.MessageTheme {
       public static var topPadding: CoreGraphics.CGFloat
       public static var bottomPadding: CoreGraphics.CGFloat
     }
-    public enum StateView {
-      public static var rightPadding: CoreGraphics.CGFloat
-      public static var bottomPadding: CoreGraphics.CGFloat
-    }
     public enum TimeLabel {
       public static var rightPadding: CoreGraphics.CGFloat
       public static var bottomPadding: CoreGraphics.CGFloat
@@ -165,51 +161,9 @@ extension RichMessageKit.FAQMessageView : RichMessageKit.Tappable {
   @_Concurrency.MainActor(unsafe) public var model: RichMessageKit.ImageMessage?
   @available(*, unavailable)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder _: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) public class func timeLabelBottomPadding() -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public class func timeLabelBottomPadding(isMyMessage: Swift.Bool) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) public func update(model: RichMessageKit.ImageMessage, samePreviousMessageAuthor: Swift.Bool, sameNextMessageAuthor: Swift.Bool)
   @objc deinit
-}
-public enum ChatCellPadding {
-  public enum SentMessage {
-    public enum Message {
-      public static let left: CoreGraphics.CGFloat
-    }
-    public enum QuickReply {
-      public static let left: CoreGraphics.CGFloat
-      public static let top: CoreGraphics.CGFloat
-      public static let bottom: CoreGraphics.CGFloat
-    }
-    public enum MessageButton {
-      public static let left: CoreGraphics.CGFloat
-      public static let right: CoreGraphics.CGFloat
-      public static let top: CoreGraphics.CGFloat
-      public static let bottom: CoreGraphics.CGFloat
-    }
-  }
-  public enum ReceivedMessage {
-    public enum Message {
-      public static let left: CoreGraphics.CGFloat
-      public static let right: CoreGraphics.CGFloat
-      public static let top: CoreGraphics.CGFloat
-      public static let firstMessageTop: CoreGraphics.CGFloat
-    }
-    public enum QuickReply {
-      public static let left: CoreGraphics.CGFloat
-      public static let top: CoreGraphics.CGFloat
-      public static let firstMessageTop: CoreGraphics.CGFloat
-      public static let right: CoreGraphics.CGFloat
-      public static let bottom: CoreGraphics.CGFloat
-      public static let lastMessageBottom: CoreGraphics.CGFloat
-    }
-    public enum MessageButton {
-      public static let left: CoreGraphics.CGFloat
-      public static let right: CoreGraphics.CGFloat
-      public static let top: CoreGraphics.CGFloat
-      public static let firstMessageTop: CoreGraphics.CGFloat
-      public static let bottom: CoreGraphics.CGFloat
-      public static let lastMessageBottom: CoreGraphics.CGFloat
-    }
-  }
 }
 extension UIKit.UIFont {
   public func withTraits(traits: UIKit.UIFontDescriptor.SymbolicTraits) -> UIKit.UIFont
@@ -360,10 +314,7 @@ public struct Message {
   public var contentType: RichMessageKit.Message.ContentType
 }
 public struct ImageBubbleStyle {
-  public var captionStyle: RichMessageKit.Style
   public var bubble: RichMessageKit.MessageBubbleStyle
-  public var widthRatio: CoreGraphics.CGFloat
-  public var heightRatio: CoreGraphics.CGFloat
   public init()
 }
 public enum ImageBubbleTheme {
@@ -425,6 +376,207 @@ public enum ImageBubbleTheme {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
+}
+public enum ChatCellPadding {
+  public enum SentMessage {
+    public enum StatusView {
+      public static var bottom: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum TimeLabel {
+      public static var bottom: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+    }
+    public enum Message {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+    }
+    public enum LinkPreviewMessage {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+    }
+    public enum Document {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+    }
+    public enum Location {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var width: CoreGraphics.CGFloat
+      public static var height: CoreGraphics.CGFloat
+    }
+    public enum Video {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var widthRatio: CoreGraphics.CGFloat
+    }
+    public enum Voice {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var height: CoreGraphics.CGFloat
+    }
+    public enum ImageMessage {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var heightRatio: CoreGraphics.CGFloat
+      public static var widthRatio: CoreGraphics.CGFloat
+    }
+  }
+  public enum ReceivedMessage {
+    public enum NameLabel {
+      public static var top: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum AvatarImage {
+      public static var bottom: CoreGraphics.CGFloat
+      public static var height: CoreGraphics.CGFloat
+      public static var width: CoreGraphics.CGFloat
+    }
+    public enum TimeLabel {
+      public static var bottom: CoreGraphics.CGFloat
+    }
+    public enum Message {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum LinkPreviewMessage {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum Video {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var widthRatio: CoreGraphics.CGFloat
+    }
+    public enum Document {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum Location {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var width: CoreGraphics.CGFloat
+      public static var height: CoreGraphics.CGFloat
+    }
+    public enum Voice {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var height: CoreGraphics.CGFloat
+    }
+    public enum ImageMessage {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var heightRatio: CoreGraphics.CGFloat
+      public static var widthRatio: CoreGraphics.CGFloat
+    }
+    public enum QuickReply {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum MessageButton {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+    }
+    public enum RichImageMessage {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var widthRatio: CoreGraphics.CGFloat
+      public static var heightRatio: CoreGraphics.CGFloat
+    }
+    public enum InlineForm {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var height: CoreGraphics.CGFloat
+    }
+    public enum Card {
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var firstMessageTop: CoreGraphics.CGFloat
+      public static var lastMessageBottom: CoreGraphics.CGFloat
+      public static var extraCardWidthPadding: CoreGraphics.CGFloat
+    }
+  }
+}
+public enum KBMInternalChatCellPadding {
+  public enum SentMessage {
+    public enum QuickReply {
+      public static var left: CoreGraphics.CGFloat
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+    }
+    public enum MessageButton {
+      public static var left: CoreGraphics.CGFloat
+      public static var right: CoreGraphics.CGFloat
+      public static var top: CoreGraphics.CGFloat
+      public static var bottom: CoreGraphics.CGFloat
+    }
+    public enum RichImageMessage {
+      public static var top: CoreGraphics.CGFloat
+      public static var left: CoreGraphics.CGFloat
+      public static var widthRatio: CoreGraphics.CGFloat
+      public static var heightRatio: CoreGraphics.CGFloat
+    }
+  }
 }
 public struct FAQMessageStyle {
   public var title: RichMessageKit.Style
@@ -531,24 +683,10 @@ public struct SuggestedReplyMessage {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SentImageMessageCell : RichMessageKit.KBMRichMessageChatBaseCell<RichMessageKit.ImageMessage> {
   public enum Config {
     public static var maxWidth: CoreGraphics.CGFloat
-    public enum MessageView {
-      public static var leftPadding: CoreGraphics.CGFloat
-      public static var rightPadding: CoreGraphics.CGFloat
-      public static var topPadding: CoreGraphics.CGFloat
-      public static var bottomPadding: CoreGraphics.CGFloat
-    }
-    public enum StateView {
-      public static var rightPadding: CoreGraphics.CGFloat
-      public static var bottomPadding: CoreGraphics.CGFloat
-    }
     public enum TimeLabel {
       public static var leftPadding: CoreGraphics.CGFloat
       public static var rightPadding: CoreGraphics.CGFloat
       public static var topPadding: CoreGraphics.CGFloat
-    }
-    public enum ImageBubbleView {
-      public static var topPadding: CoreGraphics.CGFloat
-      public static var leftPadding: CoreGraphics.CGFloat
     }
   }
   @_Concurrency.MainActor(unsafe) public var imageTapped: (() -> Swift.Void)?
@@ -606,33 +744,8 @@ public class ReceivedMessageViewSizeCalculator {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ReceivedImageMessageCell : RichMessageKit.KBMRichMessageChatBaseCell<RichMessageKit.ImageMessage> {
   public enum Config {
     public static var maxWidth: CoreGraphics.CGFloat
-    public enum MessageView {
-      public static var leftPadding: CoreGraphics.CGFloat
-      public static var topPadding: CoreGraphics.CGFloat
-      public static var bottomPadding: CoreGraphics.CGFloat
-      public static var rightPadding: CoreGraphics.CGFloat
-      public static var firstMessageTopPadding: CoreGraphics.CGFloat
-    }
-    public enum ProfileImage {
-      public static var width: CoreGraphics.CGFloat
-      public static var height: CoreGraphics.CGFloat
-      public static var bottomPadding: CoreGraphics.CGFloat
-    }
     public enum TimeLabel {
       public static var rightPadding: CoreGraphics.CGFloat
-    }
-    public enum DisplayName {
-      public static var topPadding: CoreGraphics.CGFloat
-      public static var leftPadding: CoreGraphics.CGFloat
-      public static var rightPadding: CoreGraphics.CGFloat
-    }
-    public enum ImageBubbleView {
-      public static var topPadding: CoreGraphics.CGFloat
-      public static var firstMessageTopPadding: CoreGraphics.CGFloat
-      public static var leftPadding: CoreGraphics.CGFloat
-      public static var rightPadding: CoreGraphics.CGFloat
-      public static var bottomPadding: CoreGraphics.CGFloat
-      public static var lastMessageTopPadding: CoreGraphics.CGFloat
     }
     public static let messageViewPadding: RichMessageKit.Padding
     public static let firstMessageMessageViewPadding: RichMessageKit.Padding

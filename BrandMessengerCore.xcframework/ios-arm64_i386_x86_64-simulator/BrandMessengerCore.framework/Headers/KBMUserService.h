@@ -218,6 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param message Pass the `KBMMessage` object.
 - (void)markConversationReadInDataBaseWithMessage:(KBMMessage *)message;
 
+- (void)markSingleMessageAsReadInDatabase:(KBMMessage *)message;
 @end
 
 NS_ASSUME_NONNULL_END

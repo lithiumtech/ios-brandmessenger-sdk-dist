@@ -1339,7 +1339,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KB
   }
   @_Concurrency.MainActor(unsafe) public var avatarImageView: UIKit.UIImageView
   @_Concurrency.MainActor(unsafe) public func setLocalizedStringFileName(_ localizedStringFileName: Swift.String)
-  @_Concurrency.MainActor(unsafe) public class func timeLabelBottomPadding() -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) public class func timeLabelBottomPadding(isMyMessage: Swift.Bool) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
     @_Concurrency.MainActor(unsafe) @objc get
   }
@@ -1452,6 +1452,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public static func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, willPresent notification: UserNotifications.UNNotification, withCompletionHandler completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
   @objc public static func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, didReceive response: UserNotifications.UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void)
   @objc public static func registerForNotification()
+  public static var defaultConfiguration: BrandMessengerUI.KBMConfiguration
   public static func setDefaultConfiguration(_ config: BrandMessengerUI.KBMConfiguration)
   @objc public static func getTotalUnreadCount(complete: @escaping (_ count: Swift.UInt, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func login(_ accessToken: Swift.String, completion: @escaping (_ response: BrandMessengerCore.KBMRegistrationResponse?, _ error: Foundation.NSError?) -> Swift.Void)
@@ -1487,6 +1488,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func dismiss()
   @objc public class func isDeviceGeoIPAllowed(completion: @escaping (_ isDeviceGeoIPAllowed: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func shouldThrottle(completion: @escaping (_ shouldThrottle: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc public class func setRestrictedWordRegex(_ regex: Swift.String)
   @objc deinit
 }
 @objc @_Concurrency.MainActor(unsafe) public class ConversationListTableViewDataSource : ObjectiveC.NSObject, UIKit.UITableViewDataSource {

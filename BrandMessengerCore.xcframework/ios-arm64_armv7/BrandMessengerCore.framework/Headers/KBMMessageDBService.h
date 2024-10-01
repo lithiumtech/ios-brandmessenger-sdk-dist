@@ -120,4 +120,7 @@
 /// @param messageKey Message key
 - (void)updateMessageText:(NSString *)text
            withMessageKey:(NSString *)messageKey;
+
+- (void)updateMessageReadStatusForKey:(NSString *)messageKey;
+
 @end

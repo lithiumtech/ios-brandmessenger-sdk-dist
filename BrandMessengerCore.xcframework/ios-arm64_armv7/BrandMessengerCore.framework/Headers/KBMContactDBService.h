@@ -146,4 +146,6 @@
 /// @param key key Pass the key of the metadata to add or update.
 /// @param value Pass the value of the metadata for the metadata key.
 - (BOOL)addOrUpdateMetadataWithUserId:(NSString *)userId withMetadataKey:(NSString *)key withMetadataValue:(NSString *)value;
+
+- (void)decrementContactUnreadCount:(NSString *)userId;
 @end

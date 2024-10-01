@@ -112,4 +112,6 @@
 
 - (NSError *)deleteMembers:(NSNumber *)key;
 
+- (void)decrementChannelUnreadCount:(NSNumber *)channelKey;
+
 @end

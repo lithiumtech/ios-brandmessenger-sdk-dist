@@ -529,6 +529,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param completion Check for the error is nil and then use the <code>shouldThrottle</code> flag to check if Throttling is applied.
 ///
 + (void)shouldThrottleWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (void)setRestrictedWordRegex:(NSString * _Nonnull)regex;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1742,6 +1743,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param completion Check for the error is nil and then use the <code>shouldThrottle</code> flag to check if Throttling is applied.
 ///
 + (void)shouldThrottleWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (void)setRestrictedWordRegex:(NSString * _Nonnull)regex;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
