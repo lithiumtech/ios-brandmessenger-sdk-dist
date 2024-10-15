@@ -602,7 +602,7 @@
 		</data>
 		<key>ios-arm64_armv7/BrandMessengerCore.framework/Info.plist</key>
 		<data>
-		07Rwin8cUuhgNCSj++0R32MY6ns=
+		dP9DHsOq7fiYpumNxkY7vAbMO5s=
 		</data>
 		<key>ios-arm64_armv7/BrandMessengerCore.framework/MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -630,7 +630,7 @@
 		</data>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore</key>
 		<data>
-		Jkl4/kaohc24LjwPvhFtBOOpvD4=
+		vkXWs++gv8LvLZvXbK12sxFy+Po=
 		</data>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore.momd/AppLozic 10.mom</key>
 		<data>
@@ -1226,7 +1226,7 @@
 		</data>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/Info.plist</key>
 		<data>
-		VvydlQRRVWkDFINgZ3cg+7k3NO8=
+		piHaOBJwcDnvvR9xupzirRuP6f4=
 		</data>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/MQTTClient.momd/MQTTClient.mom</key>
 		<data>
@@ -1254,7 +1254,7 @@
 		</data>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		FkXu2lAZhdhrWQortBl7nD8V1Zc=
+		VoIYEKvbmSyFRCvjD/S65MoUKmc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -2902,11 +2902,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			07Rwin8cUuhgNCSj++0R32MY6ns=
+			dP9DHsOq7fiYpumNxkY7vAbMO5s=
 			</data>
 			<key>hash2</key>
 			<data>
-			c3U0za9Tj+D/xnwdHZ1wemDeiULQEzJiV1E+mYrAwxQ=
+			P2tdapbLIOmT4OFDqG8AFSp5sitxdXGdb6yki/AXcPA=
 			</data>
 		</dict>
 		<key>ios-arm64_armv7/BrandMessengerCore.framework/MQTTClient.momd/MQTTClient.mom</key>
@@ -2979,11 +2979,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Jkl4/kaohc24LjwPvhFtBOOpvD4=
+			vkXWs++gv8LvLZvXbK12sxFy+Po=
 			</data>
 			<key>hash2</key>
 			<data>
-			cDpUqaOLATw69M7OTJsNKiyK2PO3q51JqLO+rk6KiTU=
+			yC93SayZflVqUrhgN71U44wk0ZaYiTxLi5rfTObMSkg=
 			</data>
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore.momd/AppLozic 10.mom</key>
@@ -4618,11 +4618,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VvydlQRRVWkDFINgZ3cg+7k3NO8=
+			piHaOBJwcDnvvR9xupzirRuP6f4=
 			</data>
 			<key>hash2</key>
 			<data>
-			nJ0Q9uHmLD7iqo3YcFmO73OYRxLjcBQ7Y+bxRDmECI4=
+			yIJ95VzO2iEkfwPtghXRAW0f3kNJDvV9FfQHptni79k=
 			</data>
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/BrandMessengerCore.framework/MQTTClient.momd/MQTTClient.mom</key>
@@ -4695,11 +4695,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FkXu2lAZhdhrWQortBl7nD8V1Zc=
+			VoIYEKvbmSyFRCvjD/S65MoUKmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			C7ySQufU+f9STj9TQn16PieLOh0TTuhoVkCU9UVsNeg=
+			Y5buNDyIfeQktgvjo9nTtz81cGMbWZIMMJguXIlCnD0=
 			</data>
 		</dict>
 	</dict>

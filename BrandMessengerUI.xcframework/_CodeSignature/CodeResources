@@ -147,7 +147,7 @@
 		</data>
 		<key>ios-arm64/BrandMessengerUI.framework/Info.plist</key>
 		<data>
-		lNl6W6HRqmt6Edq7Mn5yUnjcqcg=
+		lAZzZerLvSUEA2uw/fQQIyRc+Io=
 		</data>
 		<key>ios-arm64/BrandMessengerUI.framework/KBMAccountSuspensionView.nib</key>
 		<data>
@@ -280,7 +280,7 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/BrandMessengerUI</key>
 		<data>
-		a0Gd3wXxl5F4e+ukqdAKh2W1cic=
+		wVWASFOzfWkfgrFXFwBzGpXg4S8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/CreateGroupChat.storyboardc/CaI-s3-0mh-view-GuI-4l-BXU.nib</key>
 		<data>
@@ -408,7 +408,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/Info.plist</key>
 		<data>
-		YtTLWQg+jY3rXLKz2qONp7tgfMw=
+		PAm/9u64y4V8IatUuojBOobg8bg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/KBMAccountSuspensionView.nib</key>
 		<data>
@@ -536,7 +536,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Rd+TfG4Plx+xiM9AP6k248cOFVw=
+		DiYpBudDrWw8YD4KHOW2917eJjo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -921,11 +921,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lNl6W6HRqmt6Edq7Mn5yUnjcqcg=
+			lAZzZerLvSUEA2uw/fQQIyRc+Io=
 			</data>
 			<key>hash2</key>
 			<data>
-			j9pcjvaO/NaS1nm0WW4NgwK5KVw5G4mUY+hE1QNaxfI=
+			nxfhHFQc45ufpIzEPBvmfUjYGsu0vbrobt1GIbSWZzQ=
 			</data>
 		</dict>
 		<key>ios-arm64/BrandMessengerUI.framework/KBMAccountSuspensionView.nib</key>
@@ -1275,11 +1275,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			a0Gd3wXxl5F4e+ukqdAKh2W1cic=
+			wVWASFOzfWkfgrFXFwBzGpXg4S8=
 			</data>
 			<key>hash2</key>
 			<data>
-			aCkV05Q23EVRNvpbXT5sS0CMaKmHu8KpYqxyBRjs09Q=
+			8EhLuT9iYgs4NJFqZ0bN9UnN/OqV9QwLtUx7a2EvVc4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/CreateGroupChat.storyboardc/CaI-s3-0mh-view-GuI-4l-BXU.nib</key>
@@ -1627,11 +1627,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YtTLWQg+jY3rXLKz2qONp7tgfMw=
+			PAm/9u64y4V8IatUuojBOobg8bg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zz8DHzVJfWAajq1Ol1eybBXbV/ZtniWhc9Rq/mmohhM=
+			GjF7a9qWSESCwcofL/MJxq8VYR58kCTgJxvflKhsNNo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerUI.framework/KBMAccountSuspensionView.nib</key>
@@ -1979,11 +1979,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Rd+TfG4Plx+xiM9AP6k248cOFVw=
+			DiYpBudDrWw8YD4KHOW2917eJjo=
 			</data>
 			<key>hash2</key>
 			<data>
-			31vNtC0LvypbaY8OVsHkFLAfM6FscMdCLWNcpZTHCXk=
+			IqALj/f8OAwLgyB52RNTF1etASWWbfdyl9uo/0F32jU=
 			</data>
 		</dict>
 	</dict>
