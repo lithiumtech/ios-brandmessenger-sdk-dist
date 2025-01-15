@@ -1,0 +1,95 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ISEmojiView
+import Foundation
+@_exported import ISEmojiView
+import Swift
+import UIKit
+import _Concurrency
+public class EmojiCategory {
+  public var category: ISEmojiView.Category!
+  public var emojis: [ISEmojiView.Emoji]!
+  public init(category: ISEmojiView.Category, emojis: [ISEmojiView.Emoji])
+  @objc deinit
+}
+final public class KeyboardSettings {
+  final public var updateRecentEmojiImmediately: Swift.Bool
+  final public var bottomType: ISEmojiView.BottomType!
+  final public var customEmojis: [ISEmojiView.EmojiCategory]?
+  final public var isShowPopPreview: Swift.Bool
+  final public var countOfRecentsEmojis: Swift.Int
+  final public var needToShowAbcButton: Swift.Bool
+  final public var needToShowDeleteButton: Swift.Bool
+  public init(bottomType: ISEmojiView.BottomType)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class RecentEmojisManager {
+  public static let sharedInstance: ISEmojiView.RecentEmojisManager
+  final public func add(emoji: ISEmojiView.Emoji, selectedEmoji: Swift.String, maxCount: Swift.Int) -> Swift.Bool
+  final public func recentEmojis() -> [ISEmojiView.Emoji]
+  @objc deinit
+}
+public enum BottomType : Swift.Int {
+  case pageControl, categories
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol EmojiViewDelegate : AnyObject {
+  func emojiViewDidSelectEmoji(_ emoji: Swift.String, emojiView: ISEmojiView.EmojiView)
+  func emojiViewDidPressChangeKeyboardButton(_ emojiView: ISEmojiView.EmojiView)
+  func emojiViewDidPressDeleteBackwardButton(_ emojiView: ISEmojiView.EmojiView)
+  func emojiViewDidPressDismissKeyboardButton(_ emojiView: ISEmojiView.EmojiView)
+}
+extension ISEmojiView.EmojiViewDelegate {
+  public func emojiViewDidPressChangeKeyboardButton(_ emojiView: ISEmojiView.EmojiView)
+  public func emojiViewDidPressDeleteBackwardButton(_ emojiView: ISEmojiView.EmojiView)
+  public func emojiViewDidPressDismissKeyboardButton(_ emojiView: ISEmojiView.EmojiView)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class EmojiView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: ISEmojiView.EmojiViewDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public init(keyboardSettings: ISEmojiView.KeyboardSettings)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc deinit
+}
+public class Emoji : Swift.Codable {
+  public var selectedEmoji: Swift.String?
+  public var emojis: [Swift.String]!
+  public var emoji: Swift.String {
+    get
+  }
+  public init(emojis: [Swift.String])
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+extension ISEmojiView.Emoji : Swift.Equatable {
+  public static func == (lhs: ISEmojiView.Emoji, rhs: ISEmojiView.Emoji) -> Swift.Bool
+}
+public let MaxCountOfRecentsEmojis: Swift.Int
+public enum Category : Swift.Equatable {
+  case recents
+  case smileysAndPeople
+  case animalsAndNature
+  case foodAndDrink
+  case activity
+  case travelAndPlaces
+  case objects
+  case symbols
+  case flags
+  case custom(Swift.String, Swift.String)
+  public static func == (a: ISEmojiView.Category, b: ISEmojiView.Category) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers final public class EmojiLoader {
+  public static func recentEmojiCategory() -> ISEmojiView.EmojiCategory
+  public static func emojiCategories() -> [ISEmojiView.EmojiCategory]
+  @objc deinit
+}
+extension ISEmojiView.BottomType : Swift.Equatable {}
+extension ISEmojiView.BottomType : Swift.Hashable {}
+extension ISEmojiView.BottomType : Swift.RawRepresentable {}

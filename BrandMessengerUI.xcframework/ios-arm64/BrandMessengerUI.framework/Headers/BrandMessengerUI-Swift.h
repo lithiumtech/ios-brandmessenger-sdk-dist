@@ -528,6 +528,16 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 + (void)shouldThrottleWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 + (void)setRestrictedWordRegex:(NSString * _Nonnull)regex;
+/// Set the interval for isAlive broadcasts in seconds. This will sent out a ping every interval while a BrandMessenger view is on foreground.
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     interval: interval in Seconds, which the IsAlive message will be sent
+///   </li>
+/// </ul>
++ (void)setIsAliveBroadcastInterval:(NSInteger)interval;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -626,6 +636,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21KBMBaseViewController")
 @interface KBMBaseViewController : UIViewController
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
 - (void)viewDidLoad;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -917,7 +928,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI))
 - (void)loadingStarted;
-- (void)loadingFinishedWithError:(NSError * _Nullable)_;
+- (void)loadingFinishedFromEarlierMessages:(BOOL)fromEarlierMessages error:(NSError * _Nullable)_;
 - (void)deleteQuickReplyMessageWithIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @property (nonatomic, readonly, copy) NSArray<id <UIFocusEnvironment>> * _Nonnull preferredFocusEnvironments;
 - (void)newMessagesAddedWithMessages:(NSArray<KBMMessage *> * _Nullable)messages;

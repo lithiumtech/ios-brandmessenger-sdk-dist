@@ -313,4 +313,7 @@ static NSString *const KBM_REGION_EU = @"EU";
 + (void)setWidgetBrandStyleResponse:(KBMWidgetBrandStyleResponse *)response;
 + (KBMWidgetBrandStyleResponse *)getWidgetBrandStyleResponse;
 
++ (void) setIsAliveInterval:(NSInteger)interval;
++ (NSInteger) getIsAliveInterval;
+
 @end

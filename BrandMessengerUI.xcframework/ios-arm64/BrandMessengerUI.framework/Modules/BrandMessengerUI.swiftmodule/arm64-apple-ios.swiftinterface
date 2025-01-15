@@ -398,7 +398,7 @@ extension BrandMessengerUI.KBMSearchResultViewController : BrandMessengerUI.KBMC
 }
 public protocol KBMConversationViewModelDelegate : AnyObject {
   func loadingStarted()
-  func loadingFinished(error: Swift.Error?)
+  func loadingFinished(fromEarlierMessages: Swift.Bool, error: Swift.Error?)
   func messageUpdated()
   func updateMessageAt(indexPath: Foundation.IndexPath)
   func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
@@ -742,12 +742,15 @@ extension BrandMessengerUI.KBMChatBar : BrandMessengerUI.KBMAudioRecorderViewPro
   @_Concurrency.MainActor(unsafe) public var configuration: BrandMessengerUI.KBMConfiguration!
   @_Concurrency.MainActor(unsafe) required public init(configuration: BrandMessengerUI.KBMConfiguration)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) open func addObserver()
   @_Concurrency.MainActor(unsafe) open func removeObserver()
   @objc deinit
   @_Concurrency.MainActor(unsafe) open func showAccountSuspensionView()
+  @_Concurrency.MainActor(unsafe) public func startIsAlive()
+  @_Concurrency.MainActor(unsafe) public func stopIsAlive()
 }
 public protocol KBMContactProtocol {
   var friendUUID: Swift.String? { get }
@@ -1281,7 +1284,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
 }
 extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMConversationViewModelDelegate {
   @objc @_Concurrency.MainActor(unsafe) dynamic open func loadingStarted()
-  @objc @_Concurrency.MainActor(unsafe) dynamic open func loadingFinished(error _: Swift.Error?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func loadingFinished(fromEarlierMessages: Swift.Bool, error _: Swift.Error?)
   @_Concurrency.MainActor(unsafe) public func messageUpdated()
   @_Concurrency.MainActor(unsafe) public func reloadTableView()
   @_Concurrency.MainActor(unsafe) public func updateMessageAt(indexPath: Foundation.IndexPath)
@@ -1489,6 +1492,7 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func isDeviceGeoIPAllowed(completion: @escaping (_ isDeviceGeoIPAllowed: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func shouldThrottle(completion: @escaping (_ shouldThrottle: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
   @objc public class func setRestrictedWordRegex(_ regex: Swift.String)
+  @objc public class func setIsAliveBroadcastInterval(_ interval: Swift.Int)
   @objc deinit
 }
 @objc @_Concurrency.MainActor(unsafe) public class ConversationListTableViewDataSource : ObjectiveC.NSObject, UIKit.UITableViewDataSource {

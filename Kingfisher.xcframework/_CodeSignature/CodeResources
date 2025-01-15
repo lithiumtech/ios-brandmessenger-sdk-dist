@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/Kingfisher.framework/Info.plist</key>
 		<data>
-		wTWFy3ktxohKjX/07jkh7ifZWso=
+		b1+Iu4PYNJgilBbeMt38TR+BZ1k=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/Kingfisher</key>
 		<data>
@@ -24,13 +24,21 @@
 		<data>
 		hGVuuzmjt5sKGjVNh+ZspIKBF7c=
 		</data>
+		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
+		<data>
+		DwnIxd9+T/hZjSDT4pwOvRJ2fCA=
+		</data>
+		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
+		<data>
+		Nlu1DwsQ9HiuHUhni8HKl9HI8AY=
+		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Info.plist</key>
 		<data>
-		G9Uw0AOm7XuxnUXENy5h/z4obZ4=
+		fj5T2pCLVCUFPDM1XIK/lBrw5ZA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Kingfisher</key>
 		<data>
-		GY+JBOuxt70koH48AhjHGY5M5Xk=
+		ywOgfIfUz9Xm3QdIQsLdtMN+NVc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -54,7 +62,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/_CodeSignature/CodeResources</key>
 		<data>
-		yG7mMA+Qcg/k5x0H+WZ6yG3aaso=
+		9xflF7/cZ0IO/RtUumVYV1YNhmw=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
+		<data>
+		DwnIxd9+T/hZjSDT4pwOvRJ2fCA=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
+		<data>
+		ICAcc10aWP+OTQwCOfpJ8nhIDTc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -63,11 +79,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wTWFy3ktxohKjX/07jkh7ifZWso=
+			b1+Iu4PYNJgilBbeMt38TR+BZ1k=
 			</data>
 			<key>hash2</key>
 			<data>
-			jwHT2EpsPyZE+aGn6rCMEktHVl3WiUpaT4zVBPfJGz4=
+			oe/aJu+ue8ub7DNCGOIwdJSjFUhCDQOABya9dU5chb8=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/Kingfisher</key>
@@ -114,26 +130,48 @@
 			yFi3Q8Y5579kQ1TeQdEowO5K8T00j1zU5gSSpLKH2/k=
 			</data>
 		</dict>
+		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DwnIxd9+T/hZjSDT4pwOvRJ2fCA=
+			</data>
+			<key>hash2</key>
+			<data>
+			F6GcNqYt6ljhhywWANq47cybBEMkI2qlUcUBzem1r5A=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nlu1DwsQ9HiuHUhni8HKl9HI8AY=
+			</data>
+			<key>hash2</key>
+			<data>
+			wlfxQjsdAHo6oP+AQ9IHsvs3zF7r+/QHMEhEOYsC+qo=
+			</data>
+		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			G9Uw0AOm7XuxnUXENy5h/z4obZ4=
+			fj5T2pCLVCUFPDM1XIK/lBrw5ZA=
 			</data>
 			<key>hash2</key>
 			<data>
-			FDEk/ABEALApg8p6/JHtkA48VoyJ1DQbBy0+gzWgUlU=
+			JOysRJrYHevdOnamUsHpjtwV4B6hN3JKWrGL02wg+5w=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Kingfisher</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GY+JBOuxt70koH48AhjHGY5M5Xk=
+			ywOgfIfUz9Xm3QdIQsLdtMN+NVc=
 			</data>
 			<key>hash2</key>
 			<data>
-			LFivju6yhMeoj/Tu16UDfH3OhvsPYZBs9lf6zkN/+bA=
+			fQaYNO3OxjbkpqiERoGqjl6Ti/OM7q29qgVQELMC5XE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -195,11 +233,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yG7mMA+Qcg/k5x0H+WZ6yG3aaso=
+			9xflF7/cZ0IO/RtUumVYV1YNhmw=
 			</data>
 			<key>hash2</key>
 			<data>
-			YPrgpwD9MaMx5IGB/+D+R8i98EamhfFlJwCnX1K3oAc=
+			xZAV+iP52AQoQnam2RHz2XvocKKvC8mlEJSzLaPLyAQ=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DwnIxd9+T/hZjSDT4pwOvRJ2fCA=
+			</data>
+			<key>hash2</key>
+			<data>
+			F6GcNqYt6ljhhywWANq47cybBEMkI2qlUcUBzem1r5A=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ICAcc10aWP+OTQwCOfpJ8nhIDTc=
+			</data>
+			<key>hash2</key>
+			<data>
+			b3oFs30vaTgkm7wHGfAqgS5qBZT9CjczvFiIa/ttiE0=
 			</data>
 		</dict>
 	</dict>
