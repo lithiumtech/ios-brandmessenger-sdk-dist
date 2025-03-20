@@ -43,8 +43,8 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 + (BOOL)isToday:(NSDate *)todayDate;
 
 /// This method used for getting file mime type.
-/// @param filePath Pass the name of file.
-+ (NSString * _Nullable)fileMIMEType:(NSString *)filePath;
+/// @param filePathURL Pass the name of file.
++ (NSString * _Nullable)fileMIMEType:(NSURL *)filePathURL;
 
 /// This method used for geeting location URL.
 /// @param message Pass the `KBMMessage` object.
@@ -153,6 +153,11 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 
 + (NSString *)formattedDateWithFormat:(NSString *)formatString timeInMilliseconds:(int64_t)timeInMilliSecs;
 
++ (id _Nullable)deserializeJSONString:(NSString *_Nullable)JSONString;
+
++ (NSString * _Nullable)serializeJSONObject:(id _Nullable)JSONObject;
+
++ (NSDictionary<NSString *, NSString *> *)mimeTypes;
 @end
 
 NS_ASSUME_NONNULL_END

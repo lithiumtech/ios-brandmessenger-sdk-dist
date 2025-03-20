@@ -21,6 +21,13 @@
 #import <Foundation/Foundation.h>
 #import "MessageListRequest.h"
 #import "BrandMessengerClient.h"
+#import "KBMConversationListMessages.h"
+
+typedef NS_ENUM(NSInteger, KBMConversationDataFetchResult) {
+    KBMDataFetchResultSuccess,       // API success, return data
+    KBMDataFetchResultNoData,        // No data found in both API and local data
+    KBMDataFetchResultError          // API failed and no local data
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,6 +47,8 @@ static NSString *const NEW_MESSAGE_NOTIFICATION = @"newMessageNotification";
 static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNotification";
 /// Notification name for the single message deleted.
 static NSString *const KBM_MESSAGE_DELETE_NOTIFICATION_KEY = @"kbmMessageDeletedNotification";
+/// Notification name for the conversation read.
+static NSString *const KBM_UPDATE_CONVERSATION_READ = @"kbmUpdateConversationRead";
 
 /// `KBMMessageService` class has major methods for message API's
 @interface KBMMessageService : NSObject
@@ -212,6 +221,8 @@ static NSString *const KBM_MESSAGE_DELETE_NOTIFICATION_KEY = @"kbmMessageDeleted
 - (KBMMessage * _Nullable)handleMessageFailedStatus:(KBMMessage *)message;
 
 + (KBMMessage * _Nullable)processFileUploadSucess:(KBMMessage *)message;
+
+- (void)fetchAllMessagesWithCompletion:(void (^)(KBMConversationListMessages * _Nullable conversationListMessages, KBMConversationDataFetchResult result, NSError * _Nullable error))completion;
 
 @end
 
