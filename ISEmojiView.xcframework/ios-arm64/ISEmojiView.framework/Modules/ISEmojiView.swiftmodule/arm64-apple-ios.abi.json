@@ -1,0 +1,3986 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "ISEmojiView",
+    "printedName": "ISEmojiView",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "EmojiCategory",
+        "printedName": "EmojiCategory",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "category",
+            "printedName": "category",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "ISEmojiView.Category?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvp",
+            "mangledName": "$s11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "ISEmojiView.Category?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvg",
+                "mangledName": "$s11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "ISEmojiView.Category?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvs",
+                "mangledName": "$s11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvM",
+                "mangledName": "$s11ISEmojiView13EmojiCategoryC8categoryAA0D0OSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "emojis",
+            "printedName": "emojis",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "[ISEmojiView.Emoji]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ISEmojiView.Emoji]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Emoji",
+                        "printedName": "ISEmojiView.Emoji",
+                        "usr": "s:11ISEmojiView5EmojiC"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvp",
+            "mangledName": "$s11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "[ISEmojiView.Emoji]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[ISEmojiView.Emoji]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Emoji",
+                            "printedName": "ISEmojiView.Emoji",
+                            "usr": "s:11ISEmojiView5EmojiC"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvg",
+                "mangledName": "$s11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "[ISEmojiView.Emoji]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[ISEmojiView.Emoji]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Emoji",
+                            "printedName": "ISEmojiView.Emoji",
+                            "usr": "s:11ISEmojiView5EmojiC"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvs",
+                "mangledName": "$s11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvM",
+                "mangledName": "$s11ISEmojiView13EmojiCategoryC6emojisSayAA0C0CGSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(category:emojis:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiCategory",
+                "printedName": "ISEmojiView.EmojiCategory",
+                "usr": "s:11ISEmojiView13EmojiCategoryC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Category",
+                "printedName": "ISEmojiView.Category",
+                "usr": "s:11ISEmojiView8CategoryO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ISEmojiView.Emoji]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Emoji",
+                    "printedName": "ISEmojiView.Emoji",
+                    "usr": "s:11ISEmojiView5EmojiC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ISEmojiView13EmojiCategoryC8category6emojisAcA0D0O_SayAA0C0CGtcfc",
+            "mangledName": "$s11ISEmojiView13EmojiCategoryC8category6emojisAcA0D0O_SayAA0C0CGtcfc",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ISEmojiView13EmojiCategoryC",
+        "mangledName": "$s11ISEmojiView13EmojiCategoryC",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "KeyboardSettings",
+        "printedName": "KeyboardSettings",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "updateRecentEmojiImmediately",
+            "printedName": "updateRecentEmojiImmediately",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC28updateRecentEmojiImmediatelySbvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "bottomType",
+            "printedName": "bottomType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "ISEmojiView.BottomType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BottomType",
+                    "printedName": "ISEmojiView.BottomType",
+                    "usr": "s:11ISEmojiView10BottomTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "ISEmojiView.BottomType?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BottomType",
+                        "printedName": "ISEmojiView.BottomType",
+                        "usr": "s:11ISEmojiView10BottomTypeO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "ISEmojiView.BottomType?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BottomType",
+                        "printedName": "ISEmojiView.BottomType",
+                        "usr": "s:11ISEmojiView10BottomTypeO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC10bottomTypeAA06BottomF0OSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "customEmojis",
+            "printedName": "customEmojis",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[ISEmojiView.EmojiCategory]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ISEmojiView.EmojiCategory]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "EmojiCategory",
+                        "printedName": "ISEmojiView.EmojiCategory",
+                        "usr": "s:11ISEmojiView13EmojiCategoryC"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[ISEmojiView.EmojiCategory]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[ISEmojiView.EmojiCategory]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "EmojiCategory",
+                            "printedName": "ISEmojiView.EmojiCategory",
+                            "usr": "s:11ISEmojiView13EmojiCategoryC"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[ISEmojiView.EmojiCategory]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[ISEmojiView.EmojiCategory]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "EmojiCategory",
+                            "printedName": "ISEmojiView.EmojiCategory",
+                            "usr": "s:11ISEmojiView13EmojiCategoryC"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC12customEmojisSayAA13EmojiCategoryCGSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isShowPopPreview",
+            "printedName": "isShowPopPreview",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC16isShowPopPreviewSbvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "countOfRecentsEmojis",
+            "printedName": "countOfRecentsEmojis",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC20countOfRecentsEmojisSivM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "needToShowAbcButton",
+            "printedName": "needToShowAbcButton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC19needToShowAbcButtonSbvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "needToShowDeleteButton",
+            "printedName": "needToShowDeleteButton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvp",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvg",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvs",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvM",
+                "mangledName": "$s11ISEmojiView16KeyboardSettingsC22needToShowDeleteButtonSbvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(bottomType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "KeyboardSettings",
+                "printedName": "ISEmojiView.KeyboardSettings",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BottomType",
+                "printedName": "ISEmojiView.BottomType",
+                "usr": "s:11ISEmojiView10BottomTypeO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ISEmojiView16KeyboardSettingsC10bottomTypeAcA06BottomF0O_tcfc",
+            "mangledName": "$s11ISEmojiView16KeyboardSettingsC10bottomTypeAcA06BottomF0O_tcfc",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ISEmojiView16KeyboardSettingsC",
+        "mangledName": "$s11ISEmojiView16KeyboardSettingsC",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl",
+          "Final"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RecentEmojisManager",
+        "printedName": "RecentEmojisManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sharedInstance",
+            "printedName": "sharedInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RecentEmojisManager",
+                "printedName": "ISEmojiView.RecentEmojisManager",
+                "usr": "s:11ISEmojiView19RecentEmojisManagerC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView19RecentEmojisManagerC14sharedInstanceACvpZ",
+            "mangledName": "$s11ISEmojiView19RecentEmojisManagerC14sharedInstanceACvpZ",
+            "moduleName": "ISEmojiView",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RecentEmojisManager",
+                    "printedName": "ISEmojiView.RecentEmojisManager",
+                    "usr": "s:11ISEmojiView19RecentEmojisManagerC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView19RecentEmojisManagerC14sharedInstanceACvgZ",
+                "mangledName": "$s11ISEmojiView19RecentEmojisManagerC14sharedInstanceACvgZ",
+                "moduleName": "ISEmojiView",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "add",
+            "printedName": "add(emoji:selectedEmoji:maxCount:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Emoji",
+                "printedName": "ISEmojiView.Emoji",
+                "usr": "s:11ISEmojiView5EmojiC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView19RecentEmojisManagerC3add5emoji13selectedEmoji8maxCountSbAA0I0C_SSSitF",
+            "mangledName": "$s11ISEmojiView19RecentEmojisManagerC3add5emoji13selectedEmoji8maxCountSbAA0I0C_SSSitF",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "recentEmojis",
+            "printedName": "recentEmojis()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ISEmojiView.Emoji]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Emoji",
+                    "printedName": "ISEmojiView.Emoji",
+                    "usr": "s:11ISEmojiView5EmojiC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView19RecentEmojisManagerC06recentD0SayAA5EmojiCGyF",
+            "mangledName": "$s11ISEmojiView19RecentEmojisManagerC06recentD0SayAA5EmojiCGyF",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ISEmojiView19RecentEmojisManagerC",
+        "mangledName": "$s11ISEmojiView19RecentEmojisManagerC",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl",
+          "Final"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BottomType",
+        "printedName": "BottomType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "pageControl",
+            "printedName": "pageControl",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.BottomType.Type) -> ISEmojiView.BottomType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BottomType",
+                    "printedName": "ISEmojiView.BottomType",
+                    "usr": "s:11ISEmojiView10BottomTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.BottomType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BottomType",
+                        "printedName": "ISEmojiView.BottomType",
+                        "usr": "s:11ISEmojiView10BottomTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView10BottomTypeO11pageControlyA2CmF",
+            "mangledName": "$s11ISEmojiView10BottomTypeO11pageControlyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "categories",
+            "printedName": "categories",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.BottomType.Type) -> ISEmojiView.BottomType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BottomType",
+                    "printedName": "ISEmojiView.BottomType",
+                    "usr": "s:11ISEmojiView10BottomTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.BottomType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BottomType",
+                        "printedName": "ISEmojiView.BottomType",
+                        "usr": "s:11ISEmojiView10BottomTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView10BottomTypeO10categoriesyA2CmF",
+            "mangledName": "$s11ISEmojiView10BottomTypeO10categoriesyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ISEmojiView.BottomType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BottomType",
+                    "printedName": "ISEmojiView.BottomType",
+                    "usr": "s:11ISEmojiView10BottomTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ISEmojiView10BottomTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11ISEmojiView10BottomTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "ISEmojiView",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView10BottomTypeO8rawValueSivp",
+            "mangledName": "$s11ISEmojiView10BottomTypeO8rawValueSivp",
+            "moduleName": "ISEmojiView",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView10BottomTypeO8rawValueSivg",
+                "mangledName": "$s11ISEmojiView10BottomTypeO8rawValueSivg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11ISEmojiView10BottomTypeO",
+        "mangledName": "$s11ISEmojiView10BottomTypeO",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "EmojiViewDelegate",
+        "printedName": "EmojiViewDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "emojiViewDidSelectEmoji",
+            "printedName": "emojiViewDidSelectEmoji(_:emojiView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegateP05emojib9DidSelectC0_0eB0ySS_AA0cB0CtF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegateP05emojib9DidSelectC0_0eB0ySS_AA0cB0CtF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiViewDidPressChangeKeyboardButton",
+            "printedName": "emojiViewDidPressChangeKeyboardButton(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegateP05emojiB28DidPressChangeKeyboardButtonyyAA0cB0CF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegateP05emojiB28DidPressChangeKeyboardButtonyyAA0cB0CF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiViewDidPressDeleteBackwardButton",
+            "printedName": "emojiViewDidPressDeleteBackwardButton(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegateP05emojiB28DidPressDeleteBackwardButtonyyAA0cB0CF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegateP05emojiB28DidPressDeleteBackwardButtonyyAA0cB0CF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiViewDidPressDismissKeyboardButton",
+            "printedName": "emojiViewDidPressDismissKeyboardButton(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegateP05emojiB29DidPressDismissKeyboardButtonyyAA0cB0CF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegateP05emojiB29DidPressDismissKeyboardButtonyyAA0cB0CF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiViewDidPressChangeKeyboardButton",
+            "printedName": "emojiViewDidPressChangeKeyboardButton(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegatePAAE05emojiB28DidPressChangeKeyboardButtonyyAA0cB0CF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegatePAAE05emojiB28DidPressChangeKeyboardButtonyyAA0cB0CF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiViewDidPressDeleteBackwardButton",
+            "printedName": "emojiViewDidPressDeleteBackwardButton(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegatePAAE05emojiB28DidPressDeleteBackwardButtonyyAA0cB0CF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegatePAAE05emojiB28DidPressDeleteBackwardButtonyyAA0cB0CF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiViewDidPressDismissKeyboardButton",
+            "printedName": "emojiViewDidPressDismissKeyboardButton(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView05EmojiB8DelegatePAAE05emojiB29DidPressDismissKeyboardButtonyyAA0cB0CF",
+            "mangledName": "$s11ISEmojiView05EmojiB8DelegatePAAE05emojiB29DidPressDismissKeyboardButtonyyAA0cB0CF",
+            "moduleName": "ISEmojiView",
+            "genericSig": "<τ_0_0 where τ_0_0 : ISEmojiView.EmojiViewDelegate>",
+            "sugared_genericSig": "<Self where Self : ISEmojiView.EmojiViewDelegate>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:11ISEmojiView05EmojiB8DelegateP",
+        "mangledName": "$s11ISEmojiView05EmojiB8DelegateP",
+        "moduleName": "ISEmojiView",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "EmojiView",
+        "printedName": "EmojiView",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any ISEmojiView.EmojiViewDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvp",
+            "mangledName": "$s11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ISEmojiView.EmojiViewDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "EmojiViewDelegate",
+                        "printedName": "any ISEmojiView.EmojiViewDelegate",
+                        "usr": "s:11ISEmojiView05EmojiB8DelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvg",
+                "mangledName": "$s11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ISEmojiView.EmojiViewDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "EmojiViewDelegate",
+                        "printedName": "any ISEmojiView.EmojiViewDelegate",
+                        "usr": "s:11ISEmojiView05EmojiB8DelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvs",
+                "mangledName": "$s11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvM",
+                "mangledName": "$s11ISEmojiView05EmojiB0C8delegateAA0cB8Delegate_pSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(frame:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ISEmojiView@objc(cs)EmojiView(im)initWithFrame:",
+            "mangledName": "$s11ISEmojiView05EmojiB0C5frameACSo6CGRectV_tcfc",
+            "moduleName": "ISEmojiView",
+            "overriding": true,
+            "objc_name": "initWithFrame:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(keyboardSettings:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiView",
+                "printedName": "ISEmojiView.EmojiView",
+                "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyboardSettings",
+                "printedName": "ISEmojiView.KeyboardSettings",
+                "usr": "s:11ISEmojiView16KeyboardSettingsC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ISEmojiView05EmojiB0C16keyboardSettingsAcA08KeyboardE0C_tcfc",
+            "mangledName": "$s11ISEmojiView05EmojiB0C16keyboardSettingsAcA08KeyboardE0C_tcfc",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ISEmojiView.EmojiView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "EmojiView",
+                    "printedName": "ISEmojiView.EmojiView",
+                    "usr": "c:@M@ISEmojiView@objc(cs)EmojiView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ISEmojiView@objc(cs)EmojiView(im)initWithCoder:",
+            "mangledName": "$s11ISEmojiView05EmojiB0C5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "ISEmojiView",
+            "overriding": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "layoutSubviews",
+            "printedName": "layoutSubviews()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ISEmojiView@objc(cs)EmojiView(im)layoutSubviews",
+            "mangledName": "$s11ISEmojiView05EmojiB0C14layoutSubviewsyyF",
+            "moduleName": "ISEmojiView",
+            "overriding": true,
+            "objc_name": "layoutSubviews",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "point",
+            "printedName": "point(inside:with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGPoint",
+                "printedName": "CoreFoundation.CGPoint",
+                "usr": "c:@S@CGPoint"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIEvent?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIEvent",
+                    "printedName": "UIKit.UIEvent",
+                    "usr": "c:objc(cs)UIEvent"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ISEmojiView@objc(cs)EmojiView(im)pointInside:withEvent:",
+            "mangledName": "$s11ISEmojiView05EmojiB0C5point6inside4withSbSo7CGPointV_So7UIEventCSgtF",
+            "moduleName": "ISEmojiView",
+            "overriding": true,
+            "objc_name": "pointInside:withEvent:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ISEmojiView@objc(cs)EmojiView",
+        "mangledName": "$s11ISEmojiView05EmojiB0C",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "Final",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)UIView",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "UIKit.UIView",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Emoji",
+        "printedName": "Emoji",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "selectedEmoji",
+            "printedName": "selectedEmoji",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView5EmojiC08selectedC0SSSgvp",
+            "mangledName": "$s11ISEmojiView5EmojiC08selectedC0SSSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC08selectedC0SSSgvg",
+                "mangledName": "$s11ISEmojiView5EmojiC08selectedC0SSSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC08selectedC0SSSgvs",
+                "mangledName": "$s11ISEmojiView5EmojiC08selectedC0SSSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC08selectedC0SSSgvM",
+                "mangledName": "$s11ISEmojiView5EmojiC08selectedC0SSSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "emojis",
+            "printedName": "emojis",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView5EmojiC6emojisSaySSGSgvp",
+            "mangledName": "$s11ISEmojiView5EmojiC6emojisSaySSGSgvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC6emojisSaySSGSgvg",
+                "mangledName": "$s11ISEmojiView5EmojiC6emojisSaySSGSgvg",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC6emojisSaySSGSgvs",
+                "mangledName": "$s11ISEmojiView5EmojiC6emojisSaySSGSgvs",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC6emojisSaySSGSgvM",
+                "mangledName": "$s11ISEmojiView5EmojiC6emojisSaySSGSgvM",
+                "moduleName": "ISEmojiView",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "emoji",
+            "printedName": "emoji",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11ISEmojiView5EmojiC5emojiSSvp",
+            "mangledName": "$s11ISEmojiView5EmojiC5emojiSSvp",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11ISEmojiView5EmojiC5emojiSSvg",
+                "mangledName": "$s11ISEmojiView5EmojiC5emojiSSvg",
+                "moduleName": "ISEmojiView",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(emojis:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Emoji",
+                "printedName": "ISEmojiView.Emoji",
+                "usr": "s:11ISEmojiView5EmojiC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ISEmojiView5EmojiC6emojisACSaySSG_tcfc",
+            "mangledName": "$s11ISEmojiView5EmojiC6emojisACSaySSG_tcfc",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Emoji",
+                "printedName": "ISEmojiView.Emoji",
+                "usr": "s:11ISEmojiView5EmojiC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11ISEmojiView5EmojiC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s11ISEmojiView5EmojiC4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "AccessControl",
+              "Required"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView5EmojiC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s11ISEmojiView5EmojiC6encode2toys7Encoder_p_tKF",
+            "moduleName": "ISEmojiView",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Emoji",
+                "printedName": "ISEmojiView.Emoji",
+                "usr": "s:11ISEmojiView5EmojiC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Emoji",
+                "printedName": "ISEmojiView.Emoji",
+                "usr": "s:11ISEmojiView5EmojiC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView5EmojiC2eeoiySbAC_ACtFZ",
+            "mangledName": "$s11ISEmojiView5EmojiC2eeoiySbAC_ACtFZ",
+            "moduleName": "ISEmojiView",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ISEmojiView5EmojiC",
+        "mangledName": "$s11ISEmojiView5EmojiC",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Var",
+        "name": "MaxCountOfRecentsEmojis",
+        "printedName": "MaxCountOfRecentsEmojis",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Int",
+            "printedName": "Swift.Int",
+            "usr": "s:Si"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:11ISEmojiView23MaxCountOfRecentsEmojisSivp",
+        "mangledName": "$s11ISEmojiView23MaxCountOfRecentsEmojisSivp",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:11ISEmojiView23MaxCountOfRecentsEmojisSivg",
+            "mangledName": "$s11ISEmojiView23MaxCountOfRecentsEmojisSivg",
+            "moduleName": "ISEmojiView",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Category",
+        "printedName": "Category",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "recents",
+            "printedName": "recents",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO7recentsyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO7recentsyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "smileysAndPeople",
+            "printedName": "smileysAndPeople",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO16smileysAndPeopleyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO16smileysAndPeopleyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "animalsAndNature",
+            "printedName": "animalsAndNature",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO16animalsAndNatureyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO16animalsAndNatureyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "foodAndDrink",
+            "printedName": "foodAndDrink",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO12foodAndDrinkyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO12foodAndDrinkyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "activity",
+            "printedName": "activity",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO8activityyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO8activityyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "travelAndPlaces",
+            "printedName": "travelAndPlaces",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO15travelAndPlacesyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO15travelAndPlacesyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "objects",
+            "printedName": "objects",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO7objectsyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO7objectsyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "symbols",
+            "printedName": "symbols",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO7symbolsyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO7symbolsyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "flags",
+            "printedName": "flags",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Category",
+                    "printedName": "ISEmojiView.Category",
+                    "usr": "s:11ISEmojiView8CategoryO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO5flagsyA2CmF",
+            "mangledName": "$s11ISEmojiView8CategoryO5flagsyA2CmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Var",
+            "name": "custom",
+            "printedName": "custom",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ISEmojiView.Category.Type) -> (Swift.String, Swift.String) -> ISEmojiView.Category",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ISEmojiView.Category",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.String, Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ISEmojiView.Category.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Category",
+                        "printedName": "ISEmojiView.Category",
+                        "usr": "s:11ISEmojiView8CategoryO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11ISEmojiView8CategoryO6customyACSS_SStcACmF",
+            "mangledName": "$s11ISEmojiView8CategoryO6customyACSS_SStcACmF",
+            "moduleName": "ISEmojiView"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Category",
+                "printedName": "ISEmojiView.Category",
+                "usr": "s:11ISEmojiView8CategoryO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Category",
+                "printedName": "ISEmojiView.Category",
+                "usr": "s:11ISEmojiView8CategoryO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView8CategoryO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s11ISEmojiView8CategoryO2eeoiySbAC_ACtFZ",
+            "moduleName": "ISEmojiView",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:11ISEmojiView8CategoryO",
+        "mangledName": "$s11ISEmojiView8CategoryO",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "EmojiLoader",
+        "printedName": "EmojiLoader",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "recentEmojiCategory",
+            "printedName": "recentEmojiCategory()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EmojiCategory",
+                "printedName": "ISEmojiView.EmojiCategory",
+                "usr": "s:11ISEmojiView13EmojiCategoryC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView11EmojiLoaderC06recentC8CategoryAA0cF0CyFZ",
+            "mangledName": "$s11ISEmojiView11EmojiLoaderC06recentC8CategoryAA0cF0CyFZ",
+            "moduleName": "ISEmojiView",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emojiCategories",
+            "printedName": "emojiCategories()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ISEmojiView.EmojiCategory]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "EmojiCategory",
+                    "printedName": "ISEmojiView.EmojiCategory",
+                    "usr": "s:11ISEmojiView13EmojiCategoryC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11ISEmojiView11EmojiLoaderC15emojiCategoriesSayAA0C8CategoryCGyFZ",
+            "mangledName": "$s11ISEmojiView11EmojiLoaderC15emojiCategoriesSayAA0C8CategoryCGyFZ",
+            "moduleName": "ISEmojiView",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11ISEmojiView11EmojiLoaderC",
+        "mangledName": "$s11ISEmojiView11EmojiLoaderC",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "AccessControl",
+          "Final"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "ISEmojiView"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Models\/KeyboardSettings.swift",
+      "kind": "BooleanLiteral",
+      "offset": 311,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Models\/KeyboardSettings.swift",
+      "kind": "BooleanLiteral",
+      "offset": 652,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Models\/KeyboardSettings.swift",
+      "kind": "BooleanLiteral",
+      "offset": 996,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Models\/KeyboardSettings.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1049,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/RecentEmojisManager.swift",
+      "kind": "StringLiteral",
+      "offset": 154,
+      "length": 20,
+      "value": "\"ISEmojiView.recent\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/RecentEmojisManager.swift",
+      "kind": "StringLiteral",
+      "offset": 216,
+      "length": 25,
+      "value": "\"ISEmojiView.recent-freq\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "StringLiteral",
+      "offset": 529,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "Array",
+      "offset": 572,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "FloatLiteral",
+      "offset": 655,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "Array",
+      "offset": 707,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "FloatLiteral",
+      "offset": 796,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "FloatLiteral",
+      "offset": 839,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiPopView\/EmojiPopView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1556,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 179,
+      "length": 10,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1264,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1518,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1669,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2051,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6934,
+      "length": 3,
+      "value": "249"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "FloatLiteral",
+      "offset": 6938,
+      "length": 5,
+      "value": "255.0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6952,
+      "length": 3,
+      "value": "249"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "FloatLiteral",
+      "offset": 6956,
+      "length": 5,
+      "value": "255.0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6969,
+      "length": 3,
+      "value": "249"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "FloatLiteral",
+      "offset": 6973,
+      "length": 5,
+      "value": "255.0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiView\/EmojiView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6987,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 166,
+      "length": 2,
+      "value": "45"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 178,
+      "length": 2,
+      "value": "35"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "StringLiteral",
+      "offset": 220,
+      "length": 19,
+      "value": "\"Apple color emoji\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 247,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "FloatLiteral",
+      "offset": 310,
+      "length": 3,
+      "value": "1.3"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "FloatLiteral",
+      "offset": 342,
+      "length": 3,
+      "value": "1.6"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "FloatLiteral",
+      "offset": 409,
+      "length": 3,
+      "value": "0.8"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 441,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 614,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 674,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Helpers\/Constants.swift",
+      "kind": "IntegerLiteral",
+      "offset": 720,
+      "length": 2,
+      "value": "50"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiCollectionView\/EmojiCollectionView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1091,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiCollectionView\/EmojiCollectionView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1307,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiCollectionView\/EmojiCollectionView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1363,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiCollectionView\/EmojiCollectionView.swift",
+      "kind": "StringLiteral",
+      "offset": 1412,
+      "length": 11,
+      "value": "\"EmojiCell\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/EmojiCollectionView\/EmojiCollectionView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1592,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Models\/Category.swift",
+      "kind": "IntegerLiteral",
+      "offset": 390,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 189,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 241,
+      "length": 2,
+      "value": "95"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 244,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 256,
+      "length": 2,
+      "value": "94"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 259,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 270,
+      "length": 2,
+      "value": "95"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 273,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 285,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 339,
+      "length": 3,
+      "value": "161"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 343,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 355,
+      "length": 3,
+      "value": "165"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 359,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 370,
+      "length": 3,
+      "value": "172"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 374,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 386,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 611,
+      "length": 3,
+      "value": "201"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 615,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 627,
+      "length": 3,
+      "value": "206"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 631,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 642,
+      "length": 3,
+      "value": "214"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 646,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "IntegerLiteral",
+      "offset": 658,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoryCell.swift",
+      "kind": "BooleanLiteral",
+      "offset": 685,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoriesBottomView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 172,
+      "length": 2,
+      "value": "35"
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoriesBottomView.swift",
+      "kind": "StringLiteral",
+      "offset": 1557,
+      "length": 16,
+      "value": "\"ic_emojiDelete\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Documents\/Khoros-iOS-projects\/release-lithium-flow\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ISEmojiView\/Sources\/ISEmojiView\/Classes\/Views\/BottomViews\/CategoriesBottomView\/CategoriesBottomView.swift",
+      "kind": "StringLiteral",
+      "offset": 1860,
+      "length": 14,
+      "value": "\"CategoryCell\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 734,
+      "length": 13,
+      "value": "\"ic_activity\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 889,
+      "length": 19,
+      "value": "\"ic_animals_nature\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1045,
+      "length": 16,
+      "value": "\"ic_emojiDelete\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1186,
+      "length": 10,
+      "value": "\"ic_flags\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1330,
+      "length": 15,
+      "value": "\"ic_food_drink\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1474,
+      "length": 12,
+      "value": "\"ic_objects\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1615,
+      "length": 12,
+      "value": "\"ic_recents\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1769,
+      "length": 19,
+      "value": "\"ic_smileys_people\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1917,
+      "length": 12,
+      "value": "\"ic_symbols\""
+    },
+    {
+      "filePath": "\/Users\/sunil.k\/Library\/Developer\/Xcode\/DerivedData\/ISEmojiView-dhshuveshrxtfufhqbkfdudpvnfp\/Build\/Intermediates.noindex\/ArchiveIntermediates\/ISEmojiView\/IntermediateBuildFilesPath\/ISEmojiView.build\/Release-iphoneos\/ISEmojiView.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2069,
+      "length": 18,
+      "value": "\"ic_travel_places\""
+    }
+  ]
+}

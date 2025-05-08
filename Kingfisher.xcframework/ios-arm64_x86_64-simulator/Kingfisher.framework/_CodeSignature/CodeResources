@@ -6,31 +6,47 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		fj5T2pCLVCUFPDM1XIK/lBrw5ZA=
+		ydHUx+rSkdeUP1UwTJu7RisBM8o=
+		</data>
+		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		86ka+VJYoC3QEBkUNT32SO8U4Ic=
+		</data>
+		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		ow6HvazipqE3xfiIH/YjSvW9rqE=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		3tCEOjSZ7mYr8eU7KdSuuuaEOfs=
+		XCXEJ24uCdATM86UX1kYPJ7Z6nA=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/imuRuiY8+d2AnqgcJ6NwmPBuBw=
+		ow6HvazipqE3xfiIH/YjSvW9rqE=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		3snGBmm3S3OMHXk1K2tkLTTTkTo=
+		aghCRsehiOE1YCbECQ4REj9Im5c=
+		</data>
+		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<data>
+		86ka+VJYoC3QEBkUNT32SO8U4Ic=
+		</data>
+		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		r4D5ieYPGahot17SGyIh/XHOB9I=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		pUnA92By2MiVz2oTJqtswvrZXEc=
+		oi3VupPoJaV2Q/AvfZfkbYzcddE=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jzNqZQ6iWrNmhJYblBgK9Mq8+gY=
+		r4D5ieYPGahot17SGyIh/XHOB9I=
 		</data>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		B0q4IysozdEUodAvbndlSPRWEV4=
+		jInW4lBTgZYDuKHMCK7PVSwMAqM=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -39,46 +55,74 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/VJTa9BmEmXZfuzrpzyme3P1O0tJG1jyGbfvZw/MZrc=
+			</data>
+		</dict>
+		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YSXdifmcGRon+aJnMWYXxIjjrMYvRymiV0T3/tuObco=
+			</data>
+		</dict>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MBf9JuM3sTCqnPXskw4uBOylJFTrodh6zpmmVs6zXg8=
+			3FRdXaidauQwaDestZCzneRRLvynPs76CMDhS3Ah0OM=
 			</data>
 		</dict>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q4Tdl2MDDi5u6Q8XxUEdahEfyJ6lEv2Yx5jE8FuqiQU=
+			YSXdifmcGRon+aJnMWYXxIjjrMYvRymiV0T3/tuObco=
 			</data>
 		</dict>
 		<key>Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dKaw/I/9LEbj5nZt5BXHSDyGzktmJcSRgK6b0ch7yHw=
+			PuCGqeg7A94PfLziRzFOmwuHQhLN/ryHiqfPh8RZCZo=
+			</data>
+		</dict>
+		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/VJTa9BmEmXZfuzrpzyme3P1O0tJG1jyGbfvZw/MZrc=
+			</data>
+		</dict>
+		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XkdakX+22aMIg5SYxdJuAeK9/Wjoq+nn9tmGgen7Xe0=
 			</data>
 		</dict>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FkgVAgSFCpifIekkQxW9Hi6Uw0yiGm1EVGg0I96AlmE=
+			76bSg46E699EmBAttJDSRKaZbgddAQKIF1Oj4uJKigQ=
 			</data>
 		</dict>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qECm2OwX5vQj6urwdzTccRGKki7dQsawAOSoCDFKjDU=
+			XkdakX+22aMIg5SYxdJuAeK9/Wjoq+nn9tmGgen7Xe0=
 			</data>
 		</dict>
 		<key>Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M7mTTJrnHi+u8e1b+oYeENrTcu5EHNrm9ZHGvNBX/jc=
+			UnHOy6jIjYo7kj8xFqxM8saiAEFhaLwBptcOiPZncgY=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
