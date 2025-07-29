@@ -58,6 +58,11 @@ typedef enum {
     CLOSED_CONVERSATION = 3
 } CONVERSATION_CATEGORY;
 
+typedef NS_ENUM(short, KBMGroupState) {
+    KBMGroupStateActive = 0,
+    KBMGroupStateClosed = 1
+};
+
 /**
  * A channel is a medium for multiple users to send and receive messages to and from each other. It facilitates a channel conversation.
  *
@@ -133,6 +138,12 @@ typedef enum {
 ///
 /// This is used to categorize the channel based on the metadata value for `CONVERSATION_CATEGORY`
 @property (nonatomic) short category;
+
+/// The group state to represent its current status.
+/// Possible states:
+/// - OPEN (0): The group is currently open.
+/// - CLOSE (1): The group is currently closed.
+@property (nonatomic) short state;
 
 /// For internal use only.
 - (id)initWithDictonary:(NSDictionary *)messageDictonary;
