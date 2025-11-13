@@ -26,8 +26,6 @@
                              startTime:(NSNumber *)startTime
                         withCompletion:(void(^)(KBMMessageList *messageList, NSError *error))completion;
 
-- (void)getMessagesListGroupByContactswithCompletion:(void(^)(NSMutableArray *messages, NSError *error)) completion;
-
 - (void)getMessageListForUser:(MessageListRequest *)messageListRequest
                withCompletion:(void (^)(NSMutableArray *messages, NSError *error, NSMutableArray *userDetailArray))completion;
 
@@ -80,8 +78,12 @@
 - (void)deleteMessageForAllWithKey:(NSString *)keyString
                     withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
 
--(void)mailTranscriptWithEmail:(NSString *)email
-                 withBrandName:(NSString *)brandName
-                withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
+- (void)mailTranscriptWithEmail:(NSString *)email
+                  withBrandName:(NSString *)brandName
+              withClientGroupId: (NSString *)clientGroupId
+                 withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
 
+- (void)getUnreadCountWithUserId:(NSString *)userId
+                         groupId:(NSNumber *)groupId
+                  withCompletion:(void (^)(KBMAPIResponse *apiResponse, NSError *error))completion;
 @end

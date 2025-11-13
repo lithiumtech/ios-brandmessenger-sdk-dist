@@ -48,11 +48,12 @@ extern NSString *const KBMLoggedInUserDidChangeDeactivateNotification;
 - (void)updateStatusForContact:(NSString *)contactId withStatus:(int)status withTimestamp:(NSNumber* _Nullable )timestamp;
 
 /// The callback will be called on for typing events.
-///
+/// 
 /// @param applicationKey App-ID for Brand Messenger.
 /// @param userId Will have user's userId who is typing.
 /// @param status If the status flag is YES or true then the user started typing, if the status is NO or false then the user stops typing
-- (void)updateTypingStatus:(NSString *)applicationKey userId:(NSString *)userId status:(BOOL)status;
+/// @param userIdOrClientGroupId To identify the typing is channel or user
+- (void)updateTypingStatus:(NSString *)applicationKey userId:(NSString *)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString *)userIdOrClientGroupId;
 
 /// The callback will be called on the user's online or offline update.
 ///
@@ -76,8 +77,7 @@ extern NSString *const KBMLoggedInUserDidChangeDeactivateNotification;
 
 /// The callback will be called on the user details updated like name, profile image URL, status, etc.
 /// @param userId Receiver userId the user details updated.
-- (void)updateUserDetail:(NSString *)userId;
-
+- (void)updateUserDetailWithReceiverUserId:(NSString *)userId;
 @end
 
 /// `KBMMQTTConversationService` used for making a connection to the server for real-time update events on MQTT.
@@ -162,6 +162,14 @@ extern NSString *const KBMLoggedInUserDidChangeDeactivateNotification;
 /// @param dataString Pass the string of data to publish.
 /// @param topic Pass the topic name to publish on.
 - (BOOL)publishCustomData:(NSString *)dataString withTopicName:(NSString *)topic;
+
+/// Subscribes to typing events for a list of conversations.
+///  This method subscribes to typing events for the provided list of conversation channel keys. It also handles the subscription for one-to-one chat typing events if specified.
+/// @param channelKeys An array of NSNumber objects representing the channel keys for the conversations
+/// @param hasOneToOneChat  A boolean indicating whether to subscribe to one-to-one chat typing events.
+- (void)subscribeToConversationListTypingEvents:(NSMutableArray<NSNumber *> *)channelKeys hasOneToOneChat:(BOOL) hasOneToOneChat;
+
++ (void)deleteMessage:(NSArray *)deleteMessageParts withRealTimeUpdate:(id<KBMUpdatesDelegate>)realTimeUpdate;
 @end
 
 NS_ASSUME_NONNULL_END
