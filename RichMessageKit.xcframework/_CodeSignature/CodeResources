@@ -54,7 +54,7 @@
 		</data>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/DWARF/RichMessageKit</key>
 		<data>
-		3rkse7ob1DFZ3l1M0s/JPXRIe/U=
+		qqMKbCzSJEMNINiBB/40CofIyQ8=
 		</data>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/DWARF/RichMessageKit</key>
 		<data>
-		QfxDHs54XHWQc4ZvVST33yBC/SI=
+		zYvp2/vMYgHqfJB4JbzoqxHg6fA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
 		<data>
@@ -291,11 +291,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3rkse7ob1DFZ3l1M0s/JPXRIe/U=
+			qqMKbCzSJEMNINiBB/40CofIyQ8=
 			</data>
 			<key>hash2</key>
 			<data>
-			OF0/hlnNQk07NAA+AvFlBTRhOZk0sgB3XCl7nCLAPDw=
+			NLEbgiljkbFsyd/+/zHQX+ecgfC8Bpw4S9nAFjb9bZA=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
@@ -511,11 +511,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QfxDHs54XHWQc4ZvVST33yBC/SI=
+			zYvp2/vMYgHqfJB4JbzoqxHg6fA=
 			</data>
 			<key>hash2</key>
 			<data>
-			g9WxNdWM8eEpTVQ+41L81kiGwO37axXTgGcG7nYC65Y=
+			q1j9/Nc+lNgq4pW2ERg5Nol0Xa34UsVgqsrpRz2uPWQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
