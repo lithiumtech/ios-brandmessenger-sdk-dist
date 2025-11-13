@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/BrandMessengerCore.framework/BrandMessengerCore</key>
 		<data>
-		RT9iANLEVvoeGvawZ4ezQAbxvvU=
+		OAuXWjcQgRPr56qcgymaLM9Flb8=
 		</data>
 		<key>ios-arm64/BrandMessengerCore.framework/BrandMessengerCore.momd/AppLozic 10.mom</key>
 		<data>
@@ -374,11 +374,11 @@
 		</data>
 		<key>ios-arm64/BrandMessengerCore.framework/Headers/KBMRedactionConfiguration.h</key>
 		<data>
-		sZnEkNMi5Rm53p7wr0r7uTTDyls=
+		lOcSN6vXSFEvktCS5LP80cCTY1Q=
 		</data>
 		<key>ios-arm64/BrandMessengerCore.framework/Headers/KBMRedactionGroup.h</key>
 		<data>
-		lEVYupHMIZuNYqG2qoJYjczJdrU=
+		q/IoLaXS0Voeip+OCZ2Dp7QwPLY=
 		</data>
 		<key>ios-arm64/BrandMessengerCore.framework/Headers/KBMRegisterUserClientService.h</key>
 		<data>
@@ -638,15 +638,15 @@
 		</data>
 		<key>ios-arm64/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/DWARF/BrandMessengerCore</key>
 		<data>
-		AErsZm0Z4h15hrQM1+VVXTyD1BI=
+		S9xgFPU8SN8DF/klRQI5Vk2fUHY=
 		</data>
 		<key>ios-arm64/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/Relocations/aarch64/BrandMessengerCore.yml</key>
 		<data>
-		xpv8/M3B4XqYb6+vkk9vBpYu2bk=
+		PQJ3tnXdYm+WysjJYYI+K4YSkdE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore</key>
 		<data>
-		2INJUUvr7mQsGtnWoG+WYdzH3UE=
+		pf3wkHTL1vzPmbVSmbK3Huix590=
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore.momd/AppLozic 10.mom</key>
 		<data>
@@ -1014,11 +1014,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/Headers/KBMRedactionConfiguration.h</key>
 		<data>
-		sZnEkNMi5Rm53p7wr0r7uTTDyls=
+		lOcSN6vXSFEvktCS5LP80cCTY1Q=
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/Headers/KBMRedactionGroup.h</key>
 		<data>
-		lEVYupHMIZuNYqG2qoJYjczJdrU=
+		q/IoLaXS0Voeip+OCZ2Dp7QwPLY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/Headers/KBMRegisterUserClientService.h</key>
 		<data>
@@ -1274,7 +1274,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		rdEKIpC2Y9Vvg2gA4/sKnB6m0vA=
+		k8LOO+W5IoBDoDJh6VCS0OPDMiQ=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Info.plist</key>
 		<data>
@@ -1282,15 +1282,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/DWARF/BrandMessengerCore</key>
 		<data>
-		avQbviRya2QkeoIPxPavimqowS8=
+		7Vjgw77QLoCiaZnc11FcGm6OcP4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/Relocations/aarch64/BrandMessengerCore.yml</key>
 		<data>
-		RkoUl5wKc0wHMShhaMOtEmC7Jdw=
+		0uGgH582XL7CBYyP/Vef8F6QMaI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/Relocations/x86_64/BrandMessengerCore.yml</key>
 		<data>
-		i4Kzj8Xi5eNgrbqWyHxQDiWt4n8=
+		mCone1IgZ48YnJ9aKUxOa1rlQ9I=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1299,11 +1299,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RT9iANLEVvoeGvawZ4ezQAbxvvU=
+			OAuXWjcQgRPr56qcgymaLM9Flb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			oxHIiXXw/xEZ/K84ibIsTXiSsbFh61lHWvK7G0noQB8=
+			II3avG4TVdOonUIxuSklfYii8a+RtHTjoBo4eFUUE/g=
 			</data>
 		</dict>
 		<key>ios-arm64/BrandMessengerCore.framework/BrandMessengerCore.momd/AppLozic 10.mom</key>
@@ -2311,22 +2311,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sZnEkNMi5Rm53p7wr0r7uTTDyls=
+			lOcSN6vXSFEvktCS5LP80cCTY1Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			S9oBl4t3WuHmzExHiYiFYuw4jx/tYO82eeOUwdQsxX4=
+			GiX4CMSywCQKrsmtvKcaPsWcF4mJnUr3vyHmGX0eqlk=
 			</data>
 		</dict>
 		<key>ios-arm64/BrandMessengerCore.framework/Headers/KBMRedactionGroup.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lEVYupHMIZuNYqG2qoJYjczJdrU=
+			q/IoLaXS0Voeip+OCZ2Dp7QwPLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			1RY0LqIoDvB2k8+EHXklNAi9IpTH7Iv4fYZ3esEmIso=
+			MKVDYK4fRVw3RVU9Ube6V+OLprIlJCHeLDJ9gWKM/IM=
 			</data>
 		</dict>
 		<key>ios-arm64/BrandMessengerCore.framework/Headers/KBMRegisterUserClientService.h</key>
@@ -3037,33 +3037,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AErsZm0Z4h15hrQM1+VVXTyD1BI=
+			S9xgFPU8SN8DF/klRQI5Vk2fUHY=
 			</data>
 			<key>hash2</key>
 			<data>
-			p05b0ru6SMLqsKvvXzAJmVsDRF3SRnSUJ/YehRavMio=
+			3f/mcdPCGm7WWtZ4TDXpKqfPHiWWJnK7ex+4jEJYoNk=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/Relocations/aarch64/BrandMessengerCore.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xpv8/M3B4XqYb6+vkk9vBpYu2bk=
+			PQJ3tnXdYm+WysjJYYI+K4YSkdE=
 			</data>
 			<key>hash2</key>
 			<data>
-			zo5cw9IX4+G7bfVJNfbVn5a1pDHVkjjGdR+Pie4QXXM=
+			dczVzKnz3ELwOF0HaoH2LKpwpLSlf7rQ2/CNbFlFmbk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2INJUUvr7mQsGtnWoG+WYdzH3UE=
+			pf3wkHTL1vzPmbVSmbK3Huix590=
 			</data>
 			<key>hash2</key>
 			<data>
-			HBdxO4og18RQlwcHUsMZgwHreq+8onInLwvtiL54Utw=
+			Gz4DfJ5D2NPX1ka4NYostCEV9YmtgC3dR4zONs6+cbM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/BrandMessengerCore.momd/AppLozic 10.mom</key>
@@ -4071,22 +4071,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sZnEkNMi5Rm53p7wr0r7uTTDyls=
+			lOcSN6vXSFEvktCS5LP80cCTY1Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			S9oBl4t3WuHmzExHiYiFYuw4jx/tYO82eeOUwdQsxX4=
+			GiX4CMSywCQKrsmtvKcaPsWcF4mJnUr3vyHmGX0eqlk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/Headers/KBMRedactionGroup.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lEVYupHMIZuNYqG2qoJYjczJdrU=
+			q/IoLaXS0Voeip+OCZ2Dp7QwPLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			1RY0LqIoDvB2k8+EHXklNAi9IpTH7Iv4fYZ3esEmIso=
+			MKVDYK4fRVw3RVU9Ube6V+OLprIlJCHeLDJ9gWKM/IM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/BrandMessengerCore.framework/Headers/KBMRegisterUserClientService.h</key>
@@ -4786,11 +4786,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rdEKIpC2Y9Vvg2gA4/sKnB6m0vA=
+			k8LOO+W5IoBDoDJh6VCS0OPDMiQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			6KlmeadRltkyWygqwW91gL/Tp1nKcS7KeDr2uklSeJo=
+			nhuZpagHB5tq/T4mhhCmPU7h6MGSphbw56cOOAWLu/o=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Info.plist</key>
@@ -4808,33 +4808,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			avQbviRya2QkeoIPxPavimqowS8=
+			7Vjgw77QLoCiaZnc11FcGm6OcP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Itf4cIKbsB6TzIH3e9Ymuxjmn7tDfxBkwY+ZM9TGJ50=
+			b3o4Hvnd/oNj27vvtxQIl0cYEiN8t7P1/a20NSGVFjQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/Relocations/aarch64/BrandMessengerCore.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RkoUl5wKc0wHMShhaMOtEmC7Jdw=
+			0uGgH582XL7CBYyP/Vef8F6QMaI=
 			</data>
 			<key>hash2</key>
 			<data>
-			MFiocBSTO2zYZdMtQgYOQsLHbuzkSpjHIf/1l36o/7Y=
+			c+NkC+G1fxlUoI+RouGwX9PeLaJCjaeLmajOQVVk2CE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/BrandMessengerCore.framework.dSYM/Contents/Resources/Relocations/x86_64/BrandMessengerCore.yml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			i4Kzj8Xi5eNgrbqWyHxQDiWt4n8=
+			mCone1IgZ48YnJ9aKUxOa1rlQ9I=
 			</data>
 			<key>hash2</key>
 			<data>
-			TZl1XRatcxxL+vSB0Ne5GkqbsypsEGqCCCnukZQeyRo=
+			wDXesJcDnvq/49UzOR1aJzeYXHlRJmPqNOK3rNmD2oU=
 			</data>
 		</dict>
 	</dict>

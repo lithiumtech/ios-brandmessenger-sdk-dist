@@ -73968,6 +73968,171 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "ContentFilterResult",
+        "printedName": "ContentFilterResult",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "scrubbedMessage",
+            "printedName": "scrubbedMessage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16BrandMessengerUI19ContentFilterResultV15scrubbedMessageSSvp",
+            "mangledName": "$s16BrandMessengerUI19ContentFilterResultV15scrubbedMessageSSvp",
+            "moduleName": "BrandMessengerUI",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16BrandMessengerUI19ContentFilterResultV15scrubbedMessageSSvg",
+                "mangledName": "$s16BrandMessengerUI19ContentFilterResultV15scrubbedMessageSSvg",
+                "moduleName": "BrandMessengerUI",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "matchedGroups",
+            "printedName": "matchedGroups",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[[Swift.String : Swift.String]]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16BrandMessengerUI19ContentFilterResultV13matchedGroupsSaySDyS2SGGvp",
+            "mangledName": "$s16BrandMessengerUI19ContentFilterResultV13matchedGroupsSaySDyS2SGGvp",
+            "moduleName": "BrandMessengerUI",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[[Swift.String : Swift.String]]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16BrandMessengerUI19ContentFilterResultV13matchedGroupsSaySDyS2SGGvg",
+                "mangledName": "$s16BrandMessengerUI19ContentFilterResultV13matchedGroupsSaySDyS2SGGvg",
+                "moduleName": "BrandMessengerUI",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:16BrandMessengerUI19ContentFilterResultV",
+        "mangledName": "$s16BrandMessengerUI19ContentFilterResultV",
+        "moduleName": "BrandMessengerUI",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "KBMContentFilterManager",
         "printedName": "KBMContentFilterManager",
         "children": [
@@ -74006,6 +74171,52 @@
             "declKind": "Func",
             "usr": "s:16BrandMessengerUI23KBMContentFilterManagerC12scrubMessage11messageText23redactionConfigurationsS2S_SaySo25KBMRedactionConfigurationCGtFZ",
             "mangledName": "$s16BrandMessengerUI23KBMContentFilterManagerC12scrubMessage11messageText23redactionConfigurationsS2S_SaySo25KBMRedactionConfigurationCGtFZ",
+            "moduleName": "BrandMessengerUI",
+            "static": true,
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "scrubMessageWithMetadata",
+            "printedName": "scrubMessageWithMetadata(messageText:redactionConfigurations:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ContentFilterResult",
+                "printedName": "BrandMessengerUI.ContentFilterResult",
+                "usr": "s:16BrandMessengerUI19ContentFilterResultV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[BrandMessengerCore.KBMRedactionConfiguration]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "KBMRedactionConfiguration",
+                    "printedName": "BrandMessengerCore.KBMRedactionConfiguration",
+                    "usr": "c:objc(cs)KBMRedactionConfiguration"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16BrandMessengerUI23KBMContentFilterManagerC24scrubMessageWithMetadata11messageText23redactionConfigurationsAA07ContentE6ResultVSS_SaySo25KBMRedactionConfigurationCGtFZ",
+            "mangledName": "$s16BrandMessengerUI23KBMContentFilterManagerC24scrubMessageWithMetadata11messageText23redactionConfigurationsAA07ContentE6ResultVSS_SaySo25KBMRedactionConfigurationCGtFZ",
             "moduleName": "BrandMessengerUI",
             "static": true,
             "declAttributes": [
@@ -105779,28 +105990,28 @@
     {
       "filePath": "\/Users\/fazrin\/dev\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ios-brandmessenger-ui\/BrandMessengerUI\/ViewModels\/KBMConversationViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 93392,
+      "offset": 94204,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/fazrin\/dev\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ios-brandmessenger-ui\/BrandMessengerUI\/ViewModels\/KBMConversationViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 101879,
+      "offset": 102691,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/fazrin\/dev\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ios-brandmessenger-ui\/BrandMessengerUI\/ViewModels\/KBMConversationViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 106889,
+      "offset": 107701,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/fazrin\/dev\/lithium-ios-sdk-demo\/New Brand Messenger iOS\/ios-brandmessenger-ui\/BrandMessengerUI\/ViewModels\/KBMConversationViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 108252,
+      "offset": 109064,
       "length": 5,
       "value": "false"
     },

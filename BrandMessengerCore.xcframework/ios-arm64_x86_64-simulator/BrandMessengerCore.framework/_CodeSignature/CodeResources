@@ -370,11 +370,11 @@
 		</data>
 		<key>Headers/KBMRedactionConfiguration.h</key>
 		<data>
-		sZnEkNMi5Rm53p7wr0r7uTTDyls=
+		lOcSN6vXSFEvktCS5LP80cCTY1Q=
 		</data>
 		<key>Headers/KBMRedactionGroup.h</key>
 		<data>
-		lEVYupHMIZuNYqG2qoJYjczJdrU=
+		q/IoLaXS0Voeip+OCZ2Dp7QwPLY=
 		</data>
 		<key>Headers/KBMRegisterUserClientService.h</key>
 		<data>
@@ -1636,22 +1636,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sZnEkNMi5Rm53p7wr0r7uTTDyls=
+			lOcSN6vXSFEvktCS5LP80cCTY1Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			S9oBl4t3WuHmzExHiYiFYuw4jx/tYO82eeOUwdQsxX4=
+			GiX4CMSywCQKrsmtvKcaPsWcF4mJnUr3vyHmGX0eqlk=
 			</data>
 		</dict>
 		<key>Headers/KBMRedactionGroup.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lEVYupHMIZuNYqG2qoJYjczJdrU=
+			q/IoLaXS0Voeip+OCZ2Dp7QwPLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			1RY0LqIoDvB2k8+EHXklNAi9IpTH7Iv4fYZ3esEmIso=
+			MKVDYK4fRVw3RVU9Ube6V+OLprIlJCHeLDJ9gWKM/IM=
 			</data>
 		</dict>
 		<key>Headers/KBMRegisterUserClientService.h</key>

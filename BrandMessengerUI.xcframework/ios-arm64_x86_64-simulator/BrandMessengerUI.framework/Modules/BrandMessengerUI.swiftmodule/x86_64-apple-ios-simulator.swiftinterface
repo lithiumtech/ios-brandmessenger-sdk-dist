@@ -1893,8 +1893,14 @@ public struct KBMChannelDetailViewConfiguration {
 extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.AutoCompletionDelegate {
   @_Concurrency.MainActor @preconcurrency public func didMatch(prefix: Swift.String, message: Swift.String)
 }
+public struct ContentFilterResult {
+  public let scrubbedMessage: Swift.String
+  public let matchedGroups: [[Swift.String : Swift.String]]
+}
 @_hasMissingDesignatedInitializers public class KBMContentFilterManager {
+  @available(*, deprecated, message: "Use scrubMessageWithMetadata instead")
   public static func scrubMessage(messageText: Swift.String, redactionConfigurations: [BrandMessengerCore.KBMRedactionConfiguration]) -> Swift.String
+  public static func scrubMessageWithMetadata(messageText: Swift.String, redactionConfigurations: [BrandMessengerCore.KBMRedactionConfiguration]) -> BrandMessengerUI.ContentFilterResult
   @objc deinit
 }
 public struct CardTemplate : Swift.Codable {

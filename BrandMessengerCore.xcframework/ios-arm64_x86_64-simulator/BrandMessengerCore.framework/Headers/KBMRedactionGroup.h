@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KBMRedactionGroup : NSObject
 
+@property(nonatomic, strong) NSString * _Nullable name;
+
 @property(nonatomic) BOOL enabled;
 
 @property(nonatomic, strong) NSMutableArray<KBMatchPattern *> * _Nullable matchPatterns;
