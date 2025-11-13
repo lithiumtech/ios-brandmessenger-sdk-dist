@@ -21,6 +21,13 @@
 #import <Foundation/Foundation.h>
 #import "MessageListRequest.h"
 #import "BrandMessengerClient.h"
+#import "KBMConversationListMessages.h"
+
+typedef NS_ENUM(NSInteger, KBMConversationDataFetchResult) {
+    KBMDataFetchResultSuccess,       // API success, return data
+    KBMDataFetchResultNoData,        // No data found in both API and local data
+    KBMDataFetchResultError          // API failed and no local data
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,6 +47,8 @@ static NSString *const NEW_MESSAGE_NOTIFICATION = @"newMessageNotification";
 static NSString *const KBM_MESSAGE_META_DATA_UPDATE = @"messageMetaDataUpdateNotification";
 /// Notification name for the single message deleted.
 static NSString *const KBM_MESSAGE_DELETE_NOTIFICATION_KEY = @"kbmMessageDeletedNotification";
+/// Notification name for the conversation read.
+static NSString *const KBM_UPDATE_CONVERSATION_READ = @"kbmUpdateConversationRead";
 
 /// `KBMMessageService` class has major methods for message API's
 @interface KBMMessageService : NSObject
@@ -212,6 +221,19 @@ static NSString *const KBM_MESSAGE_DELETE_NOTIFICATION_KEY = @"kbmMessageDeleted
 - (KBMMessage * _Nullable)handleMessageFailedStatus:(KBMMessage *)message;
 
 + (KBMMessage * _Nullable)processFileUploadSucess:(KBMMessage *)message;
+
+- (void)fetchAllMessagesWithCompletion:(void (^)(KBMConversationListMessages * _Nullable conversationListMessages, KBMConversationDataFetchResult result, NSError * _Nullable error))completion;
+
+/// Fetches the unread message count for a user or a group.
+/// - Parameters:
+///   - userId: The ID of the user for whom the unread count is to be fetched. Pass `nil` if fetching for a group.
+///   - groupId: The ID of the group for which the unread count is to be fetched. Pass `nil` if fetching for a user.
+///   - completion: A completion block that is called with the result.
+///     - unreadCount: The number of unread messages. Defaults to `0` if no unread messages are found or an error occurs.
+///     - error: An error object containing details of the failure, or `nil` if the operation was successful.
+- (void)getUnreadCountWithUserId:(NSString * _Nullable)userId
+                         groupId:(NSNumber * _Nullable)groupId
+                  withCompletion:(void (^)(NSInteger unreadCount, NSError * _Nullable error))completion;
 
 @end
 
