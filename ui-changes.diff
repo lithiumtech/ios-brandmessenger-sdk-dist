@@ -1,0 +1,22 @@
+diff --git a/BrandMessengerUI/Controllers/KBMDocumentViewerController.swift b/BrandMessengerUI/Controllers/KBMDocumentViewerController.swift
+index f9204f33..3d78aedc 100644
+--- a/BrandMessengerUI/Controllers/KBMDocumentViewerController.swift
++++ b/BrandMessengerUI/Controllers/KBMDocumentViewerController.swift
+@@ -70,6 +70,17 @@ class KBMDocumentViewerController: UIViewController, WKNavigationDelegate {
+     
+     @objc func showShare(_: Any?) {
+         let vc = UIActivityViewController(activityItems: [fileUrl], applicationActivities: [])
++        // iPad presents UIActivityViewController as a popover; without an anchor it crashes with:
++        // NSGenericException -[UIPopoverPresentationController presentationTransitionWillBegin]
++        if let popover = vc.popoverPresentationController {
++            if let barButtonItem = navigationItem.rightBarButtonItem {
++                popover.barButtonItem = barButtonItem
++            } else {
++                popover.sourceView = view
++                popover.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
++                popover.permittedArrowDirections = []
++            }
++        }
+         present(vc, animated: true)
+     }
+ 
