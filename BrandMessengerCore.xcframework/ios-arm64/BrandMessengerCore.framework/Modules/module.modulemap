@@ -1,6 +1,0 @@
-framework module BrandMessengerCore {
-  umbrella header "BrandMessengerCore.h"
-  export *
-
-  module * { export * }
-}
