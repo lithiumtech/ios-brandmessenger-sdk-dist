@@ -25,6 +25,7 @@ FOUNDATION_EXPORT const unsigned char BrandMessengerCoreVersionString[];
 #import "KBMAuthService.h"
 #import "KBMChannel.h"
 #import "KBMChannelClientService.h"
+#import "KBMChannelCreateResponse.h"
 #import "KBMChannelDBService.h"
 #import "KBMChannelFeed.h"
 #import "KBMChannelFeedResponse.h"
@@ -126,4 +127,3 @@ FOUNDATION_EXPORT const unsigned char BrandMessengerCoreVersionString[];
 #import "KBMLanguageVariantModel.h"
 #import "KBMAppStateUtility.h"
 #import "KBMRuleDisplayCondition.h"
-#import "KBMConversationListMessages.h"

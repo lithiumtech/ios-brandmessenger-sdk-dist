@@ -36,9 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// The callback will be called on the message is deleted by the same user logged in on different devices or platforms.
 /// @param messageKey An message key of the deleted Message.
-/// @param userId Of 1 to 1 chat conversation.
-/// @param groupId Of Group chat conversation.
-- (void)onMessageDeleted:(NSString *)messageKey withUserId:(NSString * _Nullable)userId withGroupId:(NSNumber * _Nullable)groupId withMessageFoundInDB:(NSNumber *) isMessageFoundInDB;
+- (void)onMessageDeleted:(NSString *)messageKey;
 
 /// The callback will be called on the message is read and delivered to the receiver user.
 /// @param updatedMessage An `KBMMessage` object which has `status` that are `DELIVERED` or `DELIVERED_AND_READ`.
@@ -58,8 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// The callback will be called on typing status update.
 /// @param userId It will have receiver userId typing started or stoped..
 /// @param status YES for the user started typing, if the status is NO then the user stops typing.
-/// @param userIdOrClientGroupId To identify the typing is channel or user
-- (void)onUpdateTypingStatus:(NSString *)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString *) userIdOrClientGroupId;;
+- (void)onUpdateTypingStatus:(NSString *)userId status:(BOOL)status;
 
 /// The callback will be called on the user online or offline update.
 /// @param updatedUserDetail An updated `KBMUserDetail` object of user.

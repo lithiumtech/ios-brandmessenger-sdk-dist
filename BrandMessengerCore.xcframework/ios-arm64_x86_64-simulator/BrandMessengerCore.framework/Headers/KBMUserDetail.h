@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * _Nullable email;
 @property (nonatomic, strong) NSNumber * _Nullable status;
 
+- (void)setUserDetails:(NSString *)jsonString;
+
 - (NSString *)getDisplayName;
 
 - (id)initWithDictonary:(NSDictionary *)messageDictonary;

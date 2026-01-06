@@ -356,20 +356,22 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @end
 
 @class NSError;
+@class UIViewController;
+@class KBMConversationProxy;
+@class NSMutableDictionary;
+@class KBMUser;
 @class UIApplication;
 @class NSData;
 @class UNUserNotificationCenter;
 @class UNNotification;
 @class UNNotificationResponse;
 @class KBMRegistrationResponse;
-@class UIViewController;
 @protocol KBMAuthenticationDelegate;
 @protocol KBMJWTAuthenticationDelegate;
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
 @class NSMutableArray;
-@class KBMConversation;
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
 - (nonnull instancetype)initWithCompanyKey:(NSString * _Nonnull)companyKey applicationKey:(NSString * _Nonnull)applicationKey OBJC_DESIGNATED_INITIALIZER;
@@ -377,6 +379,56 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)updateToken;
 + (BOOL)isUserPresent SWIFT_WARN_UNUSED_RESULT;
 + (void)logoutUserWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Use this method for launching conversation list screen.
+/// \param viewController Pass the UIViewController.
+///
++ (void)launchChatListFrom:(UIViewController * _Nonnull)viewController;
+/// Use this method for launching 1-to-1 chat conversation.
+/// \param contactId Pass userId of whom for conversation needs to be launched.
+///
+/// \param viewController Pass the UIViewController.
+///
+/// \param prefilledMessage Pass the prefilled Message in case if this needs to prefilled in chat box else it will be nil.
+///
++ (void)launchChatWithContactId:(NSString * _Nonnull)contactId from:(UIViewController * _Nonnull)viewController prefilledMessage:(NSString * _Nullable)prefilledMessage;
+/// Use this method to launch the group chat conversation.
+/// \param clientGroupId Pass the clientGroupId for launching Group/Channel conversation.
+///
+/// \param viewController Pass the UIViewController.
+///
+/// \param prefilledMessage Pass the prefilled Message in case if this needs to prefilled in chat box else it will be nil.
+///
++ (void)launchGroupWithClientGroupId:(NSString * _Nonnull)clientGroupId from:(UIViewController * _Nonnull)viewController prefilledMessage:(NSString * _Nullable)prefilledMessage;
+/// Use <a href="x-source-tag://GroupOfTwo">launchGroupOfTwo</a> method instead.
++ (void)launchChatWithConversationProxy:(KBMConversationProxy * _Nonnull)conversationProxy from:(UIViewController * _Nonnull)viewController;
+/// Use this to launch context based Group of two.
+/// <ul>
+///   <li>
+///     Usage:
+///   </li>
+/// </ul>
+/// let metadata = NSMutableDictionary()
+/// metadata[“title”] = “<ITEM_TITLE>”
+/// metadata[“price”] = “<ITEM_PRICE>”
+/// metadata[“link”] = “<IMAGE_URL>”
+/// metadata[“KBM_CONTEXT_BASED_CHAT”] = “true”
+/// launchGroupOfTwo(with: “<RECEIVER_USER_ID>”, metadata: metadata, topic: “<UNIQUE_TOPIC_ID>”, from: self)
+/// \param userId UserId of the user with whom you want to start conversation.
+///
+/// \param metadata Dictionary that contains details about contextual chat.
+///
+/// \param topic A unique topic to identify conversation.
+///
+/// \param viewController ViewController from where chat will be pushed
+///
++ (void)launchGroupOfTwoWith:(NSString * _Nonnull)userId metadata:(NSMutableDictionary * _Nonnull)metadata topic:(NSString * _Nonnull)topic from:(UIViewController * _Nonnull)viewController;
+/// A convenient method to get logged-in user’s information.
+/// If user information is stored in DB or preference, Code to get user’s information should go here.
+/// This can also be used to get existing user information in case of app update.
+///
+/// returns:
+/// Logged-in user information
++ (KBMUser * _Nonnull)getLoggedInUserInfo SWIFT_WARN_UNUSED_RESULT;
 /// This method is used for updating APN’s device token to Messenger server.
 /// \param application Pass the UIApplication object.
 ///
@@ -525,14 +577,8 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)setConversationDelegate:(id <KBMConversationDelegate> _Nonnull)delegate;
 /// Call to set KBMEncryiptionDelegate, allowing application to handle encryption and storage of auth-token and password.
 + (void)setEncryptionDelegate:(id <KBMEncryptionDelegate> _Nonnull)delegate;
-/// Make a welcome-message request API call for one to one conversation.
+/// Make a welcome-message request API call
 + (void)sendWelcomeMessageRequestWithComplete:(void (^ _Nonnull)(NSError * _Nullable))complete;
-/// Make a welcome-message request API call specified conversationUuid/clientGroupId.
-/// \param clientGroupId the conversationUuid/clientGroupId to request welcome-event message. Use nil to send to 1-on-1 conversation
-///
-/// \param complete A closure to be called after the operation completes, with an optional error.
-///
-+ (void)sendWelcomeMessageRequestToClientGroupIdWithClientGroupId:(NSString * _Nullable)clientGroupId complete:(void (^ _Nonnull)(NSError * _Nullable))complete;
 /// Enable certificate pinning with array of public keys.
 + (void)setPinningCertificatePublicKeys:(NSArray<NSString *> * _Nonnull)keys;
 /// Enable certificate pinning with array der certificate URLs.
@@ -567,77 +613,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 + (void)shouldThrottleWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 + (void)setRestrictedWordRegex:(NSString * _Nonnull)regex;
-/// Creates a new conversation with the specified details.
-/// \param conversation Use <code>KBMConversationBuilder</code> to build <code>KBMConversation</code> object containing the details of the conversation to create and pass it to method.
-///
-/// \param completion A closure that is called when the operation is complete. It has two parameters:
-/// <ul>
-///   <li>
-///     <code>conversationUUID</code>: A string representing the ID of the created conversation, or <code>nil</code> if the creation failed.
-///   </li>
-///   <li>
-///     <code>error</code>: An <code>NSError</code> object that provides details about any error that occurred during the creation process, or <code>nil</code> if the operation was successful.
-///   </li>
-/// </ul>
-///
-+ (void)createConversationWithConversation:(KBMConversation * _Nonnull)conversation completion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
-/// Creates a new conversation.
-/// <ul>
-///   <li>
-///     completion: A closure that is called when the operation is complete. It has two parameters:
-///     <ul>
-///       <li>
-///         <code>conversationUUID</code>: A string representing the ID of the created conversation, or <code>nil</code> if the creation failed.
-///       </li>
-///       <li>
-///         <code>error</code>: An <code>NSError</code> object that provides details about any error that occurred during the creation process, or <code>nil</code> if the operation was successful.
-///       </li>
-///     </ul>
-///   </li>
-/// </ul>
-+ (void)createConversationWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
-/// Displays the conversation list from the specified view controller, or the top-most view controller if none is provided.
-/// <ul>
-///   <li>
-///     Parameters:
-///   </li>
-///   <li>
-///     viewController: Provide a viewcontroller to present conversation list from. If not provided, the sdk will try to find the top viewcontroller of
-///     UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
-///   </li>
-///   <li>
-///     completion: A closure that is called once the conversation list is either successfully presented or an error occurs.
-///     The closure provides an optional NSError if something went wrong, or nil if the conversation list was displayed successfully.
-///   </li>
-/// </ul>
-+ (void)showConversationList:(UIViewController * _Nullable)viewController completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// Displays a conversation with the specified UUID.
-/// \param viewController The view controller from which the conversation will be presented.
-/// If <code>nil</code>, the current top-most view controller will be used.
-///
-/// \param conversationUUID A unique identifier for the conversation to be shown.
-///
-/// \param insertConversationList A Boolean value indicating whether the conversation list
-/// should be inserted before displaying the conversation.
-///
-/// \param completion A closure to be called after the operation completes, with an optional error.
-///
-+ (void)showConversationWithId:(UIViewController * _Nullable)viewController conversationUUID:(NSString * _Nonnull)conversationUUID insertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// Create a new conversation and automatically display it if it successfully creates.
-/// \param insertConversationList A Bool value indicating whether the conversation list should be inserted before displaying the conversation.
-///
-/// \param sendWelcomeMessage If <code>true</code>the request welcome-event message to be sent to user.
-///
-/// \param completion A closure to be called after the operation completes, with an optional error.
-///
-+ (void)startNewConversationWithWelcomeWithInsertConversationList:(BOOL)insertConversationList sendWelcomeMessage:(BOOL)sendWelcomeMessage completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// Create a new conversation and automatically display it if it successfully creates.
-/// No welcome-event message is sent to user.
-/// \param insertConversationList A Bool value indicating whether the conversation list should be inserted before displaying the conversation.
-///
-/// \param completion A closure to be called after the operation completes, with an optional error.
-///
-+ (void)startNewConversationWithInsertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 /// EnableisAlive broadcasts. This will sent out a ping on user actions (at most once per second).
 /// <ul>
 ///   <li>
@@ -735,6 +710,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21KBMBaseViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidLoad;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -775,39 +751,17 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMChatBarTextView")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI11KBMChatCell")
 @interface KBMChatCell : UITableViewCell
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
-- (void)layoutSubviews;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 @end
 
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 @interface KBMContextTitleView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
-@end
-
-/// Use <code>KBMConversationBuilder</code> to build a <code>KBMConversation</code>.
-SWIFT_CLASS("_TtC16BrandMessengerUI15KBMConversation")
-@interface KBMConversation : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_CLASS("_TtC16BrandMessengerUI22KBMConversationBuilder")
-@interface KBMConversationBuilder : NSObject
-/// If you want to show  the custom conversation title in chat screen then pass your title in withConversationTitle
-/// \param conversationTitle Pass conversation Title which will show in conversation title
-///
-- (KBMConversationBuilder * _Nonnull)withConversationTitle:(NSString * _Nonnull)conversationTitle;
-/// If you want to associate this conversation with a your unique ID, then pass conversationUUID
-/// \param conversationUUID Pass your conversationUUID, If you want to create conversation with your own UUID
-///
-- (KBMConversationBuilder * _Nonnull)withConversationUUID:(NSString * _Nullable)conversationUUID;
-/// Call build method on the KBMConversationBuilder to build the KBMConversation
-- (KBMConversation * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
@@ -831,13 +785,12 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (BOOL)tableView:(UITableView * _Nonnull)_ canEditRowAtIndexPath:(NSIndexPath * _Nonnull)_ SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)tableView:(UITableView * _Nonnull)tableView canFocusRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)_ didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForHeaderInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)_ heightForHeaderInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForFooterInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)_ heightForFooterInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
@@ -852,7 +805,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 - (UITableViewCellEditingStyle)tableView:(UITableView * _Nonnull)tableView editingStyleForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
 @class UISearchController;
@@ -873,7 +825,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLayoutSubviews;
+@end
+
+@interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMMessagesDelegate>
+- (void)getMessagesArray:(NSMutableArray * _Null_unspecified)messagesArray;
+- (void)updateMessageList:(NSMutableArray * _Null_unspecified)messagesArray;
 @end
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -889,10 +845,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)mqttDidConnected;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
-- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString * _Nonnull)userIdOrClientGroupId;
+- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)userId andBlockFlag:(BOOL)_;
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
@@ -973,11 +929,11 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
 - (void)mqttDidConnected;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
-- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString * _Nonnull)userIdOrClientGroupId;
+- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)_ andBlockFlag:(BOOL)_;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 @end
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UITableViewDataSource, UITableViewDelegate>
@@ -1576,20 +1532,22 @@ SWIFT_CLASS("_TtC16BrandMessengerUI19AutoCompleteManager")
 @end
 
 @class NSError;
+@class UIViewController;
+@class KBMConversationProxy;
+@class NSMutableDictionary;
+@class KBMUser;
 @class UIApplication;
 @class NSData;
 @class UNUserNotificationCenter;
 @class UNNotification;
 @class UNNotificationResponse;
 @class KBMRegistrationResponse;
-@class UIViewController;
 @protocol KBMAuthenticationDelegate;
 @protocol KBMJWTAuthenticationDelegate;
 @protocol KBMConversationDelegate;
 @protocol KBMEncryptionDelegate;
 @class NSURL;
 @class NSMutableArray;
-@class KBMConversation;
 SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 @interface BrandMessengerManager : NSObject
 - (nonnull instancetype)initWithCompanyKey:(NSString * _Nonnull)companyKey applicationKey:(NSString * _Nonnull)applicationKey OBJC_DESIGNATED_INITIALIZER;
@@ -1597,6 +1555,56 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)updateToken;
 + (BOOL)isUserPresent SWIFT_WARN_UNUSED_RESULT;
 + (void)logoutUserWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+/// Use this method for launching conversation list screen.
+/// \param viewController Pass the UIViewController.
+///
++ (void)launchChatListFrom:(UIViewController * _Nonnull)viewController;
+/// Use this method for launching 1-to-1 chat conversation.
+/// \param contactId Pass userId of whom for conversation needs to be launched.
+///
+/// \param viewController Pass the UIViewController.
+///
+/// \param prefilledMessage Pass the prefilled Message in case if this needs to prefilled in chat box else it will be nil.
+///
++ (void)launchChatWithContactId:(NSString * _Nonnull)contactId from:(UIViewController * _Nonnull)viewController prefilledMessage:(NSString * _Nullable)prefilledMessage;
+/// Use this method to launch the group chat conversation.
+/// \param clientGroupId Pass the clientGroupId for launching Group/Channel conversation.
+///
+/// \param viewController Pass the UIViewController.
+///
+/// \param prefilledMessage Pass the prefilled Message in case if this needs to prefilled in chat box else it will be nil.
+///
++ (void)launchGroupWithClientGroupId:(NSString * _Nonnull)clientGroupId from:(UIViewController * _Nonnull)viewController prefilledMessage:(NSString * _Nullable)prefilledMessage;
+/// Use <a href="x-source-tag://GroupOfTwo">launchGroupOfTwo</a> method instead.
++ (void)launchChatWithConversationProxy:(KBMConversationProxy * _Nonnull)conversationProxy from:(UIViewController * _Nonnull)viewController;
+/// Use this to launch context based Group of two.
+/// <ul>
+///   <li>
+///     Usage:
+///   </li>
+/// </ul>
+/// let metadata = NSMutableDictionary()
+/// metadata[“title”] = “<ITEM_TITLE>”
+/// metadata[“price”] = “<ITEM_PRICE>”
+/// metadata[“link”] = “<IMAGE_URL>”
+/// metadata[“KBM_CONTEXT_BASED_CHAT”] = “true”
+/// launchGroupOfTwo(with: “<RECEIVER_USER_ID>”, metadata: metadata, topic: “<UNIQUE_TOPIC_ID>”, from: self)
+/// \param userId UserId of the user with whom you want to start conversation.
+///
+/// \param metadata Dictionary that contains details about contextual chat.
+///
+/// \param topic A unique topic to identify conversation.
+///
+/// \param viewController ViewController from where chat will be pushed
+///
++ (void)launchGroupOfTwoWith:(NSString * _Nonnull)userId metadata:(NSMutableDictionary * _Nonnull)metadata topic:(NSString * _Nonnull)topic from:(UIViewController * _Nonnull)viewController;
+/// A convenient method to get logged-in user’s information.
+/// If user information is stored in DB or preference, Code to get user’s information should go here.
+/// This can also be used to get existing user information in case of app update.
+///
+/// returns:
+/// Logged-in user information
++ (KBMUser * _Nonnull)getLoggedInUserInfo SWIFT_WARN_UNUSED_RESULT;
 /// This method is used for updating APN’s device token to Messenger server.
 /// \param application Pass the UIApplication object.
 ///
@@ -1745,14 +1753,8 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 + (void)setConversationDelegate:(id <KBMConversationDelegate> _Nonnull)delegate;
 /// Call to set KBMEncryiptionDelegate, allowing application to handle encryption and storage of auth-token and password.
 + (void)setEncryptionDelegate:(id <KBMEncryptionDelegate> _Nonnull)delegate;
-/// Make a welcome-message request API call for one to one conversation.
+/// Make a welcome-message request API call
 + (void)sendWelcomeMessageRequestWithComplete:(void (^ _Nonnull)(NSError * _Nullable))complete;
-/// Make a welcome-message request API call specified conversationUuid/clientGroupId.
-/// \param clientGroupId the conversationUuid/clientGroupId to request welcome-event message. Use nil to send to 1-on-1 conversation
-///
-/// \param complete A closure to be called after the operation completes, with an optional error.
-///
-+ (void)sendWelcomeMessageRequestToClientGroupIdWithClientGroupId:(NSString * _Nullable)clientGroupId complete:(void (^ _Nonnull)(NSError * _Nullable))complete;
 /// Enable certificate pinning with array of public keys.
 + (void)setPinningCertificatePublicKeys:(NSArray<NSString *> * _Nonnull)keys;
 /// Enable certificate pinning with array der certificate URLs.
@@ -1787,77 +1789,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 + (void)shouldThrottleWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 + (void)setRestrictedWordRegex:(NSString * _Nonnull)regex;
-/// Creates a new conversation with the specified details.
-/// \param conversation Use <code>KBMConversationBuilder</code> to build <code>KBMConversation</code> object containing the details of the conversation to create and pass it to method.
-///
-/// \param completion A closure that is called when the operation is complete. It has two parameters:
-/// <ul>
-///   <li>
-///     <code>conversationUUID</code>: A string representing the ID of the created conversation, or <code>nil</code> if the creation failed.
-///   </li>
-///   <li>
-///     <code>error</code>: An <code>NSError</code> object that provides details about any error that occurred during the creation process, or <code>nil</code> if the operation was successful.
-///   </li>
-/// </ul>
-///
-+ (void)createConversationWithConversation:(KBMConversation * _Nonnull)conversation completion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
-/// Creates a new conversation.
-/// <ul>
-///   <li>
-///     completion: A closure that is called when the operation is complete. It has two parameters:
-///     <ul>
-///       <li>
-///         <code>conversationUUID</code>: A string representing the ID of the created conversation, or <code>nil</code> if the creation failed.
-///       </li>
-///       <li>
-///         <code>error</code>: An <code>NSError</code> object that provides details about any error that occurred during the creation process, or <code>nil</code> if the operation was successful.
-///       </li>
-///     </ul>
-///   </li>
-/// </ul>
-+ (void)createConversationWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
-/// Displays the conversation list from the specified view controller, or the top-most view controller if none is provided.
-/// <ul>
-///   <li>
-///     Parameters:
-///   </li>
-///   <li>
-///     viewController: Provide a viewcontroller to present conversation list from. If not provided, the sdk will try to find the top viewcontroller of
-///     UIApplication.shared.keyWindow?.rootViewController and present from there. If none can be found, this func does nothing.
-///   </li>
-///   <li>
-///     completion: A closure that is called once the conversation list is either successfully presented or an error occurs.
-///     The closure provides an optional NSError if something went wrong, or nil if the conversation list was displayed successfully.
-///   </li>
-/// </ul>
-+ (void)showConversationList:(UIViewController * _Nullable)viewController completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// Displays a conversation with the specified UUID.
-/// \param viewController The view controller from which the conversation will be presented.
-/// If <code>nil</code>, the current top-most view controller will be used.
-///
-/// \param conversationUUID A unique identifier for the conversation to be shown.
-///
-/// \param insertConversationList A Boolean value indicating whether the conversation list
-/// should be inserted before displaying the conversation.
-///
-/// \param completion A closure to be called after the operation completes, with an optional error.
-///
-+ (void)showConversationWithId:(UIViewController * _Nullable)viewController conversationUUID:(NSString * _Nonnull)conversationUUID insertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// Create a new conversation and automatically display it if it successfully creates.
-/// \param insertConversationList A Bool value indicating whether the conversation list should be inserted before displaying the conversation.
-///
-/// \param sendWelcomeMessage If <code>true</code>the request welcome-event message to be sent to user.
-///
-/// \param completion A closure to be called after the operation completes, with an optional error.
-///
-+ (void)startNewConversationWithWelcomeWithInsertConversationList:(BOOL)insertConversationList sendWelcomeMessage:(BOOL)sendWelcomeMessage completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// Create a new conversation and automatically display it if it successfully creates.
-/// No welcome-event message is sent to user.
-/// \param insertConversationList A Bool value indicating whether the conversation list should be inserted before displaying the conversation.
-///
-/// \param completion A closure to be called after the operation completes, with an optional error.
-///
-+ (void)startNewConversationWithInsertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 /// EnableisAlive broadcasts. This will sent out a ping on user actions (at most once per second).
 /// <ul>
 ///   <li>
@@ -1955,6 +1886,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21KBMBaseViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidLoad;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1995,39 +1927,17 @@ SWIFT_CLASS("_TtC16BrandMessengerUI18KBMChatBarTextView")
 
 SWIFT_CLASS("_TtC16BrandMessengerUI11KBMChatCell")
 @interface KBMChatCell : UITableViewCell
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
-- (void)layoutSubviews;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 @end
 
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
 @interface KBMContextTitleView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ OBJC_DESIGNATED_INITIALIZER SWIFT_UNAVAILABLE;
-@end
-
-/// Use <code>KBMConversationBuilder</code> to build a <code>KBMConversation</code>.
-SWIFT_CLASS("_TtC16BrandMessengerUI15KBMConversation")
-@interface KBMConversation : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_CLASS("_TtC16BrandMessengerUI22KBMConversationBuilder")
-@interface KBMConversationBuilder : NSObject
-/// If you want to show  the custom conversation title in chat screen then pass your title in withConversationTitle
-/// \param conversationTitle Pass conversation Title which will show in conversation title
-///
-- (KBMConversationBuilder * _Nonnull)withConversationTitle:(NSString * _Nonnull)conversationTitle;
-/// If you want to associate this conversation with a your unique ID, then pass conversationUUID
-/// \param conversationUUID Pass your conversationUUID, If you want to create conversation with your own UUID
-///
-- (KBMConversationBuilder * _Nonnull)withConversationUUID:(NSString * _Nullable)conversationUUID;
-/// Call build method on the KBMConversationBuilder to build the KBMConversation
-- (KBMConversation * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_CLASS("_TtC16BrandMessengerUI25KBMConversationHeaderView")
@@ -2051,13 +1961,12 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (BOOL)tableView:(UITableView * _Nonnull)_ canEditRowAtIndexPath:(NSIndexPath * _Nonnull)_ SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)tableView:(UITableView * _Nonnull)tableView canFocusRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)_ didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForHeaderInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)_ heightForHeaderInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)_ viewForFooterInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)_ heightForFooterInSection:(NSInteger)_ SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
@@ -2072,7 +1981,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 - (UITableViewCellEditingStyle)tableView:(UITableView * _Nonnull)tableView editingStyleForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
 @class UISearchController;
@@ -2093,7 +2001,11 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLayoutSubviews;
+@end
+
+@interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <KBMMessagesDelegate>
+- (void)getMessagesArray:(NSMutableArray * _Null_unspecified)messagesArray;
+- (void)updateMessageList:(NSMutableArray * _Null_unspecified)messagesArray;
 @end
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -2109,10 +2021,10 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)mqttDidConnected;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
-- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString * _Nonnull)userIdOrClientGroupId;
+- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)userId andBlockFlag:(BOOL)_;
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
@@ -2193,11 +2105,11 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
 - (void)mqttDidConnected;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
-- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString * _Nonnull)userIdOrClientGroupId;
+- (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status;
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)_ andBlockFlag:(BOOL)_;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 @end
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UITableViewDataSource, UITableViewDelegate>

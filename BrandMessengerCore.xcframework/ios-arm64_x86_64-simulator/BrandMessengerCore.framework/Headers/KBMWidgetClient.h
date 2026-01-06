@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KBMWidgetClient : NSObject
 
-@property (nonatomic, strong) NSURLSession *session;
-
 /// To get all Display Conditions from Chat Widget configuration.
 - (void)getAllDisplayConditions:(void (^)(NSMutableArray <KBMDisplayCondition *> * _Nullable displayConditions, NSError * _Nullable error))completion;
 

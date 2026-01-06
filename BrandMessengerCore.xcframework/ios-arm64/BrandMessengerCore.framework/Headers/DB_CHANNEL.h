@@ -58,10 +58,4 @@
 /// Used for identifying the channel category.
 @property (nonatomic) short category;
 
-/// The group state to represent its current status.
-/// Possible states:
-/// - OPEN (0): The group is currently open.
-/// - CLOSE (1): The group is currently closed.
-@property (nonatomic) short state;
-
 @end

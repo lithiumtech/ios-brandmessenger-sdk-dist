@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
                        withCompletion:(void (^)(KBMRegistrationResponse * _Nullable response, NSError * _Nullable error))completion;
 
 /// make welcome-message API Request.
-+ (void)sendWelcomeMessageRequest:(NSString *_Nullable)clientGroupId withCompletion:(void (^)(NSError * _Nullable error))completion;
++ (void) sendWelcomeMessageRequestWithCompletion:(void (^)(NSError * _Nullable error))completion;
 
 /// Preregistration for unauth in the request body only metadata data goes.
 /// @note responseDictionary expects at least 'id' and 'token', to login.
@@ -79,11 +79,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @note Check for error is nil and then use the `hasOpenConversation` flag to identify the user has open conversations.
 +(void)userHasOpenConversationWithCompletion:(void (^)(BOOL hasOpenConversation, NSError * _Nullable error))completion;
 
-/// Converts the one-to-one chat to an inbox chat with the specified conversation title.
-/// @param conversationTitle The title to be used for the inbox conversation. This parameter must not be nil or empty
-/// @param completion A completion block that is called when the operation finishes. The block contains an NSError object that is nil on success or contains error information if the operation fails
-+ (void)convertToInboxChatWithConversationTitle:(NSString * _Nonnull)conversationTitle
-                                     completion:(void (^ _Nullable)(NSError * _Nullable error))completion;
 @end
 
 NS_ASSUME_NONNULL_END
