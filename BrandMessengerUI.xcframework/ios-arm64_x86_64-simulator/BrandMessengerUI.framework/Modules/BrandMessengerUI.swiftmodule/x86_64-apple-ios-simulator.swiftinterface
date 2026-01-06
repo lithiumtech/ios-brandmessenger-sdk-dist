@@ -24,7 +24,7 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-extension BrandMessengerUI.KBMMessageStyle {
+extension RichMessageKit.KBMMessageStyle {
   public typealias MessageStatusType = RichMessageKit.KBMMessageStatus
   public enum StatusIcon {
     case templateImageWithTint(image: UIKit.UIImage, tintColor: UIKit.UIColor)
@@ -33,7 +33,7 @@ extension BrandMessengerUI.KBMMessageStyle {
   }
   public struct SentMessageStatus {
     public var stateViewSize: CoreFoundation.CGSize
-    public mutating func set(icon: BrandMessengerUI.KBMMessageStyle.StatusIcon, for type: BrandMessengerUI.KBMMessageStyle.MessageStatusType)
+    public mutating func set(icon: RichMessageKit.KBMMessageStyle.StatusIcon, for type: RichMessageKit.KBMMessageStyle.MessageStatusType)
   }
 }
 extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.NavigationBarCallbacks {
@@ -54,25 +54,28 @@ public protocol KBMConversationListDelegate : AnyObject {
   #endif
   @objc deinit
   @_Concurrency.MainActor @preconcurrency override open func addObserver()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func deleteMessage(messageKey: Swift.String, userId: Swift.String?, groupId: Foundation.NSNumber?, isMessageFoundInDB: Swift.Bool)
+  #endif
   @_Concurrency.MainActor @preconcurrency override open func removeObserver()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency override open func showAccountSuspensionView()
-}
-extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerCore.KBMMessagesDelegate {
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func getMessagesArray(_ messagesArray: Foundation.NSMutableArray!)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateMessageList(_ messagesArray: Foundation.NSMutableArray!)
-  #endif
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLayoutSubviews()
+  @_Concurrency.MainActor @preconcurrency public func setupAccessibilityTextStyle()
 }
 extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerUI.KBMConversationListViewModelDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func subscribeToConversationListTypingIndicatorEvents(newMessagesForTypingSubscribe: [BrandMessengerCore.KBMMessage]?)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public func emptyStateView(hasError: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func startedLoading()
   @_Concurrency.MainActor @preconcurrency public func listUpdated()
-  @_Concurrency.MainActor @preconcurrency public func rowUpdatedAt(position: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency public func updateTableView()
+  @_Concurrency.MainActor @preconcurrency public func reloadTableView()
+  @_Concurrency.MainActor @preconcurrency public func removeRowAt(position: Swift.Int, section: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency public func rowUpdatedAt(position: Swift.Int, section: Swift.Int)
 }
 extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerCore.KBMMQTTConversationDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
@@ -82,12 +85,12 @@ extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerCor
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateStatus(forContact contactId: Swift.String, withStatus status: Swift.Int32, withTimestamp timestamp: Foundation.NSNumber?)
   #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func mqttDidConnected()
-  @_Concurrency.MainActor @preconcurrency @objc dynamic open func updateUserDetail(_ userId: Swift.String)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic open func updateUserDetail(withReceiverUserId userId: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func syncCall(_ message: BrandMessengerCore.KBMMessage, andMessageList _: Foundation.NSMutableArray?)
   #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func updateMessageText(_ text: Swift.String, withMessageKey messageKey: Swift.String)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic open func updateTypingStatus(_: Swift.String, userId: Swift.String, status: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic open func updateTypingStatus(_: Swift.String, userId: Swift.String, status: Swift.Bool, withConversationUserIdOrClientGroupId userIdOrClientGroupId: Swift.String)
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func reloadData(forUserBlockNotification userId: Swift.String, andBlockFlag _: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func updateLastSeen(atStatus userDetail: BrandMessengerCore.KBMUserDetail)
   @_Concurrency.MainActor @preconcurrency @objc dynamic open func mqttConnectionClosed()
@@ -95,6 +98,7 @@ extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerCor
 extension BrandMessengerUI.KBMConversationListViewController : BrandMessengerUI.KBMConversationListTableViewDelegate {
   @_Concurrency.MainActor @preconcurrency public func tapped(_ chat: any BrandMessengerUI.KBMChatViewModelProtocol, at index: Swift.Int)
   @_Concurrency.MainActor @preconcurrency public func emptyChatCellTapped()
+  @_Concurrency.MainActor @preconcurrency public func onScrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @_Concurrency.MainActor @preconcurrency public func scrolledToBottom()
   @_Concurrency.MainActor @preconcurrency public func userBlockNotification(userId: Swift.String, isBlocked: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func muteNotification(conversation: BrandMessengerCore.KBMMessage, isMuted: Swift.Bool)
@@ -127,11 +131,13 @@ extension BrandMessengerCore.KBMMessage : BrandMessengerUI.KBMChatViewModelProto
     get
   }
   #if compiler(>=5.3) && $NonescapableTypes
-  public var theLastMessage: Swift.String? {
+  public func latestMessageText() -> Swift.String?
+  #endif
+  public func getAuthorName() -> Swift.String
+  public var hasUnreadMessages: Swift.Bool {
     get
   }
-  #endif
-  public var hasUnreadMessages: Swift.Bool {
+  public var identifier: Swift.String {
     get
   }
   public var totalNumberOfUnreadMessages: Swift.UInt {
@@ -178,9 +184,20 @@ extension BrandMessengerCore.KBMMessage : BrandMessengerUI.KBMChatViewModelProto
   #endif
 }
 extension BrandMessengerCore.KBMMessage {
+  public var isMyMessage: Swift.Bool {
+    get
+  }
   public var messageType: BrandMessengerUI.KBMMessageType {
     get
   }
+  public var date: Foundation.Date {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var time: Swift.String? {
+    get
+  }
+  #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public func payloadFromMetadata() -> [[Swift.String : Any]]?
   #endif
@@ -233,6 +250,72 @@ public struct AutoCompleteItem {
 }
 extension BrandMessengerUI.AutoCompleteItem {
   public static let attributesKey: Foundation.NSAttributedString.Key
+}
+public enum KBMConversationListBackButtonType {
+  case icon
+  case text
+  public static func == (a: BrandMessengerUI.KBMConversationListBackButtonType, b: BrandMessengerUI.KBMConversationListBackButtonType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct KBMConversationListConfiguration {
+  public var chatListCellMargin: BrandMessengerUI.KBMMessageCellMargin
+  public var chatListName: RichMessageKit.Style
+  public var chatListMessage: RichMessageKit.Style
+  public var chatListHeadingTitle: RichMessageKit.Style
+  public var chatListSectionHeaderBackgroundColor: UIKit.UIColor
+  public var chatListUnreadCountBackgroundColor: UIKit.UIColor
+  public var chatListChevronIconColor: UIKit.UIColor
+  public var chatListCellDividerColor: UIKit.UIColor
+  public var chatListCellHighlightColor: UIKit.UIColor
+  public var chatListUnreadCount: RichMessageKit.Style
+  public var chatListItemBackgroundColor: UIKit.UIColor
+  public var chatListBackgroundColor: UIKit.UIColor
+  public var disableSwipeInChatCell: Swift.Bool
+  public var headerViewConfiguration: BrandMessengerUI.KBMConversationListHeaderViewConfiguration
+  public var hideNewChatButton: Swift.Bool
+  public var navigationItemsForConversationList: [BrandMessengerUI.KBMNavigationItem] {
+    get
+    set
+  }
+  public var newChatButtonStyle: RichMessageKit.Style
+  public var typingIndicatorBubble: BrandMessengerUI.KBMConversationListTypingIndicatorBubble
+  public var hideChatListWithoutWidgetConfiguration: Swift.Bool
+  public var hideChatListWithWidgetConfiguration: Swift.Bool
+  public var requestWelcomeMessageOnNewConversation: Swift.Bool
+  public var hideConversationsLoadingErrorLabel: Swift.Bool
+  public var conversationsLoadingErrorTextStyle: RichMessageKit.Style
+  public var backButtonType: BrandMessengerUI.KBMConversationListBackButtonType
+  public var conversationListViewControllerBackIcon: UIKit.UIImage?
+  @available(*, deprecated, message: "Will be using chatListMessage instead")
+  public var chatListTime: RichMessageKit.Style
+  @available(*, deprecated, message: "Will be using chatListMessage instead")
+  public var chatListBullet: RichMessageKit.Style
+}
+public struct KBMConversationListHeaderViewConfiguration {
+  public var inboxIntroTextStyle: RichMessageKit.Style
+  public var businessNameStyle: RichMessageKit.Style
+  public var businessIcon: UIKit.UIImage?
+  public var disableHeaderView: Swift.Bool
+  public var useLocalDataOnly: Swift.Bool
+  public var businessIconSize: CoreFoundation.CGSize
+  public var businessIconTopPadding: CoreFoundation.CGFloat
+  public var businessNamePadding: RichMessageKit.Padding
+  public var inboxIntroTextPadding: RichMessageKit.Padding
+  public var viewPadding: RichMessageKit.Padding
+}
+public struct KBMConversationListTypingIndicatorBubble {
+  public struct Border {
+    public var color: UIKit.UIColor
+    public var width: CoreFoundation.CGFloat
+  }
+  public var color: UIKit.UIColor
+  public var cornerRadius: CoreFoundation.CGFloat
+  public var border: BrandMessengerUI.KBMConversationListTypingIndicatorBubble.Border
+  public init(color: UIKit.UIColor)
+  public var typingViewStyle: BrandMessengerUI.KBMTypingViewStyle
 }
 public struct AutoCompleteItemConfiguration {
   public var addSpaceAfterInserting: Swift.Bool
@@ -481,6 +564,7 @@ public protocol KBMAudioRecorderViewProtocol : AnyObject {
   @objc deinit
 }
 extension BrandMessengerUI.KBMSearchResultViewController : BrandMessengerUI.KBMConversationListTableViewDelegate {
+  @_Concurrency.MainActor @preconcurrency public func onScrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @_Concurrency.MainActor @preconcurrency public func muteNotification(conversation _: BrandMessengerCore.KBMMessage, isMuted _: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func userBlockNotification(userId _: Swift.String, isBlocked _: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func tapped(_ chat: any BrandMessengerUI.KBMChatViewModelProtocol, at _: Swift.Int)
@@ -495,7 +579,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   func messageUpdated()
   func updateMessageAt(indexPath: Foundation.IndexPath)
   #if compiler(>=5.3) && $NonescapableTypes
-  func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
+  func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?, dropDownIdentifier: Swift.String?)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   func newMessagesAdded(messages: [BrandMessengerCore.KBMMessage]?)
@@ -505,7 +589,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   func updateDisplay(contact: BrandMessengerCore.KBMContact?, channel: BrandMessengerCore.KBMChannel?)
   #endif
   func willSendMessage()
-  func updateTyingStatus(status: Swift.Bool, userId: Swift.String)
+  func updateTyingStatus()
   func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
   func quickReplySelectedMoveFocusToSentMessage(indexPath: Foundation.IndexPath)
   func reloadTableView()
@@ -594,7 +678,7 @@ public protocol KBMConversationViewModelDelegate : AnyObject {
   open func updateMessageText(_ messageText: Swift.String?, _ identifier: Swift.String)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  open func send(messageText: Swift.String, isOpenGroup: Swift.Bool = false, metadata: [Swift.AnyHashable : Any]?, quickReplyIdentifier: Swift.String? = nil, suggestedReplyToButtonIndex: Swift.Int? = nil, suggestedReplyToCardIndex: Swift.Int? = nil, allowScrubbingMessage: Swift.Bool = true)
+  open func send(messageText: Swift.String, isOpenGroup: Swift.Bool = false, metadata: [Swift.AnyHashable : Any]?, quickReplyIdentifier: Swift.String? = nil, suggestedReplyToButtonIndex: Swift.Int? = nil, suggestedReplyToCardIndex: Swift.Int? = nil, allowScrubbingMessage: Swift.Bool = true, dropDownIdentifier: Swift.String? = nil, dropDownOptionIndex: Swift.Int? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   open func send(photo: UIKit.UIImage, metadata: [Swift.AnyHashable : Any]?) -> (BrandMessengerCore.KBMMessage?, Foundation.IndexPath?)
@@ -896,6 +980,9 @@ extension BrandMessengerUI.KBMChatBar : BrandMessengerUI.KBMAudioRecorderProtoco
 extension BrandMessengerUI.KBMChatBar : BrandMessengerUI.KBMAudioRecorderViewProtocol {
   @_Concurrency.MainActor @preconcurrency public func cancelAudioRecording()
 }
+extension Foundation.Date {
+  public func getRelativeTime() -> Swift.String
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class KBMActivityIndicator : UIKit.UIView {
   public struct Size {
     public let width: CoreFoundation.CGFloat
@@ -912,14 +999,12 @@ extension BrandMessengerUI.KBMChatBar : BrandMessengerUI.KBMAudioRecorderViewPro
   @_Concurrency.MainActor @preconcurrency required public init(configuration: BrandMessengerUI.KBMConfiguration)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLoad()
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   #endif
   @_Concurrency.MainActor @preconcurrency open func addObserver()
   @_Concurrency.MainActor @preconcurrency open func removeObserver()
   @objc deinit
-  @_Concurrency.MainActor @preconcurrency open func showAccountSuspensionView()
   @_Concurrency.MainActor @preconcurrency public class func sendIsAliveBroadcast()
 }
 public protocol KBMContactProtocol {
@@ -1098,10 +1183,10 @@ public struct ListTemplate : Swift.Codable {
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency open class func rowHeight(card: BrandMessengerUI.CardTemplate, maxWidth: CoreFoundation.CGFloat, identifier: Swift.String?) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency open class func rowHeight(message: any BrandMessengerUI.KBMMessageViewModel, card: BrandMessengerUI.CardTemplate, maxWidth: CoreFoundation.CGFloat, identifier: Swift.String?, hasSingleCard: Swift.Bool) -> CoreFoundation.CGFloat
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency open func update(card: BrandMessengerUI.CardTemplate, selectedButtonIndex: Swift.Int?, isButtonSelectedInCard: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency open func update(viewModel: any BrandMessengerUI.KBMMessageViewModel, card: BrandMessengerUI.CardTemplate, selectedButtonIndex: Swift.Int?, isButtonSelectedInCard: Swift.Bool = false, hasSingleCard: Swift.Bool)
   #endif
   @objc deinit
 }
@@ -1135,7 +1220,7 @@ extension BrandMessengerUI.KBMGenericCardCell : RichMessageKit.Tappable {
 }
 public protocol KBMConversationViewControllerDelegate : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
-  func handleMessageAction(index: Swift.Int?, title: Swift.String?, message: (any BrandMessengerUI.KBMMessageViewModel)?, cardTemplate: BrandMessengerUI.CardTemplate?, listAction: BrandMessengerUI.ListTemplate.Action?, isButtonDisabled: Swift.Bool?) -> Swift.Bool
+  func handleMessageAction(index: Swift.Int?, title: Swift.String?, message: (any BrandMessengerUI.KBMMessageViewModel)?, cardTemplate: BrandMessengerUI.CardTemplate?, listAction: BrandMessengerUI.ListTemplate.Action?, isButtonDisabled: Swift.Bool?, dropDownTemplate: BrandMessengerUI.KBMDropdownTemplate?) -> Swift.Bool
   #endif
 }
 @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class KBMFriendGenericCardMessageCell : BrandMessengerUI.KBMGenericCardBaseCell {
@@ -1201,8 +1286,9 @@ public enum KBMMessageType : Swift.String {
   case faqTemplate
   case imageMessage
   case allButtons
-  case form
   case inlineForm
+  case dropdown
+  case systemMessage
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
@@ -1376,6 +1462,7 @@ public struct KBMChatBarConfiguration {
     case some([BrandMessengerUI.AttachmentType])
   }
   public var disableButtonTintColor: Swift.Bool
+  public var buttonsIconColor: UIKit.UIColor
   public var hideEmojiButton: Swift.Bool
   public var photosSelectionLimit: Swift.Int {
     get
@@ -1392,7 +1479,6 @@ public struct KBMChatBarConfiguration {
   public var messageInputViewStyle: BrandMessengerUI.KBMChatBarConfiguration.KBMMessageInputViewStyle
   public var hideAboveLineView: Swift.Bool
   public var typingViewStyle: BrandMessengerUI.KBMTypingViewStyle
-  public var attachmentIconsTintColor: UIKit.UIColor
   public var recordButtonIcon: UIKit.UIImage?
   #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, message: "Setting icons is no longer needed and will be removed in future updates.")
@@ -1444,7 +1530,14 @@ extension BrandMessengerUI.KBMFriendMessageQuickReplyCell : RichMessageKit.Tappa
 public protocol KBMConversationListViewModelDelegate : AnyObject {
   func startedLoading()
   func listUpdated()
-  func rowUpdatedAt(position: Swift.Int)
+  func updateTableView()
+  func emptyStateView(hasError: Swift.Bool)
+  func reloadTableView()
+  func removeRowAt(position: Swift.Int, section: Swift.Int)
+  func rowUpdatedAt(position: Swift.Int, section: Swift.Int)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func subscribeToConversationListTypingIndicatorEvents(newMessagesForTypingSubscribe: [BrandMessengerCore.KBMMessage]?)
+  #endif
 }
 public protocol KBMConversationListViewModelProtocol : AnyObject {
   func numberOfSections() -> Swift.Int
@@ -1453,6 +1546,9 @@ public protocol KBMConversationListViewModelProtocol : AnyObject {
   func chatFor(indexPath: Foundation.IndexPath) -> (any BrandMessengerUI.KBMChatViewModelProtocol)?
   #endif
   func getChatList() -> [Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  func getChatList(section: Swift.Int) -> [BrandMessengerCore.KBMMessage]?
+  #endif
   func remove(message: BrandMessengerCore.KBMMessage)
   func sendMuteRequestFor(message: BrandMessengerCore.KBMMessage, tillTime: Foundation.NSNumber, withCompletion: @escaping (Swift.Bool) -> Swift.Void)
   func sendUnmuteRequestFor(message: BrandMessengerCore.KBMMessage, withCompletion: @escaping (Swift.Bool) -> Swift.Void)
@@ -1462,20 +1558,36 @@ public protocol KBMConversationListViewModelProtocol : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
   func unblock(conversation: BrandMessengerCore.KBMMessage, withCompletion: @escaping ((any Swift.Error)?, Swift.Bool) -> Swift.Void)
   #endif
+  func isMessageListEmpty() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  func findIndexPath(byGroupId groupId: Foundation.NSNumber?, userId: Swift.String?) -> Foundation.IndexPath?
+  #endif
 }
 @objc @_inheritsConvenienceInitializers final public class KBMConversationListViewModel : ObjectiveC.NSObject, BrandMessengerUI.KBMConversationListViewModelProtocol {
   weak final public var delegate: (any BrandMessengerUI.KBMConversationListViewModelDelegate)?
   @objc override dynamic public init()
-  final public func prepareController(dbService: BrandMessengerCore.KBMMessageDBService)
+  final public func prepareController()
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getChatList(section: Swift.Int) -> [BrandMessengerCore.KBMMessage]?
+  #endif
   final public func getChatList() -> [Any]
   final public func numberOfSections() -> Swift.Int
-  final public func numberOfRowsInSection(_: Swift.Int) -> Swift.Int
+  final public func numberOfRowsInSection(_ section: Swift.Int) -> Swift.Int
   #if compiler(>=5.3) && $NonescapableTypes
   final public func chatFor(indexPath: Foundation.IndexPath) -> (any BrandMessengerUI.KBMChatViewModelProtocol)?
   #endif
+  final public func isMessageListEmpty() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func findIndexPath(byGroupId groupId: Foundation.NSNumber?, userId: Swift.String?) -> Foundation.IndexPath?
+  #endif
   final public func remove(message: BrandMessengerCore.KBMMessage)
-  final public func updateTypingStatus(in viewController: BrandMessengerUI.KBMConversationViewController, userId: Swift.String, status: Swift.Bool)
-  final public func updateMessageList(messages: [Any])
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func removeMessage(messageKey: Swift.String, userId: Swift.String?, groupId: Foundation.NSNumber?, isMessageFoundInDB: Swift.Bool)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func findRowAndUpdate(for groupId: Foundation.NSNumber?, userId: Swift.String?)
+  #endif
+  final public func updateTypingStatus(in viewController: BrandMessengerUI.KBMConversationViewController, userId: Swift.String, status: Swift.Bool, userIdOrClientGroupId: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   final public func updateDeliveryReport(convVC: BrandMessengerUI.KBMConversationViewController?, messageKey: Swift.String?, contactId: Swift.String?, status: Swift.Int32?, timestamp: Foundation.NSNumber?)
   #endif
@@ -1560,7 +1672,6 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidLayoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency override open func showAccountSuspensionView()
   @_Concurrency.MainActor @preconcurrency open func checkUserBlock()
   @_Concurrency.MainActor @preconcurrency open func isChannelLeft()
   @_Concurrency.MainActor @preconcurrency public func configureChatBar()
@@ -1569,7 +1680,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMM
   @objc @_Concurrency.MainActor @preconcurrency open func pushNotification(notification: Foundation.NSNotification)
   @_Concurrency.MainActor @preconcurrency public func unsubscribingChannel()
   @_Concurrency.MainActor @preconcurrency @objc public func scrollViewWillBeginDecelerating(_: UIKit.UIScrollView)
-  @_Concurrency.MainActor @preconcurrency public func showTypingLabel(status: Swift.Bool, userId: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public func showTypingLabel(status: Swift.Bool, userId: Swift.String, userIdOrClientGroupId: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency public func invalidateTimerAndUpdateHeightConstraint(_: Foundation.Timer?)
   #endif
@@ -1595,7 +1706,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   @_Concurrency.MainActor @preconcurrency public func reloadTableView()
   @_Concurrency.MainActor @preconcurrency public func updateMessageAt(indexPath: Foundation.IndexPath)
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency public func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?)
+  @_Concurrency.MainActor @preconcurrency public func updateMessageAt(indexPath: Foundation.IndexPath, quickReplyIdentifier: Swift.String?, suggestedReplyToButtonIndex: Swift.Int?, suggestedReplyToCardIndex: Swift.Int?, dropDownIdentifier: Swift.String?)
   #endif
   @_Concurrency.MainActor @preconcurrency public func moveTableViewToBottom(indexPath: Foundation.IndexPath)
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func deleteQuickReplyMessage(indexPath: Foundation.IndexPath)
@@ -1613,7 +1724,7 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.KBMC
   #endif
   @_Concurrency.MainActor @preconcurrency public func showLastMessage()
   @_Concurrency.MainActor @preconcurrency public func willSendMessage()
-  @_Concurrency.MainActor @preconcurrency public func updateTyingStatus(status: Swift.Bool, userId: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public func updateTyingStatus()
   @_Concurrency.MainActor @preconcurrency public func clearAndReloadTable()
   @_Concurrency.MainActor @preconcurrency public func updateConversationProfile()
 }
@@ -1629,11 +1740,11 @@ extension BrandMessengerUI.KBMConversationViewController : BrandMessengerCore.KB
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func syncCall(_ message: BrandMessengerCore.KBMMessage, andMessageList _: Foundation.NSMutableArray?)
   #endif
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateTypingStatus(_: Swift.String, userId: Swift.String, status: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateTypingStatus(_: Swift.String, userId: Swift.String, status: Swift.Bool, withConversationUserIdOrClientGroupId userIdOrClientGroupId: Swift.String)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateLastSeen(atStatus userDetail: BrandMessengerCore.KBMUserDetail)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func mqttConnectionClosed()
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func reloadData(forUserBlockNotification _: Swift.String, andBlockFlag _: Swift.Bool)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateUserDetail(_ userId: Swift.String)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func updateUserDetail(withReceiverUserId userId: Swift.String)
 }
 extension BrandMessengerUI.KBMConversationViewController : CoreLocation.CLLocationManagerDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [_LocationEssentials.CLLocation])
@@ -1775,16 +1886,6 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public static func updateToken()
   @objc public static func isUserPresent() -> Swift.Bool
   @objc public static func logoutUser(completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc public static func launchChatList(from viewController: UIKit.UIViewController)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func launchChatWith(contactId: Swift.String, from viewController: UIKit.UIViewController, prefilledMessage: Swift.String? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public static func launchGroupWith(clientGroupId: Swift.String, from viewController: UIKit.UIViewController, prefilledMessage: Swift.String? = nil)
-  #endif
-  @objc public static func launchChatWith(conversationProxy: BrandMessengerCore.KBMConversationProxy, from viewController: UIKit.UIViewController)
-  @objc public static func launchGroupOfTwo(with userId: Swift.String, metadata: Foundation.NSMutableDictionary, topic: Swift.String, from viewController: UIKit.UIViewController)
-  @objc public static func getLoggedInUserInfo() -> BrandMessengerCore.KBMUser
   @objc public static func application(_ application: UIKit.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Foundation.Data)
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public static func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions _: [UIKit.UIApplication.LaunchOptionsKey : Any]?)
@@ -1845,6 +1946,9 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public class func sendWelcomeMessageRequest(complete: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
   #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public class func sendWelcomeMessageRequestToClientGroupId(clientGroupId: Swift.String?, complete: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
+  #endif
   @objc public class func setPinningCertificatePublicKeys(_ keys: [Swift.String])
   @objc public class func setPinningCertificates(_ certificates: [Foundation.URL])
   @objc public class func enableDefaultCertificatePinning()
@@ -1866,11 +1970,29 @@ extension BrandMessengerUI.AutoCompleteManager : UIKit.UITableViewDataSource, UI
   @objc public class func shouldThrottle(completion: @escaping (_ shouldThrottle: Swift.Bool, _ error: Foundation.NSError?) -> Swift.Void)
   #endif
   @objc public class func setRestrictedWordRegex(_ regex: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public class func createConversation(conversation: BrandMessengerUI.KBMConversation, completion: @escaping (_ conversationUUID: Swift.String?, _ error: Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public class func createConversation(completion: @escaping (_ conversationUUID: Swift.String?, _ error: Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public class func showConversationList(_ viewController: UIKit.UIViewController? = nil, completion: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public static func showConversationWithId(_ viewController: UIKit.UIViewController? = nil, conversationUUID: Swift.String, insertConversationList: Swift.Bool, completion: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public static func startNewConversationWithWelcome(insertConversationList: Swift.Bool, sendWelcomeMessage: Swift.Bool, completion: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public static func startNewConversation(insertConversationList: Swift.Bool, completion: @escaping (_ error: Foundation.NSError?) -> Swift.Void)
+  #endif
   @objc public class func enableIsAliveBroadcast(_ enable: Swift.Bool)
   @objc deinit
 }
 @objc @_Concurrency.MainActor @preconcurrency public class ConversationListTableViewDataSource : ObjectiveC.NSObject, UIKit.UITableViewDataSource {
-  public typealias CellConfigurator = (any BrandMessengerUI.KBMChatViewModelProtocol, UIKit.UITableViewCell) -> Swift.Void
+  public typealias CellConfigurator = (any BrandMessengerUI.KBMChatViewModelProtocol, UIKit.UITableViewCell, Swift.Bool) -> Swift.Void
   @_Concurrency.MainActor @preconcurrency public var cellConfigurator: BrandMessengerUI.ConversationListTableViewDataSource.CellConfigurator
   @_Concurrency.MainActor @preconcurrency public init(viewModel: any BrandMessengerUI.KBMConversationListViewModelProtocol, cellConfigurator: @escaping BrandMessengerUI.ConversationListTableViewDataSource.CellConfigurator)
   @_Concurrency.MainActor @preconcurrency @objc public func numberOfSections(in _: UIKit.UITableView) -> Swift.Int
@@ -1884,33 +2006,32 @@ public protocol KBMConversationListTableViewDelegate : AnyObject {
   func scrolledToBottom()
   func muteNotification(conversation: BrandMessengerCore.KBMMessage, isMuted: Swift.Bool)
   func userBlockNotification(userId: Swift.String, isBlocked: Swift.Bool)
+  func onScrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class KBMConversationListTableViewController : UIKit.UITableViewController {
   @_Concurrency.MainActor @preconcurrency public var viewModel: any BrandMessengerUI.KBMConversationListViewModelProtocol
   @_Concurrency.MainActor @preconcurrency public var dbService: BrandMessengerCore.KBMMessageDBService!
-  @_Concurrency.MainActor @preconcurrency public var hideNoConversationView: Swift.Bool
   @_Concurrency.MainActor @preconcurrency public var dataSource: BrandMessengerUI.ConversationListTableViewDataSource {
     get
     set
   }
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any BrandMessengerUI.KBMConversationListTableViewDelegate)?
-  @_Concurrency.MainActor @preconcurrency public init(viewModel: any BrandMessengerUI.KBMConversationListViewModelProtocol, dbService: BrandMessengerCore.KBMMessageDBService, configuration: BrandMessengerUI.KBMConfiguration, showSearch: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public init(viewModel: any BrandMessengerUI.KBMConversationListViewModelProtocol, configuration: BrandMessengerUI.KBMConfiguration, showSearch: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func replaceViewModel(_ viewModel: any BrandMessengerUI.KBMConversationListViewModelProtocol)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_: UIKit.UITableView, canEditRowAt _: Foundation.IndexPath) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, canFocusRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_: UIKit.UITableView, viewForHeaderInSection _: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
   #endif
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_: UIKit.UITableView, heightForHeaderInSection _: Swift.Int) -> CoreFoundation.CGFloat
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_: UIKit.UITableView, viewForFooterInSection _: Swift.Int) -> UIKit.UIView?
-  #endif
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_: UIKit.UITableView, heightForFooterInSection _: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
   @objc deinit
 }
 extension BrandMessengerUI.KBMConversationListTableViewController : UIKit.UISearchResultsUpdating, UIKit.UISearchBarDelegate {
@@ -1935,6 +2056,7 @@ extension BrandMessengerUI.KBMConversationListTableViewController {
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: Foundation.IndexPath) -> UIKit.UISwipeActionsConfiguration?
   #endif
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class KBMIndexedCollectionView : UIKit.UICollectionView {
   @_Concurrency.MainActor @preconcurrency open var indexPath: Foundation.IndexPath!
@@ -2049,28 +2171,20 @@ public struct KBMConfiguration {
   public var backgroundColor: UIKit.UIColor
   public var hideNavigationBarBottomLine: Swift.Bool
   public var hideAudioOptionInChatBar: Swift.Bool
-  public var hideStartChatButton: Swift.Bool
   public var localizedStringFileName: Swift.String
-  public var sendMessageIcon: UIKit.UIImage?
   public var defaultAvatar: UIKit.UIImage?
   public var rightNavBarSystemIconForConversationView: UIKit.UIBarButtonItem.SystemItem
   public var hideRightNavBarButtonForConversationView: Swift.Bool
   public var hideBackButtonInConversationList: Swift.Bool
-  public var hideEmptyStateStartNewButtonInConversationList: Swift.Bool
   public var messageMetadata: [Swift.AnyHashable : Any]?
   public var disableRichMessageButtonAction: Swift.Bool
   public var restrictedWordsFileName: Swift.String
   public var restrictedMessageRegexPattern: Swift.String
   public var showInfoOptionInGroupDetail: Swift.Bool
-  public var disableSwipeInChatCell: Swift.Bool
   public var chatBar: BrandMessengerUI.KBMChatBarConfiguration
   public var headerViewConfiguration: BrandMessengerUI.KBMHeaderViewConfiguration
   public var hidePinnedSystemMessageHeader: Swift.Bool
   public var pinnedHeaderConfig: BrandMessengerUI.KBMPinnedSystemHeaderConfiguration
-  public var navigationItemsForConversationList: [BrandMessengerUI.KBMNavigationItem] {
-    get
-    set
-  }
   public var navigationItemsForConversationView: [BrandMessengerUI.KBMNavigationItem] {
     get
     set
@@ -2086,6 +2200,9 @@ public struct KBMConfiguration {
   public var channelDetail: BrandMessengerUI.KBMChannelDetailViewConfiguration
   public var conversationViewControllerBackIcon: UIKit.UIImage?
   public var locationShareViaMap: Swift.Bool
+  public var isMarkdownEnabled: Swift.Bool
+  public var conversationListConfiguration: BrandMessengerUI.KBMConversationListConfiguration
+  public var mqttRetryInterval: Swift.Double
   @available(*, deprecated, message: "This flag is no longer used. Will be removed in future.")
   public var hideLineImageFromChatBar: Swift.Bool
   @available(*, deprecated, message: "The statusBarStyle is set based on navigation bar dark or light color. No longer used will be removed in future.")
@@ -2094,6 +2211,8 @@ public struct KBMConfiguration {
   public var chatBarAttachmentViewBackgroundColor: UIKit.UIColor
   @available(*, deprecated, message: "The show/hide email transcript functionality has been moved to the chat bar menu options. To control it, modify the 'config.chatBar.optionsToShow' setting by adding or removing the '.emailTranscript' option.")
   public var hideEmailTranscript: Swift.Bool
+  @available(*, deprecated, message: "Send icon is no longer needed as it is now uses the text 'Send'.")
+  public var sendMessageIcon: UIKit.UIImage?
   public init()
 }
 @objc public protocol NavigationBarCallbacks {
@@ -2218,8 +2337,14 @@ public struct KBMChannelDetailViewConfiguration {
 extension BrandMessengerUI.KBMConversationViewController : BrandMessengerUI.AutoCompletionDelegate {
   @_Concurrency.MainActor @preconcurrency public func didMatch(prefix: Swift.String, message: Swift.String)
 }
+public struct ContentFilterResult {
+  public let scrubbedMessage: Swift.String
+  public let matchedGroups: [[Swift.String : Swift.String]]
+}
 @_hasMissingDesignatedInitializers public class KBMContentFilterManager {
+  @available(*, deprecated, message: "Use scrubMessageWithMetadata instead")
   public static func scrubMessage(messageText: Swift.String, redactionConfigurations: [BrandMessengerCore.KBMRedactionConfiguration]) -> Swift.String
+  public static func scrubMessageWithMetadata(messageText: Swift.String, redactionConfigurations: [BrandMessengerCore.KBMRedactionConfiguration]) -> BrandMessengerUI.ContentFilterResult
   @objc deinit
 }
 public struct CardTemplate : Swift.Codable {
@@ -2293,7 +2418,7 @@ public protocol KBMContextTitleViewType {
   @_Concurrency.MainActor @preconcurrency open func setupUI()
   @objc deinit
 }
-public enum KBMMessageStyle {
+extension RichMessageKit.KBMMessageStyle {
   public static var displayName: RichMessageKit.Style
   public static var playTime: RichMessageKit.Style
   public static var time: RichMessageKit.Style
@@ -2303,12 +2428,12 @@ public enum KBMMessageStyle {
   public static var receivedMention: RichMessageKit.Style
   public static var infoMessage: RichMessageKit.Style
   public static var dateSeparator: RichMessageKit.Style
-  public static var unreadMesssageCountSeparator: RichMessageKit.Style
+  public static var unreadMessageCountSeparator: RichMessageKit.Style
   public static var contactView: RichMessageKit.Style
   public enum BubbleStyle {
     case edge
     case round
-    public static func == (a: BrandMessengerUI.KBMMessageStyle.BubbleStyle, b: BrandMessengerUI.KBMMessageStyle.BubbleStyle) -> Swift.Bool
+    public static func == (a: RichMessageKit.KBMMessageStyle.BubbleStyle, b: RichMessageKit.KBMMessageStyle.BubbleStyle) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
@@ -2321,21 +2446,21 @@ public enum KBMMessageStyle {
     }
     public var color: UIKit.UIColor
     public var cornerRadius: CoreFoundation.CGFloat
-    public var style: BrandMessengerUI.KBMMessageStyle.BubbleStyle
-    public var border: BrandMessengerUI.KBMMessageStyle.Bubble.Border
+    public var style: RichMessageKit.KBMMessageStyle.BubbleStyle
+    public var border: RichMessageKit.KBMMessageStyle.Bubble.Border
     public let widthPadding: CoreFoundation.CGFloat
-    public var cellMargin: BrandMessengerUI.KBMMessageStyle.KBMMessageCellMargin
-    public init(color: UIKit.UIColor, style: BrandMessengerUI.KBMMessageStyle.BubbleStyle)
+    public var cellMargin: BrandMessengerUI.KBMMessageCellMargin
+    public init(color: UIKit.UIColor, style: RichMessageKit.KBMMessageStyle.BubbleStyle)
   }
-  public struct KBMMessageCellMargin {
-    public init(left: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat)
-  }
-  public static var sentBubble: BrandMessengerUI.KBMMessageStyle.Bubble
-  public static var receivedBubble: BrandMessengerUI.KBMMessageStyle.Bubble {
+  public static var sentBubble: RichMessageKit.KBMMessageStyle.Bubble
+  public static var receivedBubble: RichMessageKit.KBMMessageStyle.Bubble {
     get
     set
   }
-  public static var messageStatus: BrandMessengerUI.KBMMessageStyle.SentMessageStatus
+  public static var messageStatus: RichMessageKit.KBMMessageStyle.SentMessageStatus
+}
+public struct KBMMessageCellMargin {
+  public init(left: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat)
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class CustomSearchBar : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency final public let searchBar: UIKit.UISearchBar
@@ -2369,6 +2494,7 @@ public enum ActionableMessageType : Swift.String {
   case cardTemplate
   case genericList
   case genericCard
+  case dropdown
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
@@ -2400,6 +2526,7 @@ extension RichMessageKit.KBMRichMessageStyles {
   }
   public struct KBMCardStyle {
     public static var shared: RichMessageKit.KBMRichMessageStyles.KBMCardStyle
+    public var cardCitationStyle: RichMessageKit.KBMRichMessageStyles.KBMCitationStyle
     public var backgroundColor: UIKit.UIColor
     public var cornerRadius: CoreFoundation.CGFloat
     public var borderWidth: CoreFoundation.CGFloat
@@ -2450,6 +2577,51 @@ extension RichMessageKit.KBMRichMessageStyles {
       public var disableImageTintColor: Swift.Bool
     }
     public var actionButton: RichMessageKit.KBMRichMessageStyles.KBMCardStyle.KBMCardActionButton
+  }
+  public struct KBMSystemMessageStyleType {
+    public static var shared: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType
+    public var notificationInfo: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType.KBMNotificationInfo
+    public var notificationSuccess: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType.KBMNotificationSuccess
+    public var notificationWarning: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType.KBMNotificationWarning
+    public var notificationDanger: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType.KBMNotificationDanger
+    public var notificationMessage: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType.KBMNotificationMessage
+    public var notificationIconDimensions: RichMessageKit.KBMRichMessageStyles.KBMSystemMessageStyleType.NotificationIconDimensions
+    public var containerViewPadding: RichMessageKit.Padding
+    public var messageTextViewPadding: RichMessageKit.Padding
+    public struct NotificationIconDimensions {
+      public var leftPadding: CoreFoundation.CGFloat
+      public var width: CoreFoundation.CGFloat
+      public var height: CoreFoundation.CGFloat
+    }
+    public struct KBMNotificationInfo {
+      public var textStyle: RichMessageKit.Style
+      public var cornerRadius: CoreFoundation.CGFloat
+      public var backgroundColor: UIKit.UIColor
+      public var icon: UIKit.UIImage?
+    }
+    public struct KBMNotificationSuccess {
+      public var textStyle: RichMessageKit.Style
+      public var cornerRadius: CoreFoundation.CGFloat
+      public var backgroundColor: UIKit.UIColor
+      public var icon: UIKit.UIImage?
+    }
+    public struct KBMNotificationWarning {
+      public var textStyle: RichMessageKit.Style
+      public var cornerRadius: CoreFoundation.CGFloat
+      public var backgroundColor: UIKit.UIColor
+      public var icon: UIKit.UIImage?
+    }
+    public struct KBMNotificationDanger {
+      public var textStyle: RichMessageKit.Style
+      public var cornerRadius: CoreFoundation.CGFloat
+      public var backgroundColor: UIKit.UIColor
+      public var icon: UIKit.UIImage?
+    }
+    public struct KBMNotificationMessage {
+      public var textStyle: RichMessageKit.Style
+      public var cornerRadius: CoreFoundation.CGFloat
+      public var backgroundColor: UIKit.UIColor
+    }
   }
 }
 public class NotificationHelper {
@@ -2577,9 +2749,6 @@ public protocol KBMChatViewModelProtocol {
   #endif
   var name: Swift.String { get }
   var groupName: Swift.String { get }
-  #if compiler(>=5.3) && $NonescapableTypes
-  var theLastMessage: Swift.String? { get }
-  #endif
   var hasUnreadMessages: Swift.Bool { get }
   var totalNumberOfUnreadMessages: Swift.UInt { get }
   var isGroupChat: Swift.Bool { get }
@@ -2593,14 +2762,24 @@ public protocol KBMChatViewModelProtocol {
   var conversationId: Foundation.NSNumber? { get set }
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  var createdAt: Swift.String? { get }
+  var time: Swift.String? { get }
   #endif
+  var date: Foundation.Date { get }
   var messageType: BrandMessengerUI.KBMMessageType { get }
   var channelType: Swift.Int16 { get }
   var isMessageEmpty: Swift.Bool { get }
   #if compiler(>=5.3) && $NonescapableTypes
   var messageMetadata: Foundation.NSMutableDictionary? { get }
   #endif
+  var isMyMessage: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
+  var message: Swift.String? { get }
+  #endif
+  var identifier: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
+  func latestMessageText() -> Swift.String?
+  #endif
+  func getAuthorName() -> Swift.String
 }
 public enum KBMChatCellAction {
   case delete
@@ -2620,13 +2799,41 @@ public enum KBMChatCellAction {
   public enum Config {
     public static var iconMuted: UIKit.UIImage?
   }
+  @_Concurrency.MainActor @preconcurrency final public var frontView: RichMessageKit.KBMTappableView
   @_Concurrency.MainActor @preconcurrency @objc override final public func setHighlighted(_ highlighted: Swift.Bool, animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override final public func setSelected(_ selected: Swift.Bool, animated: Swift.Bool)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency final public func update(viewModel: any BrandMessengerUI.KBMChatViewModelProtocol, identity _: (any BrandMessengerUI.KBMIdentityProtocol)?, placeholder: UIKit.UIImage? = nil)
-  #endif
-  @_Concurrency.MainActor @preconcurrency @objc override final public func setEditing(_ editing: Swift.Bool, animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency final public func update(viewModel: any BrandMessengerUI.KBMChatViewModelProtocol, isLastCell: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class KBMConversation : ObjectiveC.NSObject {
+  public var conversationTitle: Swift.String?
+  public var conversationUUID: Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class KBMConversationBuilder : ObjectiveC.NSObject {
+  @discardableResult
+  @objc public func withConversationTitle(_ conversationTitle: Swift.String) -> BrandMessengerUI.KBMConversationBuilder
+  #if compiler(>=5.3) && $NonescapableTypes
+  @discardableResult
+  @objc public func withConversationUUID(_ conversationUUID: Swift.String?) -> BrandMessengerUI.KBMConversationBuilder
+  #endif
+  @objc public func build() -> BrandMessengerUI.KBMConversation
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct KBMDropdownTemplate : Swift.Codable {
+  public var options: [BrandMessengerUI.KBMDropdownTemplate.KBMDropdown]?
+  public let placeholder: Swift.String?
+  public struct KBMDropdown : Swift.Codable {
+    public let displayText: Swift.String
+    public let value: Swift.String?
+    public let postbackMetadata: Swift.String?
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class KBMBaseNavigationViewController : UIKit.UINavigationController {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
@@ -2646,6 +2853,8 @@ public enum KBMChatCellAction {
   #endif
   @objc deinit
 }
+extension BrandMessengerUI.KBMConversationListBackButtonType : Swift.Equatable {}
+extension BrandMessengerUI.KBMConversationListBackButtonType : Swift.Hashable {}
 extension BrandMessengerUI.KBMVoiceCellState : Swift.Equatable {}
 extension BrandMessengerUI.KBMVoiceCellState : Swift.Hashable {}
 extension BrandMessengerUI.AudioRecordButton.KBMSoundRecorderState : Swift.Equatable {}
@@ -2671,8 +2880,8 @@ extension BrandMessengerUI.ConversationListTableViewDataSource : Swift.Sendable 
 extension BrandMessengerUI.KDCircularProgressGlowMode : Swift.Equatable {}
 extension BrandMessengerUI.KDCircularProgressGlowMode : Swift.Hashable {}
 extension BrandMessengerUI.KDCircularProgressGlowMode : Swift.RawRepresentable {}
-extension BrandMessengerUI.KBMMessageStyle.BubbleStyle : Swift.Equatable {}
-extension BrandMessengerUI.KBMMessageStyle.BubbleStyle : Swift.Hashable {}
+extension RichMessageKit.KBMMessageStyle.BubbleStyle : Swift.Equatable {}
+extension RichMessageKit.KBMMessageStyle.BubbleStyle : Swift.Hashable {}
 extension BrandMessengerUI.ActionableMessageType : Swift.Equatable {}
 extension BrandMessengerUI.ActionableMessageType : Swift.Hashable {}
 extension BrandMessengerUI.ActionableMessageType : Swift.RawRepresentable {}

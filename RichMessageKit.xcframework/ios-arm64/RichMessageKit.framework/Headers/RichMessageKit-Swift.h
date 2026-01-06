@@ -282,6 +282,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreFoundation;
+@import Foundation;
 @import UIKit;
 #endif
 
@@ -330,6 +331,18 @@ SWIFT_CLASS("_TtC14RichMessageKit14ImageContainer")
 @interface ImageContainer : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)_ SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+SWIFT_CLASS("_TtC14RichMessageKit15KBMCitationView")
+@interface KBMCitationView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+@end
+
+@class UITextView;
+@class NSURL;
+@interface KBMCitationView (SWIFT_EXTENSION(RichMessageKit)) <UITextViewDelegate>
+- (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIImage;
@@ -382,6 +395,13 @@ SWIFT_CLASS("_TtC14RichMessageKit11KBMUISlider")
 @interface KBMUISlider : UISlider
 @property (nonatomic, readonly) BOOL canBecomeFocused;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS("_TtC14RichMessageKit13KBMUITextView")
+@interface KBMUITextView : UITextView
+@property (nonatomic, readonly) BOOL canBecomeFocused;
+- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
