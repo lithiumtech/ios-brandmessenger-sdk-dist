@@ -408,7 +408,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param completionHandler Use the completionHandler UIBackgroundFetchResult and pass it to didReceiveRemoteNotification completion.
 ///
 + (void)application:(UIApplication * _Nonnull)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo fetchCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))completionHandler;
-/// Use this method for proccessing local notification data of UNUserNotificationCenter. And incoming push notification while app is foreground-and-inactive.
+/// Use this method for proccessing local notification data of UNUserNotificationCenter.
 /// \param center Pass UNUserNotificationCenter object.
 ///
 /// \param notification Pass the UNNotificationResponse object.
@@ -630,24 +630,24 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 /// \param completion A closure to be called after the operation completes, with an optional error.
 ///
-+ (void)startNewConversationWithWelcomeWithInsertConversationList:(BOOL)insertConversationList sendWelcomeMessage:(BOOL)sendWelcomeMessage completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
++ (void)starNewConversationWithWelcomeWithInsertConversationList:(BOOL)insertConversationList sendWelcomeMessage:(BOOL)sendWelcomeMessage completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 /// Create a new conversation and automatically display it if it successfully creates.
 /// No welcome-event message is sent to user.
 /// \param insertConversationList A Bool value indicating whether the conversation list should be inserted before displaying the conversation.
 ///
 /// \param completion A closure to be called after the operation completes, with an optional error.
 ///
-+ (void)startNewConversationWithInsertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// EnableisAlive broadcasts. This will sent out a ping on user actions (at most once per second).
++ (void)starNewConversationWithInsertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+/// Set the interval for isAlive broadcasts in seconds. This will sent out a ping every interval while a BrandMessenger view is on foreground.
 /// <ul>
 ///   <li>
 ///     Parameters:
 ///   </li>
 ///   <li>
-///     enable: Bool
+///     interval: interval in Seconds, which the IsAlive message will be sent
 ///   </li>
 /// </ul>
-+ (void)enableIsAliveBroadcast:(BOOL)enable;
++ (void)setIsAliveBroadcastInterval:(NSInteger)interval;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -779,7 +779,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI11KBMChatCell")
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
-- (void)layoutSubviews;
 @end
 
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
@@ -852,7 +851,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 - (UITableViewCellEditingStyle)tableView:(UITableView * _Nonnull)tableView editingStyleForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
 @class UISearchController;
@@ -873,7 +871,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLayoutSubviews;
 @end
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -889,7 +886,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)mqttDidConnected;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
 - (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString * _Nonnull)userIdOrClientGroupId;
@@ -977,7 +974,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)_ andBlockFlag:(BOOL)_;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 @end
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UITableViewDataSource, UITableViewDelegate>
@@ -1628,7 +1625,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 /// \param completionHandler Use the completionHandler UIBackgroundFetchResult and pass it to didReceiveRemoteNotification completion.
 ///
 + (void)application:(UIApplication * _Nonnull)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo fetchCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))completionHandler;
-/// Use this method for proccessing local notification data of UNUserNotificationCenter. And incoming push notification while app is foreground-and-inactive.
+/// Use this method for proccessing local notification data of UNUserNotificationCenter.
 /// \param center Pass UNUserNotificationCenter object.
 ///
 /// \param notification Pass the UNNotificationResponse object.
@@ -1850,24 +1847,24 @@ SWIFT_CLASS("_TtC16BrandMessengerUI21BrandMessengerManager")
 ///
 /// \param completion A closure to be called after the operation completes, with an optional error.
 ///
-+ (void)startNewConversationWithWelcomeWithInsertConversationList:(BOOL)insertConversationList sendWelcomeMessage:(BOOL)sendWelcomeMessage completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
++ (void)starNewConversationWithWelcomeWithInsertConversationList:(BOOL)insertConversationList sendWelcomeMessage:(BOOL)sendWelcomeMessage completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
 /// Create a new conversation and automatically display it if it successfully creates.
 /// No welcome-event message is sent to user.
 /// \param insertConversationList A Bool value indicating whether the conversation list should be inserted before displaying the conversation.
 ///
 /// \param completion A closure to be called after the operation completes, with an optional error.
 ///
-+ (void)startNewConversationWithInsertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
-/// EnableisAlive broadcasts. This will sent out a ping on user actions (at most once per second).
++ (void)starNewConversationWithInsertConversationList:(BOOL)insertConversationList completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+/// Set the interval for isAlive broadcasts in seconds. This will sent out a ping every interval while a BrandMessenger view is on foreground.
 /// <ul>
 ///   <li>
 ///     Parameters:
 ///   </li>
 ///   <li>
-///     enable: Bool
+///     interval: interval in Seconds, which the IsAlive message will be sent
 ///   </li>
 /// </ul>
-+ (void)enableIsAliveBroadcast:(BOOL)enable;
++ (void)setIsAliveBroadcastInterval:(NSInteger)interval;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1999,7 +1996,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI11KBMChatCell")
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
-- (void)layoutSubviews;
 @end
 
 SWIFT_CLASS("_TtC16BrandMessengerUI19KBMContextTitleView")
@@ -2072,7 +2068,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI38KBMConversationListTableViewController")
 - (UITableViewCellEditingStyle)tableView:(UITableView * _Nonnull)tableView editingStyleForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UISwipeActionsConfiguration * _Nullable)tableView:(UITableView * _Nonnull)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 @end
 
 @class UISearchController;
@@ -2093,7 +2088,6 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLayoutSubviews;
 @end
 
 @interface KBMConversationListViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UISearchBarDelegate>
@@ -2109,7 +2103,7 @@ SWIFT_CLASS("_TtC16BrandMessengerUI33KBMConversationListViewController")
 - (void)delivered:(NSString * _Nonnull)messageKey contactId:(NSString * _Nullable)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)updateStatusForContact:(NSString * _Nonnull)contactId withStatus:(int32_t)status withTimestamp:(NSNumber * _Nullable)timestamp;
 - (void)mqttDidConnected;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 - (void)syncCall:(KBMMessage * _Nonnull)message andMessageList:(NSMutableArray * _Nullable)_;
 - (void)updateMessageText:(NSString * _Nonnull)text withMessageKey:(NSString * _Nonnull)messageKey;
 - (void)updateTypingStatus:(NSString * _Nonnull)_ userId:(NSString * _Nonnull)userId status:(BOOL)status withConversationUserIdOrClientGroupId:(NSString * _Nonnull)userIdOrClientGroupId;
@@ -2197,7 +2191,7 @@ SWIFT_PROTOCOL("_TtP16BrandMessengerUI22NavigationBarCallbacks_")
 - (void)updateLastSeenAtStatus:(KBMUserDetail * _Nonnull)userDetail;
 - (void)mqttConnectionClosed;
 - (void)reloadDataForUserBlockNotification:(NSString * _Nonnull)_ andBlockFlag:(BOOL)_;
-- (void)updateUserDetailWithReceiverUserId:(NSString * _Nonnull)userId;
+- (void)updateUserDetail:(NSString * _Nonnull)userId;
 @end
 
 @interface KBMConversationViewController (SWIFT_EXTENSION(BrandMessengerUI)) <UITableViewDataSource, UITableViewDelegate>
