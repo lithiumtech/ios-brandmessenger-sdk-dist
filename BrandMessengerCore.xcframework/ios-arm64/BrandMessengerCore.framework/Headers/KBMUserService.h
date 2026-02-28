@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param lastSyncTime Pass the last sync time that synced before.
 - (void)blockUserSync:(NSNumber *)lastSyncTime;
 
-/// Posts the conversation read status with notification name `KBM_UPDATE_CONVERSATION_READ` and userInfo will have the userId of the user whose conversation has been read from another platform.
+/// Posts the conversation read status with notification name `Update_unread_count` and userInfo will have the userId of the user whose conversation has been read from another platform.
 /// @param userId of user that notification to post for read.
 /// @param delegate `KBMUpdatesDelegate` for sending callback for read conversation.
 /// @warning This method is used internal purpose only for posting notification.
@@ -219,9 +219,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)markConversationReadInDataBaseWithMessage:(KBMMessage *)message;
 
 - (void)markSingleMessageAsReadInDatabase:(KBMMessage *)message;
-
-- (void)sendTotalUnreadCountNotification;
-
 @end
 
 NS_ASSUME_NONNULL_END

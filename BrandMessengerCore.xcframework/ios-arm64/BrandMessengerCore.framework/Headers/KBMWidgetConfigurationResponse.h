@@ -25,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) NSString * _Nullable brandStyleId;
 
-@property(nonatomic) BOOL useInboxChat;
-
 - (BOOL)isImageUploadEnabled;
 
 - (BOOL)isFileUploadEnabled;
