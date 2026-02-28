@@ -13,6 +13,7 @@
 #import "DB_Message.h"
 #import <Foundation/Foundation.h>
 #import "MessageListRequest.h"
+#import "KBMConversationListMessages.h"
 
 @class KBMMessageService;
 
@@ -123,4 +124,5 @@
 
 - (void)updateMessageReadStatusForKey:(NSString *)messageKey;
 
+- (KBMConversationListMessages *)fetchLatestMessages;
 @end

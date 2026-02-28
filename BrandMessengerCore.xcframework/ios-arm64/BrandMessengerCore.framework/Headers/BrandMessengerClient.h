@@ -407,7 +407,7 @@ typedef NS_ENUM(NSInteger, KBMClientError) {
 /// channelInfo.groupMemberList = channelMemberArray; // Channel members userId array.
 /// channelInfo.type = PUBLIC; // Channel type.
 ///
-/// [brandMessengerClient createChannelWithChannelInfo:channelInfo withCompletion:^(KBMChannelCreateResponse * _Nullable response, NSError * _Nullable error) {
+/// [brandMessengerClient createChannelWithChannelInfo:channelInfo withCompletion:^(KBMChannelFeedResponse * _Nullable response, NSError * _Nullable error) {
 ///
 ///   if (error) {
 ///       NSLog(@"Error in creating a channel : %@", error.localizedDescription);
@@ -427,7 +427,7 @@ typedef NS_ENUM(NSInteger, KBMClientError) {
 ///
 /// @endcode
 - (void)createChannelWithChannelInfo:(KBMChannelInfo *)channelInfo
-                      withCompletion:(void(^)(KBMChannelCreateResponse * _Nullable response,  NSError * _Nullable error))completion;
+                      withCompletion:(void(^)(KBMChannelFeedResponse * _Nullable response,  NSError * _Nullable error))completion;
 
 /// Removes a member from the channel conversation.
 ///
