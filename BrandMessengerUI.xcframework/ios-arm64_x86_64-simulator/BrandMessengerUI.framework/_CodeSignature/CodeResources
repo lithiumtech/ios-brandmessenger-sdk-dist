@@ -6,19 +6,19 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		U4/ijOZ++0qbo4E7/2cj6bST2mU=
+		pES+Ga+WG9yC0IIPQM/3cK9rPIw=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
-		iYkd5onqSD46bz8nIZ42C5QVgMY=
+		5smlPh0mInTJGyNtyNzkl9adY1g=
 		</data>
 		<key>CreateGroupChat.storyboardc/CaI-s3-0mh-view-GuI-4l-BXU.nib</key>
 		<data>
-		LgdgMs0eEGsJIyFpQZ8KwaiSA7M=
+		Suj6rkKmpAd1irhCF54AqYafrDc=
 		</data>
 		<key>CreateGroupChat.storyboardc/CreateGroupNavigation.nib</key>
 		<data>
-		Ixth65xa+J6J77wCUA29Vzr8z3Q=
+		3swzhkohtv7wv4jW0XwHeIcUCWo=
 		</data>
 		<key>CreateGroupChat.storyboardc/Info.plist</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>CreateGroupChat.storyboardc/KBMCreateGroupViewController.nib</key>
 		<data>
-		riKY/1vTMxAbN8gxSQEmTkYhkb0=
+		wD/x4x3zdEc1gwVuRN6MaKrMfjg=
 		</data>
 		<key>CreateGroupChat.storyboardc/KBMParticipantSelectionViewContoller.nib</key>
 		<data>
-		lTRxECHObRO7g4jNaz2DFzw1m3g=
+		aBck6Dn1PXuUTugkxntg9RzXiXo=
 		</data>
 		<key>CreateGroupChat.storyboardc/qX5-gu-8Uq-view-3N8-iZ-Yps.nib</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>CustomCamera.storyboardc/CustomCameraNavigationController.nib/objects-12.3+.nib</key>
 		<data>
-		8665Qq22+8u9He9yBO/2E4IHhts=
+		Gv72051HbOE4L/2JuIuj2q07aSM=
 		</data>
 		<key>CustomCamera.storyboardc/CustomCameraNavigationController.nib/runtime.nib</key>
 		<data>
-		8665Qq22+8u9He9yBO/2E4IHhts=
+		Gv72051HbOE4L/2JuIuj2q07aSM=
 		</data>
 		<key>CustomCamera.storyboardc/Info.plist</key>
 		<data>
@@ -50,19 +50,19 @@
 		</data>
 		<key>CustomCamera.storyboardc/KBMCustomCameraPreviewViewController.nib/objects-12.3+.nib</key>
 		<data>
-		ScGc8UVIh0eZz9ourgiAcFVTtyg=
+		G9HBovZTUmG8avgcajmBWnj2hJA=
 		</data>
 		<key>CustomCamera.storyboardc/KBMCustomCameraPreviewViewController.nib/runtime.nib</key>
 		<data>
-		ScGc8UVIh0eZz9ourgiAcFVTtyg=
+		G9HBovZTUmG8avgcajmBWnj2hJA=
 		</data>
 		<key>CustomCamera.storyboardc/KBMCustomCameraViewController.nib/objects-12.3+.nib</key>
 		<data>
-		VCi016CTT8jInr+rNDt3Y5zIDFo=
+		OgUcuLxV+2IJq1lZ1XTj9SrVXDE=
 		</data>
 		<key>CustomCamera.storyboardc/KBMCustomCameraViewController.nib/runtime.nib</key>
 		<data>
-		VCi016CTT8jInr+rNDt3Y5zIDFo=
+		OgUcuLxV+2IJq1lZ1XTj9SrVXDE=
 		</data>
 		<key>CustomCamera.storyboardc/UIViewController-iTB-q3-GAc.nib/objects-12.3+.nib</key>
 		<data>
@@ -74,11 +74,11 @@
 		</data>
 		<key>CustomCamera.storyboardc/Wqs-0E-ffm-view-7Tr-pD-Cka.nib/objects-12.3+.nib</key>
 		<data>
-		iV7WUYr9Jr0tIEgQcOSRdR9x/5A=
+		o/A3b1BR9aRvX/55bbKfGrHASLI=
 		</data>
 		<key>CustomCamera.storyboardc/Wqs-0E-ffm-view-7Tr-pD-Cka.nib/runtime.nib</key>
 		<data>
-		iV7WUYr9Jr0tIEgQcOSRdR9x/5A=
+		o/A3b1BR9aRvX/55bbKfGrHASLI=
 		</data>
 		<key>CustomCamera.storyboardc/dyl-zf-n0M-view-JZe-R1-hhH.nib/objects-12.3+.nib</key>
 		<data>
@@ -98,19 +98,19 @@
 		</data>
 		<key>CustomPicker.storyboardc/Bbu-hj-5i4-view-XvS-GR-3Oe.nib/objects-12.3+.nib</key>
 		<data>
-		oBLXAFzHV3DdKh149kzBgKt7WOg=
+		8P0yHrIcTh7QVzW163i9zFXUdzs=
 		</data>
 		<key>CustomPicker.storyboardc/Bbu-hj-5i4-view-XvS-GR-3Oe.nib/runtime.nib</key>
 		<data>
-		wscYUA237RdqB/LLZEAHSr1/o3I=
+		PO6Yrv02XX4h6k/p3h/rTygAko0=
 		</data>
 		<key>CustomPicker.storyboardc/CustomPickerNavigationViewController.nib/objects-12.3+.nib</key>
 		<data>
-		BpCHGHknbMx2uCVy12vkVREv7B8=
+		MGckkXRZE081UKEdven/VqH49rk=
 		</data>
 		<key>CustomPicker.storyboardc/CustomPickerNavigationViewController.nib/runtime.nib</key>
 		<data>
-		BpCHGHknbMx2uCVy12vkVREv7B8=
+		MGckkXRZE081UKEdven/VqH49rk=
 		</data>
 		<key>CustomPicker.storyboardc/Info.plist</key>
 		<data>
@@ -124,9 +124,13 @@
 		<data>
 		nxqCY48SWbVTsGskfAKTeWnEEmw=
 		</data>
+		<key>EmptyChatCell.nib</key>
+		<data>
+		e/8+WFW00QU/MzyaNhcxZ3sqT/w=
+		</data>
 		<key>Headers/BrandMessengerUI-Swift.h</key>
 		<data>
-		Adda1dLJktEIoYRt2iOi6GYi74Q=
+		NX0BqWaB/dZqmzDK38w++PmnR9A=
 		</data>
 		<key>Headers/BrandMessengerUI.h</key>
 		<data>
@@ -134,7 +138,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		6xrisKDX639+vDztY7Xwp1Wdwqc=
+		dQwfW51yN1zFlpJYbcy0EairEHY=
 		</data>
 		<key>KBMAccountSuspensionView.nib</key>
 		<data>
@@ -158,11 +162,11 @@
 		</data>
 		<key>MapView.storyboardc/MapView.nib</key>
 		<data>
-		fR0p0WnKGMy3blOVSUF/5oSLr4Q=
+		Nl2sxCsuBzHMlTq3Zn5YTorDDZc=
 		</data>
 		<key>MapView.storyboardc/UINavigationController-WSq-8e-eNR.nib</key>
 		<data>
-		JE1+YNWl+aMeFs1XFRc3Ck9IWO0=
+		I7Hvr81ela0I03QCZ1xFbLnYebA=
 		</data>
 		<key>MapView.storyboardc/gjQ-qY-9vY-view-WIy-Ji-vjS.nib</key>
 		<data>
@@ -186,47 +190,47 @@
 		</data>
 		<key>MediaViewer.storyboardc/MediaViewerNavigationViewController.nib</key>
 		<data>
-		/GbKkDSptqs1xXSfsbY1nb4DUAU=
+		CoWm5o10ArYx7iz7xK6NnTNqJMM=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		9E/NXqTYMif/7cYUbdH0MXy6/80=
+		lB5vdGnDwVCVuhJIn6RXTSvtAf8=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Y7R9wA85MDIk7m7Lngnga4U9VDU=
+		x0nfIJvzzH/omYA54sngED3o/dQ=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		FiPHgQbyy1JsehXLBej/vQcOJ1E=
+		yAURJn8KVW/t4HK6qvYSmhxHxMQ=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Y7R9wA85MDIk7m7Lngnga4U9VDU=
+		x0nfIJvzzH/omYA54sngED3o/dQ=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ubZY5wOkAFDhVGaIu6EhobbdiPk=
+		KxxyxGL5kfEzpgD3+nxpLCbairc=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		ekCrvF071xnn8YU3Jgo6/G8BgXY=
+		8JfiPVWt9Q+DG77dWu1QVnV8KKs=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Z4UChGLYttv8mscQ1EbeazkGoKM=
+		gBxxD2WFqQ9xlWUb8Mv7Hv+Yl3I=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		JbiOwHk9tXJ2M7JVvThjCG0MMTU=
+		DjjpQwv3+1QJin+B2P87gYMnIx4=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Z4UChGLYttv8mscQ1EbeazkGoKM=
+		gBxxD2WFqQ9xlWUb8Mv7Hv+Yl3I=
 		</data>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2muQe7U9pafwMe8Z099pTJ57qwc=
+		DSEsBgkzbfdziK1sch0wHZF659Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -238,7 +242,7 @@
 		</data>
 		<key>PreviewImage.storyboardc/PreviewImageNavigationViewController.nib</key>
 		<data>
-		B8WtW0vw/BRuHlHvc5nZvYfeekc=
+		p8XEJgjJZ5qMHJyrrb+smdXVzs4=
 		</data>
 		<key>PreviewImage.storyboardc/PreviewImageViewController.nib</key>
 		<data>
@@ -254,11 +258,11 @@
 		</data>
 		<key>PreviewLocation.storyboardc/PreviewLocationViewController.nib</key>
 		<data>
-		AJb3P2a8CaY3k3fnKHWKlDcV91g=
+		8kODjN2lwRg+DQ8mrAqqY+KUFkc=
 		</data>
 		<key>PreviewLocation.storyboardc/UINavigationController-ihs-ZY-kzc.nib</key>
 		<data>
-		9/nMSgib/L+RMb0QiKOQtB1q40U=
+		hMjR1ClRjYoxk2aIEcsRtte9Gdg=
 		</data>
 		<key>PreviewLocation.storyboardc/l16-FW-5Jn-view-efs-qd-iIY.nib</key>
 		<data>
@@ -274,11 +278,11 @@
 		</data>
 		<key>ShareLocation.storyboardc/ShareLocationViewController.nib</key>
 		<data>
-		rHy1/CimcLDMLpctIsdQa1cn6GY=
+		gBCXUxZVepmxyrDLp5jtix+drxM=
 		</data>
 		<key>ShareLocation.storyboardc/UINavigationController-ekZ-mf-7SD.nib</key>
 		<data>
-		Q6LpTF70ukO8HGIUcAdyM+RkpVU=
+		hcr/m2NX4tQb6qKfNvRUbMlHFzk=
 		</data>
 		<key>ShareLocation.storyboardc/g1v-O6-33i-view-sAp-Ww-P5d.nib</key>
 		<data>
@@ -291,28 +295,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HljMjVhZc7OyDdu6Hk3ajlMHDVl3CT4Vaj3uxCM/oQU=
+			U+jFvrFx66YsTswli3urXhOP/OBg48jnnrghlMzebyU=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LV+haGvQYImcclxtilhhJoqo4nnQI3XvVkSXcKfFY4M=
+			q/OYOtSBF33VZ6UvDOLj0KWRu7PurlJMOVjxSQQnEa4=
 			</data>
 		</dict>
 		<key>CreateGroupChat.storyboardc/CaI-s3-0mh-view-GuI-4l-BXU.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mbVlTKAixBcPlAamzFlnuGr8ddges5ydEvAEh6nlsSo=
+			mtjfruksI+4FTcFZrjSYUR+Az49CpWcdDcaqsYqzRRk=
 			</data>
 		</dict>
 		<key>CreateGroupChat.storyboardc/CreateGroupNavigation.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RSpDsUX5qsj5zX7DYe8tq9LzFYRuahlPiQkY1CB53xA=
+			tolzzfhPsLN+MpmB9p9pccSWesWVT8ViT3+xWF+F01Q=
 			</data>
 		</dict>
 		<key>CreateGroupChat.storyboardc/Info.plist</key>
@@ -326,14 +330,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sn09C1KMTMLLb+Axiw2jNBYV/nZMBcx0zqQTlGpsUDI=
+			8+riJu2xpLxIUF/ZzMHp5xW6HVrw8p0N3ESgk0actTQ=
 			</data>
 		</dict>
 		<key>CreateGroupChat.storyboardc/KBMParticipantSelectionViewContoller.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			naYVFGKyArscrbZqSE+P2fghR5di46q5HWiAeBxz7JA=
+			QPUFRMRNABysY1vUaDtfAkJfau9yeQjpc0aDNfKKXeg=
 			</data>
 		</dict>
 		<key>CreateGroupChat.storyboardc/qX5-gu-8Uq-view-3N8-iZ-Yps.nib</key>
@@ -347,14 +351,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			thb6l5V20lymcj8EwaOEL/dhIBGEKzBg9WrOn+jO4CU=
+			7WRctUHN5Syfi+B4yk7BWa9QYmvv/H8K2SC1D2M6puw=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/CustomCameraNavigationController.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			thb6l5V20lymcj8EwaOEL/dhIBGEKzBg9WrOn+jO4CU=
+			7WRctUHN5Syfi+B4yk7BWa9QYmvv/H8K2SC1D2M6puw=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/Info.plist</key>
@@ -368,28 +372,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YskA435zMg6giBb/D04UVsU9NcfAAq3DPsmp+bwpySk=
+			6uJxvW8VzPvHSNEMgGpVXOEjT6rpxC9kUGsSyg5C5h8=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/KBMCustomCameraPreviewViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YskA435zMg6giBb/D04UVsU9NcfAAq3DPsmp+bwpySk=
+			6uJxvW8VzPvHSNEMgGpVXOEjT6rpxC9kUGsSyg5C5h8=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/KBMCustomCameraViewController.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jspXknoN/n7BbVjDh1M1ruehcgrPjIJcckkWjNgLlhA=
+			O1jG/oSmQZk68vJ3xbSBDSPqWLMmh1Rj2eOg0wTwu6A=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/KBMCustomCameraViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jspXknoN/n7BbVjDh1M1ruehcgrPjIJcckkWjNgLlhA=
+			O1jG/oSmQZk68vJ3xbSBDSPqWLMmh1Rj2eOg0wTwu6A=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/UIViewController-iTB-q3-GAc.nib/objects-12.3+.nib</key>
@@ -410,14 +414,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QybGoy6oadn8+0XSW93J/4D8C3YeVyW97GVuOfZKIog=
+			u+XA0LwrYnIdv2K+3sBaAAGJmfvxw/3Flw1CjHSZ3tY=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/Wqs-0E-ffm-view-7Tr-pD-Cka.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QybGoy6oadn8+0XSW93J/4D8C3YeVyW97GVuOfZKIog=
+			u+XA0LwrYnIdv2K+3sBaAAGJmfvxw/3Flw1CjHSZ3tY=
 			</data>
 		</dict>
 		<key>CustomCamera.storyboardc/dyl-zf-n0M-view-JZe-R1-hhH.nib/objects-12.3+.nib</key>
@@ -452,28 +456,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			S81WJyzQaRYysPt4Hyz6EkMPwgYnH6div2TtnX3FGBE=
+			XCF227teIVF8fnPpNdSejVnnrF0kERxm/dbktLaJo8o=
 			</data>
 		</dict>
 		<key>CustomPicker.storyboardc/Bbu-hj-5i4-view-XvS-GR-3Oe.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m1lKuMGjoFC5D31LwRk/mdFK/yLrT35wHHmxXNWC6/M=
+			2+4GQjkNSNa81FxCk5YZJRRiSc7KKMw85zPAKpUTEm8=
 			</data>
 		</dict>
 		<key>CustomPicker.storyboardc/CustomPickerNavigationViewController.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RzAW3+vcUQ5L5TsJCmjyS/GjRWYquVYLM/sEWg3mifk=
+			D2lgVuyzXu3CqnEES8ebzGqKlWrfrdBLt1l0EYvm1Gs=
 			</data>
 		</dict>
 		<key>CustomPicker.storyboardc/CustomPickerNavigationViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RzAW3+vcUQ5L5TsJCmjyS/GjRWYquVYLM/sEWg3mifk=
+			D2lgVuyzXu3CqnEES8ebzGqKlWrfrdBLt1l0EYvm1Gs=
 			</data>
 		</dict>
 		<key>CustomPicker.storyboardc/Info.plist</key>
@@ -497,11 +501,18 @@
 			0pRbwPa/NMXBTdBaB1VxoKOTjwW1+n2wFyJvWi8SD3Y=
 			</data>
 		</dict>
+		<key>EmptyChatCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JJMoYBqD5Cq1sCHz80TmKbkVzolNjFpwCgFAztYdKcc=
+			</data>
+		</dict>
 		<key>Headers/BrandMessengerUI-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CjAXZ8BkvmV887aYyG05MOmBUXmo2Feoj5dLgF6AqQw=
+			1de0flFcJvf0X1SFZ2DDz8pIJoYVFZOQbYdjGhTdH4Q=
 			</data>
 		</dict>
 		<key>Headers/BrandMessengerUI.h</key>
@@ -550,14 +561,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vkvfcs/B5Ks6p6dMWMJsuB4F5jjlLc/Q331v5VTQT0k=
+			v3ak+dGOeOxZ5LquR5gtGvdElM+7m6Al9V8Yx5zSQoM=
 			</data>
 		</dict>
 		<key>MapView.storyboardc/UINavigationController-WSq-8e-eNR.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KUOfqMDkwolWykZ3s+okz8cskOCsEMuUKD3KpNWfAyI=
+			CFiSxOvjq9H8o1c1qtFAWI7UO5iymLM+CAZM4SG5Gqg=
 			</data>
 		</dict>
 		<key>MapView.storyboardc/gjQ-qY-9vY-view-WIy-Ji-vjS.nib</key>
@@ -599,77 +610,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/EwQnjodQCEAxT665xtdyEnbvoVPDMrtpC+Q4U0dXFc=
+			YLC4VicFt9Nsj9mxALFx1YDVn01nIjB5zUO1ijXtLW4=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QAgF0Gn19h+b8ZE/t0TA4shv9eST2EYWmL/wOEcjvIE=
+			Og2tQuzhD8cyfM9dYwjnYcp2+2sLATFkj9GpK2Jslm0=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aFukYwTK7Z/5wtOwnfFniBxcdKMJoRRm+ULQ3tDr/XM=
+			jv3PVSqKPiToB7ctsrrfSqhB5jkQvhEXivUv2ZASpNM=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WPXw0MxNdJYDJA1+a8ZWx8HXjeq9Sgl+sa998OWYRko=
+			lhbiP31p00gHh6NMxYA+2O1Bg1xkZ4ORaE0FR+2HqtE=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aFukYwTK7Z/5wtOwnfFniBxcdKMJoRRm+ULQ3tDr/XM=
+			jv3PVSqKPiToB7ctsrrfSqhB5jkQvhEXivUv2ZASpNM=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JldqiKjZiHnw0lyL/Lb/LauMH5zbbDw3IWWCRuVSVGo=
+			ndiA+MgejWtdISYD0s/eFRsETC/FeMK4M58trQvTAXQ=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/kl6xuipQfZ6X4oIU/X/jCSwRb2IWsn4hN0iUnzo82s=
+			ZSYl7MRJR3p/R5rD3585ZBXzqi830ft4zI2UhLMJJ20=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ap1utsbFLZtFN9cfTw4gQT05WQ/X/w9Seq/JG3dIZpY=
+			ovWYwLV+JN3990E625LmdMlYG55Gyfq6qx3IHQuC+Q0=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QsZmFLZggWEUGSLF1F0hB37gW2FlZo2DUI7ROoUrdQI=
+			lbyCmQjwRPScaubh3+e3TkNtJnebHarwHsOHWzRFAU8=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ap1utsbFLZtFN9cfTw4gQT05WQ/X/w9Seq/JG3dIZpY=
+			ovWYwLV+JN3990E625LmdMlYG55Gyfq6qx3IHQuC+Q0=
 			</data>
 		</dict>
 		<key>Modules/BrandMessengerUI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			USwncccepUmYtofhp3J0p9jLrnUymDon8u/bLQ7EP4g=
+			WnKJu/k7c5Cter+oGNjHEHV3b4Wz3J7NYN5e0kgHsZI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -690,7 +701,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KsgR7trVDR2Pux0GntKqAXc67yRFg4e4Qo0wwFdTdsE=
+			2zsBURpQ8BU82s6MllK03di7QN0J6YJWXoeC5W1tx2s=
 			</data>
 		</dict>
 		<key>PreviewImage.storyboardc/PreviewImageViewController.nib</key>
@@ -718,14 +729,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n8L6ahsXEnFZXJJQTq9bQnWFDb8OnMqVckp2hS/XKNw=
+			rHlPuQTiP+kId3Mb5SbXbAIRdhz3GsmY0gmDshqoCmg=
 			</data>
 		</dict>
 		<key>PreviewLocation.storyboardc/UINavigationController-ihs-ZY-kzc.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0NYLiqWxrui1aYs9Vjd5D5CfAv4vTaO4caVB8w/IM+M=
+			IPLYQRjSMj/XyoebUzaXB3Mvlm6DXdL+2IEAGaxRUpQ=
 			</data>
 		</dict>
 		<key>PreviewLocation.storyboardc/l16-FW-5Jn-view-efs-qd-iIY.nib</key>
@@ -753,14 +764,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O44f4bajzt/fw2jPa8M4/rTatUEI/c0NHIidyHmP0Ew=
+			hUYXMNJMDiYx6KYtZlLCsmvhBtJ1OcluYoe5hFlnx74=
 			</data>
 		</dict>
 		<key>ShareLocation.storyboardc/UINavigationController-ekZ-mf-7SD.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jlavgjY+GOCh2JGX3dTUQYNjyua3mKegMnomghVFqfo=
+			Bi7xDIrfNNriC6ZqJGprfln8CtSiRuVZUp/FDWt8WTc=
 			</data>
 		</dict>
 		<key>ShareLocation.storyboardc/g1v-O6-33i-view-sAp-Ww-P5d.nib</key>
