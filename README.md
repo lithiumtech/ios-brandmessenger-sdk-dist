@@ -26,33 +26,34 @@ BrandMessengerManager.login("YOUR_ACCESS_TOKEN") { response, error in }
 BrandMessengerManager.show()
 ```
 
-## Supported Xcode / Swift toolchain
+## Build toolchain & Xcode compatibility
 
-These frameworks are distributed as **pre-compiled binary Swift `.xcframework`s**.
-A binary Swift framework is coupled to the Swift toolchain that produced it.
-The frameworks enable module stability (library evolution) and ship a textual
-`.swiftinterface`, but the practical compatibility window does **not** span large
-Xcode/Swift jumps. Building the SDK with an Xcode whose Swift compiler differs
-significantly from the one the framework was built with fails at compile time
-with:
+These are **pre-compiled binary Swift `.xcframework`s** built with module stability
+(`BUILD_LIBRARY_FOR_DISTRIBUTION=YES`); each ships a textual `.swiftinterface`
+(no binary `.swiftmodule`). Swift module stability is **asymmetric**:
 
-```
-failed to build module 'BrandMessengerUI'; this SDK is not supported by the compiler
-(the SDK is built with 'Apple Swift version X', while this compiler is 'Apple Swift version Y').
-Please select a toolchain which matches the SDK.
-```
+- ✅ **Newer Xcode consuming an older-built framework works.** A newer Swift
+  compiler rebuilds the framework's `.swiftinterface`. Verified: `1.16.11`
+  (built with Swift 6.1.2) imports and builds successfully under **Xcode 26.5 /
+  Swift 6.3.2** (eng-maintenance#20609).
+- ⚠️ **Older Xcode consuming a newer-built framework fails.** An older compiler
+  cannot consume an interface produced by a newer one, surfacing as
+  `this SDK is not supported by the compiler`. This is why `1.16.8` / `1.16.10`
+  (built with Swift 6.2.3) failed on Xcode 16.x and were replaced by `1.16.11`.
 
-To avoid this, use a release built with the same Xcode major line you build your
-app with. Each release records its producing toolchain in `BUILD_TOOLCHAIN.txt`.
+Each release records its producing toolchain in `BUILD_TOOLCHAIN.txt`.
 
 | SDK version | Built with (Xcode / Swift) | Notes |
 |-------------|----------------------------|-------|
-| `1.16.11` (latest stable) | Xcode 16.4 / Swift 6.1.2 | Use with Xcode 16.x. Does **not** import under Xcode 26.x (Swift 6.3.x). |
-| `2.0.3` | Xcode 26.2 / Swift 6.2.3 | Built with Swift 6.2.3 (earlier notes saying "Xcode 16.0" were inaccurate). |
-| `1.16.8`, `1.16.10` | Xcode 26.2 / Swift 6.2.3 | Superseded — caused build failures on Xcode 16.x; replaced by `1.16.11`. |
+| `1.16.11` (latest stable) | Xcode 16.4 / Swift 6.1.2 | Verified to build under Xcode 16.x **and** Xcode 26.5 / Swift 6.3.2. |
+| `2.0.3` | Xcode 26.2 / Swift 6.2.3 | Built with Swift 6.2.3 (earlier "Xcode 16.0" note was inaccurate). Requires Xcode 26.x. |
+| `1.16.8`, `1.16.10` | Xcode 26.2 / Swift 6.2.3 | Superseded — failed on Xcode 16.x; replaced by `1.16.11`. |
 | `≤ 1.16.4` | Xcode 16.0 or earlier | Legacy. |
 
-> **Xcode 26.5 / Swift 6.3.2:** no published release is built on this toolchain
-> yet. A build is required for apps on the latest Xcode — tracked in
-> eng-maintenance#20609. Until then, build your app with the Xcode line that
-> matches the release above.
+> **If a build fails with `this SDK is not supported by the compiler`** on a
+> **newer** Xcode than the framework was built with, the framework binary itself
+> is not the cause (the forward direction is verified to work). Check for a stale
+> `DerivedData` / module cache, a non-standard packaging step (e.g. a private SPM
+> wrapper that re-zips the frameworks), or a mismatched toolchain selection, and
+> retry on the supported CocoaPods integration. Official SPM support is tracked
+> separately under KHOROSPEF-1380.
