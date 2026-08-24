@@ -7,5 +7,4 @@ framework module ISEmojiView {
 
 module ISEmojiView.Swift {
   header "ISEmojiView-Swift.h"
-  requires objc
 }

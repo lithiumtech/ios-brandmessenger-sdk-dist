@@ -7,5 +7,4 @@ framework module BrandMessengerUI {
 
 module BrandMessengerUI.Swift {
   header "BrandMessengerUI-Swift.h"
-  requires objc
 }

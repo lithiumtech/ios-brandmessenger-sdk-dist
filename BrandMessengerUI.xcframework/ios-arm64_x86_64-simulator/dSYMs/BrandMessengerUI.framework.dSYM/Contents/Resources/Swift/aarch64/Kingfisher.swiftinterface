@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Kingfisher
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Kingfisher
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import AVKit
 import Accelerate
 import CarPlay
@@ -14,7 +15,18 @@ import MobileCoreServices
 import Swift
 import SwiftUI
 import UIKit
+import UIKit
+import UIKit
+import UIKit
+import UIKit
+import UIKit
+import UIKit
+import UIKit
+import UIKit
+import UIKit
 import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
 public protocol ImageModifier {
   func modify(_ image: Kingfisher.KFCrossPlatformImage) -> Kingfisher.KFCrossPlatformImage
 }
@@ -48,7 +60,7 @@ extension Kingfisher.CacheSerializer {
 }
 public struct DefaultCacheSerializer : Kingfisher.CacheSerializer {
   public static let `default`: Kingfisher.DefaultCacheSerializer
-  public var compressionQuality: CoreGraphics.CGFloat
+  public var compressionQuality: CoreFoundation.CGFloat
   public var preferCacheOriginalData: Swift.Bool
   public var originalDataUsed: Swift.Bool {
     get
@@ -59,7 +71,7 @@ public struct DefaultCacheSerializer : Kingfisher.CacheSerializer {
 }
 public protocol ImageDataProvider {
   var cacheKey: Swift.String { get }
-  func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
+  func data(handler: @escaping (Swift.Result<Foundation.Data, any Swift.Error>) -> Swift.Void)
   var contentURL: Foundation.URL? { get }
 }
 extension Kingfisher.ImageDataProvider {
@@ -72,15 +84,11 @@ public struct LocalFileImageDataProvider : Kingfisher.ImageDataProvider {
   public let fileURL: Foundation.URL
   public init(fileURL: Foundation.URL, cacheKey: Swift.String? = nil, loadingQueue: Kingfisher.ExecutionQueue = .dispatch(DispatchQueue.global(qos: .userInitiated)))
   public var cacheKey: Swift.String
-  public func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
-  
-  #if compiler(>=5.3) && $EffectfulProp
+  public func data(handler: @escaping (Swift.Result<Foundation.Data, any Swift.Error>) -> Swift.Void)
   @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
   public var data: Foundation.Data {
     get async throws
   }
-  #endif
-
   public var contentURL: Foundation.URL? {
     get
   }
@@ -89,13 +97,13 @@ public struct Base64ImageDataProvider : Kingfisher.ImageDataProvider {
   public let base64String: Swift.String
   public init(base64String: Swift.String, cacheKey: Swift.String)
   public var cacheKey: Swift.String
-  public func data(handler: (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
+  public func data(handler: (Swift.Result<Foundation.Data, any Swift.Error>) -> Swift.Void)
 }
 public struct RawImageDataProvider : Kingfisher.ImageDataProvider {
   public let data: Foundation.Data
   public init(data: Foundation.Data, cacheKey: Swift.String)
   public var cacheKey: Swift.String
-  public func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
+  public func data(handler: @escaping (Swift.Result<Foundation.Data, any Swift.Error>) -> Swift.Void)
 }
 public protocol AnimatedImageViewDelegate : AnyObject {
   func animatedImageView(_ imageView: Kingfisher.AnimatedImageView, didPlayAnimationLoops count: Swift.UInt)
@@ -105,51 +113,51 @@ extension Kingfisher.AnimatedImageViewDelegate {
   public func animatedImageView(_ imageView: Kingfisher.AnimatedImageView, didPlayAnimationLoops count: Swift.UInt)
   public func animatedImageViewDidFinishAnimating(_ imageView: Kingfisher.AnimatedImageView)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class AnimatedImageView : UIKit.UIImageView {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class AnimatedImageView : UIKit.UIImageView {
   public enum RepeatCount : Swift.Equatable {
     case once
     case finite(count: Swift.UInt)
     case infinite
     public static func == (lhs: Kingfisher.AnimatedImageView.RepeatCount, rhs: Kingfisher.AnimatedImageView.RepeatCount) -> Swift.Bool
   }
-  @_Concurrency.MainActor(unsafe) public var autoPlayAnimatedImage: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var framePreloadCount: Swift.Int
-  @_Concurrency.MainActor(unsafe) public var needsPrescaling: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var backgroundDecode: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var runLoopMode: Foundation.RunLoop.Mode {
+  @_Concurrency.MainActor @preconcurrency public var autoPlayAnimatedImage: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var framePreloadCount: Swift.Int
+  @_Concurrency.MainActor @preconcurrency public var needsPrescaling: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var backgroundDecode: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var runLoopMode: Foundation.RunLoop.Mode {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public var repeatCount: Kingfisher.AnimatedImageView.RepeatCount {
+  @_Concurrency.MainActor @preconcurrency public var repeatCount: Kingfisher.AnimatedImageView.RepeatCount {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) weak public var delegate: Kingfisher.AnimatedImageViewDelegate?
-  @_Concurrency.MainActor(unsafe) public var animator: Kingfisher.AnimatedImageView.Animator? {
+  @_Concurrency.MainActor @preconcurrency weak public var delegate: (any Kingfisher.AnimatedImageViewDelegate)?
+  @_Concurrency.MainActor @preconcurrency public var animator: Kingfisher.AnimatedImageView.Animator? {
     get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var image: Kingfisher.KFCrossPlatformImage? {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var image: Kingfisher.KFCrossPlatformImage? {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHighlighted: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
   }
   @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isAnimating: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var isAnimating: Swift.Bool {
+    @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func startAnimating()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func stopAnimating()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func display(_ layer: QuartzCore.CALayer)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToWindow()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToSuperview()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func startAnimating()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func stopAnimating()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func display(_ layer: QuartzCore.CALayer)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func didMoveToWindow()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func didMoveToSuperview()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(image: UIKit.UIImage?)
   @available(iOS 3.0, *)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 extension Kingfisher.AnimatedImageView {
   @_hasMissingDesignatedInitializers public class Animator {
@@ -288,7 +296,7 @@ public struct AVAssetImageDataProvider : Kingfisher.ImageDataProvider {
   public init(assetImageGenerator: AVFoundation.AVAssetImageGenerator, time: CoreMedia.CMTime)
   public init(assetURL: Foundation.URL, time: CoreMedia.CMTime)
   public init(assetURL: Foundation.URL, seconds: Foundation.TimeInterval)
-  public func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
+  public func data(handler: @escaping (Swift.Result<Foundation.Data, any Swift.Error>) -> Swift.Void)
 }
 public class Delegate<Input, Output> {
   public init()
@@ -297,11 +305,11 @@ public class Delegate<Input, Output> {
   public func callAsFunction(_ input: Input) -> Output?
   @objc deinit
 }
-extension Kingfisher.Delegate where Input == Swift.Void {
+extension Kingfisher.Delegate where Input == () {
   public func call() -> Output?
   public func callAsFunction() -> Output?
 }
-extension Kingfisher.Delegate where Input == Swift.Void, Output : Kingfisher.OptionalProtocol {
+extension Kingfisher.Delegate where Input == (), Output : Kingfisher.OptionalProtocol {
   public func call() -> Output
   public func callAsFunction() -> Output
 }
@@ -347,7 +355,7 @@ public protocol ImageProcessor {
   func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 extension Kingfisher.ImageProcessor {
-  public func append(another: Kingfisher.ImageProcessor) -> Kingfisher.ImageProcessor
+  public func append(another: any Kingfisher.ImageProcessor) -> any Kingfisher.ImageProcessor
 }
 public struct DefaultImageProcessor : Kingfisher.ImageProcessor {
   public static let `default`: Kingfisher.DefaultImageProcessor
@@ -370,33 +378,33 @@ public struct RectCorner : Swift.OptionSet {
 public struct BlendImageProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
   public let blendMode: CoreGraphics.CGBlendMode
-  public let alpha: CoreGraphics.CGFloat
+  public let alpha: CoreFoundation.CGFloat
   public let backgroundColor: Kingfisher.KFCrossPlatformColor?
-  public init(blendMode: CoreGraphics.CGBlendMode, alpha: CoreGraphics.CGFloat = 1.0, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil)
+  public init(blendMode: CoreGraphics.CGBlendMode, alpha: CoreFoundation.CGFloat = 1.0, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public enum Radius {
-  case widthFraction(CoreGraphics.CGFloat)
-  case heightFraction(CoreGraphics.CGFloat)
-  case point(CoreGraphics.CGFloat)
-  public func compute(with size: CoreGraphics.CGSize) -> CoreGraphics.CGFloat
+  case widthFraction(CoreFoundation.CGFloat)
+  case heightFraction(CoreFoundation.CGFloat)
+  case point(CoreFoundation.CGFloat)
+  public func compute(with size: CoreFoundation.CGSize) -> CoreFoundation.CGFloat
 }
 public struct RoundCornerImageProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
   public let radius: Kingfisher.Radius
   public let roundingCorners: Kingfisher.RectCorner
-  public let targetSize: CoreGraphics.CGSize?
+  public let targetSize: CoreFoundation.CGSize?
   public let backgroundColor: Kingfisher.KFCrossPlatformColor?
-  public init(cornerRadius: CoreGraphics.CGFloat, targetSize: CoreGraphics.CGSize? = nil, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil)
-  public init(radius: Kingfisher.Radius, targetSize: CoreGraphics.CGSize? = nil, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil)
+  public init(cornerRadius: CoreFoundation.CGFloat, targetSize: CoreFoundation.CGSize? = nil, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil)
+  public init(radius: Kingfisher.Radius, targetSize: CoreFoundation.CGSize? = nil, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public struct Border {
   public var color: Kingfisher.KFCrossPlatformColor
-  public var lineWidth: CoreGraphics.CGFloat
+  public var lineWidth: CoreFoundation.CGFloat
   public var radius: Kingfisher.Radius
   public var roundingCorners: Kingfisher.RectCorner
-  public init(color: Kingfisher.KFCrossPlatformColor = .black, lineWidth: CoreGraphics.CGFloat = 4, radius: Kingfisher.Radius = .point(0), roundingCorners: Kingfisher.RectCorner = .all)
+  public init(color: Kingfisher.KFCrossPlatformColor = .black, lineWidth: CoreFoundation.CGFloat = 4, radius: Kingfisher.Radius = .point(0), roundingCorners: Kingfisher.RectCorner = .all)
 }
 public struct BorderImageProcessor : Kingfisher.ImageProcessor {
   public var identifier: Swift.String {
@@ -418,22 +426,22 @@ public enum ContentMode {
 }
 public struct ResizingImageProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
-  public let referenceSize: CoreGraphics.CGSize
+  public let referenceSize: CoreFoundation.CGSize
   public let targetContentMode: Kingfisher.ContentMode
-  public init(referenceSize: CoreGraphics.CGSize, mode: Kingfisher.ContentMode = .none)
+  public init(referenceSize: CoreFoundation.CGSize, mode: Kingfisher.ContentMode = .none)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public struct BlurImageProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
-  public let blurRadius: CoreGraphics.CGFloat
-  public init(blurRadius: CoreGraphics.CGFloat)
+  public let blurRadius: CoreFoundation.CGFloat
+  public init(blurRadius: CoreFoundation.CGFloat)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public struct OverlayImageProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
   public let overlay: Kingfisher.KFCrossPlatformColor
-  public let fraction: CoreGraphics.CGFloat
-  public init(overlay: Kingfisher.KFCrossPlatformColor, fraction: CoreGraphics.CGFloat = 0.5)
+  public let fraction: CoreFoundation.CGFloat
+  public init(overlay: Kingfisher.KFCrossPlatformColor, fraction: CoreFoundation.CGFloat = 0.5)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public struct TintImageProcessor : Kingfisher.ImageProcessor {
@@ -444,11 +452,11 @@ public struct TintImageProcessor : Kingfisher.ImageProcessor {
 }
 public struct ColorControlsProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
-  public let brightness: CoreGraphics.CGFloat
-  public let contrast: CoreGraphics.CGFloat
-  public let saturation: CoreGraphics.CGFloat
-  public let inputEV: CoreGraphics.CGFloat
-  public init(brightness: CoreGraphics.CGFloat, contrast: CoreGraphics.CGFloat, saturation: CoreGraphics.CGFloat, inputEV: CoreGraphics.CGFloat)
+  public let brightness: CoreFoundation.CGFloat
+  public let contrast: CoreFoundation.CGFloat
+  public let saturation: CoreFoundation.CGFloat
+  public let inputEV: CoreFoundation.CGFloat
+  public init(brightness: CoreFoundation.CGFloat, contrast: CoreFoundation.CGFloat, saturation: CoreFoundation.CGFloat, inputEV: CoreFoundation.CGFloat)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public struct BlackWhiteProcessor : Kingfisher.ImageProcessor {
@@ -458,19 +466,19 @@ public struct BlackWhiteProcessor : Kingfisher.ImageProcessor {
 }
 public struct CroppingImageProcessor : Kingfisher.ImageProcessor {
   public let identifier: Swift.String
-  public let size: CoreGraphics.CGSize
-  public let anchor: CoreGraphics.CGPoint
-  public init(size: CoreGraphics.CGSize, anchor: CoreGraphics.CGPoint = CGPoint(x: 0.5, y: 0.5))
+  public let size: CoreFoundation.CGSize
+  public let anchor: CoreFoundation.CGPoint
+  public init(size: CoreFoundation.CGSize, anchor: CoreFoundation.CGPoint = CGPoint(x: 0.5, y: 0.5))
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 public struct DownsamplingImageProcessor : Kingfisher.ImageProcessor {
-  public let size: CoreGraphics.CGSize
+  public let size: CoreFoundation.CGSize
   public let identifier: Swift.String
-  public init(size: CoreGraphics.CGSize)
+  public init(size: CoreFoundation.CGSize)
   public func process(item: Kingfisher.ImageProcessItem, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
 infix operator |> : AdditionPrecedence
-public func |> (left: Kingfisher.ImageProcessor, right: Kingfisher.ImageProcessor) -> Kingfisher.ImageProcessor
+public func |> (left: any Kingfisher.ImageProcessor, right: any Kingfisher.ImageProcessor) -> any Kingfisher.ImageProcessor
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
   public var imageFrameCount: Swift.Int? {
     get
@@ -487,20 +495,20 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
   public func pngRepresentation() -> Foundation.Data?
-  public func jpegRepresentation(compressionQuality: CoreGraphics.CGFloat) -> Foundation.Data?
+  public func jpegRepresentation(compressionQuality: CoreFoundation.CGFloat) -> Foundation.Data?
   public func gifRepresentation() -> Foundation.Data?
-  public func data(format: Kingfisher.ImageFormat, compressionQuality: CoreGraphics.CGFloat = 1.0) -> Foundation.Data?
+  public func data(format: Kingfisher.ImageFormat, compressionQuality: CoreFoundation.CGFloat = 1.0) -> Foundation.Data?
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
   public static func animatedImage(data: Foundation.Data, options: Kingfisher.ImageCreatingOptions) -> Kingfisher.KFCrossPlatformImage?
   public static func image(data: Foundation.Data, options: Kingfisher.ImageCreatingOptions) -> Kingfisher.KFCrossPlatformImage?
-  public static func downsampledImage(data: Foundation.Data, to pointSize: CoreGraphics.CGSize, scale: CoreGraphics.CGFloat) -> Kingfisher.KFCrossPlatformImage?
+  public static func downsampledImage(data: Foundation.Data, to pointSize: CoreFoundation.CGSize, scale: CoreFoundation.CGFloat) -> Kingfisher.KFCrossPlatformImage?
 }
 extension Swift.String : Kingfisher.KingfisherCompatibleValue {
 }
 public protocol ImageDownloaderDelegate : AnyObject {
   func imageDownloader(_ downloader: Kingfisher.ImageDownloader, willDownloadImageForURL url: Foundation.URL, with request: Foundation.URLRequest?)
-  func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didFinishDownloadingImageForURL url: Foundation.URL, with response: Foundation.URLResponse?, error: Swift.Error?)
+  func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didFinishDownloadingImageForURL url: Foundation.URL, with response: Foundation.URLResponse?, error: (any Swift.Error)?)
   func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didDownload data: Foundation.Data, with dataTask: Kingfisher.SessionDataTask) -> Foundation.Data?
   func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didDownload data: Foundation.Data, for url: Foundation.URL) -> Foundation.Data?
   func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didDownload image: Kingfisher.KFCrossPlatformImage, for url: Foundation.URL, with response: Foundation.URLResponse?)
@@ -508,7 +516,7 @@ public protocol ImageDownloaderDelegate : AnyObject {
 }
 extension Kingfisher.ImageDownloaderDelegate {
   public func imageDownloader(_ downloader: Kingfisher.ImageDownloader, willDownloadImageForURL url: Foundation.URL, with request: Foundation.URLRequest?)
-  public func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didFinishDownloadingImageForURL url: Foundation.URL, with response: Foundation.URLResponse?, error: Swift.Error?)
+  public func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didFinishDownloadingImageForURL url: Foundation.URL, with response: Foundation.URLResponse?, error: (any Swift.Error)?)
   public func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didDownload image: Kingfisher.KFCrossPlatformImage, for url: Foundation.URL, with response: Foundation.URLResponse?)
   public func isValidStatusCode(_ code: Swift.Int, for downloader: Kingfisher.ImageDownloader) -> Swift.Bool
   public func imageDownloader(_ downloader: Kingfisher.ImageDownloader, didDownload data: Foundation.Data, with task: Kingfisher.SessionDataTask) -> Foundation.Data?
@@ -543,45 +551,45 @@ extension Kingfisher.KFOptionSetter {
   public func onlyFromCache(_ enabled: Swift.Bool = true) -> Self
   public func backgroundDecode(_ enabled: Swift.Bool = true) -> Self
   public func callbackQueue(_ queue: Kingfisher.CallbackQueue) -> Self
-  public func scaleFactor(_ factor: CoreGraphics.CGFloat) -> Self
+  public func scaleFactor(_ factor: CoreFoundation.CGFloat) -> Self
   public func cacheOriginalImage(_ enabled: Swift.Bool = true) -> Self
   public func diskStoreWriteOptions(_ writingOptions: Foundation.Data.WritingOptions) -> Self
   public func loadDiskFileSynchronously(_ enabled: Swift.Bool = true) -> Self
   public func processingQueue(_ queue: Kingfisher.CallbackQueue?) -> Self
   public func alternativeSources(_ sources: [Kingfisher.Source]?) -> Self
-  public func retry(_ strategy: Kingfisher.RetryStrategy?) -> Self
+  public func retry(_ strategy: (any Kingfisher.RetryStrategy)?) -> Self
   public func retry(maxCount: Swift.Int, interval: Kingfisher.DelayRetryStrategy.Interval = .seconds(3)) -> Self
   public func lowDataModeSource(_ source: Kingfisher.Source?) -> Self
   public func forceTransition(_ enabled: Swift.Bool = true) -> Self
   public func onFailureImage(_ image: Kingfisher.KFCrossPlatformImage?) -> Self
 }
 extension Kingfisher.KFOptionSetter {
-  public func requestModifier(_ modifier: Kingfisher.AsyncImageDownloadRequestModifier) -> Self
+  public func requestModifier(_ modifier: any Kingfisher.AsyncImageDownloadRequestModifier) -> Self
   public func requestModifier(_ modifyBlock: @escaping (inout Foundation.URLRequest) -> Swift.Void) -> Self
 }
 extension Kingfisher.KFOptionSetter {
-  public func redirectHandler(_ handler: Kingfisher.ImageDownloadRedirectHandler) -> Self
+  public func redirectHandler(_ handler: any Kingfisher.ImageDownloadRedirectHandler) -> Self
   public func redirectHandler(_ block: @escaping (Kingfisher.KF.RedirectPayload) -> Swift.Void) -> Self
 }
 extension Kingfisher.KFOptionSetter {
-  public func setProcessor(_ processor: Kingfisher.ImageProcessor) -> Self
-  public func setProcessors(_ processors: [Kingfisher.ImageProcessor]) -> Self
-  public func appendProcessor(_ processor: Kingfisher.ImageProcessor) -> Self
-  public func roundCorner(radius: Kingfisher.Radius, targetSize: CoreGraphics.CGSize? = nil, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Self
-  public func blur(radius: CoreGraphics.CGFloat) -> Self
-  public func overlay(color: Kingfisher.KFCrossPlatformColor, fraction: CoreGraphics.CGFloat = 0.5) -> Self
+  public func setProcessor(_ processor: any Kingfisher.ImageProcessor) -> Self
+  public func setProcessors(_ processors: [any Kingfisher.ImageProcessor]) -> Self
+  public func appendProcessor(_ processor: any Kingfisher.ImageProcessor) -> Self
+  public func roundCorner(radius: Kingfisher.Radius, targetSize: CoreFoundation.CGSize? = nil, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Self
+  public func blur(radius: CoreFoundation.CGFloat) -> Self
+  public func overlay(color: Kingfisher.KFCrossPlatformColor, fraction: CoreFoundation.CGFloat = 0.5) -> Self
   public func tint(color: Kingfisher.KFCrossPlatformColor) -> Self
   public func blackWhite() -> Self
-  public func cropping(size: CoreGraphics.CGSize, anchor: CoreGraphics.CGPoint = .init(x: 0.5, y: 0.5)) -> Self
-  public func downsampling(size: CoreGraphics.CGSize) -> Self
-  public func resizing(referenceSize: CoreGraphics.CGSize, mode: Kingfisher.ContentMode = .none) -> Self
+  public func cropping(size: CoreFoundation.CGSize, anchor: CoreFoundation.CGPoint = .init(x: 0.5, y: 0.5)) -> Self
+  public func downsampling(size: CoreFoundation.CGSize) -> Self
+  public func resizing(referenceSize: CoreFoundation.CGSize, mode: Kingfisher.ContentMode = .none) -> Self
 }
 extension Kingfisher.KFOptionSetter {
-  public func serialize(by cacheSerializer: Kingfisher.CacheSerializer) -> Self
-  public func serialize(as format: Kingfisher.ImageFormat, jpegCompressionQuality: CoreGraphics.CGFloat? = nil) -> Self
+  public func serialize(by cacheSerializer: any Kingfisher.CacheSerializer) -> Self
+  public func serialize(as format: Kingfisher.ImageFormat, jpegCompressionQuality: CoreFoundation.CGFloat? = nil) -> Self
 }
 extension Kingfisher.KFOptionSetter {
-  public func imageModifier(_ modifier: Kingfisher.ImageModifier?) -> Self
+  public func imageModifier(_ modifier: (any Kingfisher.ImageModifier)?) -> Self
   public func imageModifier(_ block: @escaping (inout Kingfisher.KFCrossPlatformImage) throws -> Swift.Void) -> Self
 }
 extension Kingfisher.KFOptionSetter {
@@ -592,9 +600,9 @@ extension Kingfisher.KFOptionSetter {
 }
 public enum KF {
   public static func source(_ source: Kingfisher.Source?) -> Kingfisher.KF.Builder
-  public static func resource(_ resource: Kingfisher.Resource?) -> Kingfisher.KF.Builder
+  public static func resource(_ resource: (any Kingfisher.Resource)?) -> Kingfisher.KF.Builder
   public static func url(_ url: Foundation.URL?, cacheKey: Swift.String? = nil) -> Kingfisher.KF.Builder
-  public static func dataProvider(_ provider: Kingfisher.ImageDataProvider?) -> Kingfisher.KF.Builder
+  public static func dataProvider(_ provider: (any Kingfisher.ImageDataProvider)?) -> Kingfisher.KF.Builder
   public static func data(_ data: Foundation.Data?, cacheKey: Swift.String) -> Kingfisher.KF.Builder
 }
 extension Kingfisher.KF {
@@ -620,7 +628,7 @@ extension Kingfisher.KF.Builder {
   public func set(to listItem: CarPlay.CPListItem) -> Kingfisher.DownloadTask?
 }
 extension Kingfisher.KF.Builder {
-  public func placeholder(_ placeholder: Kingfisher.Placeholder?) -> Self
+  public func placeholder(_ placeholder: (any Kingfisher.Placeholder)?) -> Self
   public func placeholder(_ image: Kingfisher.KFCrossPlatformImage?) -> Self
 }
 extension Kingfisher.KF.Builder {
@@ -679,25 +687,27 @@ extension UIKit.NSTextAttachment : Kingfisher.KingfisherCompatible {
 extension CarPlay.CPListItem : Kingfisher.KingfisherCompatible {
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public struct KFImage : Kingfisher.KFImageProtocol {
-  public var context: Kingfisher.KFImage.Context<SwiftUI.Image>
-  public init(context: Kingfisher.KFImage.Context<SwiftUI.Image>)
+@_Concurrency.MainActor @preconcurrency public struct KFImage : Kingfisher.KFImageProtocol {
+  @_Concurrency.MainActor @preconcurrency public var context: Kingfisher.KFImage.Context<SwiftUICore.Image>
+  @_Concurrency.MainActor @preconcurrency public init(context: Kingfisher.KFImage.Context<SwiftUICore.Image>)
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
   public typealias Body = @_opaqueReturnTypeOf("$s10Kingfisher15KFImageProtocolPAAE4bodyQrvp", 0) __<Kingfisher.KFImage>
-  public typealias HoldingView = SwiftUI.Image
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+  public typealias HoldingView = SwiftUICore.Image
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension SwiftUI.Image : Kingfisher.KFImageHoldingView {
-  public typealias RenderingView = SwiftUI.Image
-  public static func created(from image: Kingfisher.KFCrossPlatformImage?, context: Kingfisher.KFImage.Context<SwiftUI.Image>) -> SwiftUI.Image
+extension SwiftUICore.Image : Kingfisher.KFImageHoldingView {
+  public typealias RenderingView = SwiftUICore.Image
+  public static func created(from image: Kingfisher.KFCrossPlatformImage?, context: Kingfisher.KFImage.Context<SwiftUICore.Image>) -> SwiftUICore.Image
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
 extension Kingfisher.KFImage {
-  public func resizable(capInsets: SwiftUI.EdgeInsets = EdgeInsets(), resizingMode: SwiftUI.Image.ResizingMode = .stretch) -> Kingfisher.KFImage
-  public func renderingMode(_ renderingMode: SwiftUI.Image.TemplateRenderingMode?) -> Kingfisher.KFImage
-  public func interpolation(_ interpolation: SwiftUI.Image.Interpolation) -> Kingfisher.KFImage
-  public func antialiased(_ isAntialiased: Swift.Bool) -> Kingfisher.KFImage
+  @_Concurrency.MainActor @preconcurrency public func resizable(capInsets: SwiftUICore.EdgeInsets = EdgeInsets(), resizingMode: SwiftUICore.Image.ResizingMode = .stretch) -> Kingfisher.KFImage
+  @_Concurrency.MainActor @preconcurrency public func renderingMode(_ renderingMode: SwiftUICore.Image.TemplateRenderingMode?) -> Kingfisher.KFImage
+  @_Concurrency.MainActor @preconcurrency public func interpolation(_ interpolation: SwiftUICore.Image.Interpolation) -> Kingfisher.KFImage
+  @_Concurrency.MainActor @preconcurrency public func antialiased(_ isAntialiased: Swift.Bool) -> Kingfisher.KFImage
   @available(*, deprecated, message: "This is not necessary anymore since `@StateObject` is used. It does nothing now and please just remove it.")
-  public func loadImmediately(_ start: Swift.Bool = true) -> Kingfisher.KFImage
+  @_Concurrency.MainActor @preconcurrency public func loadImmediately(_ start: Swift.Bool = true) -> Kingfisher.KFImage
 }
 public typealias ExecutionQueue = Kingfisher.CallbackQueue
 public enum CallbackQueue {
@@ -710,20 +720,20 @@ public enum CallbackQueue {
 public struct FormatIndicatedCacheSerializer : Kingfisher.CacheSerializer {
   public static let png: Kingfisher.FormatIndicatedCacheSerializer
   public static let jpeg: Kingfisher.FormatIndicatedCacheSerializer
-  public static func jpeg(compressionQuality: CoreGraphics.CGFloat) -> Kingfisher.FormatIndicatedCacheSerializer
+  public static func jpeg(compressionQuality: CoreFoundation.CGFloat) -> Kingfisher.FormatIndicatedCacheSerializer
   public static let gif: Kingfisher.FormatIndicatedCacheSerializer
   public func data(with image: Kingfisher.KFCrossPlatformImage, original: Foundation.Data?) -> Foundation.Data?
   public func image(with data: Foundation.Data, options: Kingfisher.KingfisherParsedOptionsInfo) -> Kingfisher.KFCrossPlatformImage?
 }
-extension CoreGraphics.CGSize : Kingfisher.KingfisherCompatibleValue {
+extension CoreFoundation.CGSize : Kingfisher.KingfisherCompatibleValue {
 }
-extension Kingfisher.KingfisherWrapper where Base == CoreGraphics.CGSize {
-  public func resize(to size: CoreGraphics.CGSize, for contentMode: Kingfisher.ContentMode) -> CoreGraphics.CGSize
-  public func constrained(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
-  public func filling(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
-  public func constrainedRect(for size: CoreGraphics.CGSize, anchor: CoreGraphics.CGPoint) -> CoreGraphics.CGRect
+extension Kingfisher.KingfisherWrapper where Base == CoreFoundation.CGSize {
+  public func resize(to size: CoreFoundation.CGSize, for contentMode: Kingfisher.ContentMode) -> CoreFoundation.CGSize
+  public func constrained(_ size: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  public func filling(_ size: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  public func constrainedRect(for size: CoreFoundation.CGSize, anchor: CoreFoundation.CGPoint) -> CoreFoundation.CGRect
 }
-public typealias DownloadProgressBlock = ((_ receivedSize: Swift.Int64, _ totalSize: Swift.Int64) -> Swift.Void)
+public typealias DownloadProgressBlock = (_ receivedSize: Swift.Int64, _ totalSize: Swift.Int64) -> Swift.Void
 public struct RetrieveImageResult {
   public let image: Kingfisher.KFCrossPlatformImage
   public let cacheType: Kingfisher.CacheType
@@ -735,7 +745,7 @@ public struct PropagationError {
   public let source: Kingfisher.Source
   public let error: Kingfisher.KingfisherError
 }
-public typealias DownloadTaskUpdatedBlock = ((_ newTask: Kingfisher.DownloadTask?) -> Swift.Void)
+public typealias DownloadTaskUpdatedBlock = (_ newTask: Kingfisher.DownloadTask?) -> Swift.Void
 public class KingfisherManager {
   public static let shared: Kingfisher.KingfisherManager
   public var cache: Kingfisher.ImageCache
@@ -743,7 +753,7 @@ public class KingfisherManager {
   public var defaultOptions: Kingfisher.KingfisherOptionsInfo
   public init(downloader: Kingfisher.ImageDownloader, cache: Kingfisher.ImageCache)
   @discardableResult
-  public func retrieveImage(with resource: Kingfisher.Resource, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, downloadTaskUpdated: Kingfisher.DownloadTaskUpdatedBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)?) -> Kingfisher.DownloadTask?
+  public func retrieveImage(with resource: any Kingfisher.Resource, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, downloadTaskUpdated: Kingfisher.DownloadTaskUpdatedBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)?) -> Kingfisher.DownloadTask?
   @discardableResult
   public func retrieveImage(with source: Kingfisher.Source, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, downloadTaskUpdated: Kingfisher.DownloadTaskUpdatedBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)?) -> Kingfisher.DownloadTask?
   @objc deinit
@@ -770,22 +780,22 @@ public enum IndicatorType {
   case none
   case activity
   case image(imageData: Foundation.Data)
-  case custom(indicator: Kingfisher.Indicator)
+  case custom(indicator: any Kingfisher.Indicator)
 }
 public protocol Indicator {
   func startAnimatingView()
   func stopAnimatingView()
-  var centerOffset: CoreGraphics.CGPoint { get }
+  var centerOffset: CoreFoundation.CGPoint { get }
   var view: Kingfisher.IndicatorView { get }
   func sizeStrategy(in imageView: Kingfisher.KFCrossPlatformImageView) -> Kingfisher.IndicatorSizeStrategy
 }
 public enum IndicatorSizeStrategy {
   case intrinsicSize
   case full
-  case size(CoreGraphics.CGSize)
+  case size(CoreFoundation.CGSize)
 }
 extension Kingfisher.Indicator {
-  public var centerOffset: CoreGraphics.CGPoint {
+  public var centerOffset: CoreFoundation.CGPoint {
     get
   }
   public func sizeStrategy(in imageView: Kingfisher.KFCrossPlatformImageView) -> Kingfisher.IndicatorSizeStrategy
@@ -813,8 +823,8 @@ open class ImageDownloader {
     set
   }
   open var requestsUsePipelining: Swift.Bool
-  weak open var delegate: Kingfisher.ImageDownloaderDelegate?
-  weak open var authenticationChallengeResponder: Kingfisher.AuthenticationChallengeResponsible?
+  weak open var delegate: (any Kingfisher.ImageDownloaderDelegate)?
+  weak open var authenticationChallengeResponder: (any Kingfisher.AuthenticationChallengeResponsible)?
   public init(name: Swift.String)
   @objc deinit
   @discardableResult
@@ -894,7 +904,7 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.NSTextAttachment {
   @discardableResult
   public func setImage(with source: Kingfisher.Source?, attributedView: @autoclosure @escaping () -> Kingfisher.KFCrossPlatformView, placeholder: Kingfisher.KFCrossPlatformImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with resource: Kingfisher.Resource?, attributedView: @autoclosure @escaping () -> Kingfisher.KFCrossPlatformView, placeholder: Kingfisher.KFCrossPlatformImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with resource: (any Kingfisher.Resource)?, attributedView: @autoclosure @escaping () -> Kingfisher.KFCrossPlatformView, placeholder: Kingfisher.KFCrossPlatformImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   public func cancelDownloadTask()
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.NSTextAttachment {
@@ -905,15 +915,15 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.NSTextAttachment {
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
 extension Kingfisher.KFImageProtocol {
   public static func source(_ source: Kingfisher.Source?) -> Self
-  public static func resource(_ resource: Kingfisher.Resource?) -> Self
+  public static func resource(_ resource: (any Kingfisher.Resource)?) -> Self
   public static func url(_ url: Foundation.URL?, cacheKey: Swift.String? = nil) -> Self
-  public static func dataProvider(_ provider: Kingfisher.ImageDataProvider?) -> Self
+  public static func dataProvider(_ provider: (any Kingfisher.ImageDataProvider)?) -> Self
   public static func data(_ data: Foundation.Data?, cacheKey: Swift.String) -> Self
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
 extension Kingfisher.KFImageProtocol {
-  public func placeholder<P>(@SwiftUI.ViewBuilder _ content: @escaping (Foundation.Progress) -> P) -> Self where P : SwiftUI.View
-  public func placeholder<P>(@SwiftUI.ViewBuilder _ content: @escaping () -> P) -> Self where P : SwiftUI.View
+  public func placeholder<P>(@SwiftUICore.ViewBuilder _ content: @escaping (Foundation.Progress) -> P) -> Self where P : SwiftUICore.View
+  public func placeholder<P>(@SwiftUICore.ViewBuilder _ content: @escaping () -> P) -> Self where P : SwiftUICore.View
   public func cancelOnDisappear(_ flag: Swift.Bool) -> Self
   public func fade(duration: Foundation.TimeInterval) -> Self
   public func startLoadingBeforeViewAppear(_ flag: Swift.Bool = true) -> Self
@@ -970,7 +980,7 @@ open class ImageCache {
   convenience public init(name: Swift.String, cacheDirectoryURL: Foundation.URL?, diskCachePathClosure: Kingfisher.ImageCache.DiskCachePathClosure? = nil) throws
   @objc deinit
   open func store(_ image: Kingfisher.KFCrossPlatformImage, original: Foundation.Data? = nil, forKey key: Swift.String, options: Kingfisher.KingfisherParsedOptionsInfo, toDisk: Swift.Bool = true, completionHandler: ((Kingfisher.CacheStoreResult) -> Swift.Void)? = nil)
-  open func store(_ image: Kingfisher.KFCrossPlatformImage, original: Foundation.Data? = nil, forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", cacheSerializer serializer: Kingfisher.CacheSerializer = DefaultCacheSerializer.default, toDisk: Swift.Bool = true, callbackQueue: Kingfisher.CallbackQueue = .untouch, completionHandler: ((Kingfisher.CacheStoreResult) -> Swift.Void)? = nil)
+  open func store(_ image: Kingfisher.KFCrossPlatformImage, original: Foundation.Data? = nil, forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", cacheSerializer serializer: any Kingfisher.CacheSerializer = DefaultCacheSerializer.default, toDisk: Swift.Bool = true, callbackQueue: Kingfisher.CallbackQueue = .untouch, completionHandler: ((Kingfisher.CacheStoreResult) -> Swift.Void)? = nil)
   open func storeToDisk(_ data: Foundation.Data, forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", expiration: Kingfisher.StorageExpiration? = nil, callbackQueue: Kingfisher.CallbackQueue = .untouch, completionHandler: ((Kingfisher.CacheStoreResult) -> Swift.Void)? = nil)
   open func removeImage(forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", fromMemory: Swift.Bool = true, fromDisk: Swift.Bool = true, callbackQueue: Kingfisher.CallbackQueue = .untouch, completionHandler: (() -> Swift.Void)? = nil)
   open func retrieveImage(forKey key: Swift.String, options: Kingfisher.KingfisherParsedOptionsInfo, callbackQueue: Kingfisher.CallbackQueue = .mainCurrentOrAsync, completionHandler: ((Swift.Result<Kingfisher.ImageCacheResult, Kingfisher.KingfisherError>) -> Swift.Void)?)
@@ -988,15 +998,11 @@ open class ImageCache {
   open func imageCachedType(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Kingfisher.CacheType
   public func isCached(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Swift.Bool
   open func hash(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Swift.String
-  open func calculateDiskStorageSize(completion handler: @escaping ((Swift.Result<Swift.UInt, Kingfisher.KingfisherError>) -> Swift.Void))
-  
-  #if compiler(>=5.3) && $EffectfulProp
+  open func calculateDiskStorageSize(completion handler: @escaping (Swift.Result<Swift.UInt, Kingfisher.KingfisherError>) -> Swift.Void)
   @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
   open var diskStorageSize: Swift.UInt {
     get async throws
   }
-  #endif
-
   open func cachePath(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Swift.String
 }
 extension UIKit.UIApplication : Kingfisher.KingfisherCompatible {
@@ -1007,23 +1013,23 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.UIApplication {
   }
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public protocol KFImageProtocol : Kingfisher.KFOptionSetter, SwiftUI.View {
+public protocol KFImageProtocol : Kingfisher.KFOptionSetter, SwiftUICore.View {
   associatedtype HoldingView : Kingfisher.KFImageHoldingView
   var context: Kingfisher.KFImage.Context<Self.HoldingView> { get set }
   init(context: Kingfisher.KFImage.Context<Self.HoldingView>)
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
 extension Kingfisher.KFImageProtocol {
-  public var body: some SwiftUI.View {
+  public var body: some SwiftUICore.View {
     get
   }
   public init(source: Kingfisher.Source?)
   public init(_ url: Foundation.URL?)
   public func configure(_ block: @escaping (Self.HoldingView) -> Self.HoldingView) -> Self
-  public func contentConfigure<V>(_ block: @escaping (Self.HoldingView) -> V) -> Self where V : SwiftUI.View
+  public func contentConfigure<V>(_ block: @escaping (Self.HoldingView) -> V) -> Self where V : SwiftUICore.View
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public protocol KFImageHoldingView : SwiftUI.View {
+public protocol KFImageHoldingView : SwiftUICore.View {
   associatedtype RenderingView
   static func created(from image: Kingfisher.KFCrossPlatformImage?, context: Kingfisher.KFImage.Context<Self>) -> Self
 }
@@ -1046,10 +1052,10 @@ extension Kingfisher.KFImageProtocol {
     get
   }
 }
-public typealias PrefetcherProgressBlock = ((_ skippedResources: [Kingfisher.Resource], _ failedResources: [Kingfisher.Resource], _ completedResources: [Kingfisher.Resource]) -> Swift.Void)
-public typealias PrefetcherSourceProgressBlock = ((_ skippedSources: [Kingfisher.Source], _ failedSources: [Kingfisher.Source], _ completedSources: [Kingfisher.Source]) -> Swift.Void)
-public typealias PrefetcherCompletionHandler = ((_ skippedResources: [Kingfisher.Resource], _ failedResources: [Kingfisher.Resource], _ completedResources: [Kingfisher.Resource]) -> Swift.Void)
-public typealias PrefetcherSourceCompletionHandler = ((_ skippedSources: [Kingfisher.Source], _ failedSources: [Kingfisher.Source], _ completedSources: [Kingfisher.Source]) -> Swift.Void)
+public typealias PrefetcherProgressBlock = (_ skippedResources: [any Kingfisher.Resource], _ failedResources: [any Kingfisher.Resource], _ completedResources: [any Kingfisher.Resource]) -> Swift.Void
+public typealias PrefetcherSourceProgressBlock = (_ skippedSources: [Kingfisher.Source], _ failedSources: [Kingfisher.Source], _ completedSources: [Kingfisher.Source]) -> Swift.Void
+public typealias PrefetcherCompletionHandler = (_ skippedResources: [any Kingfisher.Resource], _ failedResources: [any Kingfisher.Resource], _ completedResources: [any Kingfisher.Resource]) -> Swift.Void
+public typealias PrefetcherSourceCompletionHandler = (_ skippedSources: [Kingfisher.Source], _ failedSources: [Kingfisher.Source], _ completedSources: [Kingfisher.Source]) -> Swift.Void
 @_hasMissingDesignatedInitializers public class ImagePrefetcher : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
@@ -1057,8 +1063,8 @@ public typealias PrefetcherSourceCompletionHandler = ((_ skippedSources: [Kingfi
   public var maxConcurrentDownloads: Swift.Int
   convenience public init(urls: [Foundation.URL], options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.PrefetcherProgressBlock? = nil, completionHandler: Kingfisher.PrefetcherCompletionHandler? = nil)
   convenience public init(urls: [Foundation.URL], options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: Kingfisher.PrefetcherCompletionHandler? = nil)
-  convenience public init(resources: [Kingfisher.Resource], options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.PrefetcherProgressBlock? = nil, completionHandler: Kingfisher.PrefetcherCompletionHandler? = nil)
-  convenience public init(resources: [Kingfisher.Resource], options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: Kingfisher.PrefetcherCompletionHandler? = nil)
+  convenience public init(resources: [any Kingfisher.Resource], options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.PrefetcherProgressBlock? = nil, completionHandler: Kingfisher.PrefetcherCompletionHandler? = nil)
+  convenience public init(resources: [any Kingfisher.Resource], options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: Kingfisher.PrefetcherCompletionHandler? = nil)
   convenience public init(sources: [Kingfisher.Source], options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.PrefetcherSourceProgressBlock? = nil, completionHandler: Kingfisher.PrefetcherSourceCompletionHandler? = nil)
   convenience public init(sources: [Kingfisher.Source], options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: Kingfisher.PrefetcherSourceCompletionHandler? = nil)
   public func start()
@@ -1067,17 +1073,17 @@ public typealias PrefetcherSourceCompletionHandler = ((_ skippedSources: [Kingfi
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImageView {
   @discardableResult
-  public func setImage(with source: Kingfisher.Source?, placeholder: Kingfisher.Placeholder? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with source: Kingfisher.Source?, placeholder: (any Kingfisher.Placeholder)? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with source: Kingfisher.Source?, placeholder: Kingfisher.Placeholder? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with source: Kingfisher.Source?, placeholder: (any Kingfisher.Placeholder)? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with resource: Kingfisher.Resource?, placeholder: Kingfisher.Placeholder? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with resource: (any Kingfisher.Resource)?, placeholder: (any Kingfisher.Placeholder)? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with resource: Kingfisher.Resource?, placeholder: Kingfisher.Placeholder? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with resource: (any Kingfisher.Resource)?, placeholder: (any Kingfisher.Placeholder)? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with provider: Kingfisher.ImageDataProvider?, placeholder: Kingfisher.Placeholder? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with provider: (any Kingfisher.ImageDataProvider)?, placeholder: (any Kingfisher.Placeholder)? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with provider: Kingfisher.ImageDataProvider?, placeholder: Kingfisher.Placeholder? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with provider: (any Kingfisher.ImageDataProvider)?, placeholder: (any Kingfisher.Placeholder)? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   public func cancelDownloadTask()
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImageView {
@@ -1088,10 +1094,10 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImageView {
     get
     set
   }
-  public var indicator: Kingfisher.Indicator? {
+  public var indicator: (any Kingfisher.Indicator)? {
     get
   }
-  public var placeholder: Kingfisher.Placeholder? {
+  public var placeholder: (any Kingfisher.Placeholder)? {
     get
   }
 }
@@ -1099,14 +1105,14 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.UIButton {
   @discardableResult
   public func setImage(with source: Kingfisher.Source?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with resource: Kingfisher.Resource?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with resource: (any Kingfisher.Resource)?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
   public func setImage(with source: Kingfisher.Source?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, parsedOptions: Kingfisher.KingfisherParsedOptionsInfo, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   public func cancelImageDownloadTask()
   @discardableResult
   public func setBackgroundImage(with source: Kingfisher.Source?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setBackgroundImage(with resource: Kingfisher.Resource?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setBackgroundImage(with resource: (any Kingfisher.Resource)?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   public func cancelBackgroundImageDownloadTask()
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIButton {
@@ -1116,11 +1122,11 @@ extension Kingfisher.KingfisherWrapper where Base : UIKit.UIButton {
   public func backgroundTaskIdentifier(for state: UIKit.UIControl.State) -> Kingfisher.Source.Identifier.Value?
 }
 public struct ImageCreatingOptions {
-  public let scale: CoreGraphics.CGFloat
+  public let scale: CoreFoundation.CGFloat
   public let duration: Foundation.TimeInterval
   public let preloadAll: Swift.Bool
   public let onlyFirstFrame: Swift.Bool
-  public init(scale: CoreGraphics.CGFloat = 1.0, duration: Foundation.TimeInterval = 0.0, preloadAll: Swift.Bool = false, onlyFirstFrame: Swift.Bool = false)
+  public init(scale: CoreFoundation.CGFloat = 1.0, duration: Foundation.TimeInterval = 0.0, preloadAll: Swift.Bool = false, onlyFirstFrame: Swift.Bool = false)
 }
 @_hasMissingDesignatedInitializers public class GIFAnimatedImage {
   public static func getFrameDuration(from gifInfo: [Swift.String : Any]?) -> Foundation.TimeInterval
@@ -1132,7 +1138,7 @@ extension Kingfisher.KingfisherWrapper where Base : CarPlay.CPListItem {
   @discardableResult
   public func setImage(with source: Kingfisher.Source?, placeholder: Kingfisher.KFCrossPlatformImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   @discardableResult
-  public func setImage(with resource: Kingfisher.Resource?, placeholder: Kingfisher.KFCrossPlatformImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
+  public func setImage(with resource: (any Kingfisher.Resource)?, placeholder: Kingfisher.KFCrossPlatformImage? = nil, options: Kingfisher.KingfisherOptionsInfo? = nil, progressBlock: Kingfisher.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<Kingfisher.RetrieveImageResult, Kingfisher.KingfisherError>) -> Swift.Void)? = nil) -> Kingfisher.DownloadTask?
   public func cancelDownloadTask()
 }
 extension Kingfisher.KingfisherWrapper where Base : CarPlay.CPListItem {
@@ -1144,8 +1150,8 @@ public enum Source {
   public enum Identifier {
     public typealias Value = Swift.UInt
   }
-  case network(Kingfisher.Resource)
-  case provider(Kingfisher.ImageDataProvider)
+  case network(any Kingfisher.Resource)
+  case provider(any Kingfisher.ImageDataProvider)
   public var cacheKey: Swift.String {
     get
   }
@@ -1167,7 +1173,7 @@ extension Kingfisher.Source : Swift.Hashable {
 extension Kingfisher.SessionDelegate : Foundation.URLSessionDataDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive response: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
-  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: (any Swift.Error)?)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
@@ -1182,7 +1188,7 @@ extension Kingfisher.CIImageProcessor {
 public struct Filter {
   public init(transform: @escaping Kingfisher.Transformer)
   public static var tint: (_ color: Kingfisher.KFCrossPlatformColor) -> Kingfisher.Filter
-  public typealias ColorElement = (CoreGraphics.CGFloat, CoreGraphics.CGFloat, CoreGraphics.CGFloat, CoreGraphics.CGFloat)
+  public typealias ColorElement = (CoreFoundation.CGFloat, CoreFoundation.CGFloat, CoreFoundation.CGFloat, CoreFoundation.CGFloat)
   public static var colorControl: (_ arg: Kingfisher.Filter.ColorElement) -> Kingfisher.Filter
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
@@ -1216,42 +1222,46 @@ public struct AnyRedirectHandler : Kingfisher.ImageDownloadRedirectHandler {
   public init(handle: @escaping (Kingfisher.SessionDataTask, Foundation.HTTPURLResponse, Foundation.URLRequest, @escaping (Foundation.URLRequest?) -> Swift.Void) -> Swift.Void)
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public struct KFAnimatedImage : Kingfisher.KFImageProtocol {
+@_Concurrency.MainActor @preconcurrency public struct KFAnimatedImage : Kingfisher.KFImageProtocol {
   public typealias HoldingView = Kingfisher.KFAnimatedImageViewRepresenter
-  public var context: Kingfisher.KFImage.Context<Kingfisher.KFAnimatedImage.HoldingView>
-  public init(context: Kingfisher.KFImage.Context<Kingfisher.KFAnimatedImage.HoldingView>)
-  public func configure(_ block: @escaping (Kingfisher.KFAnimatedImage.HoldingView.RenderingView) -> Swift.Void) -> Kingfisher.KFAnimatedImage
+  @_Concurrency.MainActor @preconcurrency public var context: Kingfisher.KFImage.Context<Kingfisher.KFAnimatedImage.HoldingView>
+  @_Concurrency.MainActor @preconcurrency public init(context: Kingfisher.KFImage.Context<Kingfisher.KFAnimatedImage.HoldingView>)
+  @_Concurrency.MainActor @preconcurrency public func configure(_ block: @escaping (Kingfisher.KFAnimatedImage.HoldingView.RenderingView) -> Swift.Void) -> Kingfisher.KFAnimatedImage
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
   public typealias Body = @_opaqueReturnTypeOf("$s10Kingfisher15KFImageProtocolPAAE4bodyQrvp", 0) __<Kingfisher.KFAnimatedImage>
 }
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public struct KFAnimatedImageViewRepresenter : SwiftUI.UIViewRepresentable, Kingfisher.KFImageHoldingView {
+@_Concurrency.MainActor @preconcurrency public struct KFAnimatedImageViewRepresenter : SwiftUI.UIViewRepresentable, Kingfisher.KFImageHoldingView {
   public typealias RenderingView = Kingfisher.AnimatedImageView
-  public static func created(from image: Kingfisher.KFCrossPlatformImage?, context: Kingfisher.KFImage.Context<Kingfisher.KFAnimatedImageViewRepresenter>) -> Kingfisher.KFAnimatedImageViewRepresenter
-  @_Concurrency.MainActor(unsafe) public func makeUIView(context: Kingfisher.KFAnimatedImageViewRepresenter.Context) -> Kingfisher.AnimatedImageView
-  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: Kingfisher.AnimatedImageView, context: Kingfisher.KFAnimatedImageViewRepresenter.Context)
+  @_Concurrency.MainActor @preconcurrency public static func created(from image: Kingfisher.KFCrossPlatformImage?, context: Kingfisher.KFImage.Context<Kingfisher.KFAnimatedImageViewRepresenter>) -> Kingfisher.KFAnimatedImageViewRepresenter
+  @_Concurrency.MainActor @preconcurrency public func makeUIView(context: Kingfisher.KFAnimatedImageViewRepresenter.Context) -> Kingfisher.AnimatedImageView
+  @_Concurrency.MainActor @preconcurrency public func updateUIView(_ uiView: Kingfisher.AnimatedImageView, context: Kingfisher.KFAnimatedImageViewRepresenter.Context)
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
   public typealias Body = Swift.Never
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
   public typealias Coordinator = Swift.Void
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
   public typealias UIViewType = Kingfisher.AnimatedImageView
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
-  public func image(withBlendMode blendMode: CoreGraphics.CGBlendMode, alpha: CoreGraphics.CGFloat = 1.0, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Kingfisher.KFCrossPlatformImage
-  public func image(withRadius radius: Kingfisher.Radius, fit size: CoreGraphics.CGSize, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Kingfisher.KFCrossPlatformImage
-  public func image(withRoundRadius radius: CoreGraphics.CGFloat, fit size: CoreGraphics.CGSize, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Kingfisher.KFCrossPlatformImage
-  public func resize(to size: CoreGraphics.CGSize) -> Kingfisher.KFCrossPlatformImage
-  public func resize(to targetSize: CoreGraphics.CGSize, for contentMode: Kingfisher.ContentMode) -> Kingfisher.KFCrossPlatformImage
-  public func crop(to size: CoreGraphics.CGSize, anchorOn anchor: CoreGraphics.CGPoint) -> Kingfisher.KFCrossPlatformImage
-  public func blurred(withRadius radius: CoreGraphics.CGFloat) -> Kingfisher.KFCrossPlatformImage
+  public func image(withBlendMode blendMode: CoreGraphics.CGBlendMode, alpha: CoreFoundation.CGFloat = 1.0, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Kingfisher.KFCrossPlatformImage
+  public func image(withRadius radius: Kingfisher.Radius, fit size: CoreFoundation.CGSize, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Kingfisher.KFCrossPlatformImage
+  public func image(withRoundRadius radius: CoreFoundation.CGFloat, fit size: CoreFoundation.CGSize, roundingCorners corners: Kingfisher.RectCorner = .all, backgroundColor: Kingfisher.KFCrossPlatformColor? = nil) -> Kingfisher.KFCrossPlatformImage
+  public func resize(to size: CoreFoundation.CGSize) -> Kingfisher.KFCrossPlatformImage
+  public func resize(to targetSize: CoreFoundation.CGSize, for contentMode: Kingfisher.ContentMode) -> Kingfisher.KFCrossPlatformImage
+  public func crop(to size: CoreFoundation.CGSize, anchorOn anchor: CoreFoundation.CGPoint) -> Kingfisher.KFCrossPlatformImage
+  public func blurred(withRadius radius: CoreFoundation.CGFloat) -> Kingfisher.KFCrossPlatformImage
   public func addingBorder(_ border: Kingfisher.Border) -> Kingfisher.KFCrossPlatformImage
-  public func overlaying(with color: Kingfisher.KFCrossPlatformColor, fraction: CoreGraphics.CGFloat) -> Kingfisher.KFCrossPlatformImage
+  public func overlaying(with color: Kingfisher.KFCrossPlatformColor, fraction: CoreFoundation.CGFloat) -> Kingfisher.KFCrossPlatformImage
   public func tinted(with color: Kingfisher.KFCrossPlatformColor) -> Kingfisher.KFCrossPlatformImage
-  public func adjusted(brightness: CoreGraphics.CGFloat, contrast: CoreGraphics.CGFloat, saturation: CoreGraphics.CGFloat, inputEV: CoreGraphics.CGFloat) -> Kingfisher.KFCrossPlatformImage
-  public func scaled(to scale: CoreGraphics.CGFloat) -> Kingfisher.KFCrossPlatformImage
+  public func adjusted(brightness: CoreFoundation.CGFloat, contrast: CoreFoundation.CGFloat, saturation: CoreFoundation.CGFloat, inputEV: CoreFoundation.CGFloat) -> Kingfisher.KFCrossPlatformImage
+  public func scaled(to scale: CoreFoundation.CGFloat) -> Kingfisher.KFCrossPlatformImage
 }
 extension Kingfisher.KingfisherWrapper where Base : UIKit.UIImage {
   public var decoded: Kingfisher.KFCrossPlatformImage {
     get
   }
-  public func decoded(scale: CoreGraphics.CGFloat) -> Kingfisher.KFCrossPlatformImage
+  public func decoded(scale: CoreFoundation.CGFloat) -> Kingfisher.KFCrossPlatformImage
   public func decoded(on context: CoreGraphics.CGContext) -> Kingfisher.KFCrossPlatformImage
 }
 @_hasMissingDesignatedInitializers public class SessionDataTask {
@@ -1272,30 +1282,30 @@ public enum KingfisherError : Swift.Error {
   public enum ResponseErrorReason {
     case invalidURLResponse(response: Foundation.URLResponse)
     case invalidHTTPStatusCode(response: Foundation.HTTPURLResponse)
-    case URLSessionError(error: Swift.Error)
+    case URLSessionError(error: any Swift.Error)
     case dataModifyingFailed(task: Kingfisher.SessionDataTask)
     case noURLResponse(task: Kingfisher.SessionDataTask)
   }
   public enum CacheErrorReason {
     case fileEnumeratorCreationFailed(url: Foundation.URL)
     case invalidFileEnumeratorContent(url: Foundation.URL)
-    case invalidURLResource(error: Swift.Error, key: Swift.String, url: Foundation.URL)
-    case cannotLoadDataFromDisk(url: Foundation.URL, error: Swift.Error)
-    case cannotCreateDirectory(path: Swift.String, error: Swift.Error)
+    case invalidURLResource(error: any Swift.Error, key: Swift.String, url: Foundation.URL)
+    case cannotLoadDataFromDisk(url: Foundation.URL, error: any Swift.Error)
+    case cannotCreateDirectory(path: Swift.String, error: any Swift.Error)
     case imageNotExisting(key: Swift.String)
-    case cannotConvertToData(object: Any, error: Swift.Error)
-    case cannotSerializeImage(image: Kingfisher.KFCrossPlatformImage?, original: Foundation.Data?, serializer: Kingfisher.CacheSerializer)
-    case cannotCreateCacheFile(fileURL: Foundation.URL, key: Swift.String, data: Foundation.Data, error: Swift.Error)
-    case cannotSetCacheFileAttribute(filePath: Swift.String, attributes: [Foundation.FileAttributeKey : Any], error: Swift.Error)
+    case cannotConvertToData(object: Any, error: any Swift.Error)
+    case cannotSerializeImage(image: Kingfisher.KFCrossPlatformImage?, original: Foundation.Data?, serializer: any Kingfisher.CacheSerializer)
+    case cannotCreateCacheFile(fileURL: Foundation.URL, key: Swift.String, data: Foundation.Data, error: any Swift.Error)
+    case cannotSetCacheFileAttribute(filePath: Swift.String, attributes: [Foundation.FileAttributeKey : Any], error: any Swift.Error)
     case diskStorageIsNotReady(cacheURL: Foundation.URL)
   }
   public enum ProcessorErrorReason {
-    case processingFailed(processor: Kingfisher.ImageProcessor, item: Kingfisher.ImageProcessItem)
+    case processingFailed(processor: any Kingfisher.ImageProcessor, item: Kingfisher.ImageProcessItem)
   }
   public enum ImageSettingErrorReason {
     case emptySource
-    case notCurrentSourceTask(result: Kingfisher.RetrieveImageResult?, error: Swift.Error?, source: Kingfisher.Source)
-    case dataProviderError(provider: Kingfisher.ImageDataProvider, error: Swift.Error)
+    case notCurrentSourceTask(result: Kingfisher.RetrieveImageResult?, error: (any Swift.Error)?, source: Kingfisher.Source)
+    case dataProviderError(provider: any Kingfisher.ImageDataProvider, error: any Swift.Error)
     case alternativeSourcesExhausted([Kingfisher.PropagationError])
   }
   case requestError(reason: Kingfisher.KingfisherError.RequestErrorReason)
@@ -1350,13 +1360,13 @@ public enum KingfisherOptionsInfoItem {
   case onlyFromCache
   case backgroundDecode
   case callbackQueue(Kingfisher.CallbackQueue)
-  case scaleFactor(CoreGraphics.CGFloat)
+  case scaleFactor(CoreFoundation.CGFloat)
   case preloadAllAnimationData
-  case requestModifier(Kingfisher.AsyncImageDownloadRequestModifier)
-  case redirectHandler(Kingfisher.ImageDownloadRedirectHandler)
-  case processor(Kingfisher.ImageProcessor)
-  case cacheSerializer(Kingfisher.CacheSerializer)
-  case imageModifier(Kingfisher.ImageModifier)
+  case requestModifier(any Kingfisher.AsyncImageDownloadRequestModifier)
+  case redirectHandler(any Kingfisher.ImageDownloadRedirectHandler)
+  case processor(any Kingfisher.ImageProcessor)
+  case cacheSerializer(any Kingfisher.CacheSerializer)
+  case imageModifier(any Kingfisher.ImageModifier)
   case keepCurrentImageWhileLoading
   case onlyLoadFirstFrame
   case cacheOriginalImage
@@ -1371,7 +1381,7 @@ public enum KingfisherOptionsInfoItem {
   case processingQueue(Kingfisher.CallbackQueue)
   case progressiveJPEG(Kingfisher.ImageProgressive)
   case alternativeSources([Kingfisher.Source])
-  case retryStrategy(Kingfisher.RetryStrategy)
+  case retryStrategy(any Kingfisher.RetryStrategy)
   case lowDataMode(Kingfisher.Source?)
 }
 public struct KingfisherParsedOptionsInfo {
@@ -1389,12 +1399,12 @@ public struct KingfisherParsedOptionsInfo {
   public var backgroundDecode: Swift.Bool
   public var preloadAllAnimationData: Swift.Bool
   public var callbackQueue: Kingfisher.CallbackQueue
-  public var scaleFactor: CoreGraphics.CGFloat
-  public var requestModifier: Kingfisher.AsyncImageDownloadRequestModifier?
-  public var redirectHandler: Kingfisher.ImageDownloadRedirectHandler?
-  public var processor: Kingfisher.ImageProcessor
-  public var imageModifier: Kingfisher.ImageModifier?
-  public var cacheSerializer: Kingfisher.CacheSerializer
+  public var scaleFactor: CoreFoundation.CGFloat
+  public var requestModifier: (any Kingfisher.AsyncImageDownloadRequestModifier)?
+  public var redirectHandler: (any Kingfisher.ImageDownloadRedirectHandler)?
+  public var processor: any Kingfisher.ImageProcessor
+  public var imageModifier: (any Kingfisher.ImageModifier)?
+  public var cacheSerializer: any Kingfisher.CacheSerializer
   public var keepCurrentImageWhileLoading: Swift.Bool
   public var onlyLoadFirstFrame: Swift.Bool
   public var cacheOriginalImage: Swift.Bool
@@ -1409,13 +1419,19 @@ public struct KingfisherParsedOptionsInfo {
   public var processingQueue: Kingfisher.CallbackQueue?
   public var progressiveJPEG: Kingfisher.ImageProgressive?
   public var alternativeSources: [Kingfisher.Source]?
-  public var retryStrategy: Kingfisher.RetryStrategy?
+  public var retryStrategy: (any Kingfisher.RetryStrategy)?
   public var lowDataModeSource: Kingfisher.Source?
   public init(_ info: Kingfisher.KingfisherOptionsInfo?)
 }
+@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+extension Kingfisher.KFImage : Swift.Sendable {}
+@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+extension Kingfisher.KFAnimatedImage : Swift.Sendable {}
 extension Kingfisher.ContentMode : Swift.Equatable {}
 extension Kingfisher.ContentMode : Swift.Hashable {}
 extension Kingfisher.ImageFormat : Swift.Equatable {}
 extension Kingfisher.ImageFormat : Swift.Hashable {}
 extension Kingfisher.CacheType : Swift.Equatable {}
 extension Kingfisher.CacheType : Swift.Hashable {}
+@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+extension Kingfisher.KFAnimatedImageViewRepresenter : Swift.Sendable {}

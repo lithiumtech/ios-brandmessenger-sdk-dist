@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		9B6ced9NBtHBv6xElWq2PUmORoM=
+		Cj4MBm3lJEZR4RRTfbTt0ZLsrow=
 		</data>
 		<key>CategoriesBottomView.nib</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/ISEmojiView-Swift.h</key>
 		<data>
-		2L2hL2plz//MXV8XofYwvrPSI/4=
+		1Rh5S7uhRJ9VSO1prTdpu6bCX3c=
 		</data>
 		<key>Headers/ISEmojiView.h</key>
 		<data>
@@ -38,51 +38,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		CI0UPvos8c5UTjx4PtSts3eDLUk=
+		3qDwnuh5SqFjR0FZ+vy5lYJETSw=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		1aBa3dRkW6T3uPlm8cRD/7OS77Q=
+		78m5Rv70L/KXNrnb4YMWUWg6WAs=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		LE8paq2DOgdQkq0Uy3n6XDww1VU=
+		U89BYzmAr9ZOIRk8Q0ixX9sMG9k=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		uxMF9LxgDJlDm4giFbHd9FILKno=
+		4kUeXezvT8bWW5YuRlyCKKck948=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		LE8paq2DOgdQkq0Uy3n6XDww1VU=
+		U89BYzmAr9ZOIRk8Q0ixX9sMG9k=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		XdNDbsB8UELPKyuhQ1TVdShCDwg=
+		DoVvL37SvbChdBa/NF9YYxIp980=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		1aBa3dRkW6T3uPlm8cRD/7OS77Q=
+		78m5Rv70L/KXNrnb4YMWUWg6WAs=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/l1cLhbQijNM57wWCCWzNVzHw8s=
+		W+VPMk4YuHPXcNf/cnsWZWikNBM=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		CIk5uU01QgShmj+3tEPcmAexLOM=
+		pM12igWkmOpBsdFrdcBAwOFTPqU=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/l1cLhbQijNM57wWCCWzNVzHw8s=
+		W+VPMk4YuHPXcNf/cnsWZWikNBM=
 		</data>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		nY1yYpbwCrU1HxyyGvAEhx6Z35c=
+		r0eu5Nq9wq9utOMdyIr5LJuPVfI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		Gsbs/rMVyAlI8GyFGU/TGb0sB/s=
+		5XhyrF0Wu2+KqiY3Yhxntiqv5vE=
 		</data>
 		<key>PageControlBottomView.nib</key>
 		<data>
@@ -99,7 +99,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			84ynP9EDsZyYAe5bIeUzMC3+8v3EYrX0Q5oQ1pGUTDk=
+			Xx9x2tOOuxDwhabkh8h+8aSkAcgIfoqqq8ZJ7tEzqsM=
 			</data>
 		</dict>
 		<key>CategoriesBottomView.nib</key>
@@ -120,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0t/OcNGEMsMON+ReI/W3+9wMkIJ5nklDUlv2YnnyRGc=
+			Agu69vtJpzkcWhKwYgEyOvdO+m4ZdAl2h1pXTKOJwZg=
 			</data>
 		</dict>
 		<key>Headers/ISEmojiView.h</key>
@@ -155,77 +155,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MboRWwTiku2VI6fSfAu3hpmzS9Y1PVBQUMNzw1xnFAQ=
+			ifz5nTT6qXT3XgO9pW9IwitGVpK5Ew2cNzHMcLk1aLY=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mmCv4dAX1FAhl/G7Kmz8qWZVXTB0yIVR77MK3shPnv8=
+			FgbU9b63oqCssGU8vx/zm+MQhSTRYwR3UPj9a7VJqto=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JSukGsi7lkHNrsI8swvpf/ZHTwjM4BTuColeyN7fHxw=
+			2/uP6Mk3vU8l4pavqpgQZbJiSw0oKF2ZJS4eDtAsZOQ=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mmCv4dAX1FAhl/G7Kmz8qWZVXTB0yIVR77MK3shPnv8=
+			FgbU9b63oqCssGU8vx/zm+MQhSTRYwR3UPj9a7VJqto=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rNiIDPZRZbhohRZ++ddg7LyRyYKCx8jyz1U8+X5n070=
+			NnjPWK7/pVKhF0WfD+q9tNu51dQyjq3MNdzXc4UcYeY=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MboRWwTiku2VI6fSfAu3hpmzS9Y1PVBQUMNzw1xnFAQ=
+			ifz5nTT6qXT3XgO9pW9IwitGVpK5Ew2cNzHMcLk1aLY=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ypQ7q5JcidlI0DEbDk2ZCBGneHHsNdFojYh6e6OYiRw=
+			PDwvMQ455hYqF8KFUbUvLWrgaLcmZ9r2OGN2OjUSUvU=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r0zNpS210dR9n1Zfldrk0e7qBxCFzipH9a790GRsk2w=
+			MkR+CsXL6Hkw+B07w9jkN52PpxUosx+Xl32zi+ph0TU=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ypQ7q5JcidlI0DEbDk2ZCBGneHHsNdFojYh6e6OYiRw=
+			PDwvMQ455hYqF8KFUbUvLWrgaLcmZ9r2OGN2OjUSUvU=
 			</data>
 		</dict>
 		<key>Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UTqpz43pVP7NMEP/0oAhehDah9tyCYkxOoufDIcIwug=
+			eXjK4HYGNajvD2iYwtjCiZqHEoC9LvYB9tlY8hZ2rEQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ut8hMg+I5vYMxUjRdSKRdD4uFon914nfZfiVU8sFMEU=
+			Lj0v7+f+aS6KA9fPtq1uq29h0x3AB38d9pWpQLXcBTM=
 			</data>
 		</dict>
 		<key>PageControlBottomView.nib</key>
