@@ -7,5 +7,4 @@ framework module RichMessageKit {
 
 module RichMessageKit.Swift {
   header "RichMessageKit-Swift.h"
-  requires objc
 }

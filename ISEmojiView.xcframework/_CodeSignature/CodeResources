@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/ISEmojiView.framework/Assets.car</key>
 		<data>
-		9B6ced9NBtHBv6xElWq2PUmORoM=
+		Cj4MBm3lJEZR4RRTfbTt0ZLsrow=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/CategoriesBottomView.nib</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Headers/ISEmojiView-Swift.h</key>
 		<data>
-		VMwTlOh2HUdBTaEvOjo2BPljil8=
+		OCNyPSdYxoM2ZX3JX+J9yuaT2Ro=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Headers/ISEmojiView.h</key>
 		<data>
@@ -38,31 +38,31 @@
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/ISEmojiView</key>
 		<data>
-		L8Ve9UQ9z80k31JJuOiGxv4tB/E=
+		rkGKZveHLtiUwh4OS+tl2J/fULg=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Info.plist</key>
 		<data>
-		F/+SxYRJQJHJsaF9hOTaLyjTGa4=
+		kkT1Ecw8zdw1v215y0tj2Al31lg=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		+PeCcOLIlBk6XveYgKoE1rj/lOs=
+		OK439KXKG+bqK2HshpT/wOEIQKs=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		1coCDNPQS5Lb1450/PgmBA6wBJM=
+		D/pv2XruUG0k8HZdbap+PJxJK6E=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		b+pwx9tST+GBQ6r5TPoCd+CGPFM=
+		47le9DnvgHVGeayPgmjB5lLpLj4=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		1coCDNPQS5Lb1450/PgmBA6wBJM=
+		D/pv2XruUG0k8HZdbap+PJxJK6E=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/Modules/module.modulemap</key>
 		<data>
-		Gsbs/rMVyAlI8GyFGU/TGb0sB/s=
+		5XhyrF0Wu2+KqiY3Yhxntiqv5vE=
 		</data>
 		<key>ios-arm64/ISEmojiView.framework/PageControlBottomView.nib</key>
 		<data>
@@ -78,15 +78,15 @@
 		</data>
 		<key>ios-arm64/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/DWARF/ISEmojiView</key>
 		<data>
-		o8yw/s9iJRhClTzph5KCvN5kR4U=
+		2OVhMj988q+Apned9NULOixQYno=
 		</data>
 		<key>ios-arm64/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/Relocations/aarch64/ISEmojiView.yml</key>
 		<data>
-		ADHwS/FWY4Gc3oK1AMMCsHu0YIc=
+		B/bRisp4oOdtd8l+SGJvfd4ElH0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Assets.car</key>
 		<data>
-		9B6ced9NBtHBv6xElWq2PUmORoM=
+		Cj4MBm3lJEZR4RRTfbTt0ZLsrow=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/CategoriesBottomView.nib</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Headers/ISEmojiView-Swift.h</key>
 		<data>
-		2L2hL2plz//MXV8XofYwvrPSI/4=
+		1Rh5S7uhRJ9VSO1prTdpu6bCX3c=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Headers/ISEmojiView.h</key>
 		<data>
@@ -118,47 +118,47 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/ISEmojiView</key>
 		<data>
-		Ec2wZTBPVi7QImxv3W4ZEtsPlWQ=
+		UWtBP+f0/oMOzeipaDO93rcGNUw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Info.plist</key>
 		<data>
-		CI0UPvos8c5UTjx4PtSts3eDLUk=
+		3qDwnuh5SqFjR0FZ+vy5lYJETSw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		1aBa3dRkW6T3uPlm8cRD/7OS77Q=
+		78m5Rv70L/KXNrnb4YMWUWg6WAs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		LE8paq2DOgdQkq0Uy3n6XDww1VU=
+		U89BYzmAr9ZOIRk8Q0ixX9sMG9k=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		uxMF9LxgDJlDm4giFbHd9FILKno=
+		4kUeXezvT8bWW5YuRlyCKKck948=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		LE8paq2DOgdQkq0Uy3n6XDww1VU=
+		U89BYzmAr9ZOIRk8Q0ixX9sMG9k=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		1aBa3dRkW6T3uPlm8cRD/7OS77Q=
+		78m5Rv70L/KXNrnb4YMWUWg6WAs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/l1cLhbQijNM57wWCCWzNVzHw8s=
+		W+VPMk4YuHPXcNf/cnsWZWikNBM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		CIk5uU01QgShmj+3tEPcmAexLOM=
+		pM12igWkmOpBsdFrdcBAwOFTPqU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/l1cLhbQijNM57wWCCWzNVzHw8s=
+		W+VPMk4YuHPXcNf/cnsWZWikNBM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/module.modulemap</key>
 		<data>
-		Gsbs/rMVyAlI8GyFGU/TGb0sB/s=
+		5XhyrF0Wu2+KqiY3Yhxntiqv5vE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/PageControlBottomView.nib</key>
 		<data>
@@ -170,7 +170,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/_CodeSignature/CodeResources</key>
 		<data>
-		NqwM5d0yoTszxtqootM8WozwXWs=
+		tvsCm/Sa8d9zhyk1v+LxdX9AqHY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Info.plist</key>
 		<data>
@@ -178,36 +178,28 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/DWARF/ISEmojiView</key>
 		<data>
-		yeSIBPGGlEFu05Inqs7THXxG1qE=
+		cQ7SfzXzR2yBIKrmJ+3kcakLEjk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/Relocations/aarch64/ISEmojiView.yml</key>
 		<data>
-		FIkYjZX8xQZb4IOAg1fMuHWA5Ds=
+		eEVvJjHarPkDl8oxWIN/g0L7JFI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/Relocations/x86_64/ISEmojiView.yml</key>
 		<data>
-		r6F17H6dEbEtXM+424oEfbtjh5A=
+		a60/at8I1droHeOq1GoDNzeT4Nk=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>ios-arm64/ISEmojiView.framework/Assets.car</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9B6ced9NBtHBv6xElWq2PUmORoM=
-			</data>
 			<key>hash2</key>
 			<data>
-			84ynP9EDsZyYAe5bIeUzMC3+8v3EYrX0Q5oQ1pGUTDk=
+			Xx9x2tOOuxDwhabkh8h+8aSkAcgIfoqqq8ZJ7tEzqsM=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/CategoriesBottomView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/Zq/KOAJRuKTceZSDUlmrl/ceDI=
-			</data>
 			<key>hash2</key>
 			<data>
 			+goF1ZFVM4dM6cZIObwRE6RjH/WeJC7NtultWZHLvOU=
@@ -215,10 +207,6 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/EmojiCollectionView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dJNqXNYkG4tM6AUkLbYzHZIjSBE=
-			</data>
 			<key>hash2</key>
 			<data>
 			LjBLeuYQrKKQFxOE5YpW7StkxV2ttHatGAZIU7NZMz0=
@@ -226,21 +214,13 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Headers/ISEmojiView-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VMwTlOh2HUdBTaEvOjo2BPljil8=
-			</data>
 			<key>hash2</key>
 			<data>
-			0qQceMvrpRC+FnUZ2Tkwq7qKa9fjsOvqDJk0KWiHNEQ=
+			5EwBtvoO66zeSHE+Dnqwxjh5AeAc95e/tqENdyrX0p4=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Headers/ISEmojiView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Lokvb1XTfS8GbG0YaVZFWn8PWkc=
-			</data>
 			<key>hash2</key>
 			<data>
 			DZzNldXxvwSwbrHR/bEBIpmi0I5bh2WLHGuc29JOv94=
@@ -248,10 +228,6 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/ISEmojiList.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LuGYgR8Yx+9xc4Xb7AQr4mMvrHc=
-			</data>
 			<key>hash2</key>
 			<data>
 			/tbneA6hoSX/yPLXh66ku/4462/fmAIUFgl2CT68CvM=
@@ -259,10 +235,6 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/ISEmojiList_iOS10.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BhkwFBaZB5rEfpPiYOJb+W83Cmw=
-			</data>
 			<key>hash2</key>
 			<data>
 			kuk4x4r8xSh3Lomj6dks8HB0caYERgATDKlj6KBbT4U=
@@ -270,10 +242,6 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/ISEmojiList_iOS11.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sSsSQZMTu/QMAg7uNOqQfEaw/6c=
-			</data>
 			<key>hash2</key>
 			<data>
 			jTi4QEwggU9haNeIMuKNpKFOSk1ICJqWRxfOpfO9K10=
@@ -281,87 +249,55 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/ISEmojiView</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L8Ve9UQ9z80k31JJuOiGxv4tB/E=
-			</data>
 			<key>hash2</key>
 			<data>
-			FWbfWiTIt/9b6Bf/cLW354cPN0demZT+MXi26kgED3A=
+			Vz90YUvukCLDrIqhIeOF6b7uYPe7S6M9ir40Z0fVhro=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			F/+SxYRJQJHJsaF9hOTaLyjTGa4=
-			</data>
 			<key>hash2</key>
 			<data>
-			dMiT94SFJWRo9eW2ATN5BDVk5ti0vytxtWwTD8wy+i0=
+			SkyNvPbkuIO5tu4nmHtGlK8rsg0vmB1RBvfGA16vSac=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+PeCcOLIlBk6XveYgKoE1rj/lOs=
-			</data>
 			<key>hash2</key>
 			<data>
-			L2KeuGRjHljNYbLIGYO8HR3Y4PRSWyy6EhCqsmKBMvI=
+			O98nKwQavN623k07FusZIqrkw0xn5vmE0OsxARCWwfo=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1coCDNPQS5Lb1450/PgmBA6wBJM=
-			</data>
 			<key>hash2</key>
 			<data>
-			MCmyHjsY3VtQ4X1nZL0tKBqjgou4rdfioMKW0IlJy1E=
+			79/jsYgBb5vzruGksYaCC7wsA/i9XWSzyjN9xx+RxlU=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			b+pwx9tST+GBQ6r5TPoCd+CGPFM=
-			</data>
 			<key>hash2</key>
 			<data>
-			pWL9on/w8kOImrbJ8ts+khk80e1H8LHT2BC44YtUM6E=
+			7tVZXlUeiyEwsOyNpVr9411nfL7YEXZISFrF+nZNP5w=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1coCDNPQS5Lb1450/PgmBA6wBJM=
-			</data>
 			<key>hash2</key>
 			<data>
-			MCmyHjsY3VtQ4X1nZL0tKBqjgou4rdfioMKW0IlJy1E=
+			79/jsYgBb5vzruGksYaCC7wsA/i9XWSzyjN9xx+RxlU=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Gsbs/rMVyAlI8GyFGU/TGb0sB/s=
-			</data>
 			<key>hash2</key>
 			<data>
-			Ut8hMg+I5vYMxUjRdSKRdD4uFon914nfZfiVU8sFMEU=
+			Lj0v7+f+aS6KA9fPtq1uq29h0x3AB38d9pWpQLXcBTM=
 			</data>
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/PageControlBottomView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			h3yMja6i+tCzGXnJnut/6+Jq0yY=
-			</data>
 			<key>hash2</key>
 			<data>
 			9n5ymxJeViuRjLr0QVvijQbH+y+Nj7tU3eVRScZ34GA=
@@ -369,10 +305,6 @@
 		</dict>
 		<key>ios-arm64/ISEmojiView.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sSaTZML/cPGB7us0BXdDg+YyTEE=
-			</data>
 			<key>hash2</key>
 			<data>
 			YfZNLQYJ+mcAz8vQzkJvpD/YG+I5eWfnZYMLxnRAUZI=
@@ -380,10 +312,6 @@
 		</dict>
 		<key>ios-arm64/dSYMs/ISEmojiView.framework.dSYM/Contents/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dRKEKpxup2tn3RplVicTJZ9KaR4=
-			</data>
 			<key>hash2</key>
 			<data>
 			36v+ri7Yjm9D8f4A3O+kvWrQtQkFFGY3uU/nHJoNL5Y=
@@ -391,43 +319,27 @@
 		</dict>
 		<key>ios-arm64/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/DWARF/ISEmojiView</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			o8yw/s9iJRhClTzph5KCvN5kR4U=
-			</data>
 			<key>hash2</key>
 			<data>
-			hIm/MvohdprhfdWc+J9mE7x/jZ2/3rAhnzv0vaKuezU=
+			NlN+YLZEmR2Du4x10RaZg+ZkIIOoco592vs5Kgp2sR0=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/Relocations/aarch64/ISEmojiView.yml</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ADHwS/FWY4Gc3oK1AMMCsHu0YIc=
-			</data>
 			<key>hash2</key>
 			<data>
-			DtLMO55axLe/rzXJEO8jozGO633Y/22eLQDICleniBQ=
+			h97DefaTyZXtAkCYeDi9dOqafPmydsM3Cv3BP2pTVCQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Assets.car</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9B6ced9NBtHBv6xElWq2PUmORoM=
-			</data>
 			<key>hash2</key>
 			<data>
-			84ynP9EDsZyYAe5bIeUzMC3+8v3EYrX0Q5oQ1pGUTDk=
+			Xx9x2tOOuxDwhabkh8h+8aSkAcgIfoqqq8ZJ7tEzqsM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/CategoriesBottomView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/Zq/KOAJRuKTceZSDUlmrl/ceDI=
-			</data>
 			<key>hash2</key>
 			<data>
 			+goF1ZFVM4dM6cZIObwRE6RjH/WeJC7NtultWZHLvOU=
@@ -435,10 +347,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/EmojiCollectionView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dJNqXNYkG4tM6AUkLbYzHZIjSBE=
-			</data>
 			<key>hash2</key>
 			<data>
 			LjBLeuYQrKKQFxOE5YpW7StkxV2ttHatGAZIU7NZMz0=
@@ -446,21 +354,13 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Headers/ISEmojiView-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2L2hL2plz//MXV8XofYwvrPSI/4=
-			</data>
 			<key>hash2</key>
 			<data>
-			0t/OcNGEMsMON+ReI/W3+9wMkIJ5nklDUlv2YnnyRGc=
+			Agu69vtJpzkcWhKwYgEyOvdO+m4ZdAl2h1pXTKOJwZg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Headers/ISEmojiView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Lokvb1XTfS8GbG0YaVZFWn8PWkc=
-			</data>
 			<key>hash2</key>
 			<data>
 			DZzNldXxvwSwbrHR/bEBIpmi0I5bh2WLHGuc29JOv94=
@@ -468,10 +368,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/ISEmojiList.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LuGYgR8Yx+9xc4Xb7AQr4mMvrHc=
-			</data>
 			<key>hash2</key>
 			<data>
 			/tbneA6hoSX/yPLXh66ku/4462/fmAIUFgl2CT68CvM=
@@ -479,10 +375,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/ISEmojiList_iOS10.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BhkwFBaZB5rEfpPiYOJb+W83Cmw=
-			</data>
 			<key>hash2</key>
 			<data>
 			kuk4x4r8xSh3Lomj6dks8HB0caYERgATDKlj6KBbT4U=
@@ -490,10 +382,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/ISEmojiList_iOS11.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sSsSQZMTu/QMAg7uNOqQfEaw/6c=
-			</data>
 			<key>hash2</key>
 			<data>
 			jTi4QEwggU9haNeIMuKNpKFOSk1ICJqWRxfOpfO9K10=
@@ -501,131 +389,83 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/ISEmojiView</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ec2wZTBPVi7QImxv3W4ZEtsPlWQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			CwkkdER4MQFvohnKKA8CPsKFz+PDcu5M5Vppfb2YFTE=
+			7K4fVDyQzLkA9K0OXMdEq5CJiKloXdr4IUpqhJ7Lia4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			CI0UPvos8c5UTjx4PtSts3eDLUk=
-			</data>
 			<key>hash2</key>
 			<data>
-			ehP2AsXZfyrou86+439Ixyr0WyLytShxOMQTpmCrYFs=
+			oWwcQLhkmrFqQ8j3/WeWjsBvoURm9Fh+0uP/pHwYvn0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1aBa3dRkW6T3uPlm8cRD/7OS77Q=
-			</data>
 			<key>hash2</key>
 			<data>
-			MboRWwTiku2VI6fSfAu3hpmzS9Y1PVBQUMNzw1xnFAQ=
+			ifz5nTT6qXT3XgO9pW9IwitGVpK5Ew2cNzHMcLk1aLY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LE8paq2DOgdQkq0Uy3n6XDww1VU=
-			</data>
 			<key>hash2</key>
 			<data>
-			mmCv4dAX1FAhl/G7Kmz8qWZVXTB0yIVR77MK3shPnv8=
+			FgbU9b63oqCssGU8vx/zm+MQhSTRYwR3UPj9a7VJqto=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uxMF9LxgDJlDm4giFbHd9FILKno=
-			</data>
 			<key>hash2</key>
 			<data>
-			JSukGsi7lkHNrsI8swvpf/ZHTwjM4BTuColeyN7fHxw=
+			2/uP6Mk3vU8l4pavqpgQZbJiSw0oKF2ZJS4eDtAsZOQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LE8paq2DOgdQkq0Uy3n6XDww1VU=
-			</data>
 			<key>hash2</key>
 			<data>
-			mmCv4dAX1FAhl/G7Kmz8qWZVXTB0yIVR77MK3shPnv8=
+			FgbU9b63oqCssGU8vx/zm+MQhSTRYwR3UPj9a7VJqto=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1aBa3dRkW6T3uPlm8cRD/7OS77Q=
-			</data>
 			<key>hash2</key>
 			<data>
-			MboRWwTiku2VI6fSfAu3hpmzS9Y1PVBQUMNzw1xnFAQ=
+			ifz5nTT6qXT3XgO9pW9IwitGVpK5Ew2cNzHMcLk1aLY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/l1cLhbQijNM57wWCCWzNVzHw8s=
-			</data>
 			<key>hash2</key>
 			<data>
-			ypQ7q5JcidlI0DEbDk2ZCBGneHHsNdFojYh6e6OYiRw=
+			PDwvMQ455hYqF8KFUbUvLWrgaLcmZ9r2OGN2OjUSUvU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			CIk5uU01QgShmj+3tEPcmAexLOM=
-			</data>
 			<key>hash2</key>
 			<data>
-			r0zNpS210dR9n1Zfldrk0e7qBxCFzipH9a790GRsk2w=
+			MkR+CsXL6Hkw+B07w9jkN52PpxUosx+Xl32zi+ph0TU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/ISEmojiView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/l1cLhbQijNM57wWCCWzNVzHw8s=
-			</data>
 			<key>hash2</key>
 			<data>
-			ypQ7q5JcidlI0DEbDk2ZCBGneHHsNdFojYh6e6OYiRw=
+			PDwvMQ455hYqF8KFUbUvLWrgaLcmZ9r2OGN2OjUSUvU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Gsbs/rMVyAlI8GyFGU/TGb0sB/s=
-			</data>
 			<key>hash2</key>
 			<data>
-			Ut8hMg+I5vYMxUjRdSKRdD4uFon914nfZfiVU8sFMEU=
+			Lj0v7+f+aS6KA9fPtq1uq29h0x3AB38d9pWpQLXcBTM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/PageControlBottomView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			h3yMja6i+tCzGXnJnut/6+Jq0yY=
-			</data>
 			<key>hash2</key>
 			<data>
 			9n5ymxJeViuRjLr0QVvijQbH+y+Nj7tU3eVRScZ34GA=
@@ -633,10 +473,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sSaTZML/cPGB7us0BXdDg+YyTEE=
-			</data>
 			<key>hash2</key>
 			<data>
 			YfZNLQYJ+mcAz8vQzkJvpD/YG+I5eWfnZYMLxnRAUZI=
@@ -644,21 +480,13 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/ISEmojiView.framework/_CodeSignature/CodeResources</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NqwM5d0yoTszxtqootM8WozwXWs=
-			</data>
 			<key>hash2</key>
 			<data>
-			KbQuI2J9JEa1CNMZsypju+quSNQu/C83vsDujwBRVHc=
+			O5sMUAyWKSVTuulX/0EJfboqFp7evQkO23Z0WDxtEao=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dRKEKpxup2tn3RplVicTJZ9KaR4=
-			</data>
 			<key>hash2</key>
 			<data>
 			36v+ri7Yjm9D8f4A3O+kvWrQtQkFFGY3uU/nHJoNL5Y=
@@ -666,35 +494,23 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/DWARF/ISEmojiView</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yeSIBPGGlEFu05Inqs7THXxG1qE=
-			</data>
 			<key>hash2</key>
 			<data>
-			8vCBC569gD3uUH4KYG4bb56dHuhmh5mAG8lf3AkWVco=
+			gTH4H6PS/vgjcW2KHsY9+mpwWcBZ3WLWYpQ71xQz5Fg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/Relocations/aarch64/ISEmojiView.yml</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FIkYjZX8xQZb4IOAg1fMuHWA5Ds=
-			</data>
 			<key>hash2</key>
 			<data>
-			wAXNBl6yziuiv8wAUedTCn6F9izchmmKH175wL6xk0w=
+			Qnhrz/iKGtbtesMFKwpg7Hv2GD6kJt92NvAyjptpaoc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/ISEmojiView.framework.dSYM/Contents/Resources/Relocations/x86_64/ISEmojiView.yml</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			r6F17H6dEbEtXM+424oEfbtjh5A=
-			</data>
 			<key>hash2</key>
 			<data>
-			N1Cjz28Qceqo64kjEuWatpioYHh1/acIBVLGiBbdJEQ=
+			Ap+HMAsydJ+T1Ds23i6e9wG0ayhHQKNibIQpZJFbLyc=
 			</data>
 		</dict>
 	</dict>

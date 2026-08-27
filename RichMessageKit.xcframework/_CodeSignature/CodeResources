@@ -6,11 +6,11 @@
 	<dict>
 		<key>ios-arm64/RichMessageKit.framework/Assets.car</key>
 		<data>
-		4hSOgiAS4CTXsrlp9tuO9P4XlNM=
+		5loVGSBKubrodsecDJAyMTvI9jI=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Headers/RichMessageKit-Swift.h</key>
 		<data>
-		5000mTiHvZxVh1DVk3lpu/kG4ow=
+		3PoF0wi8oWCB1aT1XgQEH9t1eXw=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Headers/RichMessageKit.h</key>
 		<data>
@@ -18,27 +18,27 @@
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Info.plist</key>
 		<data>
-		Lvjfkfc4QYjePhEI2tZ3gq8au1E=
+		HvA4tWmCSYks3pplcgpTmaKivIY=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		hYpjHRB50OD5sdByPJj9MaGXuSg=
+		As5NvY2Pyg8L/HusMRyBIEwne4g=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Q8eYKXrcA1SVnKPD3duPqgG55Mk=
+		ZAG2wDphbmTzR3HAzQVhc4qA4WE=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		9ppprdd3DUruXgIU78KEC73ORc0=
+		uVPxVgBjv/xulDuKYdqX8/GnEwY=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Q8eYKXrcA1SVnKPD3duPqgG55Mk=
+		ZAG2wDphbmTzR3HAzQVhc4qA4WE=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/Modules/module.modulemap</key>
 		<data>
-		TdWDArH6oCi5+AVnbAzDunTVNF0=
+		uQKXkfQ2TaGciM8Sszx44RW4psI=
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -46,31 +46,31 @@
 		</data>
 		<key>ios-arm64/RichMessageKit.framework/RichMessageKit</key>
 		<data>
-		ufGWn3y8GN7iSviV/KuxfQmY9zc=
+		+ssdnkB4Hb5Om1y8dP2zYhtecS0=
 		</data>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		meeGgN4gs4LAlCjD+yieTE/9A5I=
+		s9HGk8Lc98dWhxZgHnTHBSYcF3E=
 		</data>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/DWARF/RichMessageKit</key>
 		<data>
-		4HliGQR4gFU6xotF9rUTRLtn6iU=
+		i5q8pM09h65+pS2alqXdujKUQj0=
 		</data>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
 		<data>
-		e7SCbGR8k1orWT+UG2oFbdvrnFs=
+		YUvGecO91dFoi15CPsk7cVDW0Fs=
 		</data>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Swift/aarch64/Kingfisher.swiftinterface</key>
 		<data>
-		cdbwmCbQbDbDufJS4m6XdvKVGBI=
+		wWim0wFZjaFQ5Gplnis6vZD+WiI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Assets.car</key>
 		<data>
-		4hSOgiAS4CTXsrlp9tuO9P4XlNM=
+		5loVGSBKubrodsecDJAyMTvI9jI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Headers/RichMessageKit-Swift.h</key>
 		<data>
-		Ix7zcoIbJMJdEGSLdxR0ZSWgrVk=
+		Dy+I2Jex5YILyR2f+lbcZ5Va4qU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Headers/RichMessageKit.h</key>
 		<data>
@@ -78,43 +78,43 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Info.plist</key>
 		<data>
-		wyKwl05hrj4MWb3ZsJEgUL/b/aE=
+		NMceltE1vIMLKV1jRl6PdPemvGM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		B5hR5nSMazJN4YpMUEUdOt4nMgU=
+		B1MSPSavlXL6jcimcwLcnjYNQMY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		YDfX3wro260CWLaBKxRxVHuvgbc=
+		5ZfrAjhqy4Qn2Rx1YwY4bg9oO58=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		M2vDoBqmypZXNYp0ZxPucXfx310=
+		v3ElyuHHVt2OYdGFquletRWE7wg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		YDfX3wro260CWLaBKxRxVHuvgbc=
+		5ZfrAjhqy4Qn2Rx1YwY4bg9oO58=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		2QgCYqwRtlxvmBifYiYbkHD6/XQ=
+		tiHVtKGa0ZlMcZPrbY/QDTyUj+s=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		pzvk+mk7TlDePYzjZXR3upE99AE=
+		UTx6MemlzNQsATL7HWbmhkPfMxc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		7JM8imEQNjgtEX0hrSyXx4KXWx0=
+		I5TTs57q8sr6QrR/4FAhzLjdLBM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		pzvk+mk7TlDePYzjZXR3upE99AE=
+		UTx6MemlzNQsATL7HWbmhkPfMxc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/module.modulemap</key>
 		<data>
-		TdWDArH6oCi5+AVnbAzDunTVNF0=
+		uQKXkfQ2TaGciM8Sszx44RW4psI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -122,35 +122,35 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/RichMessageKit</key>
 		<data>
-		uEhrdSxFlXT6VJZZ8JMHT7kMg2I=
+		So0BIemRFqJCoegff/Cuj25xP7I=
 		</data>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/_CodeSignature/CodeResources</key>
 		<data>
-		aaNcMNK0B3f2Rxpu7TUMHh2IT3c=
+		w9L7MMM9eSDxCwKHDCJ1+sjm/is=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Info.plist</key>
 		<data>
-		meeGgN4gs4LAlCjD+yieTE/9A5I=
+		s9HGk8Lc98dWhxZgHnTHBSYcF3E=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/DWARF/RichMessageKit</key>
 		<data>
-		RQ6fKcMkUV5VGHP3EaNWaWah+ik=
+		tQDr66GTUpvo5v97kEZXL4rPqGc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
 		<data>
-		gslgldUEASQpCrkWiFNXq0GWO4k=
+		ShkaFN3kjPlncGjTYgFhzqc9/rw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/x86_64/RichMessageKit.yml</key>
 		<data>
-		hnlqsa9G5ynOs+JHVih0wmqod3c=
+		CeByy6MzgfZPJVUO3CGnRj8ZqwA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Swift/aarch64/Kingfisher.swiftinterface</key>
 		<data>
-		/imuRuiY8+d2AnqgcJ6NwmPBuBw=
+		F+4OnX1ypIV20QBJI2gpTyNTpGU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Swift/x86_64/Kingfisher.swiftinterface</key>
 		<data>
-		jzNqZQ6iWrNmhJYblBgK9Mq8+gY=
+		72MlkzRKthwPjWmKropxOWHkp1w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -159,14 +159,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ja+NEjfuCaueO43SEhFRHg4PlyXX73/DT5lATj2E9E=
+			RdJsLKQm1JYufUSX9PQo1Uz3vMVD8G/R5iFZ+JCRfZI=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Headers/RichMessageKit-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1DzVZuG0FG04mPRruYGN1ZYsscCpJGHXz2Avcfffp0Y=
+			mIdSVjpLDGfDuAg6aZzXPQ8NvueT9QhJRGSklTE+ZDs=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Headers/RichMessageKit.h</key>
@@ -180,42 +180,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JmfV/WPXGGlS/OctSDuTgvUoT9X3hT2TxmMfCIl4aEA=
+			RK2JWYZxUojee5cd0OEKlyGIvfo41+ngOCr1nl+DUTU=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/fSsY/Nr3Gi1/Q6Y2oqYgdbDRDipAl9TZGqmVQ+JJ5I=
+			dWatXoW3s/HtSkdgQ0tl1HL1ZZvjIQY3teyA5v+T2SU=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U+xlXLFv3m2vIQ+vLeUNSFgCdfbFH9r1gkXlkIVR9ws=
+			Ji1MQK3UdDRYhhyP3WQU7sSOpb7Knmy1zOj7LjEZJ8I=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vmdP9ag5SdGfwEjybcFpZJEPFk77AWzH+8RIu4QpeDs=
+			BopnXb3Pzl7i7NmbbTLeR3sGL8vVOTYuPAf+JpeSY4A=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U+xlXLFv3m2vIQ+vLeUNSFgCdfbFH9r1gkXlkIVR9ws=
+			Ji1MQK3UdDRYhhyP3WQU7sSOpb7Knmy1zOj7LjEZJ8I=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BFgesPrsRbQ2K4CI/wvCfXYZS+q9NqkCz0KDcHtxg2A=
+			fK0OwUBXmH3hebM5iqv+NtqTjMyCMbaVVOCMQLVWhe4=
 			</data>
 		</dict>
 		<key>ios-arm64/RichMessageKit.framework/PrivacyInfo.xcprivacy</key>
@@ -229,49 +229,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			b3YU2L5z+3g1MX/rTvpBGM2ulFzHNzx5ou7/MLW1BCg=
+			P1rzzQxzVfM79Ey2Dd7qfiUFbkzR9L3C4zJOWnblayk=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O+BssmaybnfaEngi+KcxsOKgOrUdKpxq/WkpnPSSssA=
+			nB0CgDHkPLnAHN4xty4SFvqDjmDfcWcCE+/mOi/Et1M=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/DWARF/RichMessageKit</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IAsmK29iZSlTmRzmLmo95J3La4BzE6f4Gdxh34wbpSs=
+			tVnIzlX87m60sLRUX7on24Nhd3m0KIFjjiGCSUL6Iz4=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uMSoTsgNf4c1qOU6Q56t5XrTO0txrP9G5L4whPPoG/w=
+			fDcs6KWe+ca5MP0XFwWwVEEuP9rlfBhQLWiojjvkLCo=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Swift/aarch64/Kingfisher.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2ZaIXwKTe5SBsr2CsjCH/+Sapd50FxLUK9Cr9DRfoJk=
+			VKLcwyjnr8lnA4jsSojf19FmNQHa+zHS9iQzBJ9NXE8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ja+NEjfuCaueO43SEhFRHg4PlyXX73/DT5lATj2E9E=
+			RdJsLKQm1JYufUSX9PQo1Uz3vMVD8G/R5iFZ+JCRfZI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Headers/RichMessageKit-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ik2D/TMdq1b4L8U8/gH6PI+4kk7Kn8x9k3mCa1IMw1c=
+			BiMe+kYvwVv7+SZzF+kLDH7aVHSsaF2Z+xmuXmbsJ6Q=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Headers/RichMessageKit.h</key>
@@ -285,70 +285,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QgA9jgCEh3MNqhKGJSMPwwto8F1Rj6j6q3VdmL1YOfM=
+			zdqmSEQTThdUf8MaDFPGnWPaZTP5JfDXrxHvxcKn9/4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7+vB1gqZRqmyPJPhd7RYZ+N9cy0yebdspdqCzhChVVc=
+			SUq100q2lmz9Gs5H5ODHdWNlsTFG0jcpRQPfomTcXzM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vsHnfRPV6gZSUbFPZgjCYd/AhFnqvJau752bRDX8Uic=
+			gh3rWSsaoPLss51N/DDgRiobwRpRUf0nRIM6NcrRy2o=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F82rp9O17ZkIdyJ6l6mS2IjEayKNJlluiB4i9taRhUw=
+			pGVUnGU0ms3W9V68yXAB4ULFTTocmetnngMoFNxpo/4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vsHnfRPV6gZSUbFPZgjCYd/AhFnqvJau752bRDX8Uic=
+			gh3rWSsaoPLss51N/DDgRiobwRpRUf0nRIM6NcrRy2o=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+LZfKp4dte5kRg1OJitEyBI8I7n6Xnfv0uzfbYowxvI=
+			sTIm2195HfIS1l4kyWYvilHJnxwiI9tvmY+ynJ9V330=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VmRyOxqGwEDYoY6z4JCdVRo34jtUjmEwhihFwITggBA=
+			JQULmpDfhmNMrfm8LuQlzIbZ5mbKh6f85VG/Ujrfioc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bjdptjqrwpjQm5QVOGP7VRXvC4TItU2b4xBcT8r5+YI=
+			qSgpZHrsjD+jiKlN63f0Xtq5HNQ3ppFrisqCGEC6lwQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/RichMessageKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VmRyOxqGwEDYoY6z4JCdVRo34jtUjmEwhihFwITggBA=
+			JQULmpDfhmNMrfm8LuQlzIbZ5mbKh6f85VG/Ujrfioc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BFgesPrsRbQ2K4CI/wvCfXYZS+q9NqkCz0KDcHtxg2A=
+			fK0OwUBXmH3hebM5iqv+NtqTjMyCMbaVVOCMQLVWhe4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/PrivacyInfo.xcprivacy</key>
@@ -362,56 +362,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9TCjJ7JatpoIQfNc9CxCABhJFhY5tBmpfEXyzLwjmcU=
+			nc2U5JRauV3LNKym7eEMxlbAnNbZO1/lwLEQVj4n+Cs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/RichMessageKit.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S+tZ6+dSu+sFuyFzuuv/Q7m2gKXRQMv6BbZvtK5+Vi0=
+			KJNaD8D22SJb546kfUehIbShsyzETYZms2LBUl3w380=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O+BssmaybnfaEngi+KcxsOKgOrUdKpxq/WkpnPSSssA=
+			nB0CgDHkPLnAHN4xty4SFvqDjmDfcWcCE+/mOi/Et1M=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/DWARF/RichMessageKit</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8MFeMIVBaBWtY3N65M7XYeTOvOCKLdLSO4Njg+iz5po=
+			yImqWCjF/7t0WaHJmcl+z18rUk58GvAZ6xL7F6XTGZ8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/aarch64/RichMessageKit.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			igXtPW4U7Rv0CCceKbUGXZgPvuNOmJPBtXvh6PxKSCI=
+			+gslggkpmd7WtUpG7C4E3H9ls5V0uHmvvDSNAZPAoG8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Relocations/x86_64/RichMessageKit.yml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KhUZYPqNRRaQA0oa9rh40r7sdQCOt7wGaChl8rwVt1A=
+			b3ZrbTeyWTjgcRQETDPjGq9LkEuVLbPSZFuN2BEg8bw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Swift/aarch64/Kingfisher.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q4Tdl2MDDi5u6Q8XxUEdahEfyJ6lEv2Yx5jE8FuqiQU=
+			ziFdQCkDDVIT+soWpzM7uY3OM1rCPfU4q+Aboo6yAvg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/RichMessageKit.framework.dSYM/Contents/Resources/Swift/x86_64/Kingfisher.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qECm2OwX5vQj6urwdzTccRGKki7dQsawAOSoCDFKjDU=
+			owRdbwsWmL0R6+J4oDNdw3Gs66LgcAHFliJNnRXGTA0=
 			</data>
 		</dict>
 	</dict>

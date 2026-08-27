@@ -6,27 +6,27 @@
 	<dict>
 		<key>ios-arm64/Kingfisher.framework/Info.plist</key>
 		<data>
-		riA88/D//DFI3Xwi52xtI9TzLgM=
+		tqoJB4FLGlF/tyztJj7BS6s1COM=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/Kingfisher</key>
 		<data>
-		QhoD+cKfMP/08bdi1kIze/uGjoY=
+		uSSx/5mFTSCk2vr9VclrP8sOxrk=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		86ka+VJYoC3QEBkUNT32SO8U4Ic=
+		gyGOJmrvJCLWZQN36q9qC5gBU78=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		AH/4r4JOmTbCycrJWeVatRMYWD8=
+		wWim0wFZjaFQ5Gplnis6vZD+WiI=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		mOBox/wPO2GSjfpROyl45Ilm1No=
+		BuOVBSe/UZYKj6Jqbf1y5Chds34=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		AH/4r4JOmTbCycrJWeVatRMYWD8=
+		wWim0wFZjaFQ5Gplnis6vZD+WiI=
 		</data>
 		<key>ios-arm64/Kingfisher.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -38,51 +38,51 @@
 		</data>
 		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
 		<data>
-		rG2YFfO8dXifMati6jekeTtwhNQ=
+		iID01AyTTr7cFNIv8vE6yzfQCHI=
 		</data>
 		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/Relocations/aarch64/Kingfisher.yml</key>
 		<data>
-		Y6ku6UVOxkJUE3QvlsJsx8xC/3s=
+		YHYMdG+TeFX/vKl02qozJIVbPeE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Info.plist</key>
 		<data>
-		ydHUx+rSkdeUP1UwTJu7RisBM8o=
+		udFR+oaWErKZ4UBXxlSl0pjWmbY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Kingfisher</key>
 		<data>
-		UkHfI+6Lx0jEASCuoNVT0o0siZA=
+		6mCj4LXU6KVxKPHKte+E6Vn2QUA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		86ka+VJYoC3QEBkUNT32SO8U4Ic=
+		gyGOJmrvJCLWZQN36q9qC5gBU78=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ow6HvazipqE3xfiIH/YjSvW9rqE=
+		F+4OnX1ypIV20QBJI2gpTyNTpGU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		XCXEJ24uCdATM86UX1kYPJ7Z6nA=
+		G2IjaaC7tLXq7tmnaK8IP9G+ERw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ow6HvazipqE3xfiIH/YjSvW9rqE=
+		F+4OnX1ypIV20QBJI2gpTyNTpGU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		86ka+VJYoC3QEBkUNT32SO8U4Ic=
+		gyGOJmrvJCLWZQN36q9qC5gBU78=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		r4D5ieYPGahot17SGyIh/XHOB9I=
+		72MlkzRKthwPjWmKropxOWHkp1w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		oi3VupPoJaV2Q/AvfZfkbYzcddE=
+		YHngtsQRj1RClICcTFdXLgxl7g8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		r4D5ieYPGahot17SGyIh/XHOB9I=
+		72MlkzRKthwPjWmKropxOWHkp1w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/_CodeSignature/CodeResources</key>
 		<data>
-		isKm5V2xE6REOpqHMxYcan4ILpU=
+		Bw9KD3AL6HX9Bbv1UoDEODAEijw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
 		<data>
@@ -98,91 +98,63 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
 		<data>
-		q31cq+BlHtOvcNPn3RU7j+t3kHM=
+		cD2Hxc9BaiHMY291h77ZSpAhZME=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/Relocations/aarch64/Kingfisher.yml</key>
 		<data>
-		WUzsiZkibTZz+G+Yx7Zd/WT6Yb4=
+		MH6plTYnJV/sGjp9NoPT49DGGzE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/Relocations/x86_64/Kingfisher.yml</key>
 		<data>
-		uMukYtbvBv8ACQJ7ARYt6Gug4e4=
+		KG0F+GK8SQ2PslPI3e4mOrVtE0g=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>ios-arm64/Kingfisher.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			riA88/D//DFI3Xwi52xtI9TzLgM=
-			</data>
 			<key>hash2</key>
 			<data>
-			10/CWXk43OEi3Mz1Wrl/e1JbS3O7dYA6OofG1DoM3rI=
+			QnCUIeDCcFYe7a0fIEkL1zsf33C8Q4vtufkXEd+7HCw=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/Kingfisher</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QhoD+cKfMP/08bdi1kIze/uGjoY=
-			</data>
 			<key>hash2</key>
 			<data>
-			IL56dyiL/ylW/j2mOM5UMMU008+QdHX0oQ2TQKm3MeU=
+			yREaOeryZLKhAAnHvFDZWTtqNMHqn2ilLjiOwqajnKw=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			86ka+VJYoC3QEBkUNT32SO8U4Ic=
-			</data>
 			<key>hash2</key>
 			<data>
-			/VJTa9BmEmXZfuzrpzyme3P1O0tJG1jyGbfvZw/MZrc=
+			7+jpPOHDwJS75H6yM8DMpaXEjI1EZ7/BzaPtMRJQNqY=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AH/4r4JOmTbCycrJWeVatRMYWD8=
-			</data>
 			<key>hash2</key>
 			<data>
-			o5ggiJYNhyVsi1239VLHDdhLoVE8GwC9uU5FDUu7YwE=
+			VKLcwyjnr8lnA4jsSojf19FmNQHa+zHS9iQzBJ9NXE8=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mOBox/wPO2GSjfpROyl45Ilm1No=
-			</data>
 			<key>hash2</key>
 			<data>
-			Nn6xkX/mh0QHqyPI6K0MkQRTgKYJjHhDAxQpct1vycI=
+			Ck09wYvIt3rVoxNmeOniaRiqc5popPQ0Yhm4bYCKRJs=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AH/4r4JOmTbCycrJWeVatRMYWD8=
-			</data>
 			<key>hash2</key>
 			<data>
-			o5ggiJYNhyVsi1239VLHDdhLoVE8GwC9uU5FDUu7YwE=
+			VKLcwyjnr8lnA4jsSojf19FmNQHa+zHS9iQzBJ9NXE8=
 			</data>
 		</dict>
 		<key>ios-arm64/Kingfisher.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hGVuuzmjt5sKGjVNh+ZspIKBF7c=
-			</data>
 			<key>hash2</key>
 			<data>
 			yFi3Q8Y5579kQ1TeQdEowO5K8T00j1zU5gSSpLKH2/k=
@@ -190,10 +162,6 @@
 		</dict>
 		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DwnIxd9+T/hZjSDT4pwOvRJ2fCA=
-			</data>
 			<key>hash2</key>
 			<data>
 			F6GcNqYt6ljhhywWANq47cybBEMkI2qlUcUBzem1r5A=
@@ -201,142 +169,90 @@
 		</dict>
 		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rG2YFfO8dXifMati6jekeTtwhNQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			wmNPwF0isKHRojUscO7NTRsjm3jGlvStpM1SWdRTdwc=
+			iQFsFR0lfuFbiBUbjL4FAv1S0hArnptjLoU0J2X4BCc=
 			</data>
 		</dict>
 		<key>ios-arm64/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/Relocations/aarch64/Kingfisher.yml</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y6ku6UVOxkJUE3QvlsJsx8xC/3s=
-			</data>
 			<key>hash2</key>
 			<data>
-			xY4GusZkgBBfLxQ30BWOiJfR1JLfnPjaBBrPfi3teKU=
+			+gKVGx+j4SB2xTGMKy+pK9ve3DM2Skq4C4/+8amnjxU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ydHUx+rSkdeUP1UwTJu7RisBM8o=
-			</data>
 			<key>hash2</key>
 			<data>
-			IP4Dr6RLwfqd0vVfdtUuQRf8t5H0ZDQDKs7yll1AVz0=
+			k18iJNaXmAXYDcO9ZzX5xrZ8sqJ8tws4kaJP1OQhSvU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Kingfisher</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UkHfI+6Lx0jEASCuoNVT0o0siZA=
-			</data>
 			<key>hash2</key>
 			<data>
-			ce09surVPTvEK3RXzk6828xSqOXuOQ2G4qI24HQyoIk=
+			REF0Q11SI6iTHJ9ajirlWINadzSKMsWOIJArckDTy40=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			86ka+VJYoC3QEBkUNT32SO8U4Ic=
-			</data>
 			<key>hash2</key>
 			<data>
-			/VJTa9BmEmXZfuzrpzyme3P1O0tJG1jyGbfvZw/MZrc=
+			7+jpPOHDwJS75H6yM8DMpaXEjI1EZ7/BzaPtMRJQNqY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ow6HvazipqE3xfiIH/YjSvW9rqE=
-			</data>
 			<key>hash2</key>
 			<data>
-			YSXdifmcGRon+aJnMWYXxIjjrMYvRymiV0T3/tuObco=
+			ziFdQCkDDVIT+soWpzM7uY3OM1rCPfU4q+Aboo6yAvg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XCXEJ24uCdATM86UX1kYPJ7Z6nA=
-			</data>
 			<key>hash2</key>
 			<data>
-			3FRdXaidauQwaDestZCzneRRLvynPs76CMDhS3Ah0OM=
+			MOuUlQTFSlVWsufANuFmTAdg6x30ySRYv1xJVGMxGp4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ow6HvazipqE3xfiIH/YjSvW9rqE=
-			</data>
 			<key>hash2</key>
 			<data>
-			YSXdifmcGRon+aJnMWYXxIjjrMYvRymiV0T3/tuObco=
+			ziFdQCkDDVIT+soWpzM7uY3OM1rCPfU4q+Aboo6yAvg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			86ka+VJYoC3QEBkUNT32SO8U4Ic=
-			</data>
 			<key>hash2</key>
 			<data>
-			/VJTa9BmEmXZfuzrpzyme3P1O0tJG1jyGbfvZw/MZrc=
+			7+jpPOHDwJS75H6yM8DMpaXEjI1EZ7/BzaPtMRJQNqY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			r4D5ieYPGahot17SGyIh/XHOB9I=
-			</data>
 			<key>hash2</key>
 			<data>
-			XkdakX+22aMIg5SYxdJuAeK9/Wjoq+nn9tmGgen7Xe0=
+			owRdbwsWmL0R6+J4oDNdw3Gs66LgcAHFliJNnRXGTA0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oi3VupPoJaV2Q/AvfZfkbYzcddE=
-			</data>
 			<key>hash2</key>
 			<data>
-			76bSg46E699EmBAttJDSRKaZbgddAQKIF1Oj4uJKigQ=
+			nG8mmrs29kgzTvjstMA62qcFW0RbZdp3/HeDdoAg/EA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			r4D5ieYPGahot17SGyIh/XHOB9I=
-			</data>
 			<key>hash2</key>
 			<data>
-			XkdakX+22aMIg5SYxdJuAeK9/Wjoq+nn9tmGgen7Xe0=
+			owRdbwsWmL0R6+J4oDNdw3Gs66LgcAHFliJNnRXGTA0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hGVuuzmjt5sKGjVNh+ZspIKBF7c=
-			</data>
 			<key>hash2</key>
 			<data>
 			yFi3Q8Y5579kQ1TeQdEowO5K8T00j1zU5gSSpLKH2/k=
@@ -344,21 +260,13 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Kingfisher.framework/_CodeSignature/CodeResources</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			isKm5V2xE6REOpqHMxYcan4ILpU=
-			</data>
 			<key>hash2</key>
 			<data>
-			10WYX2WTvHeahAhfGNyvmFSThaEA6FrYSsiL5BAj+Xk=
+			n4wx0YI5gn6QQ11b6cBCqlgtRKCrIXmJmIRoQZBgkIk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DwnIxd9+T/hZjSDT4pwOvRJ2fCA=
-			</data>
 			<key>hash2</key>
 			<data>
 			F6GcNqYt6ljhhywWANq47cybBEMkI2qlUcUBzem1r5A=
@@ -366,35 +274,23 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/DWARF/Kingfisher</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q31cq+BlHtOvcNPn3RU7j+t3kHM=
-			</data>
 			<key>hash2</key>
 			<data>
-			S81cKNdgYblapF3v44yRfGIvJrq1pOb/ISDdfL6qLgc=
+			0BasveL/zW4EMuQe3YerA3bekoqHtH0COembJVrjnkM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/Relocations/aarch64/Kingfisher.yml</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			WUzsiZkibTZz+G+Yx7Zd/WT6Yb4=
-			</data>
 			<key>hash2</key>
 			<data>
-			I4FyTWj3/gezwKD+wcXTvZJemSN0vct1boPSSXBjBM0=
+			f7/B2lVVpywYv/+AXyiAz9QTeQS7C2iv4a73gEBoqus=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/dSYMs/Kingfisher.framework.dSYM/Contents/Resources/Relocations/x86_64/Kingfisher.yml</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uMukYtbvBv8ACQJ7ARYt6Gug4e4=
-			</data>
 			<key>hash2</key>
 			<data>
-			mjuZ6cMDMdXR2KCJXVj/f4aZ330BzeiRGdd1KbZ2N98=
+			0srXowJpD9KavT7WJOzp4xjAqCgA0OAU0ryBmET/tO0=
 			</data>
 		</dict>
 	</dict>
