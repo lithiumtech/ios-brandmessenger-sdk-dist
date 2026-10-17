@@ -26,39 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) NSString * _Nullable introductionText;
 
-@property(nonatomic, strong) NSString * _Nullable inboxChatIntroText;
-
-@property(nonatomic, strong) NSString * _Nullable inboxChatRecentListTitle;
-
-@property(nonatomic, strong) NSString * _Nullable inboxChatArchivedListTitle;
-
-@property(nonatomic, strong) NSString * _Nullable inboxChatNewConversationButton;
-
-@property(nonatomic, strong) NSString * _Nullable interfaceLanguage;
-
 @property(nonatomic) BOOL fixedIntroPane;
 
 @property(nonatomic, strong) NSMutableArray * _Nullable headerTextLanguageVariants;
 
-@property(nonatomic, strong) NSMutableArray * _Nullable inboxChatIntroTextLanguageVariants;
-
-@property(nonatomic, strong) NSMutableArray * _Nullable inboxChatRecentListTitleLanguageVariants;
-
-@property(nonatomic, strong) NSMutableArray * _Nullable inboxChatArchivedListTitleLanguageVariants;
-
-@property(nonatomic, strong) NSMutableArray * _Nullable inboxChatNewConversationButtonLanguageVariants;
-
 - (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;
 
 - (NSMutableArray<KBMLanguageVariantModel *> * _Nullable)getHeaderLanguageVariants;
-
-- (NSMutableArray<KBMLanguageVariantModel *> * _Nullable)getInboxChatIntroTextLanguageVariants;
-
-- (NSMutableArray<KBMLanguageVariantModel *> * _Nullable)getInboxChatRecentListTitleLanguageVariants;
-
-- (NSMutableArray<KBMLanguageVariantModel *> * _Nullable)getInboxChatArchivedListTitleLanguageVariants;
-
-- (NSMutableArray<KBMLanguageVariantModel *> * _Nullable)getInboxChatNewConversationButtonLanguageVariants;
 
 @end
 

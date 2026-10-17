@@ -8,6 +8,8 @@
 
 #import "KBMAPIResponse.h"
 #import "KBMChannel.h"
+#import "KBMChannelCreateResponse.h"
+#import "KBMChannelDBService.h"
 #import "KBMChannelFeed.h"
 #import "KBMChannelFeedResponse.h"
 #import "KBMChannelSyncResponse.h"
@@ -133,6 +135,6 @@
           andMetaData:(NSMutableDictionary *)metaData
            adminUser :(NSString *)adminUserId
       withGroupUsers :(NSMutableArray *)groupRoleUsers
-       withCompletion:(void(^)(NSError *error, KBMChannelFeedResponse *response))completion;
+       withCompletion:(void(^)(NSError *error, KBMChannelCreateResponse *response))completion;
 
 @end

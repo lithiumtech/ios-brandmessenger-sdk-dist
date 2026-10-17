@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/danieltrilogy/Library/Developer/Xcode/DerivedData/ISEmojiView-gmpoyshuzghbzaejqgoqatwqumjs/Build/Intermediates.noindex/ArchiveIntermediates/ISEmojiView/InstallationBuildProductsLocation/Library/Frameworks/ISEmojiView.framework/ISEmojiView'
+binary-path:     '/Users/mohammad/Library/Developer/Xcode/DerivedData/ISEmojiView-cwrnrhlbhthqqqfmwjhogupmokuf/Build/Intermediates.noindex/ArchiveIntermediates/ISEmojiView/InstallationBuildProductsLocation/Library/Frameworks/ISEmojiView.framework/ISEmojiView'
 relocations:
   - { offset: 0x4D774, size: 0x8, addend: 0x0, symName: _ISEmojiViewVersionString, symObjAddr: 0x0, symBinAddr: 0x17660, symSize: 0x0 }
   - { offset: 0x4D7AB, size: 0x8, addend: 0x0, symName: _ISEmojiViewVersionNumber, symObjAddr: 0x30, symBinAddr: 0x17690, symSize: 0x0 }

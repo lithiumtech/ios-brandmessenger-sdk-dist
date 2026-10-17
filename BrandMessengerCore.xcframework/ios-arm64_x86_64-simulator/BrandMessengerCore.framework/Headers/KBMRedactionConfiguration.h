@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KBMRedactionConfiguration : NSObject
 
-@property(nonatomic, strong) NSString * _Nullable configurationId;
-
 @property(nonatomic, strong) KBMRedactionGroup * _Nullable redactionGroup;
 
 - (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;

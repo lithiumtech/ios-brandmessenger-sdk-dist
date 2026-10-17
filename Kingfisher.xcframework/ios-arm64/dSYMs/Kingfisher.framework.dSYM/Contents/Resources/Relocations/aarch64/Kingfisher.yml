@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/danieltrilogy/Library/Developer/Xcode/DerivedData/Kingfisher-actyzagyzhgnfzeqxecomxqgktfj/Build/Intermediates.noindex/ArchiveIntermediates/Kingfisher/InstallationBuildProductsLocation/Library/Frameworks/Kingfisher.framework/Kingfisher'
+binary-path:     '/Users/mohammad/Library/Developer/Xcode/DerivedData/Kingfisher-apwdnsbzguvsothgkwpwggbqwoje/Build/Intermediates.noindex/ArchiveIntermediates/Kingfisher/InstallationBuildProductsLocation/Library/Frameworks/Kingfisher.framework/Kingfisher'
 relocations:
   - { offset: 0x78DD0, size: 0x8, addend: 0x0, symName: _KingfisherVersionString, symObjAddr: 0x0, symBinAddr: 0xA7F20, symSize: 0x0 }
   - { offset: 0x78E07, size: 0x8, addend: 0x0, symName: _KingfisherVersionNumber, symObjAddr: 0x38, symBinAddr: 0xA7F58, symSize: 0x0 }
@@ -1938,7 +1938,7 @@ relocations:
   - { offset: 0xD8095, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher0A7WrapperVAASo10CPListItemCRbzlE18cancelDownloadTaskyyF', symObjAddr: 0x1B48, symBinAddr: 0x88498, symSize: 0x54 }
   - { offset: 0xD80BA, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher0A7WrapperVAASo10CPListItemCRbzlE9imageTask33_F7F1D17C7D36FC9E91CC989A80DE7283LLAA08DownloadF0VSgvg', symObjAddr: 0x1B9C, symBinAddr: 0x884EC, symSize: 0x80 }
   - { offset: 0xD825A, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher6SourceO8cacheKeySSvg', symObjAddr: 0x0, symBinAddr: 0x88CA0, symSize: 0x84 }
-  - { offset: 0xD827E, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher6SourceO10IdentifierO7currentSuvpZ', symObjAddr: 0x57D0, symBinAddr: 0xD4D70, symSize: 0x0 }
+  - { offset: 0xD827E, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher6SourceO10IdentifierO7currentSuvpZ', symObjAddr: 0x5800, symBinAddr: 0xD4D70, symSize: 0x0 }
   - { offset: 0xD83C1, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher6SourceOSHAASQWb', symObjAddr: 0xBD0, symBinAddr: 0x896D4, symSize: 0x4 }
   - { offset: 0xD83D5, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher6SourceOACSQAAWl', symObjAddr: 0xBD4, symBinAddr: 0x896D8, symSize: 0x40 }
   - { offset: 0xD83E9, size: 0x8, addend: 0x0, symName: '_$s10Kingfisher6SourceOwxx', symObjAddr: 0xC40, symBinAddr: 0x89718, symSize: 0x4 }
