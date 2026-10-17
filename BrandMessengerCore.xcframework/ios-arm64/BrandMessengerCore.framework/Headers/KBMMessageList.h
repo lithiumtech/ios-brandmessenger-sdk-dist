@@ -26,9 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// Array of `KBMConversationProxy` objects.
 @property(nonatomic) NSMutableArray * _Nullable conversationPxyList;
 
-/// This will have array of `KBMChannel` objects
-@property (nonatomic) NSMutableArray * _Nullable channelFeedsList;
-
 /// In case of one-to-one individual conversation the userId will be present otherwise, it will be nil.
 @property(nonatomic) NSString * _Nullable userId;
 
@@ -41,7 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param groupId Set the channel key in case of channel conversation.
 - (id)initWithJSONString:(NSString *)syncMessageResponse andWithUserId:(NSString * _Nullable)userId andWithGroup:(NSNumber * _Nullable)groupId;
 
-- (id)parseMessageListJSON:(id)messageListJSON;
 
 @end
 NS_ASSUME_NONNULL_END

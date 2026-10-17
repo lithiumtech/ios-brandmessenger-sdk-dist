@@ -316,7 +316,4 @@ static NSString *const KBM_REGION_EU = @"EU";
 + (void) setIsAliveBroadcastEnabled:(BOOL)enable;
 + (BOOL) getIsAliveBroadcastEnabled;
 
-+ (void)setInboxChatEnabled:(BOOL)enable;
-+ (BOOL)isInboxChatEnabled;
-
 @end

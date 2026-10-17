@@ -8,12 +8,12 @@
 
 #import "KBMChannelClientService.h"
 #import "KBMChannelDBService.h"
+#import "KBMChannelFeed.h"
 #import "KBMChannelFeedResponse.h"
 #import "KBMChannelInfo.h"
 #import "KBMChannelSyncResponse.h"
 #import "KBMRealTimeUpdate.h"
 #import "KBMUserDefaultsHandler.h"
-#import "KBMMessageList.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -63,9 +63,9 @@ extern NSString *const KBM_MESSAGE_SYNC;
 
 /// Creates an channel given `KBMChannelInfo`.
 /// @param channelInfo Pass the KBMChannelInfo which will have details for creating a channel.
-/// @param completion Once the group/channel is created successful then `KBMChannelFeedResponse` else it will have NSError.
+/// @param completion Once the group/channel is created successful then `KBMChannelCreateResponse` else it will have NSError.
 - (void)createChannelWithChannelInfo:(KBMChannelInfo *)channelInfo
-                      withCompletion:(void(^)(KBMChannelFeedResponse * _Nullable response, NSError * _Nullable error))completion;
+                      withCompletion:(void(^)(KBMChannelCreateResponse * _Nullable response, NSError * _Nullable error))completion;
 
 
 /// Gets information of channel like channel name, imageUrl of Channel, type of channel and other information.
@@ -365,7 +365,7 @@ extern NSString *const KBM_MESSAGE_SYNC;
        withGroupUsers:(NSMutableArray * _Nullable)groupRoleUsers
        withCompletion:(void(^)(KBMChannel * _Nullable channel, NSError * _Nullable error))completion;
 
-/// Updates unread count to zero and send notification with name `KBM_UPDATE_CONVERSATION_READ` channelKey will be in object of notification and send the call back delegate using `KBMUpdatesDelegate`
+/// Updates unread count to zero and send notification with name `Update_unread_count` channelKey will be in object of notification and send the call back delegate using `KBMUpdatesDelegate`
 /// @param channelKey Pass the channelKey or groupId you can get the key from `KBMChannel` object
 /// @param delegate Set the `KBMUpdatesDelegate` for conversation read callback update.
 /// @warning This is internal method.
@@ -428,7 +428,7 @@ extern NSString *const KBM_MESSAGE_SYNC;
                        withCompletion:(void (^)(KBMChannelSyncResponse * _Nullable response, NSError * _Nullable error))completion;
 
 /// :nodoc:
-- (void)callForChannelServiceForDBInsertion:(KBMMessageList * _Nullable)messageListResponse;
+- (void)callForChannelServiceForDBInsertion:(id)jsonResponse;
 
 /// Gets the list of users userId from a channel by channelKey.
 /// @param channelKey Pass the channelkey or groupId that is required to get the channel members userId.

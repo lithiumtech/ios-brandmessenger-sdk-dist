@@ -43,8 +43,8 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 + (BOOL)isToday:(NSDate *)todayDate;
 
 /// This method used for getting file mime type.
-/// @param filePathURL Pass the name of file.
-+ (NSString * _Nullable)fileMIMEType:(NSURL *)filePathURL;
+/// @param filePath Pass the name of file.
++ (NSString * _Nullable)fileMIMEType:(NSString *)filePath;
 
 /// This method used for geeting location URL.
 /// @param message Pass the `KBMMessage` object.
@@ -141,11 +141,11 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 
 + (NSNumber *)getNSNumberFromJsonValue:(id)jsonValue;
 
-+ (BOOL)validateJsonClass:(NSDictionary * _Nullable)jsonClass;
++ (BOOL)validateJsonClass:(NSDictionary *)jsonClass;
 
-+ (BOOL)validateJsonArrayClass:(NSArray * _Nullable)jsonClass;
++ (BOOL)validateJsonArrayClass:(NSArray *)jsonClass;
 
-+ (BOOL)validateJsonMutableArrayClass:(NSMutableArray * _Nullable)mutableArrayClass;
++ (BOOL)validateJsonMutableArrayClass:(NSMutableArray *)mutableArrayClass;
 
 + (NSString *)getAttachmentFileName:(NSString * _Nullable)filePath fileMeta:(KBMFileMetaInfo * _Nullable)fileMeta createdAtTime:(double)createdAtTime;
 
@@ -153,13 +153,6 @@ extern NSString *const KBM_GENERIC_NOTIFICATION_TITLE_TEXT;
 
 + (NSString *)formattedDateWithFormat:(NSString *)formatString timeInMilliseconds:(int64_t)timeInMilliSecs;
 
-+ (id _Nullable)deserializeJSONString:(NSString *_Nullable)JSONString;
-
-+ (NSString * _Nullable)serializeJSONObject:(id _Nullable)JSONObject;
-
-+ (NSDictionary<NSString *, NSString *> *)mimeTypes;
-
-+ (BOOL)isTopViewControllerOfBrandMessenger;
 @end
 
 NS_ASSUME_NONNULL_END
